@@ -2,8 +2,10 @@
 
 This repository contains instructions and files for two assignments that together comprise the user experience design phase of a web app.
 
+## App Map
+The app map is located in the [ux-design folder](ux-design/app_map.png).
 ## Wireframes
-In total 16 wireframes are in [ux-design folder](ux-design). Following are the details.
+In total 16 wireframes are in the [ux-design folder](ux-design). Following are the details.
 1. Main home page
 2. Log in page
 3. Sign up page
@@ -22,7 +24,3 @@ In total 16 wireframes are in [ux-design folder](ux-design). Following are the d
 16. Menu bar
 ## Prototype
 [Prototype link to InVision](https://invis.io/D612EZN4HASZ)
-
-Replace the contents of this file with the completed assignments, as described in:
-
-- [app map & wireframe instructions](instructions-0a-app-map-wireframes.md).
