@@ -26,6 +26,27 @@ how the team will resolve conflicts.
 how they'll reach consensus when there are disagreements on direction.
 what to do when a member is failing to deliver on their obligations to the team.
 how quickly team members are expected to respond to messages directed at them. -->
+- Team members are also expected to contribute equally and professionally:
+    - When blocked, please politely ask other team members for help or go to tutoring sessions;
+    - Please respond to messages in discord channel within two days;
+    - When failing to deliver on obligations to the team, other members reserve the right to report to course instructors.
+
+## Sprint Cadence
+There will be in total 5 sprints, each for 2 weeks.
+
+## Daily Standups
+- Daily standups in each sprint will occur on every class day except for those stakeholder demos or plannings are scheduled;
+- Members are expected to attend synchronously;
+- Any member who makes no progress on a task for two standups or more in a row will be reported to management.
+
+## Coding Standards
+- Visual Studio Code is the designated code editor;
+- Don't over-engineer. Write minimum code to get things working end to end, only then iterate to improve. Code for each task and spike must be peer-reviewed and pass tests before merging into the main branch of code;
+- Always push working code, if you break the pipeline/build then fix it;
+- Provide descriptive commit messages;
+- Write self documenting code, use descriptive variable and function names. Avoid unnecessary name shortening;
+- Don't leave dead/commented out code behind. If you see such code, delete it.
+
 
 ## Final Product
 Once the team achieves the final product, MentorMe will be a platform on which students can give ratings and comments on their academic advisors and find other student mentors for career advisement. A student will be able to connect with another student, alumni, professor, or professional to get advice on courses, career opportunities, research opportunities, and other resources.
@@ -34,9 +55,12 @@ To help students reach their academic and career goals by providing them with th
 - Team will conduct project planning and logistic discussion through a discord channel set up on the class server.
 - Team members will discuss User Stories to be implemented on the following Sprint cycle.
 - Any new User Story or the removal of features can be mentioned in the chat at any time, but will only be discussed during the Sprint planning meeting. 
+- New features should be completed on a separate banch and please send a pull request for merge.
 - To avoid merge hell, members should text the chat and notify the whole group that a new code was pushed to the main. 
 - Pull requests without a corresponding issue are unaccepted.
 
 ## Contributing Process
-- As of now, the only environment prerequisite of this project is having node installed.
-- The team must develop the whole project using the MERN stack.
+- Development must be in MERN stack;
+- Make sure dependencies are installed by running `npm install`.
+
+## Instructions for Building and Testing

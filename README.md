@@ -4,7 +4,7 @@
 MentorMe is a platform on which students are able to give ratings and comments on their academic advisors and find other student mentors for career advisement. A student can be paired with another student to get advice on courses, career opportunities, research opportunities, and other resources.
 
 ## Product Vision Statement 
-To help student's reach their academic and career goals by providing them with the information to pick an advisor that suits their acadmeic needs and with the opportunity to connect with student mentors.
+To help students reach their academic and career goals by providing them with the information to pick an advisor that suits their acadmeic needs and with the opportunity to connect with student mentors.
     
 ## Core Team Members
 Mateus Silva Aragao - [Mateus' GitHub](https://github.com/aragaomateus)  
@@ -24,3 +24,4 @@ For information about how to contribute to this project please see the [CONTRIBU
 ## Additional Link
 
 ## Additional Information
+We warmly welcome new ideas to add to the project and any contributions by those who are interested!
