@@ -31,12 +31,12 @@ how quickly team members are expected to respond to messages directed at them. -
 Once the team achieves the final product, MentorMe will be a platform on which students can give ratings and comments on their academic advisors and find other student mentors for career advisement. A student will be able to connect with another student, alumni, professor, or professional to get advice on courses, career opportunities, research opportunities, and other resources.
 To help students reach their academic and career goals by providing them with the information to pick an advisor that suits their academic needs and with the opportunity to connect with mentors.
 ## Work Flow
-- Team will conduct project planning and logistic discussion through a discord channel set up on the class' server.
-- Team members will discuss User Stories to be implemented ont he following Srint cycle.
-- Any new User Story or the removal of features can be mentioned in the chat at anytime, but will only be discussed dunring the Sprint planning meeting. 
-- To avoid merge hell, members should text the chat and notify the whole group that a new new code was pushed to the main. 
-- Pull requests without a corresponding issue are unexceppted.
+- Team will conduct project planning and logistic discussion through a discord channel set up on the class server.
+- Team members will discuss User Stories to be implemented on the following Sprint cycle.
+- Any new User Story or the removal of features can be mentioned in the chat at any time, but will only be discussed during the Sprint planning meeting. 
+- To avoid merge hell, members should text the chat and notify the whole group that a new code was pushed to the main. 
+- Pull requests without a corresponding issue are unaccepted.
 
 ## Contributing Process
-- As of now, the only envoiroment prerequisite of this project is having node installed.
-- The team most develop the whole project using the MERN stack.
+- As of now, the only environment prerequisite of this project is having node installed.
+- The team must develop the whole project using the MERN stack.
