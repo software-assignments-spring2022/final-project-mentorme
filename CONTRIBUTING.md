@@ -4,9 +4,13 @@ includes the Git workflow that the team follows
 includes a detailed description of the rules of contributing and any considerations or how and what to contribute -->
 ## Table of Content:
 1. [Team norms](#Team-Norms)
-2. [Final Product](#Final-Product)
-3. [Work Flow](#Work-Flow)
-4. [Contributing Process](#Contributing-Process)
+2. [Sprint Cadence](#sprint-cadence)
+3. [Daily Standups](#daily-standups)
+4. [Coding Standards](#coding-standards)
+5. [Final Product](#Final-Product)
+6. [Work Flow](#Work-Flow)
+7. [Contributing Process](#Contributing-Process)
+8. [Instructions for Building and Testing](#instructions-for-building-and-testing)
 ## Team Norms
 - Every team member is expected to foster a welcoming, respectable and inclusive environment by:
     - Using respectable and inclusive language;
@@ -21,11 +25,7 @@ includes a detailed description of the rules of contributing and any considerati
     - Exclude any member from project discussion by any means(interrupting during a meeting, segregation, derogatory comments about their code;
     - Publishing other's private information, such as a physical or electronic address, without explicit permission;
     - Any be behavior considered inappropriate in a professional setting.
-<!-- how members who need help will solicit it from the others.
-how the team will resolve conflicts.
-how they'll reach consensus when there are disagreements on direction.
-what to do when a member is failing to deliver on their obligations to the team.
-how quickly team members are expected to respond to messages directed at them. -->
+
 - Team members are also expected to contribute equally and professionally:
     - When blocked, please politely ask other team members for help or go to tutoring sessions;
     - Please respond to messages in discord channel within two days;

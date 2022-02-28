@@ -19,8 +19,6 @@ The reason why we want to create this platform is that we feel lack of advisemen
 ## Contribute
 For information about how to contribute to this project please see the [CONTRIBUTING.md document](./CONTRIBUTING.md)
 
-## Instructions for Building and Testing
-
 ## Additional Link
 
 ## Additional Information
