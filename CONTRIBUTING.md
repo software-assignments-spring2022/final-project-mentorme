@@ -27,8 +27,9 @@ includes a detailed description of the rules of contributing and any considerati
     - Any be behavior considered inappropriate in a professional setting.
 
 - Team members are also expected to contribute equally and professionally:
-    - When blocked, please politely ask other team members for help or go to tutoring sessions;
+    - When stuck in a task, please politely ask other team members for help or go to tutoring sessions;
     - Please respond to messages in discord channel within two days;
+    - Members should make the other teammates aware of any externalities that might hinder their work;
     - When failing to deliver on obligations to the team, other members reserve the right to report to course instructors.
 
 ## Sprint Cadence
@@ -55,7 +56,7 @@ To help students reach their academic and career goals by providing them with th
 - Team will conduct project planning and logistic discussion through a discord channel set up on the class server.
 - Team members will discuss User Stories to be implemented on the following Sprint cycle.
 - Any new User Story or the removal of features can be mentioned in the chat at any time, but will only be discussed during the Sprint planning meeting. 
-- New features should be completed on a separate banch and please send a pull request for merge.
+- New features should be completed on a separate branch and please send a pull request for merge.
 - To avoid merge hell, members should text the chat and notify the whole group that a new code was pushed to the main. 
 - Pull requests without a corresponding issue are unaccepted.
 
