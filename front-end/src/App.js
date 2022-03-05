@@ -52,7 +52,7 @@ const App = props => {
 
           {/* a route to show the details of a specific animal, given its id - we pass the user data in as a prop and the animalId is passed in automatically as a param by react */}
           <Route
-            path="/rateAdvisor/:searchResut"
+            path="/rateAdvisor/:searchResult"
             element={<SearchResult user={user} />}
           />
           <Route
