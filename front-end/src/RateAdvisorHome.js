@@ -14,6 +14,7 @@ const RateAdvisorHome = props => {
           <br />
           <br />
           <Link to="/rateAdvisor/:searchResult">Search Result!</Link>
+          <Link to="/">Back to homepage!</Link>
         </p>
       </section>
     </div>
