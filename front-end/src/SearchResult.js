@@ -13,7 +13,7 @@ const SearchResult = props => {
            Search results
           <br />
           <br />
-          <Link to="/commentsDisplay">Comments Display!</Link>
+          <Link to='/rateAdvisor/:searchResut/:commentsDisplay'>Comments Display!</Link>
         </p>
       </section>
     </div>

@@ -62,7 +62,8 @@ const App = props => {
           <Route
             path="/rateAdvisor/:searchResut/:commentsDisplay/:postCommentPage"
             element={<PostCommentPage user={user} />}
-          />
+   
+   />
           {/* a route to show a list of animals - we pass the user data in as a prop */}
           <Route path="/mentorMe" element={<MentorMeHome user={user} />} />
           <Route path="/mentorMe/:profileDisplay" element={<ProfileDisplay user={user} />} />
