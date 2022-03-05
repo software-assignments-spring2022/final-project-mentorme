@@ -8,7 +8,7 @@ const AccountCentral = props => {
     <div className="AccountCentral">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img alt="welcome!" src = {image} />
+        <img className = "centralImage"alt="welcome!" src = {image} />
         <p>
             AccountCentral
           <br />

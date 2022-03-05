@@ -8,7 +8,7 @@ const IndividualProfile = props => {
     <div className="IndividualProfile">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img alt="welcome!" src = {image} />
+        <img className = "image" alt="welcome!" src = {image} />
         <p>
             Individual Profile
           <br />

@@ -8,7 +8,7 @@ const RateAdvisorHome = props => {
     <div className="RateAdvisorHome">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img alt="welcome!" src = {ratingHome} />
+        <img className = "image" alt="welcome!" src = {ratingHome} />
         <p>
            Rate Advisor Home
           <br />

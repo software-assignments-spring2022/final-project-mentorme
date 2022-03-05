@@ -8,7 +8,7 @@ const Home = props => {
     <div className="Home">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img alt="welcome!" src = {home} />
+        <img className = "image" alt="welcome!" src = {home} />
         <p>
             The home page 
           <br />

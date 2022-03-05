@@ -8,7 +8,7 @@ const PostCommentPage = props => {
     <div className="CommentsDisplay">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img alt="welcome!" src = {image} />
+        <img className = "image" alt="welcome!" src = {image} />
         <p>
            Post Comment Page
           <br />

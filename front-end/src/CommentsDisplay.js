@@ -11,7 +11,7 @@ const CommentsDisplay = props => {
     <div className="CommentsDisplay">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img alt="welcome!" src = {search} />
+        <img className = "image" alt="welcome!" src = {search} />
         <p>
            Comments display 
           <br />

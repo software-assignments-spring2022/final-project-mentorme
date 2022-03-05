@@ -8,7 +8,7 @@ const MentorMeHome = props => {
     <div className="MentorMeHome">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img alt="welcome!" src = {image} />
+        <img className = "image" alt="welcome!" src = {image} />
         <p>
            MentorMe home 
           <br />
