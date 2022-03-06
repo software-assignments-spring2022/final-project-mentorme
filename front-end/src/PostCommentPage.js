@@ -8,12 +8,12 @@ const PostCommentPage = props => {
     <div className="CommentsDisplay">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {image} />
+        <img className="image" alt="welcome!" src={image} />
         <p>
-           Post Comment Page
+          Post Comment Page
           <br />
           <br />
-          <Link to="/rateAdvisor">Back to Rate Advisor Home!</Link>
+          <Link to="/rateAdvisor"><button>Back to Rate Advisor Home!</button></Link>
         </p>
       </section>
     </div>

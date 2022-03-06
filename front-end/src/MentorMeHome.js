@@ -8,16 +8,16 @@ const MentorMeHome = props => {
     <div className="MentorMeHome">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {image} />
+        <img className="image" alt="welcome!" src={image} />
         <p>
-           MentorMe home 
+          MentorMe home
           <br />
           <br />
-          <Link to="/mentorMe/profileDisplay">Profile Display! </Link>
+          <Link to="/mentorMe/profileDisplay"><button>Profile Display! </button></Link>
 
-          <Link to="/mentorMe/accountCentral">accountCentral! </Link>
+          <Link to="/mentorMe/accountCentral"><button>accountCentral!</button> </Link>
 
-          <Link to="/">Back to homepage!</Link>
+          <Link to="/"><button>Back to homepage!</button></Link>
         </p>
       </section>
     </div>

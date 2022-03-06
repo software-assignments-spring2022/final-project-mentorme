@@ -8,12 +8,12 @@ const SearchResult = props => {
     <div className="SearchResult">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {search} />
+        <img className="image" alt="welcome!" src={search} />
         <p>
-           Search results
+          Search results
           <br />
           <br />
-          <Link to='/rateAdvisor/:searchResut/:commentsDisplay'>Comments Display!</Link>
+          <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link>
         </p>
       </section>
     </div>

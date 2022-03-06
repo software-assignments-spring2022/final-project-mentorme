@@ -8,12 +8,12 @@ const AccountCentral = props => {
     <div className="AccountCentral">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "centralImage"alt="welcome!" src = {image} />
+        <img className="centralImage" alt="welcome!" src={image} />
         <p>
-            AccountCentral
+          AccountCentral
           <br />
           <br />
-          <Link to="/mentorMe/accountCentral/ChatsHistory">Chats history!</Link>
+          <Link to="/mentorMe/accountCentral/ChatsHistory"><button>Chats history!</button></Link>
         </p>
       </section>
     </div>

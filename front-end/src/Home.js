@@ -8,16 +8,16 @@ const Home = props => {
     <div className="Home">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {home} />
+        <img className="image" alt="welcome!" src={home} />
         <p>
-            The home page 
+          The home page
           <br />
           <br />
-          <Link to="/rateAdvisor">Rate an advisor!</Link>
-          <Link to="/mentorMe">Mentor Me!</Link>
+          <Link to="/rateAdvisor"><button type="button">Rate an advisor!</button></Link>
+          <Link to="/mentorMe"><button type="button"> Mentor Me!</button></Link>
         </p>
       </section>
-    </div>
+    </div >
   )
 }
 

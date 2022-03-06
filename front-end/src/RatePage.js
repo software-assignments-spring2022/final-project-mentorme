@@ -8,12 +8,12 @@ const RatePage = props => {
     <div className="RatePage">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {image} />
+        <img className="image" alt="welcome!" src={image} />
         <p>
-            Rate Mentor Page
+          Rate Mentor Page
           <br />
           <br />
-          <Link to="/mentorMe">Back to mentorMe home!</Link>
+          <Link to="/mentorMe"><button>Back to mentorMe home!</button></Link>
         </p>
       </section>
     </div>

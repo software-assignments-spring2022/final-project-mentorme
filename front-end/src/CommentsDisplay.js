@@ -11,12 +11,12 @@ const CommentsDisplay = props => {
     <div className="CommentsDisplay">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {search} />
+        <img className="image" alt="welcome!" src={search} />
         <p>
-           Comments display 
+          Comments display
           <br />
           <br />
-          <Link to="/rateAdvisor/:searchResut/:commentsDisplay/:postCommentPage">Post Comment Page!</Link>
+          <Link to="/rateAdvisor/:searchResut/:commentsDisplay/:postCommentPage"><button>Post Comment Page!</button></Link>
         </p>
       </section>
     </div>

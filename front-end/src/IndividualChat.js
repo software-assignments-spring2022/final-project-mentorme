@@ -8,12 +8,12 @@ const IndividualChat = props => {
     <div className="IndividualChat">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {image} />
+        <img className="image" alt="welcome!" src={image} />
         <p>
-            Individual Chat with mentor 
+          Individual Chat with mentor
           <br />
           <br />
-          <Link to="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage">Rate mentor!</Link>
+          <Link to="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage"><button>Rate mentor!</button></Link>
         </p>
       </section>
     </div>

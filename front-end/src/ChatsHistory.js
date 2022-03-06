@@ -8,12 +8,12 @@ const ChatsHistory = props => {
     <div className="ChatsHistory">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {image} />
+        <img className="image" alt="welcome!" src={image} />
         <p>
-            ChatsHistory
+          ChatsHistory
           <br />
           <br />
-          <Link to="/mentorMe">BAck to mentorMe home!</Link>
+          <Link to="/mentorMe"><button>Back to mentorMe home!</button></Link>
         </p>
       </section>
     </div>

@@ -8,12 +8,12 @@ const IndividualProfile = props => {
     <div className="IndividualProfile">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {image} />
+        <img className="image" alt="welcome!" src={image} />
         <p>
-            Individual Profile
+          Individual Profile
           <br />
           <br />
-          <Link to="/mentorMe/:profileDisplay/:individualProfile/:individualChat">Individual Profile Chat!</Link>
+          <Link to="/mentorMe/:profileDisplay/:individualProfile/:individualChat"><button> chat </button></Link>
         </p>
       </section>
     </div>

@@ -8,12 +8,12 @@ const ProfileDisplay = props => {
     <div className="ProfileDisplay">
       <h1>Welcome!</h1>
       <section className="main-content">
-        <img className = "image" alt="welcome!" src = {image} />
+        <img className="image" alt="welcome!" src={image} />
         <p>
-            Profile Display 
+          Profile Display
           <br />
           <br />
-          <Link to="/mentorMe/:profileDisplay/:individualProfile">Individual Profile!</Link>
+          <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link>
         </p>
       </section>
     </div>
