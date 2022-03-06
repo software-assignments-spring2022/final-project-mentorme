@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import logo from './logo.svg';
 import "./styles/MentorMeHome.css"
 import image from './images/8 Home Page Profile.png'
+
+
 const MentorMeHome = props => {
   return (
     <div className="MentorMeHome">
