@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import logo from './logo.svg';
 import "./styles/AccountCentral.css"
 import image from './images/13 Central.png'
+
+
 const AccountCentral = props => {
   return (
     <div className="AccountCentral">

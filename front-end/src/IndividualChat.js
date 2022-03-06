@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import logo from './logo.svg';
 import "./styles/IndividualChat.css"
 import image from './images/12 Individual Chat.png'
+
+
 const IndividualChat = props => {
   return (
     <div className="IndividualChat">

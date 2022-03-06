@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import logo from './logo.svg';
 import "./styles/PostCommentPage.css"
 import image from './images/6 Post Comment .png'
+
+
 const PostCommentPage = props => {
   return (
     <div className="CommentsDisplay">

@@ -2,7 +2,6 @@ import './styles/App.css';
 
 import React, { useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-// import PrimaryNav from "./PrimaryNav"
 import Home from "./Home"
 import RateAdvisorHome from "./RateAdvisorHome"
 import SearchResult from "./SearchResult"
@@ -16,7 +15,7 @@ import RatePage from "./RatePage"
 import AccountCentral from "./AccountCentral"
 import ChatsHistory from "./ChatsHistory"
 import Login from "./Login"
-import SingUp from "./SingUp"
+import SingUp from "./SignUp"
 
 /* Mateus 03/04
 The App file is used to house the routing on the 

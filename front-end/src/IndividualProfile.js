@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import logo from './logo.svg';
 import "./styles/IndividualProfile.css"
 import image from './images/10 Individual Profile.png'
+
+
 const IndividualProfile = props => {
   return (
     <div className="IndividualProfile">
