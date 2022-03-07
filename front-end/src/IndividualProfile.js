@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/IndividualProfile.css"
 import image from './images/10 Individual Profile.png'
+import { Button } from "./components/Button";
 
 
 const IndividualProfile = props => {
@@ -14,7 +15,7 @@ const IndividualProfile = props => {
           Individual Profile
           <br />
           <br />
-          <Link to="/mentorMe/:profileDisplay/:individualProfile/:individualChat"><button> chat </button></Link>
+          <Link to="/mentorMe/:profileDisplay/:individualProfile/:individualChat"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--long'}> Chat </Button></Link>
         </p>
       </section>
     </div>
