@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/Home.css"
 import home from './images/1HOME.png'
-
+import { Button } from "./components/Button";
 
 const Home = props => {
   return (
@@ -14,8 +14,11 @@ const Home = props => {
           The home page
           <br />
           <br />
-          <Link to="/rateAdvisor"><button type="button">Rate an advisor!</button></Link>
-          <Link to="/mentorMe"><button type="button"> Mentor Me!</button></Link>
+          <Link to="/rateAdvisor"><Button>Adivisor</Button></Link>
+          <br />
+          <br />
+
+          <Link to="/mentorMe"><Button> Mentor</Button></Link>
         </p>
       </section>
     </div >
