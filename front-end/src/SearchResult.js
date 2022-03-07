@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/SearchResult.css"
 import search from './images/5Search Result.png'
+import SearchBar from './components/SearchBar'
 
 
 const SearchResult = props => {
@@ -16,6 +17,9 @@ const SearchResult = props => {
           <br />
           <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link>
         </p>
+        <div className="search">
+          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult'/>
+        </div>
       </section>
     </div>
   )
