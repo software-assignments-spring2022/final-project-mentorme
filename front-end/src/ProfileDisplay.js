@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/ProfileDisplay.css"
 import image from './images/9 Profiles.png'
+import SearchBar from './components/SearchBar'
 
 
 const ProfileDisplay = props => {
@@ -16,6 +17,9 @@ const ProfileDisplay = props => {
           <br />
           <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link>
         </p>
+        <div class="search">
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay'/>
+        </div>
       </section>
     </div>
   )
