@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/IndividualProfile.css"
+import "./IndividualProfile.css"
 import { Button } from "./components/Button";
 
 
@@ -19,5 +20,6 @@ const IndividualProfile = props => {
     </div>
   )
 }
+
 
 export default IndividualProfile
