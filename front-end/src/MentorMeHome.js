@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/MentorMeHome.css"
 import image from './images/8 Home Page Profile.png'
-import SearchBar from './Search'
+import SearchBar from './components/SearchBar'
 
 
 const MentorMeHome = props => {
@@ -22,7 +22,7 @@ const MentorMeHome = props => {
           <Link to="/"><button>Back to homepage!</button></Link>
         </p>
         <div class="search">
-          <SearchBar label='Search Mentor:' navigateTo='/mentorMe/profileDisplay'/>
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay'/>
         </div>
       </section>
     </div>

@@ -1,0 +1,23 @@
+.searchTerm{
+    width: 65%;
+    height: 20px;
+    border: 2px solid #303030;
+    border-right: none;
+    padding: 2px;
+    border-radius: 5px 0px 0px 5px;
+    outline: none;
+    color: #000000;
+    font-size: 14px;
+}
+
+.searchButton {
+    width: 15%;
+    height: 28px;
+    border: 2px solid #303030;
+    background: #888787;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+  }
