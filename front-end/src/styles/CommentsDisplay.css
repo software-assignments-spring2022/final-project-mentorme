@@ -1,7 +1,20 @@
-.CommentsDisplay{
-    
+.header {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    padding: 100px;
 }
 
-.image{
-    max-width: 35%;
+.picture {
+    margin-left: 30px;
+    padding: 50px;
+    width: 50%;
 }
+
+.resize {
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+}
+
+
+/* #f4f7fc */

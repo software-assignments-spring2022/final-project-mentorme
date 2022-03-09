@@ -1,5 +1,6 @@
-.searchTerm{
-    width: 65%;
+.searchTerm {
+    font-family: 'Balsamiq Sans', cursive;
+    width: 50%;
     height: 20px;
     border: 2px solid #303030;
     border-right: none;
