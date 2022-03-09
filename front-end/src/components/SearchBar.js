@@ -5,8 +5,9 @@ import "../styles/SearchBar.css"
 import axios from 'axios'
 import Suggestion from "./Suggestion";
 
-
-
+/* props has attributes 'label' refering the str showing in the search bar and 
+  'naviageTo' is the page where the user will be directed to */
+  
 const SearchBar = (props) => {
 
   const navigate = useNavigate();
@@ -15,6 +16,9 @@ const SearchBar = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate(props.navigateTo)
+    if (props.navigateTo == window.location.pathname){
+      window.location.reload(false);
+    }
   }
 
   {/* get suggestions from backend */}
