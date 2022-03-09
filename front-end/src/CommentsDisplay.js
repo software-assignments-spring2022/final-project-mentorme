@@ -1,22 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import "./styles/CommentsDisplay.css"
 import search from './images/7 Comments dislpay.png'
+import axios from 'axios'
 
 
 const CommentsDisplay = props => {
   return (
-    <div className="CommentsDisplay">
-      <h1>Welcome!</h1>
-      <section className="main-content">
-        <img className="image" alt="welcome!" src={search} />
-        <p>
-          Comments display
+    <div>
+      {/* <img className="image" alt="welcome!" src={search} /> */}
+      <header className="header">
+        <div>
+          Advisor Name: Lorem Ipsum
           <br />
-          <br />
-          <Link to="/rateAdvisor/:searchResut/:commentsDisplay/:postCommentPage"><button>Post Comment Page!</button></Link>
-        </p>
-      </section>
+          Academic Advisor at New York University
+        </div>
+        <div className="picture"> 
+          <img className="resize" src="https://picsum.photos/200" alt="picture" />
+        </div>
+      </header>
     </div>
   )
 }
