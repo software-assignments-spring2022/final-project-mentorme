@@ -18,7 +18,7 @@ const Home = props => {
           <br />
           <br />
 
-          <Link to="/mentorMe"><Button size="btn--long">Mentor</Button></Link>
+          <Link to="/mentorMe"><Button size="btn--default"> Mentor </Button></Link>
         </p>
       </section>
     </div >
