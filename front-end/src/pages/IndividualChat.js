@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/IndividualChat.css"
-import image from './images/12 Individual Chat.png'
-import { Button } from "./components/Button";
+import "../styles/IndividualChat.css"
+import image from '../images/12 Individual Chat.png'
+import { Button } from "../components/Button";
 
 
 const IndividualChat = props => {

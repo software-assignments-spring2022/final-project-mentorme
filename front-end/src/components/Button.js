@@ -1,6 +1,12 @@
 import React from "react";
 import "../styles//Button.css";
 
+{/* 
+  props to take:
+    - width: 8px
+    - height: 10px
+*/}
+
 const SIZES = ["btn--default", "btn--medium", "btn--small", "btn--long", "btn--medium--long"];
 
 const STYLES = [

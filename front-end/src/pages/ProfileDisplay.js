@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/ProfileDisplay.css"
-import image from './images/9 Profiles.png'
-import SearchBar from './components/SearchBar'
+import "../styles/ProfileDisplay.css"
+import image from '../images/9 Profiles.png'
+import SearchBar from '../components/SearchBar'
 
 
 const ProfileDisplay = props => {

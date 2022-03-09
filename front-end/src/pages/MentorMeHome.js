@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/MentorMeHome.css"
-import image from './images/8 Home Page Profile.png'
-import SearchBar from './components/SearchBar'
+import "../styles/MentorMeHome.css"
+import image from '../images/8 Home Page Profile.png'
+import SearchBar from '../components/SearchBar'
 
 
 const MentorMeHome = props => {

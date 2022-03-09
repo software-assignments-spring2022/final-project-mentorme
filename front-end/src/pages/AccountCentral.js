@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/AccountCentral.css"
-import image from './images/13 Central.png'
+import "../styles/AccountCentral.css"
+import image from '../images/13 Central.png'
 
 
 const AccountCentral = props => {

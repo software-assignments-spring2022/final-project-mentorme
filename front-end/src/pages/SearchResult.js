@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/SearchResult.css"
-import search from './images/5Search Result.png'
-import SearchBar from './components/SearchBar'
+import "../styles/SearchResult.css"
+import search from '../images/5Search Result.png'
+import SearchBar from '../components/SearchBar'
 
 
 const SearchResult = props => {

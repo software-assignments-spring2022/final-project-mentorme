@@ -1,17 +1,17 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/ChatsHistory.css"
-import image from './images/14 All Chats.png'
+import "../styles/RatePage.css"
+import image from '../images/11 Rate.png'
 
 
-const ChatsHistory = props => {
+const RatePage = props => {
   return (
-    <div className="ChatsHistory">
+    <div className="RatePage">
       <h1>Welcome!</h1>
       <section className="main-content">
         <img className="image" alt="welcome!" src={image} />
         <p>
-          ChatsHistory
+          Rate Mentor Page
           <br />
           <br />
           <Link to="/mentorMe"><button>Back to mentorMe home!</button></Link>
@@ -21,4 +21,4 @@ const ChatsHistory = props => {
   )
 }
 
-export default ChatsHistory
+export default RatePage

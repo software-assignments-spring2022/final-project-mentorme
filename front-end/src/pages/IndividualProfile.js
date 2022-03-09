@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/IndividualProfile.css"
-import image from './images/10 Individual Profile.png'
-import { Button } from "./components/Button";
+import "../styles/IndividualProfile.css"
+import image from '../images/10 Individual Profile.png'
+import { Button } from "../components/Button";
 
 
 const IndividualProfile = props => {

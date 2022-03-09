@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/RateAdvisorHome.css"
-import SearchBar from './components/SearchBar'
+import "../styles/RateAdvisorHome.css"
+import SearchBar from '../components/SearchBar'
 
 
 const RateAdvisorHome = props => {

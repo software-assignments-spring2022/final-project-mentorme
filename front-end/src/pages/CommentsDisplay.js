@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import "./styles/CommentsDisplay.css"
-import search from './images/7 Comments dislpay.png'
+import "../styles/CommentsDisplay.css"
+import search from '../images/7 Comments dislpay.png'
 import axios from 'axios'
 
 
