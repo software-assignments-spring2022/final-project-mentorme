@@ -1,5 +1,16 @@
 import React from "react";
-import "../styles//Button.css";
+import "../styles/Button.css";
+
+{/* 
+    props that Button component takes:
+        - childdren: displayed button named;
+        - type: type;
+        - onClick: on click action;
+        - buttonStyle: style of button (color, fill);
+        - buttonSize: size of button (see Button.css);
+        - width: custom width of button;
+        - height: custom height of button;
+*/}
 
 const SIZES = ["btn--default", "btn--medium", "btn--small", "btn--long", "btn--medium--long"];
 
@@ -23,13 +34,10 @@ export const Button = ({ children, type, onClick, buttonStyle, buttonSize, width
     height: height,
   };
   return (
-
-
-    <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} style={{ width: userStyle.width, height: userStyle.height }} onClick={onClick} type={type}>
+    <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} style={userStyle} onClick={onClick} type={type}>
       {children}
     </button>
   );
 };
-
 
 export default Button;
