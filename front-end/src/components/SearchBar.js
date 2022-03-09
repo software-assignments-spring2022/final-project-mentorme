@@ -15,6 +15,9 @@ const SearchBar = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate(props.navigateTo)
+    if (props.navigateTo == window.location.pathname){
+      window.location.reload(false);
+    }
   }
 
   {/* get suggestions from backend */}
