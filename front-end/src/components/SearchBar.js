@@ -5,6 +5,8 @@ import "../styles/SearchBar.css"
 import axios from 'axios'
 import Suggestion from "./Suggestion";
 
+/* props has attributes 'label' refering the str showing in the search bar and 
+  'naviageTo' is the page where the user will be directed to */
 const SearchBar = (props) => {
 
   const navigate = useNavigate();
