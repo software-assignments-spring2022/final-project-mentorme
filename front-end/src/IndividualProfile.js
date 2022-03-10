@@ -26,7 +26,7 @@ const IndividualProfile = props => {
           <br />
           <br />
         </p>
-        <Link to="/ProfileDisplay"><button type="button"> Return </button></Link>
+        <Link to="/mentorme/ProfileDisplay"><button type="button"> Return </button></Link>
       </section>
     </div>
   )
