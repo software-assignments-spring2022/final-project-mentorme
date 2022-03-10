@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import "./styles/SearchResult.css"
 import search from './images/5Search Result.png'
 import SearchBar from './components/SearchBar'
+import Filter from './components/Filter'
 
 
 const SearchResult = props => {
@@ -19,6 +20,7 @@ const SearchResult = props => {
         </p>
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult'/>
+          <Filter />
         </div>
       </section>
     </div>
