@@ -17,7 +17,7 @@ const MentorMeHome = props => {
           <br />
           <Link to="/mentorMe/profileDisplay"><button>Profile Display! </button></Link>
 
-          <Link to="/mentorMe/accountCentral"><button>accountCentral!</button> </Link>
+          <Link to="/mentorMe/UserProfile"><button>My Profile</button> </Link>
 
           <Link to="/"><button>Back to homepage!</button></Link>
         </p>

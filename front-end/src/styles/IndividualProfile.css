@@ -1,7 +1,16 @@
-.IndividualProfile{
-    
+.IndividualProfile {
+    margin: 10px 30px 10px;
+    text-align: center;
 }
 
-.image{
-    max-width: 35%;
+img{
+    width: 200px;
+}
+
+button {
+    text-rendering: auto;
+    color: buttontext;
+    text-indent: 0px;
+    display: inline-block;
+    text-align: center;
 }

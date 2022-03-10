@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/AccountCentral.css"
+import "./styles/UserProfile.css"
 import image from './images/13 Central.png'
 
 
-const AccountCentral = props => {
+const UserProfile = props => {
   return (
-    <div className="AccountCentral">
+    <div className="UserProfile">
       <h1>Welcome!</h1>
       <section className="main-content">
         <img className="centralImage" alt="welcome!" src={image} />
@@ -14,11 +14,11 @@ const AccountCentral = props => {
           AccountCentral
           <br />
           <br />
-          <Link to="/mentorMe/accountCentral/ChatsHistory"><button>Chats history!</button></Link>
+          <Link to="/ChatsHistory"><button>Chats history!</button></Link>
         </p>
       </section>
     </div>
   )
 }
 
-export default AccountCentral
+export default UserProfile
