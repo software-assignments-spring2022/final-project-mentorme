@@ -3,10 +3,16 @@ import { Link } from "react-router-dom"
 import "./styles/CommentsDisplay.css"
 import search from './images/7 Comments dislpay.png'
 import axios from 'axios'
+import { useLocation } from 'react-router-dom'
+
 
 
 const CommentsDisplay = props => {
+  const location = useLocation();
+  const imgSrc = location.state.imgSrc;
+
   return (
+
     <div>
       {/* <img className="image" alt="welcome!" src={search} /> */}
       <header className="header">
@@ -15,8 +21,8 @@ const CommentsDisplay = props => {
           <br />
           Academic Advisor at New York University
         </div>
-        <div className="picture"> 
-          <img className="resize" src="https://picsum.photos/200" alt="picture" />
+        <div className="picture">
+          <img className="resize" src={imgSrc} alt="picture" />
         </div>
       </header>
     </div>
