@@ -17,6 +17,7 @@ import ChatsHistory from "./ChatsHistory"
 import Login from "./Login"
 import SingUp from "./SignUp"
 
+
 /* Mateus 03/04
 The App file is used to house the routing on the 
 example files given by the professor. I planning on 
@@ -52,7 +53,7 @@ const App = props => {
           <Route path="/rateAdvisor" element={<RateAdvisorHome user={user} />} />
 
           <Route path="/mentorMe" element={<MentorMeHome user={user} />} />
-          
+
 
           {/* a route to show the details of a specific animal, given its id - we pass the user data in as a prop and the animalId is passed in automatically as a param by react */}
           <Route exact
@@ -66,18 +67,18 @@ const App = props => {
           <Route
             path="/rateAdvisor/:searchResut/:commentsDisplay/:postCommentPage"
             element={<PostCommentPage user={user} />}
-   
-   />
+
+          />
           {/* a route to show a list of animals - we pass the user data in as a prop */}
-        
+
           <Route exact path="/mentorMe/profileDisplay" element={<ProfileDisplay user={user} />} />
 
           <Route exact path="/mentorMe/accountCentral" element={<AccountCentral user={user} />} />
 
           <Route path="/mentorMe/:profileDisplay/:individualProfile" element={<IndividualProfile user={user} />} />
           <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat" element={<IndividualChat user={user} />} />
-          <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage" element={<RatePage user={user} />}/>
-          
+          <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage" element={<RatePage user={user} />} />
+
           <Route path="/mentorMe/accountCentral/ChatsHistory" element={<ChatsHistory user={user} />} />
           {/* a route to the log in form... this form is a placeholder only */}
           <Route
