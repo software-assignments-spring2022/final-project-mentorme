@@ -34,8 +34,8 @@
 } 
 
 .btn--warning--solid{
-  background-color:var(--warning);
-  color:var(--dark);
+  background-color:var(--warning)!important;
+  color:var(--dark)!important;
   border:none;
 } 
 
@@ -87,7 +87,7 @@
 }
 
 .btn--long{
-  padding:10px 225px;
+  padding:10px 225px!important;
   font-size:18px;
   font-weight:400;
 }
@@ -103,3 +103,6 @@
   font-size:20px;
 }
 
+.btn--account{
+  padding:40px 30px!important;
+}

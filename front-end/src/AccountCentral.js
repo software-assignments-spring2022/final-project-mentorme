@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/AccountCentral.css"
 import image from './images/13 Central.png'
+import { Button } from "./components/Button"
 
 
 const AccountCentral = props => {
@@ -14,7 +15,7 @@ const AccountCentral = props => {
           AccountCentral
           <br />
           <br />
-          <Link to="/mentorMe/accountCentral/ChatsHistory"><button>Chats history!</button></Link>
+          <Link to="/mentorMe/accountCentral/ChatsHistory"><Button buttonStyle={'btn--warning--solid'}>Chats History</Button></Link>
         </p>
       </section>
     </div>

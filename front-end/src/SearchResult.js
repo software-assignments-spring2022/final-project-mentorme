@@ -17,7 +17,7 @@ const SearchResult = props => {
           Search results
           <br />
           <br />
-          <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link>
+          {/* <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link> */}
         </p>
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult' />

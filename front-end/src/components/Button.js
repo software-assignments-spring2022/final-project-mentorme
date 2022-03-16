@@ -13,7 +13,7 @@ import "../styles/Button.css";
         - height: custom height of button;
 */}
 
-const SIZES = ["btn--default", "btn--medium", "btn--small", "btn--long", "btn--medium--long"];
+const SIZES = ["btn--default", "btn--medium", "btn--small", "btn--long", "btn--medium--long", "btn--account"];
 
 const STYLES = [
   "btn--primary--outline",
