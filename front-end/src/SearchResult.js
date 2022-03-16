@@ -5,7 +5,7 @@ import search from './images/5Search Result.png'
 import SearchBar from './components/SearchBar'
 import { Container, Col, Row } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import Filter from './components/Filter'
 
 const SearchResult = props => {
   return (
@@ -21,7 +21,10 @@ const SearchResult = props => {
         </p>
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult' />
+          <Filter />
+
         </div>
+
       </section>
 
       {/* list of search result  */}
