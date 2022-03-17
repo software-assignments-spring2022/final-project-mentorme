@@ -3,10 +3,12 @@ import { Link } from "react-router-dom"
 import "./styles/MentorMeHome.css"
 import image from './images/8 Home Page Profile.png'
 import SearchBar from './components/SearchBar'
+import Filter from './components/Filter'
 import { Button } from "./components/Button"
 
 
 const MentorMeHome = props => {
+  const filterOptions = ['a', 'b']
   return (
     <div className="MentorMeHome">
       <h1>Welcome!</h1>
@@ -27,6 +29,7 @@ const MentorMeHome = props => {
         </p>
         <div class="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
+          <Filter options={filterOptions}/>
         </div>
       </section>
     </div >
