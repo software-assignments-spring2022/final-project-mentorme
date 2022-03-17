@@ -1,6 +1,21 @@
 .SearchResult{
 }
 
-.image{
-    max-width: 35%;
+.advisor-picture{
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    width: 100%;
+    display: flex;
+}
+
+.advisorPic{
+    display:inline;
+}
+
+.brief{
+    text-align: left;
+}
+
+.school-name{
+    text-align: left;
 }
