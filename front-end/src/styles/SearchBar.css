@@ -1,7 +1,7 @@
 .searchTerm {
     font-family: 'Balsamiq Sans', cursive;
-    width: 50%;
-    height: 20px;
+    width: 80%;
+    height: 28px;
     border: 2px solid #303030;
     border-right: none;
     padding: 2px;
@@ -12,7 +12,7 @@
 }
 
 .searchButton {
-    width: 15%;
+    width: 20%;
     height: 28px;
     border: 2px solid #303030;
     background: #888787;
@@ -22,3 +22,7 @@
     cursor: pointer;
     font-size: 14px;
   }
+
+.searchMain {
+    float: left;
+}
