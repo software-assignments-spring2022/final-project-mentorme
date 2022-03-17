@@ -8,6 +8,7 @@ import { Container, Col, Row } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import BurgerMenu from "./components/BurgerMenu"
 const SearchResult = props => {
+  const filterOptions = ['a', 'b'];
   return (
     <div className="SearchResult">
       <BurgerMenu/>
@@ -22,7 +23,8 @@ const SearchResult = props => {
         </p>
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult' />
-          <Filter />
+          <Filter options={filterOptions}/>
+          <div className='clear'/>
         </div>
 
       </section>
