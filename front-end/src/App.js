@@ -12,7 +12,7 @@ import ProfileDisplay from "./ProfileDisplay"
 import IndividualProfile from "./IndividualProfile"
 import IndividualChat from "./IndividualChat"
 import RatePage from "./RatePage"
-import AccountCentral from "./AccountCentral"
+import UserProfile from "./UserProfile"
 import ChatsHistory from "./ChatsHistory"
 import Login from "./Login"
 import SingUp from "./SignUp"
@@ -73,7 +73,7 @@ const App = props => {
 
           <Route exact path="/mentorMe/profileDisplay" element={<ProfileDisplay user={user} />} />
 
-          <Route exact path="/mentorMe/accountCentral" element={<AccountCentral user={user} />} />
+          <Route exact path="/mentorMe/UserProfile" element={<UserProfile user={user} />} />
 
           <Route path="/mentorMe/:profileDisplay/:individualProfile" element={<IndividualProfile user={user} />} />
           <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat" element={<IndividualChat user={user} />} />

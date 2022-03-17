@@ -1,24 +1,18 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/IndividualProfile.css"
-import image from './images/10 Individual Profile.png'
-import { Button } from "./components/Button";
-import { useLocation } from 'react-router-dom'
+import "./styles/UserProfile.css"
 
 
-const IndividualProfile = props => {
-  const location = useLocation();
-  const imgSrc = location.state.imgSrc;
+
+
+const UserProfile = props => {
   return (
-    <div className="IndividualProfile">
-      <h1>Welcome!</h1>
-      <img className="resize" src={imgSrc} alt="picture" />
+    <div className="UserProfile">
       <h1>User's Name</h1>
       <img src="https://picsum.photos/200/300/"/>
       <section className="main-content">
       <br />
         <p>
-          <Link to="/individualChat"><button type="button"> Chat </button></Link>
           <br />
           <br />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, 
@@ -32,7 +26,7 @@ const IndividualProfile = props => {
           <br />
           <br />
         </p>
-        <Link to="/mentorme/ProfileDisplay"><button type="button"> Return </button></Link>
+        <Link to="/mentorme"><button type="button"> Return </button></Link>
       </section>
     </div>
   )
@@ -40,4 +34,4 @@ const IndividualProfile = props => {
 
 
 
-export default IndividualProfile
+export default UserProfile
