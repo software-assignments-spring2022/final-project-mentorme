@@ -1,0 +1,22 @@
+
+.Burger {
+    top:0px;
+    position: absolute;
+    left: 0;
+    margin: 5%;
+    cursor: pointer;
+}
+.Menu ul{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    position: absolute;
+    left: 0;
+    top: 110px;
+    background-color: #fff;
+    border: 3px solid;
+
+}
+.Menu ul li{
+    padding-right:15%
+}

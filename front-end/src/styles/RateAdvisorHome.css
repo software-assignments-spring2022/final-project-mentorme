@@ -1,6 +1,22 @@
-.RateAdvisorHome {
-}
+.RateAdvisorHome{
+    width: 100%;
+    height: 100%;
+    position: absolute;
 
-.image{
-    max-width: 35%;
+}
+.main-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color:salmon;
+    align-items: center;
+}
+.main-content p{
+    display: block;
+    top:80px;
+}
+.search{
+    display: flex;
+    flex-direction: column;
 }

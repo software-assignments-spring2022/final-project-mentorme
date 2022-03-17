@@ -4,11 +4,11 @@ import "./styles/MentorMeHome.css"
 import image from './images/8 Home Page Profile.png'
 import SearchBar from './components/SearchBar'
 import { Button } from "./components/Button"
-
-
+import BurgerMenu from "./components/BurgerMenu"
 const MentorMeHome = props => {
   return (
     <div className="MentorMeHome">
+      <BurgerMenu/>
       <h1>Welcome!</h1>
       <section className="main-content">
 
