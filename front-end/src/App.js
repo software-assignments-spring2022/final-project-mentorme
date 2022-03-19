@@ -82,7 +82,7 @@ const App = props => {
           <Route path="/mentorMe/accountCentral/ChatsHistory" element={<ChatsHistory user={user} />} />
           {/* a route to the log in form... this form is a placeholder only */}
           <Route
-            path="/login"
+            path="/logIn"
             element={<Login user={user} setuser={setUser} />}
           />
 

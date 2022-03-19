@@ -1,13 +1,14 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./styles/UserProfile.css"
-
+import BurgerMenu from "./components/BurgerMenu"
 
 
 
 const UserProfile = props => {
   return (
     <div className="UserProfile">
+      <BurgerMenu/>
       <h1>User's Name</h1>
       <img src="https://picsum.photos/200/300/"/>
       <section className="main-content">

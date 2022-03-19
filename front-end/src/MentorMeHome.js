@@ -5,12 +5,12 @@ import image from './images/8 Home Page Profile.png'
 import SearchBar from './components/SearchBar'
 import Filter from './components/Filter'
 import { Button } from "./components/Button"
-
-
+import BurgerMenu from "./components/BurgerMenu"
 const MentorMeHome = props => {
   const filterOptions = ['a', 'b']
   return (
     <div className="MentorMeHome">
+      <BurgerMenu/>
       <h1>Welcome!</h1>
       <section className="main-content">
 

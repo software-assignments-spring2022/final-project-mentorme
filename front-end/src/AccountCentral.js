@@ -3,11 +3,12 @@ import { Link } from "react-router-dom"
 import "./styles/AccountCentral.css"
 import image from './images/13 Central.png'
 import { Button } from "./components/Button"
-
+import BurgerMenu from "./components/BurgerMenu"
 
 const AccountCentral = props => {
   return (
     <div className="AccountCentral">
+      <BurgerMenu/>
       <h1>Welcome!</h1>
       <section className="main-content">
         <img className="centralImage" alt="welcome!" src={image} />

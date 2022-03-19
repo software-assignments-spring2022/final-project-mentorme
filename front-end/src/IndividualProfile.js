@@ -4,13 +4,14 @@ import "./styles/IndividualProfile.css"
 import image from './images/10 Individual Profile.png'
 import { Button } from "./components/Button";
 import { useLocation } from 'react-router-dom'
-
+import BurgerMenu from "./components/BurgerMenu";
 
 const IndividualProfile = props => {
   const location = useLocation();
   const imgSrc = location.state.imgSrc;
   return (
     <div className="IndividualProfile">
+      <BurgerMenu/>
       <h1>Welcome!</h1>
       <img className="resize" src={imgSrc} alt="picture" />
       <h1>User's Name</h1>
