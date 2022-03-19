@@ -13,6 +13,7 @@ const UserProfile = props => {
       <img src="https://picsum.photos/200/300/"/>
       <section className="main-content">
       <br />
+        <Link to="/mentorme/EditProfile"><button type="button"> Edit Profile </button></Link>
         <p>
           <br />
           <br />
