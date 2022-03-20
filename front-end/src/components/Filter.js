@@ -51,7 +51,7 @@ const Filter = (props) => {
       <button ref={buttonRef} onClick={handleFilterClick} className='filterButton'>Filter</button>
       {isOpen && 
         <FilterDropdown 
-          dropdownRef={dropdownRef} 
+          dropdownRef={dropdownRef}
           options={props.options}
           handleSelect={handleSelect}
         />}
@@ -71,7 +71,7 @@ const FilterDropdown = (props) => {
           <FilterItems name={option} handleSelect={props.handleSelect}/>
         ))}
         <div className="filter_dropdown_actions">
-          <button classname="filter_dropdown_button">Apply</button>
+          <button className="filter_dropdown_button">Apply</button>
         </div>
       </div>
     </>
@@ -84,7 +84,7 @@ const FilterItems = (props) => {
     <>
     <div>
       <label>
-        <input type="checkbox" onChange={(e) => props.handleSelect(props.name, e)}/>
+        <input className='itemBox' type="checkbox" onChange={(e) => props.handleSelect(props.name, e)}/>
         {props.name}
       </label>
     </div>
