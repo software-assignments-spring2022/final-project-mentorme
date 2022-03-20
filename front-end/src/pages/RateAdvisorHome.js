@@ -11,21 +11,20 @@ const RateAdvisorHome = props => {
   return (
   
   <div className="RateAdvisorHome">
-   
-      <section className="main-content"> 
-      <BurgerMenu/>
-        <p>
-          Rate Advisor Home
-          <br />
-          <br />
-          <Link to="/"><button>Back to homepage</button></Link>
-        </p>
-        <div className="search">
-          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult'/>
-          <Filter options={filterOptions}/>
-        </div>
-      </section>
-    </div>
+    <BurgerMenu/>  
+    <section className="main-content"> 
+      <p>
+        Rate Advisor Home
+        <br />
+        <br />
+        <Link to="/"><button>Back to homepage</button></Link>
+      </p>
+      <div className="search">
+        <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult'/>
+        <Filter options={filterOptions}/>
+      </div>
+    </section>
+  </div>
     
   )
 }
