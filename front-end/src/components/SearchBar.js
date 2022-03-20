@@ -34,7 +34,7 @@ const SearchBar = (props) => {
 
   return (
     <div className='searchMain'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="searchBar">
           <input type="text" 
             className="searchTerm"
             value={name} 
