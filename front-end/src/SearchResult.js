@@ -10,9 +10,8 @@ import BurgerMenu from "./components/BurgerMenu"
 const SearchResult = props => {
   const filterOptions = ['a', 'b'];
   return (
+  
     <div className="SearchResult">
-      <BurgerMenu/>
-      <h1>Welcome!</h1>
       <section className="main-content">
         <img className="image" alt="welcome!" src={search} />
         <p>
