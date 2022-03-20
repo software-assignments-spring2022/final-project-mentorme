@@ -2,20 +2,22 @@ import './styles/App.css';
 
 import React, { useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import RateAdvisorHome from "./pages/RateAdvisorHome"
-import SearchResult from "./pages/SearchResult"
-import CommentsDisplay from "./pages/CommentsDisplay"
-import PostCommentPage from "./pages/PostCommentPage"
-import MentorMeHome from "./pages/MentorMeHome"
-import ProfileDisplay from "./pages/ProfileDisplay"
-import IndividualProfile from "./pages/IndividualProfile"
-import IndividualChat from "./pages/IndividualChat"
-import RatePage from "./pages/RatePage"
-import AccountCentral from "./pages/AccountCentral"
-import ChatsHistory from "./pages/ChatsHistory"
-import Login from "./pages/Login"
-import SingUp from "./pages/SignUp"
+import Home from "./Home"
+import RateAdvisorHome from "./RateAdvisorHome"
+import SearchResult from "./SearchResult"
+import CommentsDisplay from "./CommentsDisplay"
+import PostCommentPage from "./PostCommentPage"
+import MentorMeHome from "./MentorMeHome"
+import ProfileDisplay from "./ProfileDisplay"
+import IndividualProfile from "./IndividualProfile"
+import IndividualChat from "./IndividualChat"
+import RatePage from "./RatePage"
+import UserProfile from "./UserProfile"
+import EditProfile from "./EditProfile"
+import ChatsHistory from "./ChatsHistory"
+import Login from "./Login"
+import SingUp from "./SignUp"
+
 
 /* Mateus 03/04
 The App file is used to house the routing on the 
@@ -52,7 +54,7 @@ const App = props => {
           <Route path="/rateAdvisor" element={<RateAdvisorHome user={user} />} />
 
           <Route path="/mentorMe" element={<MentorMeHome user={user} />} />
-          
+
 
           {/* a route to show the details of a specific animal, given its id - we pass the user data in as a prop and the animalId is passed in automatically as a param by react */}
           <Route exact
@@ -66,22 +68,23 @@ const App = props => {
           <Route
             path="/rateAdvisor/:searchResut/:commentsDisplay/:postCommentPage"
             element={<PostCommentPage user={user} />}
-   
-   />
+
+          />
           {/* a route to show a list of animals - we pass the user data in as a prop */}
-        
+
           <Route exact path="/mentorMe/profileDisplay" element={<ProfileDisplay user={user} />} />
 
-          <Route exact path="/mentorMe/accountCentral" element={<AccountCentral user={user} />} />
+          <Route exact path="/mentorMe/UserProfile" element={<UserProfile user={user} />} />
+          <Route exact path="/mentorMe/EditProfile" element={<EditProfile user={user} />} />
 
           <Route path="/mentorMe/:profileDisplay/:individualProfile" element={<IndividualProfile user={user} />} />
           <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat" element={<IndividualChat user={user} />} />
-          <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage" element={<RatePage user={user} />}/>
-          
+          <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage" element={<RatePage user={user} />} />
+
           <Route path="/mentorMe/accountCentral/ChatsHistory" element={<ChatsHistory user={user} />} />
           {/* a route to the log in form... this form is a placeholder only */}
           <Route
-            path="/login"
+            path="/logIn"
             element={<Login user={user} setuser={setUser} />}
           />
 

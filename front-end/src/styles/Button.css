@@ -11,10 +11,11 @@
 .btn{
   font-family: 'Balsamiq Sans', cursive;
   font-weight:700;
-  /* border-radius:10px; */
   cursor:pointer;
   transition: transform 0.3s ease;
-  box-shadow: 5px 5px  #000000;
+  box-shadow: 3px 3px  #000000;
+  border-radius: 0;
+
 
 }
 
@@ -25,14 +26,16 @@
 /*Button Colors and Styles */
 
 .btn--primary--solid{
-  background-color:var(--primary);
-  color:var(--white);
-  border:none;
+  background-color:var(--white)!important;
+  color:var(--dark)!important;
+  border-radius:0;
+
+
 } 
 
 .btn--warning--solid{
-  background-color:var(--warning);
-  color:var(--dark);
+  background-color:var(--warning)!important;
+  color:var(--dark)!important;
   border:none;
 } 
 
@@ -49,7 +52,7 @@
 } 
 .btn--primary--outline{
   background-color:transparent;
-  border:2px solid var(--dark);
+  border:2px solid var(--dark)!important;
   color: var(--dark)
 } 
 
@@ -84,7 +87,7 @@
 }
 
 .btn--long{
-  padding:10px 225px;
+  padding:10px 225px!important;
   font-size:18px;
   font-weight:400;
 }
@@ -98,4 +101,8 @@
 .btn--small{
   padding:15px 30px;
   font-size:20px;
+}
+
+.btn--account{
+  padding:40px 30px!important;
 }
