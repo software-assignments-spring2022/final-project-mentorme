@@ -13,10 +13,10 @@ const CommentsDisplay = props => {
 
   return (
 
-    <div>
+    <div className="commentsDisplay">
       {/* <img className="image" alt="welcome!" src={search} /> */}
       <BurgerMenu/>
-      <header className="header">
+      <header className="main-content">
 
         <div>
           Advisor Name: Lorem Ipsum

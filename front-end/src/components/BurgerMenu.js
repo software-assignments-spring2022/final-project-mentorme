@@ -1,14 +1,14 @@
 import { slide as Menu } from 'react-burger-menu'
 import React from 'react'
 import "../styles/BurgerMenu.css"
-import {CgMenuRound} from "react-icons/cg"
+import {CgMenuRound, CgSidebarRight} from "react-icons/cg"
 import { useState } from 'react'
 import Button from "./Button"
 
 const BurgerMenu = () =>{
     const [open,setOpen] = useState(false);
     return (
-        <nav className='Menu'>
+        <nav className={open ? 'sidebar' :'sidebar-close'}>
             <CgMenuRound className= "Burger" size = "40px" color="white" 
             
             onClick= {()=> setOpen(!open)}/>

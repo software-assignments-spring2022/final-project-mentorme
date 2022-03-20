@@ -10,8 +10,10 @@ const RateAdvisorHome = props => {
   const filterOptions = ['a', 'b']
   return (
   
-  <div className="RateAdvisorHome"><BurgerMenu/>
-      <section className="main-content">
+  <div className="RateAdvisorHome">
+   
+      <section className="main-content"> 
+      <BurgerMenu/>
         <p>
           Rate Advisor Home
           <br />
