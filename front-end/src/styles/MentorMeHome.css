@@ -1,6 +1,11 @@
 .MentorMeHome{
+    background-color:rgb(252, 120, 120);
+    width:100%;
+    height:100%;
+    position: absolute;
     
 }
+
 
 .image{
     max-width: 35%;

@@ -10,10 +10,9 @@ const MentorMeHome = props => {
   const filterOptions = ['a', 'b']
   return (
     <div className="MentorMeHome">
-      <BurgerMenu/>
-      <h1>Welcome!</h1>
+      
       <section className="main-content">
-
+        <BurgerMenu/>
         <Link to="/mentorMe/accountCentral"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>Account</Button></Link>
         <img className="image" alt="welcome!" src={image} />
         <p>

@@ -6,14 +6,15 @@ import BurgerMenu from "./components/BurgerMenu"
 
 const EditProfile = props => {
     return (
-      <div className="EditProfile">
+      <div className="EditProfile"> 
+      <section className="main-content">
         <BurgerMenu/>
         <h1>User's Name</h1>
         <label for="profileimage">Change Profile Picture</label>
         <br />
         <br />
         <input type="file" id="profileimage" name="ProfilePicture"/>
-        <section className="main-content">
+       
         <br />
           <p>
             <label for="bio">Edit Bio:</label>

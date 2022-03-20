@@ -12,16 +12,13 @@ const IndividualProfile = props => {
   return (
     <div className="IndividualProfile">
       <BurgerMenu/>
-      <h1>Welcome!</h1>
-      <img className="resize" src={imgSrc} alt="picture" />
-      <h1>User's Name</h1>
-      <img src="https://picsum.photos/200/300/"/>
       <section className="main-content">
-      <br />
+        <img className="resize" src={imgSrc} alt="picture" />
+        <h1>User's Name</h1>
+        <img src="https://picsum.photos/200/300/"/>
         <p>
           <Link to="/individualChat"><button type="button"> Chat </button></Link>
-          <br />
-          <br />
+ 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, 
           id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci 
           aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec nibh 
@@ -30,8 +27,7 @@ const IndividualProfile = props => {
           consectetur adipiscing elit. Vestibulum ac ante vel arcu posuere hendrerit. Nam suscipit 
           ligula nec lectus varius accumsan. Aliquam a orci eget ex gravida consequat sit amet quis urna.
           Praesent ut nisl nec nunc imperdiet pharetra.
-          <br />
-          <br />
+    
         </p>
         <Link to="/mentorme/ProfileDisplay"><button type="button"> Return </button></Link>
       </section>
