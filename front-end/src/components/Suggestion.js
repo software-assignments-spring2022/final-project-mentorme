@@ -23,7 +23,6 @@ const Suggestion = ( {suggestions} ) => {
                     </div>
                 </div>
             ))}
-            
         </div>
     )
 }

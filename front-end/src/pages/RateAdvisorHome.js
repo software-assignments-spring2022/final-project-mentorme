@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/RateAdvisorHome.css"
-import SearchBar from './components/SearchBar'
-import BurgerMenu from "./components/BurgerMenu"
-import Filter from './components/Filter'
+import "../styles/RateAdvisorHome.css"
+import SearchBar from '../components/SearchBar'
+import BurgerMenu from "../components/BurgerMenu"
+import Filter from '../components/Filter'
 
 
 const RateAdvisorHome = props => {

@@ -7,6 +7,7 @@ import Suggestion from "./Suggestion";
 
 /* props has attributes 'label' refering the str showing in the search bar and 
   'naviageTo' is the page where the user will be directed to */
+  
 const SearchBar = (props) => {
 
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ const SearchBar = (props) => {
     await axios.get("https://api.mockaroo.com/api/4b0b0f90?count=10&key=de852b30")
       .then(res => {
         setSuggestion(res.data);
-        console.log(res.data);
       })
       .catch(err => {
         console.log(`Failure. ${err}`);

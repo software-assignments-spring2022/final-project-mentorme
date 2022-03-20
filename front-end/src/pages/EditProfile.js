@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/EditProfile.css"
-import BurgerMenu from "./components/BurgerMenu"
+import "../styles/EditProfile.css"
+import BurgerMenu from "../components/BurgerMenu"
 
 
 const EditProfile = props => {

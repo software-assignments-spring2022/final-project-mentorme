@@ -35,13 +35,10 @@ export const Button = ({ children, type, onClick, buttonStyle, buttonSize, width
     height: height,
   };
   return (
-
-
     <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} style={{ userStyle }} onClick={onClick} type={type}>
       {children}
     </button>
   );
 };
-
 
 export default Button;

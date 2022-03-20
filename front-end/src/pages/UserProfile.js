@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/UserProfile.css"
-import BurgerMenu from "./components/BurgerMenu"
+import "../styles/UserProfile.css"
+import BurgerMenu from "../components/BurgerMenu"
 
 
 
