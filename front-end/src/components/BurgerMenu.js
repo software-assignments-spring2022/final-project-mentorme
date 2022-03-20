@@ -1,38 +1,17 @@
 import { slide as Menu } from 'react-burger-menu'
 import React from 'react'
 import "../styles/BurgerMenu.css"
-import {CgMenuRound, CgSidebarRight} from "react-icons/cg"
-import { useState } from 'react'
-import Button from "./Button"
 
 const BurgerMenu = () =>{
-    const [open,setOpen] = useState(false);
     return (
-        <nav className={open ? 'sidebar' :'sidebar-close'}>
-            <CgMenuRound className= "Burger" size = "40px" color="white" 
-            
-            onClick= {()=> setOpen(!open)}/>
-        {open && <ul>
-            <li> 
-                <a href = "/"><Button>Home</Button></a>
-            </li>
-            <li> 
-                <a href = "/mentorMe"><Button>MentorMe</Button></a>
-            </li>
-            <li> 
-                <a href = "/rateAdvisor"><Button>Advisor</Button></a>
-            </li>
-            <li> 
-                <a href = "/signUp"><Button>SignUp</Button></a>
-            </li>
-            <li> 
-                <a href = "/logIn"><Button>LogIn</Button></a>
-            </li>
-        </ul>}
-
-        </nav>
-        
+        <Menu>
+            <a id="home" className='home' href='/'>Home</a>
+            <a id='mentorMe' className='mentorMe' href='/mentorMe'>MentorMe</a>
+            <a id='rateAdvisor' className='rateAdvisor' href='/rateAdvisor'>RateMyAdvisor</a>
+            <a id='logIn' className='logIn' href='/logIn'>Log In</a>
+            <a id='signUp' className='signUp' href='/signUp'>Sign Up</a>
+        </Menu>
     );
 }
 
-export default BurgerMenu
+export default BurgerMenu;

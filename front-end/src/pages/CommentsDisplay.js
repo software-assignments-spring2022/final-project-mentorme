@@ -15,7 +15,7 @@ const CommentsDisplay = props => {
 
     <div className="commentsDisplay">
       {/* <img className="image" alt="welcome!" src={search} /> */}
-      <BurgerMenu/>
+      
       <header className="main-content">
 
         <div>

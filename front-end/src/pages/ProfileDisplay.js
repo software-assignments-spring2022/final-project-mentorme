@@ -9,6 +9,7 @@ import BurgerMenu from "../components/BurgerMenu"
 const ProfileDisplay = props => {
   return (
     <div className="ProfileDisplay">
+      <BurgerMenu />
       <h1>Welcome!</h1>
       <section className="main-content">
         <img className="image" alt="welcome!" src={image} />

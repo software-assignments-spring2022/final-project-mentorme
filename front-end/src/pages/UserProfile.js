@@ -8,9 +8,8 @@ import BurgerMenu from "../components/BurgerMenu"
 const UserProfile = props => {
   return (
     <div className="UserProfile">
-     
-      <section className="main-content">
       <BurgerMenu/>
+      <section className="main-content">
       <h1>User's Name</h1>
       <img src="https://picsum.photos/200/300/" class="center"/>
       <br />

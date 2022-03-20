@@ -13,6 +13,7 @@ const SearchResult = props => {
   return (
   
     <div className="SearchResult">
+      <BurgerMenu />
       <section className="main-content">
         <img className="image" alt="welcome!" src={search} />
         <p>
