@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/RatePage.css"
-import image from './images/11 Rate.png'
-import BurgerMenu from "./components/BurgerMenu"
+import "../styles/RatePage.css"
+import image from '../images/11 Rate.png'
+import BurgerMenu from "../components/BurgerMenu"
 
 const RatePage = props => {
   return (

@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/SearchResult.css"
-import search from './images/5Search Result.png'
-import SearchBar from './components/SearchBar'
-import Filter from './components/Filter'
+import "../styles/SearchResult.css"
+import search from '../images/5Search Result.png'
+import SearchBar from '../components/SearchBar'
+import Filter from '../components/Filter'
 import { Container, Col, Row } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import BurgerMenu from "./components/BurgerMenu"
+import BurgerMenu from "../components/BurgerMenu"
 
 const SearchResult = props => {
   const filterOptions = ['a', 'b'];

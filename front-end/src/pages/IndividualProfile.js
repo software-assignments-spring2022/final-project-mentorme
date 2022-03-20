@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/IndividualProfile.css"
-import image from './images/10 Individual Profile.png'
-import { Button } from "./components/Button";
+import "../styles/IndividualProfile.css"
+import image from '../images/10 Individual Profile.png'
+import { Button } from "../components/Button";
 import { useLocation } from 'react-router-dom'
-import BurgerMenu from "./components/BurgerMenu";
+import BurgerMenu from "../components/BurgerMenu";
 
 const IndividualProfile = props => {
   const location = useLocation();

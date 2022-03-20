@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/MentorMeHome.css"
-import image from './images/8 Home Page Profile.png'
-import SearchBar from './components/SearchBar'
-import Filter from './components/Filter'
-import { Button } from "./components/Button"
-import BurgerMenu from "./components/BurgerMenu"
+import "../styles/MentorMeHome.css"
+import image from '../images/8 Home Page Profile.png'
+import SearchBar from '../components/SearchBar'
+import Filter from '../components/Filter'
+import { Button } from "../components/Button"
+import BurgerMenu from "../components/BurgerMenu"
 const MentorMeHome = props => {
   const filterOptions = ['a', 'b']
   return (

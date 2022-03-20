@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/Home.css"
+import "../styles/Home.css"
 import ReactDOM from 'react-dom';
-import home from './images/1HOME.png'
-import welcome from './images/1-in-it-together.png'
-import Button from "./components/Button";
+import home from '../images/1HOME.png'
+import welcome from '../images/1-in-it-together.png'
+import Button from "../components/Button";
 import { Container, Row, Col } from 'react-bootstrap';
-import BurgerMenu from "./components/BurgerMenu"
+import BurgerMenu from "../components/BurgerMenu"
 // import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css'
 const Home = props => {

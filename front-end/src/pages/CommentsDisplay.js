@@ -4,7 +4,7 @@ import "../styles/CommentsDisplay.css"
 import search from '../images/7 Comments dislpay.png'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
-import BurgerMenu from "./components/BurgerMenu"
+import BurgerMenu from "../components/BurgerMenu"
 
 
 const CommentsDisplay = props => {

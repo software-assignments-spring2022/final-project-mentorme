@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/ChatsHistory.css"
-import image from './images/14 All Chats.png'
-import BurgerMenu from "./components/BurgerMenu"
+import "../styles/ChatsHistory.css"
+import image from '../images/14 All Chats.png'
+import BurgerMenu from "../components/BurgerMenu"
 
 const ChatsHistory = props => {
   return (

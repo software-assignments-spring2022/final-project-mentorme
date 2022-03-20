@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./styles/ProfileDisplay.css"
-import image from './images/9 Profiles.png'
-import SearchBar from './components/SearchBar'
+import "../styles/ProfileDisplay.css"
+import image from '../images/9 Profiles.png'
+import SearchBar from '../components/SearchBar'
 import { Container, Col, Row } from "react-bootstrap"
-import BurgerMenu from "./components/BurgerMenu"
+import BurgerMenu from "../components/BurgerMenu"
 
 const ProfileDisplay = props => {
   return (
