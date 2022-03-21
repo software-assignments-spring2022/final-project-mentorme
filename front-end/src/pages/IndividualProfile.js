@@ -15,10 +15,9 @@ const IndividualProfile = props => {
       <section className="main-content">
         <img className="resize" src={imgSrc} alt="picture" />
         <h1>User's Name</h1>
-        <img src="https://picsum.photos/200/300/"/>
         <p>
           <Link to="/individualChat"><button type="button"> Chat </button></Link>
- 
+          <br/>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, 
           id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci 
           aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec nibh 
