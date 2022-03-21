@@ -17,7 +17,6 @@ const RateAdvisorHome = props => {
         Rate Advisor Home
         <br />
         <br />
-        <Link to="/"><button>Back to homepage</button></Link>
       </p>
       <div className="search">
         <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult'/>
