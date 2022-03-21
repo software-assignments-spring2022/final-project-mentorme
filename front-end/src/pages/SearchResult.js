@@ -11,11 +11,11 @@ import BurgerMenu from "../components/BurgerMenu"
 const SearchResult = props => {
   const filterOptions = ['a', 'b'];
   return (
-  
+
     <div className="SearchResult">
       <BurgerMenu />
       <section className="main-content">
-        <img className="image" alt="welcome!" src={search} />
+        {/* <img className="image" alt="welcome!" src={search} /> */}
         <p>
           Search results
           <br />
@@ -24,8 +24,8 @@ const SearchResult = props => {
         </p>
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' />
-          <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult'/>
-          <div className='clear'/>
+          <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' />
+          <div className='clear' />
         </div>
 
       </section>

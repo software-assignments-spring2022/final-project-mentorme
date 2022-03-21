@@ -6,6 +6,8 @@
     box-shadow: 1px 1px 1px 1px lightgrey;
     width: 100%;
     display: flex;
+    margin:0;
+
 }
 
 .advisorPic{
@@ -25,4 +27,17 @@
     height: 0; 
     line-height: 0; 
     font-size: 0
+}
+
+.listColor{
+    background-color: rgb(252, 120, 120);
+}
+
+.list-group{
+    padding:10% 10%;
+}
+
+.list-group-item{
+    background-color: rgb(252, 120, 120);
+
 }
