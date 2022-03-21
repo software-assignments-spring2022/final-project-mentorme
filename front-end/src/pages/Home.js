@@ -20,7 +20,7 @@ const Home = props => {
               <div className="btn-title"><Link to="/rateAdvisor"><Button size="btn--default" buttonStyle="btn--primary--solid">Advisor</Button></Link>
                 <br />
                 <br />
-                <Link to="/mentorMe"><Button size="btn--default" buttonStyle="btn--primary--solid"> Mentor</Button></Link></div>
+                <Link to="/logIn"><Button size="btn--default" buttonStyle="btn--primary--solid"> Mentor</Button></Link></div>
             </Col>
 
             <Col xs={12} md={8} className="columns"><img className="imageTitle imageRotate " alt="landing" src={welcome} /></Col>
