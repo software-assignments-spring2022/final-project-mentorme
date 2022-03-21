@@ -23,6 +23,8 @@ const MentorMeHome = props => {
 
           <Link to="/"><button>Back to homepage!</button></Link>
         </p>
+        <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>Account</Button></Link>
+        <br/>
         <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
           <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay'/>

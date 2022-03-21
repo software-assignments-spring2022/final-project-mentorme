@@ -1,7 +1,7 @@
 .searchBar {
     display: flex;
     flex-direction: row;
-    margin: 5px;
+    margin: 2px;
 }
 
 .searchTerm {
