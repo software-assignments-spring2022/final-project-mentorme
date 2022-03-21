@@ -12,19 +12,13 @@ const MentorMeHome = props => {
     <div className="MentorMeHome">
       <BurgerMenu/>
       <section className="main-content">
-        <Link to="/mentorMe/accountCentral"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>Account</Button></Link>
-        <img className="image" alt="welcome!" src={image} />
         <p>
           MentorMe home
           <br />
           <br />
-          // temporary navigation for developers -
-          <Link to="/mentorMe/profileDisplay"><button>Profile Display! </button></Link>
-
-          <Link to="/mentorMe/UserProfile"><button>My Profile</button> </Link>
-
-          <Link to="/"><button>Back to homepage!</button></Link>
         </p>
+        <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>Account</Button></Link>
+        <br/>
         <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
           <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay'/>
