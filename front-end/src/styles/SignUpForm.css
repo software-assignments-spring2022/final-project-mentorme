@@ -1,0 +1,55 @@
+#form{
+    background-color: rgb(252, 120, 120);
+    width: 100%;
+    height:100%;
+}
+.form-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#name{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#college{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+#school-year{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the email box */
+#email{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+/* Styling for the password box */
+#password{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+}
