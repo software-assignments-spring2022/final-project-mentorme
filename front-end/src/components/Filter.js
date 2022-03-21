@@ -1,9 +1,11 @@
 import React from "react"
 import { useState, useEffect, useRef} from "react";
+import { useNavigate } from 'react-router-dom';
 import "../styles/Filter.css"
 
 
-/*Filter takes 'options' that is an array of options in the filter list*/
+/*Filter takes 'options' that is an array of options in the filter list
+"navigateTo" refering the page to navigate after clicking apply*/
 const Filter = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
@@ -54,6 +56,7 @@ const Filter = (props) => {
           dropdownRef={dropdownRef}
           options={props.options}
           handleSelect={handleSelect}
+          navigateTo={props.navigateTo}
         />}
     </div>
   );
@@ -64,6 +67,14 @@ const Filter = (props) => {
 'handleSelect': to handle select checkbox
 */
 const FilterDropdown = (props) => {
+  const navigate = useNavigate();
+  const handleApply = (event) => {
+    event.preventDefault();
+    navigate(props.navigateTo)
+    if (props.navigateTo == window.location.pathname){
+      window.location.reload(false);
+    }
+  }
   return (
     <>
       <div ref={props.dropdownRef} className='filter_dropdown'>
@@ -71,7 +82,7 @@ const FilterDropdown = (props) => {
           <FilterItems name={option} handleSelect={props.handleSelect}/>
         ))}
         <div className="filter_dropdown_actions">
-          <button className="filter_dropdown_button">Apply</button>
+          <button className="filter_dropdown_button" onClick={handleApply}>Apply</button>
         </div>
       </div>
     </>
