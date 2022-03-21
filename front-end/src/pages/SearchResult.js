@@ -23,8 +23,8 @@ const SearchResult = props => {
           {/* <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link> */}
         </p>
         <div className="search">
-          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult' />
-          <Filter options={filterOptions} navigateTo='/rateAdvisor/:searchResult' />
+          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' />
+          <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' />
           <div className='clear' />
         </div>
 
@@ -37,7 +37,7 @@ const SearchResult = props => {
           <div className="list-group">
 
             {/* Data 1 */}
-            <Link to="/rateAdvisor/:searchResut/:commentsDisplay" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action listColor" aria-current="">
+            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -65,7 +65,7 @@ const SearchResult = props => {
             {/* Data 2 */}
 
 
-            <Link to="/rateAdvisor/:searchResut/:commentsDisplay" state={{ imgSrc: "https://picsum.photos/202" }} className="listColor list-group-item list-group-item-action" aria-current="">
+            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/202" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -91,7 +91,7 @@ const SearchResult = props => {
 
             </Link>
 
-            <Link to="/rateAdvisor/:searchResut/:commentsDisplay" state={{ imgSrc: "https://picsum.photos/203" }} className="listColor list-group-item list-group-item-action" aria-current="">
+            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/203" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -117,7 +117,7 @@ const SearchResult = props => {
 
             </Link>
 
-            <Link to="/rateAdvisor/:searchResut/:commentsDisplay" state={{ imgSrc: "https://picsum.photos/204" }} className="listColor list-group-item list-group-item-action" aria-current="">
+            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/204" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">

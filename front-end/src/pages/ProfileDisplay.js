@@ -34,7 +34,7 @@ const ProfileDisplay = props => {
           <div className="list-group">
 
             {/* Data 1 */}
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/201" }} className="listColor list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -62,7 +62,7 @@ const ProfileDisplay = props => {
             {/* Data 2 */}
 
 
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/202" }} className="listColor list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: "https://picsum.photos/202" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -88,7 +88,7 @@ const ProfileDisplay = props => {
 
             </Link>
 
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/203" }} className="listColor list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: "https://picsum.photos/203" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -114,7 +114,7 @@ const ProfileDisplay = props => {
 
             </Link>
 
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/204" }} className="listColor list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: "https://picsum.photos/204" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">

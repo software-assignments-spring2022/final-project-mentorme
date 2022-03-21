@@ -58,15 +58,15 @@ const App = props => {
 
           {/* a route to show the details of a specific animal, given its id - we pass the user data in as a prop and the animalId is passed in automatically as a param by react */}
           <Route exact
-            path="/rateAdvisor/:searchResult"
+            path="/rateAdvisor/searchResult"
             element={<SearchResult user={user} />}
           />
           <Route
-            path="/rateAdvisor/:searchResut/:commentsDisplay"
+            path="/rateAdvisor/searchResult/commentsDisplay"
             element={<CommentsDisplay user={user} />}
           />
           <Route
-            path="/rateAdvisor/:searchResut/:commentsDisplay/:postCommentPage"
+            path="/rateAdvisor/searchResult/commentsDisplay/postCommentPage"
             element={<PostCommentPage user={user} />}
 
           />
@@ -77,9 +77,9 @@ const App = props => {
           <Route exact path="/mentorMe/UserProfile" element={<UserProfile user={user} />} />
           <Route exact path="/mentorMe/EditProfile" element={<EditProfile user={user} />} />
 
-          <Route path="/mentorMe/:profileDisplay/:individualProfile" element={<IndividualProfile user={user} />} />
-          <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat" element={<IndividualChat user={user} />} />
-          <Route path="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage" element={<RatePage user={user} />} />
+          <Route path="/mentorMe/profileDisplay/individualProfile" element={<IndividualProfile user={user} />} />
+          <Route path="/mentorMe/profileDisplay/individualProfile/individualChat" element={<IndividualChat user={user} />} />
+          <Route path="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" element={<RatePage user={user} />} />
 
           <Route path="/mentorMe/accountCentral/ChatsHistory" element={<ChatsHistory user={user} />} />
           {/* a route to the log in form... this form is a placeholder only */}

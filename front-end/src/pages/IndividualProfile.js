@@ -1,19 +1,14 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/IndividualProfile.css"
-import image from '../images/10 Individual Profile.png'
-import { Button } from "../components/Button";
-import { useLocation } from 'react-router-dom'
 import BurgerMenu from "../components/BurgerMenu";
 
 const IndividualProfile = props => {
-  const location = useLocation();
-  const imgSrc = location.state.imgSrc;
   return (
     <div className="IndividualProfile">
       <BurgerMenu/>
       <section className="main-content">
-        <img className="resize" src={imgSrc} alt="picture" />
+        <img className="resize" src='https://picsum.photos/200' alt="picture" />
         <h1>User's Name</h1>
         <br/>
         <Link to="/individualChat"><button type="button" className="chatButton"> Chat </button></Link>

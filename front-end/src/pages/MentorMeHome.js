@@ -20,7 +20,7 @@ const MentorMeHome = props => {
         <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
         <br/>
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay'/>
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} />
           <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay'/>
         </div>
         <br/>
