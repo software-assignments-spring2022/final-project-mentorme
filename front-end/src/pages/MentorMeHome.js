@@ -25,7 +25,7 @@ const MentorMeHome = props => {
 
           <Link to="/"><button>Back to homepage!</button></Link>
         </p>
-        <div class="search">
+        <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
           <Filter options={filterOptions}/>
         </div>

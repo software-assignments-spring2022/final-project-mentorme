@@ -11,7 +11,7 @@ const UserProfile = props => {
       <BurgerMenu/>
       <section className="main-content">
       <h1>User's Name</h1>
-      <img src="https://picsum.photos/200/300/" class="center"/>
+      <img src="https://picsum.photos/200/300/" className="center"/>
       <br />
         <Link to="/mentorme/EditProfile"><button type="button"> Edit Profile </button></Link>
         <p>

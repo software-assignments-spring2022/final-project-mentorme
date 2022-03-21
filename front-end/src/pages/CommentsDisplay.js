@@ -1,35 +1,20 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/CommentsDisplay.css"
-import search from '../images/7 Comments dislpay.png'
-import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import BurgerMenu from "../components/BurgerMenu"
 
 
 const CommentsDisplay = props => {
-  const location = useLocation();
-  const imgSrc = location.state.imgSrc;
-
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  console.log(width, height);
   return (
-
     <div className="commentsDisplay">
-      {/* <img className="image" alt="welcome!" src={search} /> */}
-      
-      <header className="main-content">
-
-        <div>
-          Advisor Name: Lorem Ipsum
-          <br />
-          Academic Advisor at New York University
-        </div>
-        <div className="picture">
-          <img className="resize" src={imgSrc} alt="picture" />
-        </div>
-      </header>
+      <BurgerMenu />
+      <img src={`https://picsum.photos/3000/3000`} alt='A photo' />
     </div>
   )
 }
 
 export default CommentsDisplay
-
