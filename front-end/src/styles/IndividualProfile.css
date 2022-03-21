@@ -9,6 +9,20 @@ img{
     width: 200px;
 }
 
+.chatButton{
+    text-rendering: auto;
+    color: buttontext;
+    display: block;
+    text-align: center;
+    text-indent: 0px;
+    margin: 0 auto;
+}
+
+.bodyText{
+    margin: 10px 30px 10px;
+    text-align: center;
+}
+
 button {
     text-rendering: auto;
     color: buttontext;
@@ -16,3 +30,4 @@ button {
     display: inline-block;
     text-align: center;
 }
+

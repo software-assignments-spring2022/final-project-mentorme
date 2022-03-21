@@ -11,24 +11,23 @@ const MentorMeHome = props => {
   return (
     <div className="MentorMeHome">
       <BurgerMenu/>
+      <br/>
+      <br/>
+      <br/>
       <section className="main-content">
-        <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>My Account</Button></Link>
-        <img className="image" alt="welcome!" src={image} />
-        <p>
-          MentorMe home
-          <br />
-          <br />
-          // temporary navigation for developers -
-          <Link to="/mentorMe/profileDisplay"><button>Profile Display! </button></Link>
-
-          <Link to="/"><button>Back to homepage!</button></Link>
-        </p>
-        <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>Account</Button></Link>
+        <h1>MentorMe Home</h1>
+        <br/>
+        <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
         <br/>
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay'/>
           <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay'/>
         </div>
+        <br/>
+        {/* temporary navigation for developers -*/}
+        <Link to="/mentorMe/profileDisplay"><button>Mentors</button></Link>
+        <br/>
+        <Link to="/"><button>Back to homepage!</button></Link>
       </section>
     </div >
   )
