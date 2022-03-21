@@ -19,7 +19,7 @@ const ProfileDisplay = props => {
           <br />
           {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
         </p>
-        <div class="search">
+        <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
         </div>
       </section>
@@ -28,10 +28,10 @@ const ProfileDisplay = props => {
       <section className="resultList">
         <Container className="">
 
-          <div class="list-group">
+          <div className="list-group">
 
             {/* Data 1 */}
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/201" }} class="list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -40,9 +40,9 @@ const ProfileDisplay = props => {
                     </div>
                   </Col>
 
-                  <Col xs={8} md={10} className="columns"> <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Mentor Name</h5>
-                    <small class="text-muted">4.9/5</small>
+                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">Mentor Name</h5>
+                    <small className="text-muted">4.9/5</small>
                   </div >
                     <div className="school-name">                    <small >New York University</small>
                     </div>
@@ -59,7 +59,7 @@ const ProfileDisplay = props => {
             {/* Data 2 */}
 
 
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/202" }} class="list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/202" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -68,9 +68,9 @@ const ProfileDisplay = props => {
                     </div>
                   </Col>
 
-                  <Col xs={8} md={10} className="columns"> <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Mentor Name</h5>
-                    <small class="text-muted">4.2/5</small>
+                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">Mentor Name</h5>
+                    <small className="text-muted">4.2/5</small>
                   </div >
                     <div className="school-name">                    <small >New York University</small>
                     </div>
@@ -85,7 +85,7 @@ const ProfileDisplay = props => {
 
             </Link>
 
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/203" }} class="list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/203" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -94,9 +94,9 @@ const ProfileDisplay = props => {
                     </div>
                   </Col>
 
-                  <Col xs={8} md={10} className="columns"> <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Mentor Name</h5>
-                    <small class="text-muted">3.6/5</small>
+                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">Mentor Name</h5>
+                    <small className="text-muted">3.6/5</small>
                   </div >
                     <div className="school-name">                    <small >New York University</small>
                     </div>
@@ -111,7 +111,7 @@ const ProfileDisplay = props => {
 
             </Link>
 
-            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/204" }} class="list-group-item list-group-item-action" aria-current="">
+            <Link to="/mentorMe/:profileDisplay/:individualProfile" state={{ imgSrc: "https://picsum.photos/204" }} className="list-group-item list-group-item-action" aria-current="">
               <Container className="container-search">
                 <Row className="rows">
                   <Col xs={4} md={2} className="columns">
@@ -120,9 +120,9 @@ const ProfileDisplay = props => {
                     </div>
                   </Col>
 
-                  <Col xs={8} md={10} className="columns"> <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Mentor Name</h5>
-                    <small class="text-muted">1/5</small>
+                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">Mentor Name</h5>
+                    <small className="text-muted">1/5</small>
                   </div >
                     <div className="school-name">                    <small >New York University</small>
                     </div>

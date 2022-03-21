@@ -15,6 +15,7 @@
     outline: none;
     color: #000000;
     font-size: 14px;
+    text-align: left;
 }
 
 .searchButton {
@@ -28,4 +29,8 @@
     cursor: pointer;
     font-size: 14px;
     padding: 2px;
-  }
+}
+
+.searchMain {
+    width: 25vw;
+}

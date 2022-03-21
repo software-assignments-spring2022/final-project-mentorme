@@ -16,7 +16,7 @@ const Home = props => {
         <Container className="container-custom">
           <Row className="rows">
             <Col xs={12} md={4} className="columns titleCol">   <h1 id='webTitle'>MentorMe</h1>
-              <h2 class="fs-5"> /* a tagline goes here */</h2>
+              <h2 className="fs-5"> /* a tagline goes here */</h2>
               <div className="btn-title"><Link to="/rateAdvisor"><Button size="btn--default" buttonStyle="btn--primary--solid">Advisor</Button></Link>
                 <br />
                 <br />
