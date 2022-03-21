@@ -1,7 +1,20 @@
-.RatePage{
-    
-}
 
+.RatePage{
+    margin-top:90px;
+    display: flex;
+    flex-direction: column;
+}
+.Stack{
+    margin-top:90px;
+}
 .image{
     max-width: 35%;
+    align-items: center;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 250px;
+  }

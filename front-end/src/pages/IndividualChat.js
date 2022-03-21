@@ -16,7 +16,7 @@ const IndividualChat = props => {
           Individual Chat with mentor
           <br />
           <br />
-          <Link to="/mentorMe/:profileDisplay/:individualProfile/:individualChat/:ratePage"><Button buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'}>End Chat and Rate</Button></Link>
+          <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage"><Button buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'}>End Chat and Rate</Button></Link>
         </p>
       </section>
     </div>

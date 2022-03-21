@@ -74,18 +74,23 @@ const CommentsDisplay = props => {
       
       {/* header for displaying name, information, and score for the advisor */}
       <div className="header">
+        
         <div className="data">
           <div className="page-name">{`${advisor.last_name, advisor.first_name}`}</div>
           <div className="info">{`${advisor.department} Department at ${advisor.university}`}</div>
         </div>
-
+        
         <div className="score">
           <div className="page-score">{`${advisor.score}/5`}</div>
         </div>
       </div>
-
+      
+      
       {/* comments section */}
       <div className="comments">
+        <div className= "comment-button">
+        <Link  to= "/rateAdvisor/searchResult/commentsDisplay/postCommentPage"><Button>Post a Comment!</Button></Link>
+      </div>
         {comments.map(comment => (
             <div className="comment">
               

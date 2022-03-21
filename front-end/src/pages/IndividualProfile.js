@@ -11,7 +11,7 @@ const IndividualProfile = props => {
         <img className="resize" src='https://picsum.photos/200' alt="picture" />
         <h1>User's Name</h1>
         <br/>
-        <Link to="/individualChat"><button type="button" className="chatButton"> Chat </button></Link>
+        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/"><button type="button" className="chatButton"> Chat </button></Link>
         <p>
           <br/>
           <div className="bodyText">
