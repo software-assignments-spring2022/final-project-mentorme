@@ -19,8 +19,8 @@ const RateAdvisorHome = props => {
         <br />
       </p>
       <div className="search">
-        <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/:searchResult'/>
-        <Filter options={filterOptions} navigateTo='/rateAdvisor/:searchResult'/>
+        <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' isMentorMe={false} />
+        <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' />
       </div>
     </section>
   </div>
