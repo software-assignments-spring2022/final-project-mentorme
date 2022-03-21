@@ -36,3 +36,8 @@
 .list-group{
     padding:10% 10%;
 }
+
+.list-group-item{
+    background-color: rgb(252, 120, 120);
+
+}
