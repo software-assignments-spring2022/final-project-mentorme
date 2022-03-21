@@ -7,6 +7,13 @@
 }
 
 
+.search{
+    text-align: right;
+    clear: both;
+    float:left;
+}
+
+
 .image{
     max-width: 35%;
 }
