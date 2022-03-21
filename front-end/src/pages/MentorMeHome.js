@@ -25,7 +25,7 @@ const MentorMeHome = props => {
         </p>
         <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
-          <Filter options={filterOptions}/>
+          <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay'/>
         </div>
       </section>
     </div >

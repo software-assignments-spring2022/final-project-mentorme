@@ -5,8 +5,10 @@ import image from '../images/9 Profiles.png'
 import SearchBar from '../components/SearchBar'
 import { Container, Col, Row } from "react-bootstrap"
 import BurgerMenu from "../components/BurgerMenu"
+import Filter from '../components/Filter'
 
 const ProfileDisplay = props => {
+  const filterOptions = ['a', 'b'];
   return (
     <div className="ProfileDisplay">
       <BurgerMenu />
@@ -21,6 +23,7 @@ const ProfileDisplay = props => {
         </p>
         <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
+          <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay'/>
         </div>
       </section>
 
