@@ -14,6 +14,7 @@ const UserProfile = props => {
       <img src="https://picsum.photos/200/300/" className="center"/>
       <br />
         <Link to="/mentorme/EditProfile"><button type="button"> Edit Profile </button></Link>
+        <Link to="/mentorMe/UserProfile/ChatsHistory"><button type="button"> Chat History</button></Link>
         <p>
           <br />
           <br />

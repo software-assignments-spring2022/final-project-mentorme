@@ -81,7 +81,7 @@ const App = props => {
           <Route path="/mentorMe/profileDisplay/individualProfile/individualChat" element={<IndividualChat user={user} />} />
           <Route path="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" element={<RatePage user={user} />} />
 
-          <Route path="/mentorMe/accountCentral/ChatsHistory" element={<ChatsHistory user={user} />} />
+          <Route path="/mentorMe/UserProfile/ChatsHistory" element={<ChatsHistory user={user} />} />
           {/* a route to the log in form... this form is a placeholder only */}
           <Route
             path="/logIn"
