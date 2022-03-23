@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import BurgerMenu from "../components/BurgerMenu"
 
 const SearchResult = props => {
-  const filterOptions = ['a', 'b'];
+  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
   return (
 
     <div className="SearchResult">
