@@ -8,7 +8,7 @@ import BurgerMenu from "../components/BurgerMenu"
 import Filter from '../components/Filter'
 
 const ProfileDisplay = props => {
-  const filterOptions = ['a', 'b'];
+  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science'];
   return (
     <div className="ProfileDisplay">
       <BurgerMenu />
