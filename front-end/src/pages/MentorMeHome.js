@@ -7,7 +7,7 @@ import Filter from '../components/Filter'
 import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
 const MentorMeHome = props => {
-  const filterOptions = ['a', 'b']
+  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science']
   return (
     <div className="MentorMeHome">
       <BurgerMenu/>
