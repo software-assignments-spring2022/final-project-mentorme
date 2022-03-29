@@ -7,7 +7,7 @@ import Filter from '../components/Filter'
 
 
 const RateAdvisorHome = props => {
-  const filterOptions = ['a', 'b']
+  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
   return (
   
   <div className="RateAdvisorHome">
