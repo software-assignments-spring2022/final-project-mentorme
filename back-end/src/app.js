@@ -7,7 +7,7 @@ const stringSimilarity = require("string-similarity");
 // we will put some server logic here later...
 app.use(morgan("dev"))
 
-// handle search get request on advisor page. Return the most relevant 3 results
+// handle search get request on advisor page. Return the most relevant 3 results. Req should has search term as 'name'
 function calulateRank (term, arr) {
     let sim_arr = []
     let output_arr = []
