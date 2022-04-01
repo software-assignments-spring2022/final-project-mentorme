@@ -92,12 +92,12 @@ app.post("/mentorMe/UserProfile/EditProfile/post_info", (req, res) => {
 
 app.get("/mentorMe/profileDisplay/individualProfile" , (req, res) => {
     const mentorinfo = {
-        name: "UserName",
-        bio: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec n",
-        profilepic: "https://picsum.photos/200/300/",
+        name: req.body.name,
+        bio: req.body.bio,
+        profilepic: req.body.profilePic,
     }
-    res.send("Mentor Info Retrieved")
-    res.json(mentorinfo)
+    res.send("Mentor info retrieved")
+    req.json(mentorinfo)
 })
 
 
