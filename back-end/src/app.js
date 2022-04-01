@@ -59,8 +59,7 @@ app.get("/mentorMe/UserProfile", (req, res) => {
         bio: req.body.bio,
         profilepic: req.body.profilePic,
     }
-    res.send("User info retrieved")
-    req.json(profileinfo)
+    res.json(profileinfo)
 })
 
 app.get("/mentorMe/UserProfile/EditProfile", (req, res) => {
@@ -71,8 +70,7 @@ app.get("/mentorMe/UserProfile/EditProfile", (req, res) => {
         bio: req.body.bio,
         profilePic: req.body.profilePic
     }
-    res.send("User info retrieved")
-    req.json(userinfo)
+    res.json(userinfo)
 })
 
 app.post("/mentorMe/UserProfile/EditProfile/post_info", (req, res) => {
@@ -97,7 +95,7 @@ app.get("/mentorMe/profileDisplay/individualProfile" , (req, res) => {
         profilepic: req.body.profilePic,
     }
     res.send("Mentor info retrieved")
-    req.json(mentorinfo)
+    res.json(mentorinfo)
 })
 
 
