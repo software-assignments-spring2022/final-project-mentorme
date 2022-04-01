@@ -44,7 +44,9 @@ function calulateRank (term, arr) {
 }
 
 app.get("/", (req, res) => {
+    console.log("home")
     res.send("Home")
+    res.json("Home-1")
 })
 
 app.get("/mentorMe" , (req, res) => {
@@ -52,27 +54,50 @@ app.get("/mentorMe" , (req, res) => {
 })
 
 app.get("/mentorMe/UserProfile", (req, res) => {
-    const userinfo = {
-        name: "UserName",
-        bio: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec n",
-        profilepic: "https://picsum.photos/200/300/",
+    const profileinfo = {
+        name: req.body.name,
+        bio: req.body.bio,
+        profilepic: req.body.profilePic,
     }
-    res.json(userinfo)
+    res.send("User info retrieved")
+    req.json(profileinfo)
 })
 
 app.get("/mentorMe/UserProfile/EditProfile", (req, res) => {
     const userinfo = {
-        name: "UserName",
-        bio: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec n",
-        profilepic: "https://picsum.photos/200/300/",
-        email: "UserName@gmail.com",
-        password: "thePassword123",
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password, 
+        bio: req.body.bio,
+        profilePic: req.body.profilePic
     }
-    res.json(userinfo)
+    res.send("User info retrieved")
+    req.json(userinfo)
+})
+
+app.post("/mentorMe/UserProfile/EditProfile/post_info", (req, res) => {
+    const data = {
+        status: "info received",
+        the_data: {
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password, 
+            bio: req.body.bio,
+            profilePic: req.body.profilePic
+        },
+    }
+    res.send("Data has been sent")
+    res.json(data)
 })
 
 app.get("/mentorMe/profileDisplay/individualProfile" , (req, res) => {
-    res.send("Individual Profile")
+    const mentorinfo = {
+        name: "UserName",
+        bio: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec n",
+        profilepic: "https://picsum.photos/200/300/",
+    }
+    res.send("Mentor Info Retrieved")
+    res.json(mentorinfo)
 })
 
 

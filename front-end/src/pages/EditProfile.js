@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/EditProfile.css"
 import BurgerMenu from "../components/BurgerMenu"
+import Button from "../components/Button"
 
 
 const EditProfile = props => {
@@ -11,6 +12,13 @@ const EditProfile = props => {
         <section className="main-content">
           
           <h1>Edit Profile</h1>
+          {/* <form action="/post_info" method="POST">
+            <input type="text" name="name" placeholder="Change Name" /> <br />
+            <input type="text" name="email" placeholder="Change Email" /> <br />
+            <input type="text" name="password" placeholder="Change Name" /> <br />
+            <input type="text" name="bio" placeholder="Change Bio" /> <br />
+          </form> */}
+
           <div class="personal_info">
               <label for="username" className="personal_info">Change Username:</label>
               <input type="text" id="username" className="personal_info" name="username"/>
@@ -34,7 +42,8 @@ const EditProfile = props => {
             <input type="text" className="bio" name="bio"/>
             <br />
           </p>
-          <Link to="/mentorme/UserProfile"><button type="button" id="return_button"> Return </button></Link>
+          <Link to = "/mentorMe/UserProfile"><Button id = "Change Info" type="submit" value="CHANGEINFO">Submit Changes</Button></Link>
+          <Link to="/mentorme/UserProfile"><Button type="button" id="return_button"> Return </Button></Link>
         </section>
       </div>
     )

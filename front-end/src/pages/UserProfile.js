@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/UserProfile.css"
 import BurgerMenu from "../components/BurgerMenu"
+import Button from "../components/Button"
 
 
 
@@ -13,8 +14,8 @@ const UserProfile = props => {
       <h1>User's Name</h1>
       <img src="https://picsum.photos/200/300/" className="center"/>
       <br />
-        <Link to="/mentorme/EditProfile"><button type="button"> Edit Profile </button></Link>
-        <Link to="/mentorMe/UserProfile/ChatsHistory"><button type="button"> Chat History</button></Link>
+        <Link to="/mentorme/EditProfile"><Button type="button"> Edit Profile </Button></Link>
+        <Link to="/mentorMe/UserProfile/ChatsHistory"><Button type="button"> Chat History</Button></Link>
         <p>
           <br />
           <br />
@@ -29,7 +30,7 @@ const UserProfile = props => {
           <br />
           <br />
         </p>
-        <Link to="/mentorme"><button type="button"> Return </button></Link>
+        <Link to="/mentorme"><Button type="button"> Return </Button></Link>
       </section>
     </div>
   )
