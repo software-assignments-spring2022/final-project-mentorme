@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
 const RatePage = props => {
-  const [value, setValue] = React.useState(2);
+  const [rate, setRate] = React.useState(1);
 
   return (
     <div className="RatePage">
@@ -21,14 +21,14 @@ const RatePage = props => {
   alignItems="center"
   justifyContent="center"  style={{ minHeight: '50vh' }}>
     <h2 >Current Rate</h2>
-    <Rating name="read-only" value={value} readOnly size="large"/>
+    <Rating name="read-only" value={rate} readOnly size="large"/>
     <h2>Your Rate</h2>
 
-    <Rating name="size-large" defaultValue={2} size="large" />
+    <Rating name="size-large"   onChange={(event, newValue) => {
+          setRate(newValue);}} size="large" />
     </Stack>
 
     </div>
   )
 }
-
 export default RatePage

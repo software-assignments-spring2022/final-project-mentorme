@@ -5,7 +5,7 @@ const app = express() // instantiate an Express object
 const morgan = require("morgan") // middleware for nice logging of incoming HTTP requests
 const stringSimilarity = require("string-similarity");
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
-const rateMentor = require('./rateMentorRoutes')
+const rateMentorRoutes = require('./rateMentorRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 
@@ -39,6 +39,6 @@ app.get("/rateAdvisor/searchResult", (req, res) => {
 })
 
 // using the app.use to use the routes that I created inside the rateMentorRoutes.js file.
-app.use('/mentorMe/profileDisplay/individualProfile/individualChat',rateMentor);
+app.use('/mentorMe/profileDisplay/individualProfile/individualChat',rateMentorRoutes);
 // export the express app we created to make it available to other modules
 module.exports = app
