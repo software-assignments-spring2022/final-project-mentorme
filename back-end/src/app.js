@@ -44,9 +44,7 @@ function calulateRank (term, arr) {
 }
 
 app.get("/", (req, res) => {
-    console.log("home")
     res.send("Home")
-    res.json("Home-1")
 })
 
 app.get("/mentorMe" , (req, res) => {
@@ -54,26 +52,30 @@ app.get("/mentorMe" , (req, res) => {
 })
 
 app.get("/mentorMe/UserProfile", (req, res) => {
-    const profileinfo = {
-        name: req.body.name,
-        bio: req.body.bio,
-        profilepic: req.body.profilePic,
-    }
-    res.json(profileinfo)
+    // const body = {
+    //     name: "Sarah",
+    //     bio: "something",
+    //     profilePic: "https://picsum.photos/200/300/",
+    // }
+
+    //res.json(body)
+    const username = "Sarah"
+    res.json(username)
+
 })
 
-app.get("/mentorMe/UserProfile/EditProfile", (req, res) => {
-    const userinfo = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password, 
-        bio: req.body.bio,
-        profilePic: req.body.profilePic
-    }
-    res.json(userinfo)
-})
+// app.get("/mentorMe/UserProfile/EditProfile", (req, res) => {
+//     const userinfo = {
+//         name: req.body.name,
+//         email: req.body.email,
+//         password: req.body.password, 
+//         bio: req.body.bio,
+//         profilePic: req.body.profilePic
+//     }
+//     res.json(userinfo)
+// })
 
-app.post("/mentorMe/UserProfile/EditProfile/post_info", (req, res) => {
+app.post("/mentorMe/UserProfile/EditProfile", (req, res) => {
     const data = {
         status: "info received",
         the_data: {
@@ -81,10 +83,10 @@ app.post("/mentorMe/UserProfile/EditProfile/post_info", (req, res) => {
             email: req.body.email,
             password: req.body.password, 
             bio: req.body.bio,
-            profilePic: req.body.profilePic
+            profilePic: "https://picsum.photos/200/300/"
         },
     }
-    res.send("Data has been sent")
+    //res.send("Data has been sent")
     res.json(data)
 })
 

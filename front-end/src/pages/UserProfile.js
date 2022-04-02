@@ -3,15 +3,30 @@ import { Link } from "react-router-dom"
 import "../styles/UserProfile.css"
 import BurgerMenu from "../components/BurgerMenu"
 import Button from "../components/Button"
+import { useState, useEffect } from 'react'
+//import axios from 'axios'
 
 
 
 const UserProfile = props => {
+  const [username, setState] = useState('')
+  const fetchuserinfo = () => {
+
+    fetch("http://localhost:5000/mentorMe/UserProfile")
+      .then(response => setState(response.data.username))
+  }
+
+  useEffect(() => {
+    // fetch messages this once
+    fetchuserinfo()
+  }, []) // putting a blank array as second argument will cause this function to run only once when component first loads
+
+
   return (
     <div className="UserProfile">
       <BurgerMenu/>
       <section className="main-content">
-      <h1>User's Name</h1>
+      <h1>Username {username}</h1>
       <img src="https://picsum.photos/200/300/" className="center"/>
       <br />
         <Link to="/mentorme/EditProfile"><Button type="button"> Edit Profile </Button></Link>

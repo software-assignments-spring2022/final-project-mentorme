@@ -6,10 +6,10 @@ import Button from "../components/Button";
 import { Container, Row, Col } from 'react-bootstrap';
 import BurgerMenu from "../components/BurgerMenu"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useState, useEffect } from 'react'
 const Home = props => {
   return (
     <div className="Home">
-
       {/* introduction section */}
       <BurgerMenu/>
       <section id='title'>
@@ -28,7 +28,7 @@ const Home = props => {
 
         </Container>
 
-
+      
       </section>
       {/* <section className="main-content">
 
