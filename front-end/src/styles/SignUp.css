@@ -1,5 +1,5 @@
-.SignUp{
-    background-color: rgb(252, 120, 120);
+.SignUp {
+    background-color: rgb(250, 197, 197);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -12,4 +12,42 @@
 
 .form-group input {
     text-align: left;
+}
+
+.signup__bg {
+    background-image: url("../images/3-signUpPage.jpeg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+.signup-profile-pic__container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.signup-profile-pic {
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    object-fit: cover;
+    height: 100px;
+}
+
+.add-picture-icon {
+    position: abosulte !important;
+    bottom: 0;
+    right: 10px;
+    color: green;
+    background: white;
+    cursor: pointer;
+    z-index: 85;
+}
+
+i.fa.fa-plus-circle.add-picture-icon {
+    position: absolute;
 }
