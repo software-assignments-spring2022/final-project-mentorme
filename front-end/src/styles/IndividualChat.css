@@ -1,23 +1,24 @@
-.IndividualChat{
-    
-}
+.IndividualChat {}
 
-.image{
+.image {
     max-width: 35%;
 }
-.chat{
+
+.chat {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     flex: 1,
 
 }
-.chat ul{
+
+.chat ul {
     list-style: none;
     list-style-type: none;
     list-style-position: outside;
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
-.chat ul li{
+
+.chat ul li {
     text-align: right;
 }

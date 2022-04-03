@@ -1,36 +1,22 @@
 .UserProfile {
-    background-color:rgb(252, 120, 120);
-    width:100%;
-    height:100%;
-    position:absolute;
-}
-.main-content{
-    background-color:rgb(252, 120, 120);
-    width:100%;
-    height:100%;
+    background-color: rgb(252, 120, 120);
+    width: 100%;
+    height: 100%;
     position: absolute;
 }
 
-img{
-    margin: 10px 30px 10px;
-    align: center;
-}
-center{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-
+.main-content {
+    background-color: rgb(252, 120, 120);
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
-.UserProfile p{
+.UserProfile p {
     margin: 10px 30px 10px;
     text-align: center;
 }
-button {
-    text-rendering: auto;
-    color: buttontext;
-    text-indent: 0px;
-    display: inline-block;
-    text-align: center;
+
+.Profile-error {
+    color: red;
 }
