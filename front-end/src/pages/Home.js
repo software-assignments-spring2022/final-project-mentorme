@@ -6,7 +6,7 @@ import Button from "../components/Button";
 import { Container, Row, Col } from 'react-bootstrap';
 import BurgerMenu from "../components/BurgerMenu"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useState, useEffect } from 'react'
+//import { useState, useEffect } from 'react'
 const Home = props => {
   localStorage.clear()
   return (
@@ -17,7 +17,7 @@ const Home = props => {
         <Container className="container-custom">
           <Row className="rows">
             <Col xs={12} md={4} className="columns titleCol">   <h1 id='webTitle'>MentorMe</h1>
-              <h2 className="fs-5"> /* a tagline goes here */</h2>
+              <h2 className="fs-5"> /* a tagline goes here */ </h2>
               <div className="btn-title"><Link to="/rateAdvisor"><Button size="btn--default" buttonStyle="btn--primary--solid">Advisor</Button></Link>
                 <br />
                 <br />
