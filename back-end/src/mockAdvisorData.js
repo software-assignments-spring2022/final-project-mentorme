@@ -1,3 +1,4 @@
+const advisorData =
 [{
     "id": 1,
     "first_name": "Mayer",
@@ -34,3 +35,5 @@
     "department": "Legal",
     "score": 2.8
   }]
+
+  module.exports = advisorData
