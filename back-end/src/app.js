@@ -11,6 +11,17 @@ const login = require('./login')
 app.use(morgan("dev"))
 
 
+// This code fixed the errors I was having with front-end haveing an error connecting to the back-end
+// There may be a better solution for this
+app.use(function (req, res, next) {
+    //Enabling CORS
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+    next();
+});
+
+
 
 app.use(express.json()) // decode JSON-formatted incoming POST data
 app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming POST data
@@ -53,16 +64,13 @@ app.get("/mentorMe" , (req, res) => {
 })
 
 app.get("/mentorMe/UserProfile", (req, res) => {
-    // const body = {
-    //     name: "Sarah",
-    //     bio: "something",
-    //     profilePic: "https://picsum.photos/200/300/",
-    // }
+    const body = {
+         username: "Sarah",
+         bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec nibh imperdiet placerat at vel nibh. Integer rutrum vel massa non blandit. Donec mollis hendrerit",
+         profilePic: "https://picsum.photos/200/300/",
+    }
 
-    //res.json(body)
-    const username = "Sarah"
-    res.json(username)
-
+    res.json(body)
 })
 
 // app.get("/mentorMe/UserProfile/EditProfile", (req, res) => {
@@ -84,7 +92,7 @@ app.post("/mentorMe/UserProfile/EditProfile", (req, res) => {
             email: req.body.email,
             password: req.body.password, 
             bio: req.body.bio,
-            profilePic: "https://picsum.photos/200/300/"
+            profilePic: req.body.profilePic
         },
     }
     //res.send("Data has been sent")
