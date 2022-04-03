@@ -81,9 +81,9 @@ Install the following modules locally in your project directory:
 
  `chai` - supplies assertions for unit tests
 
-To test, from the root of the repository:
+To test, from the back-end repository:
 
-    npx mocha tests/XXX.js
+    npx mocha test/XXX.js
 
 ### Chats:
 - open two individual tabs on chat page running on `port:3000` to communicate as two users
