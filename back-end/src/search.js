@@ -1,4 +1,5 @@
-const profiles = require('./mockAdvisorData');
+const advisorProfiles = require('./mockAdvisorData');
+const mentorProfiles = require('./mockRateMentorData')
 const express = require("express");
 const router = express.Router();
 const stringSimilarity = require("string-similarity");
@@ -26,9 +27,14 @@ function calulateRank(term, arr) {
     return output_arr
 }
 
-router.get("/", (req, res) => {
+router.get("/rateAdvisor/searchResult", (req, res) => {
     console.log(req.query)
-    res.send(calulateRank(req.query.name, profiles))
+    res.send(calulateRank(req.query.name, advisorProfiles))
+})
+
+router.get("/mentorMe/profileDisplay", (req, res) => {
+    console.log(req.query)
+    res.send(calulateRank(req.query.name, mentorProfiles))
 })
 
 module.exports = router;

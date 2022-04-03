@@ -1,8 +1,13 @@
-const mentorRateData =[ {id: 1, name:'jhonny', currentRate:5,rates : [5,5,5]},
-                        {id: 2, name:'jhon', currentRate:3.6,rates : [5,3,3]},
-                        {id: 3, name:'joao', currentRate:3.3,rates : [5,3,2]},
-                        {id: 4, name:'joseph', currentRate: 3,rates : [4,3,2]},
-                        {id: 5, name:'jae', currentRate:2.6,rates : [3,3,2]},
+const mentorRateData =[ 
+    {id: 1, first_name:'jhonny', last_name:'Smith', currentRate:5,rates : [5,5,5]},
+                        
+    {id: 2, first_name:'jhon', last_name:'Johnson', currentRate:3.6,rates : [5,3,3]},
+                        
+    {id: 3, first_name:'joao', last_name:'Williams', currentRate:3.3,rates : [5,3,2]},
+
+    {id: 4, first_name:'joseph', last_name:'Brown', currentRate: 3,rates : [4,3,2]},
+                        
+    {id: 5, first_name:'jae', last_name:'Jones', currentRate:2.6,rates : [3,3,2]},
                     ]
 
 module.exports =mentorRateData
