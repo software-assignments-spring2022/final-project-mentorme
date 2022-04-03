@@ -56,7 +56,7 @@ const SearchBar = (props) => {
   const [suggestion, setSuggestion] = useState(mockData)
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(props.navigateTo)
+    navigate(props.navigateTo, { state: { name:'Xyz' }})
     if (props.navigateTo == window.location.pathname){
       window.location.reload(false);
     }

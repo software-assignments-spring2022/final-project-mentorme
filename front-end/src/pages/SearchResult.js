@@ -7,9 +7,12 @@ import Filter from '../components/Filter'
 import { Container, Col, Row } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import BurgerMenu from "../components/BurgerMenu"
+import { useLocation } from "react-router-dom";
 
 const SearchResult = props => {
+  const location = useLocation();
   const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
+  console.log(location.state)
   return (
 
     <div className="SearchResult">
