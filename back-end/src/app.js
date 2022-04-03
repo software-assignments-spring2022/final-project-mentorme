@@ -7,6 +7,9 @@ const stringSimilarity = require("string-similarity");
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
 const rateMentor = require('./rateMentorRoutes')
 const login = require('./login')
+const userprofile = require('./userprofile')
+const editprofile = require('./editprofile')
+const individualprofile = require('./individualprofile')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 
@@ -63,54 +66,6 @@ app.get("/mentorMe" , (req, res) => {
     res.send("MentorMe Home")
 })
 
-app.get("/mentorMe/UserProfile", (req, res) => {
-    const body = {
-         username: "Sarah",
-         bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in auctor justo, id tristique nisi. Sed at massa risus. Nunc imperdiet vehicula sapien, a molestie orci aliquam molestie. Aenean non leo in velit venenatis blandit. Aliquam eu sapien nec nibh imperdiet placerat at vel nibh. Integer rutrum vel massa non blandit. Donec mollis hendrerit",
-         profilePic: "https://picsum.photos/200/300/",
-    }
-
-    res.json(body)
-})
-
-// app.get("/mentorMe/UserProfile/EditProfile", (req, res) => {
-//     const userinfo = {
-//         name: req.body.name,
-//         email: req.body.email,
-//         password: req.body.password, 
-//         bio: req.body.bio,
-//         profilePic: req.body.profilePic
-//     }
-//     res.json(userinfo)
-// })
-
-app.post("/mentorMe/UserProfile/EditProfile", (req, res) => {
-    const data = {
-        status: "info received",
-        the_data: {
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password, 
-            bio: req.body.bio,
-            profilePic: req.body.profilePic
-        },
-    }
-    //res.send("Data has been sent")
-    res.json(data)
-})
-
-app.get("/mentorMe/profileDisplay/individualProfile" , (req, res) => {
-    const mentorinfo = {
-        name: req.body.name,
-        bio: req.body.bio,
-        profilepic: req.body.profilePic,
-    }
-    res.send("Mentor info retrieved")
-    res.json(mentorinfo)
-})
-
-
-
 app.get("/chat", (req, res) => {
     res.send("Hello!!")
 })
@@ -122,6 +77,9 @@ app.get("/rateAdvisor/searchResult", (req, res) => {
 // using the app.use to use the routes that I created inside the rateMentorRoutes.js file.
 app.use('/mentorMe/profileDisplay/individualProfile/individualChat', rateMentor);
 app.use('/login', login);
+app.use("/mentorMe/UserProfile", userprofile);
+app.use("/mentorMe/UserProfile/EditProfile", editprofile);
+app.use("/mentorMe/profileDisplay/individualProfile", individualprofile);
 
 // export the express app we created to make it available to other modules
 module.exports = app

@@ -10,56 +10,41 @@ import axios from 'axios'
 
 const UserProfile = props => {
   const [userData, setUserData] = useState({});
-
-  const getData = async () => {
-    try {
-      const response = await axios.get('http://localhost:4000/mentorMe/UserProfile');
-      await setUserData(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // React Hook that executes the fetch function on the first render 
+  const [error, setError] = useState('')
+  const getData = () => {
+    axios
+      .get('http://localhost:4000/mentorMe/UserProfile')
+      .then(response => {setUserData(response.data)})
+    .catch(err => {
+      setError(err)
+    })
+  }
   useEffect(() => {
     getData();
-  }, []);
-
-
-  // fetch("http://localhost:5000/mentorMe/UserProfile")
-  //      .then(response => setState(response.data))
-
- 
-
-
-  // useEffect(() => {
-  //   setName(response.data.username);
-  //   setBio(response.data.bio);
-  //   setPic(response.data.pic);
+  })
   
-  // })
-  // const [username, setUsername] = useState('');
-  // const [bio, setBio] = useState('');
-  // const [profilePic, setProfilePic] = useState('');
-  // const fetchuserinfo = () => {
-
-    // fetch("http://localhost:5000/mentorMe/UserProfile")
-    //   .then(response => setState(response.data.username))
+  if (localStorage.username != null){
+    userData.username = localStorage.username
+  }
+  if (localStorage.bio != null){
+    userData.bio = localStorage.bio
+  }
+  if (localStorage.username != null){
+    userData.profilePic = localStorage.profilePic
+  }
 
   
 
-  // useEffect(() => {
-  //   // fetch messages this once
-  //   fetchuserinfo()
-  // }, []) // putting a blank array as second argument will cause this function to run only once when component first loads
-
-
+  
   return (
     <div className="UserProfile">
       <BurgerMenu/>
       <section className="main-content">
+      
+      {error && <p className="Profile-error">{error}</p>}
+
       <h1>Username {userData.username}</h1>
-      <img src={userData.profilePic} className="center"/>
+      <img src={userData.profilePic} className="center" alt="profile"/>
       <br />
         <Link to="/mentorme/EditProfile"><Button type="button"> Edit Profile </Button></Link>
         <Link to="/mentorMe/UserProfile/ChatsHistory"><Button type="button"> Chat History</Button></Link>

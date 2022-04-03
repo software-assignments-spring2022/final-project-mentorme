@@ -5,27 +5,15 @@
     position:absolute;
 }
 
-.profileimage {
-    width: 400px;
+
+.personal_info input,
+.personal_info button,
+.personal_info textarea {
+  margin: 5px auto; /* centered */
+  padding: 10px;
+  display: block;
+  width: 200px;
 }
 
-.personal_info {
-    text-align: right;
-    clear: both;
-    float:left;
-}
 
-.return_button {
-    text-rendering: auto;
-    color: buttontext;
-    text-indent: 0px;
-    display: inline-block;
-    text-align: center;
-}
 
-.bio {
-    height: 200px;
-    padding: 12px 20px;
-    display: inline-block;
-    text-align: center;
-}

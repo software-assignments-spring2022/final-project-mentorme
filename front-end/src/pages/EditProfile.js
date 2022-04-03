@@ -3,52 +3,91 @@ import { Link } from "react-router-dom"
 import "../styles/EditProfile.css"
 import BurgerMenu from "../components/BurgerMenu"
 import Button from "../components/Button"
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+
 
 
 const EditProfile = props => {
-    return (
-      <div className="EditProfile"> 
-        <BurgerMenu/>
-        <section className="main-content">
-          
-          <h1>Edit Profile</h1>
-          <form action="/mentorMe/UserProfile/EditProfile" method="POST">
-            <input type="text" name="name" placeholder="Change Name" /> <br />
-            <input type="text" name="email" placeholder="Change Email" /> <br />
-            <input type="text" name="password" placeholder="Change Password" /> <br />
-            <input type="text" name="bio" placeholder="Change Bio" /> <br />
-            {/* <input type="text" name="profilePic" placeholder="https://picsum.photos/200/300/" /> <br /> */}
-            <input type="submit" value="Submit" />
-          </form>
+  // create a state variable for each form field
+  const [username, setUserName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [bio, setBio] = useState('')
+  const [profilePic, setProfilePic] = useState('')
+  
 
-          {/* <div class="personal_info">
-              <label for="username" className="personal_info">Change Username:</label>
-              <input type="text" id="username" className="personal_info" name="username"/>
-              <label for="a_password" className="personal_info">Change Password:</label>
-              <input type="text" id="a_password" className="personal_info" name="password"/>
-              <label for="a_email" className="personal_info">Change Email:</label>
-              <input type="text" id="a_email" className="personal_info" name="email"/>
-              <label for="phone_number" className="personal_info">Change Phone Number:</label>
-              <input type="text" id="phone_number" className="personal_info" name="phone_number"/>
-              <label for="major" className="personal_info">Change Major:</label>
-              <input type="text" id="major" className="personal_info" name="major"/>
-          </div> */}
-          <br />
-          <label for="profileimage">Change Profile Picture</label>
-          <br />
-          <input type="file" className="profileimage" name="ProfilePicture"/>
-          <br />
-          <p>
-            <label for="bio">Edit Bio:</label>
-            <br />
-            <input type="text" className="bio" name="bio"/>
-            <br />
-          </p>
-          {/*<Link to = "/mentorMe/UserProfile"><Button id = "Change Info" type="submit" value="CHANGEINFO">Submit Changes</Button></Link>*/}
-          <Link to="/mentorme/UserProfile"><Button type="button" id="return_button"> Return </Button></Link>
-        </section>
-      </div>
-    )
+  const submitForm = e => {
+    e.preventDefault() // prevent normal browser submit behavior
+
+    try{
+      axios
+        .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
+          username: username,
+          email: email,
+          password: password,
+          bio: bio,
+          profilePic: profilePic
+      })
+      .then(response => response.data)
+      localStorage.setItem('username', username);
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+      localStorage.setItem('bio', bio);
+      localStorage.setItem('profilePic', profilePic);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // clear form
+    setUserName('')
+
+  }
+
+  return (
+    <div className="EditProfile"> 
+      <BurgerMenu/>
+      <section className="main-content">
+        
+        <h1>Edit Profile</h1>
+        <form className="personal_info" onSubmit={submitForm}>
+          <input
+            type="text"
+            placeholder="Change Name"
+            value={username}
+            onChange={e => setUserName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Change Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Change Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <textarea
+            placeholder="Change Bio"
+            value={bio}
+            onChange={e => setBio(e.target.value)}
+          />
+          <input
+            type="file"
+            placeholder="Change Profile Picture"
+            value={profilePic}
+            alt = "profile"
+            onChange={e => setProfilePic(e.target.value)}
+          />
+          <input type="submit" disabled={!username} value="Submit" />
+        </form>
+
+        <Link to="/mentorme/UserProfile"><Button type="button" id="return_button"> Return </Button></Link>
+      </section>
+    </div>
+  )
   }
   
   

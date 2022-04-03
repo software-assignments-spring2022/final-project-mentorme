@@ -8,6 +8,7 @@ import BurgerMenu from "../components/BurgerMenu"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState, useEffect } from 'react'
 const Home = props => {
+  localStorage.clear()
   return (
     <div className="Home">
       {/* introduction section */}
