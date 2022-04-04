@@ -36,11 +36,23 @@ const ProfileDisplay = props => {
       })
   }
 
+  const getDefResult = async () => {
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: 'A' } })
+      .then(res => {
+        setUserData(res.data);
+      })
+      .catch(err => {
+        setError(err)
+      })
+  }
+
   useEffect(()=>{
-    if (typeof location.state.name !== 'undefined'){
-      getSearchResult()
-    }else{
+    if (location.state === null){
+      getDefResult()
+    }else if (typeof location.state.filter !== 'undefined'){
       getFilterResult()
+    }else{
+      getSearchResult()
     }
   }, [location.state])
 
