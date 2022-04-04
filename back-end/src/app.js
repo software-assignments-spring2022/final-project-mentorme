@@ -14,8 +14,8 @@ const editprofile = require('./editprofile')
 const individualprofile = require('./individualprofile')
 const chat = require('./chat')
 const search = require('./search')
-const rateMentorRoutes = require('./rateMentorRoutes')
 const commentDisplayRoutes = require('./commentDisplayRoutes')
+const postCommentRoutes =require('./postCommentsRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
@@ -99,6 +99,8 @@ app.get("/chat", (req, res) => {
 
 // using the app.use to use the routes that I created inside the rateMentorRoutes.js file.
 app.use('/mentorMe/profileDisplay/individualProfile/individualChat', rateMentor);
+app.use('/rateAdvisor/searchResult/commentsDisplay/', postCommentRoutes);
+
 app.use('/login', login);
 app.use('/chat', chat);
 
@@ -108,8 +110,5 @@ app.use("/mentorMe/profileDisplay/individualProfile", individualprofile);
 app.use("/", search);
 
 app.use("/", commentDisplayRoutes)
-
-
-app.use('/mentorMe/profileDisplay/individualProfile/individualChat',rateMentorRoutes);
 // export the express app we created to make it available to other modules
 module.exports = app
