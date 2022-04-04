@@ -40,7 +40,7 @@ const IndividualProfile = props => {
           <br />
           <br />
         </p>
-        <Link to="/mentorme/ProfileDisplay"><Button type="button"> Return </Button></Link>
+        <Link to="/mentorme"><Button type="button"> Return </Button></Link>
       </section>
     </div>
   )
