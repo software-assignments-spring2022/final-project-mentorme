@@ -90,11 +90,6 @@ app.get("/mentorMe", (req, res) => {
     res.send("MentorMe Home")
 })
 
-
-app.get("/rateAdvisor/searchResult", (req, res) => {
-    console.log(req.query)
-    res.send(calulateRank(req.query.name, profiles))
-})
 app.get("/chat", (req, res) => {
     res.send("Hello!!")
 })
