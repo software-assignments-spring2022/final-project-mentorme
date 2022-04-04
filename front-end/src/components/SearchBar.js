@@ -56,7 +56,7 @@ const SearchBar = (props) => {
   const [suggestion, setSuggestion] = useState(mockData)
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(props.navigateTo, {state:{name:name}})
+    navigate(props.navigateTo, {state:{id: 300, name: name}})
   }
 
   {/* get suggestions from backend */}
@@ -66,8 +66,6 @@ const SearchBar = (props) => {
         setSuggestion(res.data);
       })
       .catch(err => {
-        console.log(`Failure. ${err}`);
-        console.log('mock data is being used.');
         setSuggestion(mockData);
       })
   }, [name])

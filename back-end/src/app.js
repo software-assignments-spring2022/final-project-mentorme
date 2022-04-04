@@ -15,6 +15,7 @@ const individualprofile = require('./individualprofile')
 const chat = require('./chat')
 const search = require('./search')
 const rateMentorRoutes = require('./rateMentorRoutes')
+const commentDisplayRoutes = require('./commentDisplayRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
@@ -105,6 +106,8 @@ app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);
 app.use("/mentorMe/profileDisplay/individualProfile", individualprofile);
 app.use("/", search);
+
+app.use("/", commentDisplayRoutes)
 
 
 app.use('/mentorMe/profileDisplay/individualProfile/individualChat',rateMentorRoutes);

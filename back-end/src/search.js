@@ -1,4 +1,4 @@
-const advisorProfiles = require('./mockAdvisorData');
+const { advisorData } = require('./mockAdvisorData');
 const mentorProfiles = require('./mockRateMentorData')
 const express = require("express");
 const router = express.Router();
@@ -54,7 +54,7 @@ function getMentorFilterResult(filterList, arr){
 }
 
 router.get("/rateAdvisor/searchResult", (req, res) => {
-    res.send(calulateRank(req.query.name, advisorProfiles))
+    res.send(calulateRank(req.query.name, advisorData))
 })
 
 router.get("/mentorMe/profileDisplay", (req, res) => {
@@ -62,7 +62,7 @@ router.get("/mentorMe/profileDisplay", (req, res) => {
 })
 
 router.get("/rateAdvisor/searchResult/2", (req, res) => {
-    res.send(getAdvisorFilterResult(req.query.filter, advisorProfiles))
+    res.send(getAdvisorFilterResult(req.query.filter, advisorData))
 })
 
 router.get("/mentorMe/profileDisplay/2", (req, res) => {

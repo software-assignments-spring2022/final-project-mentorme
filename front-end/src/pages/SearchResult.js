@@ -15,7 +15,7 @@ const SearchResult = props => {
   const [error, setError] = useState('')
   const location = useLocation();
   const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
-  console.log(location.state)
+  // console.log(location.state)
 
   const getSearchResult = async () => {
     await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name: location.state.name } })
@@ -44,8 +44,6 @@ const SearchResult = props => {
       getFilterResult()
     }
   }, [location.state])
-  
-  console.log(userData)
 
   return (
 
@@ -71,8 +69,8 @@ const SearchResult = props => {
       <section className="resultList">
         <Container className="">
           <div className="list-group">
-            {userData.map((data, i, dataArray) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.score} school={data.school}/>
+            {userData.map((data) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.score} school={data.school} id={data.id}/>
             ))}
           </div>
         </Container>
@@ -84,7 +82,7 @@ const SearchResult = props => {
 const Item = props => {
   return (
     <>
-      <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action" aria-current="">
+      <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ id: props.id }} className="list-group-item list-group-item-action" aria-current="">
         <Container className="container-search">
           <Row className="rows">
             <Col xs={4} md={2} className="columns">
