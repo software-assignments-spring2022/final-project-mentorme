@@ -14,6 +14,7 @@ const editprofile = require('./editprofile')
 const individualprofile = require('./individualprofile')
 const chat = require('./chat')
 const search = require('./search')
+const rateMentorRoutes = require('./rateMentorRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
@@ -106,5 +107,6 @@ app.use("/mentorMe/profileDisplay/individualProfile", individualprofile);
 app.use("/", search);
 
 
+app.use('/mentorMe/profileDisplay/individualProfile/individualChat',rateMentorRoutes);
 // export the express app we created to make it available to other modules
 module.exports = app

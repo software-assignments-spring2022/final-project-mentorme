@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",
+    "body-parser": "^1.20.0",
+    "body-parser-zlib": "^1.0.2",
     "chai": "^4.3.6",
     "cors": "^2.8.5",
     "chai-http": "^4.3.0",
