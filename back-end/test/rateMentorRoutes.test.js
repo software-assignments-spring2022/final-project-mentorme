@@ -10,7 +10,7 @@ describe("POST request to /mentorMe/profileDisplay/individualProfile/individualC
   it("should respond with the mentor's star rating as a integer value between 1 and 5", done => {
     chai
       .request(server)
-      .get("/mentorMe/profileDisplay/individualProfile/individualChat/ratePage")
+      .post("/mentorMe/profileDisplay/individualProfile/individualChat/ratePage")
       .end((err, res) => {
         res.should.have.status(200)
         res.should.to.be.json;

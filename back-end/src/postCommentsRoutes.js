@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(bodyParser.text())
 
-router.post("/postCommentPage", (request, res) => {
+router.post("/", (request, res) => {
     const data = {
             overall: request.body.overall,
             category1: request.body.category1,

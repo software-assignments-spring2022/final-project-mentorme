@@ -92,14 +92,14 @@ app.get("/mentorMe", (req, res) => {
     res.send("MentorMe Home")
 })
 
-app.get("/chat", (req, res) => {
-    res.send("Hello!!")
-})
+// app.get("/chat", (req, res) => {
+//     res.send("Hello!!")
+// })
 
 
 // using the app.use to use the routes that I created inside the rateMentorRoutes.js file.
-app.use('/mentorMe/profileDisplay/individualProfile/individualChat', rateMentor);
-app.use('/rateAdvisor/searchResult/commentsDisplay/', postCommentRoutes);
+app.use("/mentorMe/profileDisplay/individualProfile/individualChat/ratePage", rateMentor);
+app.use("/rateAdvisor/searchResult/commentsDisplay/postCommentPage", postCommentRoutes);
 
 app.use('/login', login);
 app.use('/chat', chat);

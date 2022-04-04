@@ -7,7 +7,7 @@ router.use(bodyParser.text())
 
 
 
-router.post("/ratePage", (request, res) => {
+router.post("/", (request, res) => {
     const data = {
             overall: 0 ,
     }
