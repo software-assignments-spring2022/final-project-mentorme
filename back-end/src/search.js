@@ -3,7 +3,7 @@ const mentorProfiles = require('./mockRateMentorData')
 const express = require("express");
 const router = express.Router();
 const stringSimilarity = require("string-similarity");
-// handle search get request on advisor page. Return the most relevant 3 results. Req should has search term as 'name'
+// handle search get request on advisor page. Return the most relevant 5 results. Req should has search term as 'name'
 function calulateRank(term, arr) {
     let sim_arr = []
     let output_arr = []
@@ -11,7 +11,7 @@ function calulateRank(term, arr) {
         let full_name = item.first_name + ' ' + item.last_name
         sim_arr.push(similarity = stringSimilarity.compareTwoStrings(term, full_name));
     })
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < 5; i++) {
         let max_j = 0
         let max = sim_arr[0]
         for (j = 0; j < sim_arr.length; j++) {
