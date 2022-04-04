@@ -14,15 +14,13 @@ import { useState, useEffect } from 'react'
 const ChatsHistory = props => {
   const [userData, setUserData] = useState([]);
   const [error, setError] = useState('')
-  const [name, setName] = useState('Adam')
+  const [name, setName] = useState('A')
   const location = useLocation();
 
   const getSearchResult = async () => {
-    // console.log(location.state.name)
-    // if (location.state.name !== 'undefined'){
-    //   console.log('hello')
-    //   setName(location.state.name)
-    // }
+    if (location.state !== null){
+      setName(location.state.name)
+    }
     await axios.get("http://localhost:4000/mentorMe/UserProfile/ChatsHistory/2", { params: { name: name } })
       .then(res => {
         setUserData(res.data);
@@ -32,7 +30,7 @@ const ChatsHistory = props => {
       })
   }
 
-  useEffect(getSearchResult(), [location.state])
+  useEffect(()=>(getSearchResult()), [location.state])
 
   return (
     <div className="ChatsHistory">
