@@ -9,13 +9,14 @@ const morgan = require("morgan") // middleware for nice logging of incoming HTTP
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
 const rateMentor = require('./rateMentorRoutes')
 const login = require('./login')
+const signup = require('./signup')
 const userprofile = require('./userprofile')
 const editprofile = require('./editprofile')
 const individualprofile = require('./individualprofile')
 const chat = require('./chat')
 const search = require('./search')
 const commentDisplayRoutes = require('./commentDisplayRoutes')
-const postCommentRoutes =require('./postCommentsRoutes')
+const postCommentRoutes = require('./postCommentsRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
@@ -102,6 +103,8 @@ app.use("/mentorMe/profileDisplay/individualProfile/individualChat/ratePage", ra
 app.use("/rateAdvisor/searchResult/commentsDisplay/postCommentPage", postCommentRoutes);
 
 app.use('/login', login);
+app.use('/signup', signup);
+
 app.use('/chat', chat);
 
 app.use("/mentorMe/UserProfile", userprofile);

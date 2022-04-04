@@ -27,26 +27,26 @@ function calulateRank(term, arr) {
     return output_arr
 }
 
-function getAdvisorFilterResult(filterList, arr){
+function getAdvisorFilterResult(filterList, arr) {
     let output_arr = []
     arr.forEach((item) => {
-        if (filterList.includes(item.school)){
+        if (filterList.includes(item.school)) {
             output_arr.push(item)
-        }else if (filterList.includes(item.field)){
+        } else if (filterList.includes(item.field)) {
             output_arr.push(item)
         }
     })
     return output_arr
 }
 
-function getMentorFilterResult(filterList, arr){
+function getMentorFilterResult(filterList, arr) {
     let output_arr = []
     arr.forEach((item) => {
-        if (filterList.includes(item.language)){
+        if (filterList.includes(item.language)) {
             output_arr.push(item)
-        }else if (filterList.includes(item.year)){
+        } else if (filterList.includes(item.year)) {
             output_arr.push(item)
-        }else if (filterList.includes(item.major)){
+        } else if (filterList.includes(item.major)) {
             output_arr.push(item)
         }
     })

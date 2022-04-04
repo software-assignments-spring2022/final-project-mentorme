@@ -8,6 +8,7 @@ import SignUpForm from "../components/SignUpForm"
 import { useState } from "react";
 import BurgerMenu from "../components/BurgerMenu";
 import peppa from "../images/3-peppa.jpeg";
+import axios from 'axios'
 
 
 
@@ -54,6 +55,20 @@ function SignUp() {
     if (!image) return alert('Please upload your profile picture');
     const url = await uploadImage(image);
     console.log(url);
+    try {
+      axios
+        .post("http://localhost:4000/signup", {
+          email: email,
+          password: password,
+          name: name,
+          schoo: school
+        })
+        .then(response => response.data)
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const [image, setImage] = useState(null);
