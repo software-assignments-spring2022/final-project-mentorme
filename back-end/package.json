@@ -4,7 +4,7 @@
   "description": "The back-end of your project will live in this directory.",
   "main": "server.js",
   "scripts": {
-    "test": "DEBUG=true nyc mocha --reporter spec",
+    "test": "nyc mocha --reporter spec",
     "start": "nodemon server.js"
   },
   "author": "",

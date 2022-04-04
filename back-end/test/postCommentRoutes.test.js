@@ -10,11 +10,11 @@ describe("POST request to /rateAdvisor/searchResult/commentsDisplay/postCommentP
   it("should respond with the comments for a single advisor", done => {
     chai
       .request(server)
-      .get("/rateAdvisor/searchResult/commentsDisplay/postCommentPage")
+      .post("/rateAdvisor/searchResult/commentsDisplay/postCommentPage")
       .end((err, res) => {
         res.should.have.status(200)
         res.should.to.be.json;
-        res.body.should.be.a('array');
+        res.body.should.be.a('object');
         done()
       })
   })

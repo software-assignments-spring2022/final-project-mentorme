@@ -10,7 +10,7 @@ describe("POST request to /mentorMe/UserProfile/EditProfile route", () => {
   it("it should respond with an HTTP 200 status code and an object in the response body \n the response body object should contain three different properties: a username, bio, and profilePic", done => {
     chai
       .request(server)
-      .post(server)
+      .post("/mentorMe/UserProfile/EditProfile")
       .end((err, res) => {
         res.should.have.status(200) // use should to make BDD-style assertions
         res.body.should.be.a("object") // our route sends back an object
