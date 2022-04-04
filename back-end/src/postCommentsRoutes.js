@@ -6,16 +6,14 @@ router.use(bodyParser.text())
 
 router.post("/postCommentPage", (request, res) => {
     const data = {
-            overall: 0 ,
-            category1: 0,
-            category2: 0,
-            category3: 0,
-            category4: 0,
-            comment:" ",
+            overall: request.body.overall,
+            category1: request.body.category1,
+            category2: request.body.category2,
+            category3: request.body.category3,
+            category4:request.body.category4,
+            comment:request.body.comments,
     }
     console.log(request.body);
-
-    //res.send("Data has been sent")
     res.json(data)
 })
 
