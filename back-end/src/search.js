@@ -69,4 +69,9 @@ router.get("/mentorMe/profileDisplay/2", (req, res) => {
     res.send(getMentorFilterResult(req.query.filter, mentorProfiles))
 })
 
+router.get("/mentorMe/UserProfile/ChatsHistory/2", (req, res) => {
+    console.log(calulateRank(req.query.name, mentorProfiles))
+    res.send(calulateRank(req.query.name, mentorProfiles))
+})
+
 module.exports = router;
