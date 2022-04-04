@@ -1,6 +1,9 @@
 // import and instantiate express
 const express = require("express") // CommonJS import style!
 const app = express() // instantiate an Express object
+const http = require("http");
+const cors = require("cors");
+const { Server } = require("socket.io");
 const morgan = require("morgan") // middleware for nice logging of incoming HTTP requests
 
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
@@ -9,10 +12,56 @@ const login = require('./login')
 const userprofile = require('./userprofile')
 const editprofile = require('./editprofile')
 const individualprofile = require('./individualprofile')
-const mentorRates = require('./mockRateMentorData')
-const postCommentRoutes = require('./postCommentsRoutes')
+const chat = require('./chat')
+const search = require('./search')
+const rateMentorRoutes = require('./rateMentorRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
+app.use(cors());
+const server = http.createServer(app);
+
+//chat
+
+const io = new Server(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+    },
+});
+
+// more socket.io implementation
+// io.on("connection", socket => {
+
+//     socket.on("join_room", (data) => {
+//         socket.join(data);
+//         console.log(`User with ID: ${socket.id} joined room: ${data}`);
+//     });
+
+//     socket.on("send_message", (data) => {
+//         socket.to(data.room).emit("receive_message", data);
+//     });
+
+//     socket.on("disconnect", () => {
+//         console.log("User Disconnected", socket.id);
+//     });
+// });
+
+io.on('connection', socket => {
+    console.log(`User Connected!!: ${socket.id}`);
+    const sid = socket.id;
+
+    socket.on("send-chat-message", message => {
+        console.log(message),
+            socket.broadcast.emit('chat-message', message, sid)
+    })
+})
+
+
+server.listen(3001, () => {
+    console.log('listening on *:3001');
+});
+
+
 
 
 // This code fixed the errors I was having with front-end haveing an error connecting to the back-end
@@ -38,7 +87,7 @@ app.get("/", (req, res) => {
     res.send("Home")
 })
 
-app.get("/mentorMe" , (req, res) => {
+app.get("/mentorMe", (req, res) => {
     res.send("MentorMe Home")
 })
 
@@ -50,11 +99,14 @@ app.get("/chat", (req, res) => {
 // using the app.use to use the routes that I created inside the rateMentorRoutes.js file.
 app.use('/mentorMe/profileDisplay/individualProfile/individualChat', rateMentor);
 app.use('/login', login);
+app.use('/chat', chat);
+
 app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);
 app.use("/mentorMe/profileDisplay/individualProfile", individualprofile);
+app.use("/", search);
 
-app.use("/rateAdvisor/searchResult/commentsDisplay/",postCommentRoutes);
 
+app.use('/mentorMe/profileDisplay/individualProfile/individualChat',rateMentorRoutes);
 // export the express app we created to make it available to other modules
 module.exports = app
