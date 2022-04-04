@@ -1,43 +1,46 @@
-.SearchResult{
-}
+.SearchResult {}
 
-.advisor-picture{
+.advisor-picture {
     border-radius: 8px;
     box-shadow: 1px 1px 1px 1px lightgrey;
     width: 100%;
     display: flex;
-    margin:0;
+    margin: 0;
 
 }
 
-.advisorPic{
-    display:inline;
+.filter_dropdown {
+    position: absolute;
 }
 
-.brief{
+.advisorPic {
+    display: inline;
+}
+
+.brief {
     text-align: left;
 }
 
-.school-name{
+.school-name {
     text-align: left;
 }
 
 .clear {
-    clear:both; 
-    height: 0; 
-    line-height: 0; 
+    clear: both;
+    height: 0;
+    line-height: 0;
     font-size: 0
 }
 
-.listColor{
+.listColor {
     background-color: rgb(252, 120, 120);
 }
 
-.list-group{
-    padding:10% 10%;
+.list-group {
+    padding: 10% 10%;
 }
 
-.list-group-item{
+.list-group-item {
     background-color: rgb(252, 120, 120);
 
 }

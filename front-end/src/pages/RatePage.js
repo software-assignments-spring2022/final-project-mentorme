@@ -12,20 +12,20 @@ const RatePage = props => {
 
   return (
     <div className="RatePage">
-      <BurgerMenu/>
-      <img 
+      <BurgerMenu />
+      <img
         alt="welcome!"
-        src={image} className="center"
+      // src={image} className="center"
       />
-     <Stack spacing={1}direction="column"
-  alignItems="center"
-  justifyContent="center"  style={{ minHeight: '50vh' }}>
-    <h2 >Current Rate</h2>
-    <Rating name="read-only" value={value} readOnly size="large"/>
-    <h2>Your Rate</h2>
+      <Stack spacing={1} direction="column"
+        alignItems="center"
+        justifyContent="center" style={{ minHeight: '50vh' }}>
+        <h2 >Current Rate</h2>
+        <Rating name="read-only" value={value} readOnly size="large" />
+        <h2>Your Rate</h2>
 
-    <Rating name="size-large" defaultValue={2} size="large" />
-    </Stack>
+        <Rating name="size-large" defaultValue={2} size="large" />
+      </Stack>
 
     </div>
   )
