@@ -1,18 +1,52 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/SearchResult.css"
-import search from '../images/5Search Result.png'
 import SearchBar from '../components/SearchBar'
 import Filter from '../components/Filter'
 import { Container, Col, Row } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import BurgerMenu from "../components/BurgerMenu"
 import { useLocation } from "react-router-dom";
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 const SearchResult = props => {
+  const [userData, setUserData] = useState([]);
+  const [error, setError] = useState('')
   const location = useLocation();
   const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
   console.log(location.state)
+
+  const getSearchResult = async () => {
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name: location.state.name } })
+      .then(res => {
+        setUserData(res.data);
+      })
+      .catch(err => {
+        setError(err)
+      })
+  }
+
+  const getFilterResult = async () => {
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult/2", { params: { filter: location.state.filter } })
+      .then(res => {
+        setUserData(res.data);
+      })
+      .catch(err => {
+        setError(err)
+      })
+  }
+
+  useEffect(()=>{
+    if (typeof location.state.name !== 'undefined'){
+      getSearchResult()
+    }else{
+      getFilterResult()
+    }
+  }, [location.state])
+  
+  console.log(userData)
+
   return (
 
     <div className="SearchResult">
@@ -36,121 +70,44 @@ const SearchResult = props => {
       {/* list of search result  */}
       <section className="resultList">
         <Container className="">
-
           <div className="list-group">
-
-            {/* Data 1 */}
-            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action" aria-current="">
-              <Container className="container-search">
-                <Row className="rows">
-                  <Col xs={4} md={2} className="columns">
-                    <div className="advisorPic">
-                      <img className="advisor-picture" src="https://picsum.photos/201" alt="picture" />
-                    </div>
-                  </Col>
-
-                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">Advisor Name</h5>
-                    <small className="text-muted">4.9/5</small>
-                  </div >
-                    <div className="school-name">                    <small >New York University</small>
-                    </div>
-                    <p className="mb-1 brief">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.              </p>
-                  </Col>
-                </Row>
-
-              </Container>
-
-
-            </Link>
-
-            {/* Data 2 */}
-
-
-            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/202" }} className="list-group-item list-group-item-action" aria-current="">
-              <Container className="container-search">
-                <Row className="rows">
-                  <Col xs={4} md={2} className="columns">
-                    <div className="advisorPic">
-                      <img className="advisor-picture" src="https://picsum.photos/202" alt="picture" />
-                    </div>
-                  </Col>
-
-                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">Advisor Name</h5>
-                    <small className="text-muted">4.2/5</small>
-                  </div >
-                    <div className="school-name">                    <small >New York University</small>
-                    </div>
-                    <p className="mb-1 brief">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.              </p>
-                  </Col>
-                </Row>
-
-              </Container>
-              {/* Data 3 */}
-
-
-            </Link>
-
-            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/203" }} className="list-group-item list-group-item-action" aria-current="">
-              <Container className="container-search">
-                <Row className="rows">
-                  <Col xs={4} md={2} className="columns">
-                    <div className="advisorPic">
-                      <img className="advisor-picture" src="https://picsum.photos/203" alt="picture" />
-                    </div>
-                  </Col>
-
-                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">Advisor Name</h5>
-                    <small className="text-muted">3.6/5</small>
-                  </div >
-                    <div className="school-name">                    <small >New York University</small>
-                    </div>
-                    <p className="mb-1 brief">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.              </p>
-                  </Col>
-                </Row>
-
-              </Container>
-
-              {/* Data 4 */}
-
-            </Link>
-
-            <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/204" }} className="list-group-item list-group-item-action" aria-current="">
-              <Container className="container-search">
-                <Row className="rows">
-                  <Col xs={4} md={2} className="columns">
-                    <div className="advisorPic">
-                      <img className="advisor-picture" src="https://picsum.photos/204" alt="picture" />
-                    </div>
-                  </Col>
-
-                  <Col xs={8} md={10} className="columns"> <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">Advisor Name</h5>
-                    <small className="text-muted">1/5</small>
-                  </div >
-                    <div className="school-name">                    <small >New York University</small>
-                    </div>
-                    <p className="mb-1 brief">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.              </p>
-                  </Col>
-                </Row>
-
-              </Container>
-
-
-            </Link>
-
+            {userData.map((data, i, dataArray) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.score} school={data.school}/>
+            ))}
           </div>
-
         </Container>
       </section>
-
     </div >
+  )
+}
+
+const Item = props => {
+  return (
+    <>
+      <Link to="/rateAdvisor/searchResult/commentsDisplay" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action" aria-current="">
+        <Container className="container-search">
+          <Row className="rows">
+            <Col xs={4} md={2} className="columns">
+              <div className="advisorPic">
+                <img className="advisor-picture" src="https://picsum.photos/201" alt="picture" />
+              </div>
+            </Col>
+            <Col xs={8} md={10} className="columns">
+              <div className="d-flex w-100 justify-content-between">
+                <h5 className="mb-1">{props.first_name + ' ' + props.last_name}</h5>
+                <small className="text-muted">{props.score}/5</small>
+              </div >
+              <div className="school-name">
+                <small>{props.school}</small>
+              </div>
+              <p className="mb-1 brief">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      </Link>
+    </>
   )
 }
 

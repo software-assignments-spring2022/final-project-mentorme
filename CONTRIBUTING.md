@@ -65,3 +65,26 @@ To help students reach their academic and career goals by providing them with th
 - Make sure dependencies are installed by running `npm install`.
 
 ## Instructions for Building and Testing
+To build the project:
+- In the front-end directory, run: 
+    `npm start`
+- In the back-end directory, run:    `npm start`
+
+
+For testing:
+
+Make sure to install the following modules globally:
+
+ `mocha` - for running unit tests
+
+Install the following modules locally in your project directory:
+
+ `chai` - supplies assertions for unit tests
+
+To test, from the back-end repository:
+
+    npx mocha test/XXX.js
+
+### Chats:
+- open two individual tabs on chat page running on `port:3000` to communicate as two users
+- unit testing: to be continued --
