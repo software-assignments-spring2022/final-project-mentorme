@@ -16,17 +16,17 @@ const io = new Server(server, {
 router.get('/', (req, res) => {
 
   res.send("hello!!!");
-  req.io.on("connection", (socket) => {
+  // req.io.on("connection", (socket) => {
 
-    console.log(socket.id);
-    console.log("hereeeeee!")
+  //   console.log(socket.id);
+  //   console.log("hereeeeee!")
 
-    req.socket.on("disconnect", () => {
-      console.log("User Disconnected", socket.id);
-    });
+  //   req.socket.on("disconnect", () => {
+  //     console.log("User Disconnected", socket.id);
+  //   });
 
 
-  });
+  // });
 
 })
 

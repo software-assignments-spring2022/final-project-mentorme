@@ -5,13 +5,26 @@ import "../styles/Login.css"
 // import LoginForm from "../components/LoginForm"
 // import { useState } from "react";
 import BurgerMenu from "../components/BurgerMenu";
+import axios from 'axios'
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleLogin(e) {
     e.preventDefault();
-
+    try {
+      axios
+        .post("http://localhost:4000/login", {
+          email: email,
+          password: password,
+        })
+        .then(response => response.data)
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

@@ -7,7 +7,7 @@ router.post("/", (req, res) => {
     const data = {
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password, 
+        password: req.body.password,
         bio: req.body.bio,
         profilePic: req.body.profilePic
     }
