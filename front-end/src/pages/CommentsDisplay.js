@@ -89,7 +89,7 @@ const CommentsDisplay = props => {
       {/* comments section */}
       <div className="comments">
         <div className= "comment-button">
-        <Link  to= "/rateAdvisor/searchResult/commentsDisplay/postCommentPage"><Button>Post a Comment!</Button></Link>
+        <Link  to= {{pathname : "/rateAdvisor/searchResult/commentsDisplay/postCommentPage",state:{'name':'jon'} }}><Button>Post a Comment!</Button></Link>
       </div>
         {comments.map(comment => (
             <div className="comment">

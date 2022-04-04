@@ -10,6 +10,7 @@ const userprofile = require('./userprofile')
 const editprofile = require('./editprofile')
 const individualprofile = require('./individualprofile')
 const mentorRates = require('./mockRateMentorData')
+const postCommentRoutes = require('./postCommentsRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 
@@ -52,12 +53,8 @@ app.use('/login', login);
 app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);
 app.use("/mentorMe/profileDisplay/individualProfile", individualprofile);
-app.get('/mentorMe/profileDisplay/individualProfile/individualChat/ratePage',(request,response) =>{
-    console.log(request.data)
-    res.send(mentorRates)
-})
-app.post("/mentorMe/profileDisplay/individualProfile/individualChat/ratePage",(request,response) =>{
-    console.log(request.data)
-    response.end()} )
+
+app.use("/rateAdvisor/searchResult/commentsDisplay/",postCommentRoutes);
+
 // export the express app we created to make it available to other modules
 module.exports = app

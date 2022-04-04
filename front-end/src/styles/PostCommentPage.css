@@ -7,6 +7,11 @@
     align-items: center;
 }
 .advisor-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.advisor-info{
     margin-top: 90px;
 
 
