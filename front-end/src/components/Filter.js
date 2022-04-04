@@ -57,6 +57,7 @@ const Filter = (props) => {
           options={props.options}
           handleSelect={handleSelect}
           navigateTo={props.navigateTo}
+          selected={selected}
         />}
     </div>
   );
@@ -70,7 +71,7 @@ const FilterDropdown = (props) => {
   const navigate = useNavigate();
   const handleApply = (event) => {
     event.preventDefault();
-    navigate(props.navigateTo)
+    navigate(props.navigateTo, {state:{filter:props.selected}})
     if (props.navigateTo == window.location.pathname){
       window.location.reload(false);
     }

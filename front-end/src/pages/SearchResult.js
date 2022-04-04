@@ -17,7 +17,7 @@ const SearchResult = props => {
   const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
   console.log(location.state)
 
-  useEffect(async () => {
+  const getSearchResult = async () => {
     await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name: location.state.name } })
       .then(res => {
         setUserData(res.data);
@@ -25,7 +25,26 @@ const SearchResult = props => {
       .catch(err => {
         setError(err)
       })
-  }, [location.state.name])
+  }
+
+  const getFilterResult = async () => {
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult/2", { params: { filter: location.state.filter } })
+      .then(res => {
+        setUserData(res.data);
+      })
+      .catch(err => {
+        setError(err)
+      })
+  }
+
+  useEffect(()=>{
+    if (typeof location.state.name !== 'undefined'){
+      getSearchResult()
+    }else{
+      getFilterResult()
+    }
+  }, [location.state])
+  
   console.log(userData)
 
   return (

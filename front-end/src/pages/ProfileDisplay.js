@@ -13,10 +13,10 @@ const ProfileDisplay = props => {
   const [userData, setUserData] = useState([]);
   const [error, setError] = useState('')
   const location = useLocation();
-  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science'];
+  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science', 'Finance'];
   console.log(location.state)
 
-  useEffect(async () => {
+  const getSearchResult = async () => {
     await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name } })
       .then(res => {
         setUserData(res.data);
@@ -24,8 +24,25 @@ const ProfileDisplay = props => {
       .catch(err => {
         setError(err)
       })
-  }, [location.state.name])
-  console.log(userData)
+  }
+
+  const getFilterResult = async () => {
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/2", { params: { filter: location.state.filter } })
+      .then(res => {
+        setUserData(res.data);
+      })
+      .catch(err => {
+        setError(err)
+      })
+  }
+
+  useEffect(()=>{
+    if (typeof location.state.name !== 'undefined'){
+      getSearchResult()
+    }else{
+      getFilterResult()
+    }
+  }, [location.state])
 
   return (
     <div className="ProfileDisplay">
