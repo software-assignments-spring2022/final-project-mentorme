@@ -17,7 +17,7 @@ const RatePage = props => {
   const [formInput, setFormInput] = React.useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
-      overall: 0 ,
+      overall: 0,
     }
   );
   const handleInput = evt => {
@@ -27,9 +27,9 @@ const RatePage = props => {
   };
   const handleSubmit = evt => {
     evt.preventDefault();
-  
+
     let data = { formInput };
-  
+
     fetch("http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage", {
       method: "POST",
       body: JSON.stringify(data),
@@ -44,31 +44,32 @@ const RatePage = props => {
 
   return (
     <div className="RatePage">
-      <BurgerMenu/>
+      <BurgerMenu />
       {/* <img 
         alt="welcome!"
         src={image} className="center"
       /> */}
-     <Stack spacing={1}direction="column"
-  alignItems="center"
-  justifyContent="center"  style={{ minHeight: '50vh' }}>
-    <h2 >Current Rate</h2>
-    <Rating name="read-only" value={rate} readOnly size="large"/>
-    <form onSubmit={handleSubmit}></form>  
-    <h2>Your Rate</h2>
-      <Rating name="overall"   onChange={(event, newValue) => {
-          setRate(newValue);}} onClick= {handleInput} size="large" />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            onClick={handleSubmit}
-          >
-            Submit Rating
-          </Button>
-<form/>
-    
-    </Stack>
+      <Stack spacing={1} direction="column"
+        alignItems="center"
+        justifyContent="center" style={{ minHeight: '50vh' }}>
+        <h2 >Current Rate</h2>
+        <Rating name="read-only" value={rate} readOnly size="large" />
+        <form onSubmit={handleSubmit}></form>
+        <h2>Your Rate</h2>
+        <Rating name="overall" onChange={(event, newValue) => {
+          setRate(newValue);
+        }} onClick={handleInput} size="large" />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          onClick={handleSubmit}
+        >
+          Submit Rating
+        </Button>
+        <form />
+
+      </Stack>
 
     </div>
   )

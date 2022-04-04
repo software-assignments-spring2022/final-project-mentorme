@@ -85,6 +85,4 @@ To test, from the back-end repository:
 
     npx mocha test/XXX.js
 
-### Chats:
-- open two individual tabs on chat page running on `port:3000` to communicate as two users
-- unit testing: to be continued --
+
