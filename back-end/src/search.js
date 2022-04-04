@@ -27,14 +27,46 @@ function calulateRank(term, arr) {
     return output_arr
 }
 
+function getAdvisorFilterResult(filterList, arr){
+    let output_arr = []
+    arr.forEach((item) => {
+        if (filterList.includes(item.school)){
+            output_arr.push(item)
+        }else if (filterList.includes(item.field)){
+            output_arr.push(item)
+        }
+    })
+    return output_arr
+}
+
+function getMentorFilterResult(filterList, arr){
+    let output_arr = []
+    arr.forEach((item) => {
+        if (filterList.includes(item.language)){
+            output_arr.push(item)
+        }else if (filterList.includes(item.year)){
+            output_arr.push(item)
+        }else if (filterList.includes(item.major)){
+            output_arr.push(item)
+        }
+    })
+    return output_arr
+}
+
 router.get("/rateAdvisor/searchResult", (req, res) => {
-    console.log(req.query)
     res.send(calulateRank(req.query.name, advisorProfiles))
 })
 
 router.get("/mentorMe/profileDisplay", (req, res) => {
-    console.log(req.query)
     res.send(calulateRank(req.query.name, mentorProfiles))
+})
+
+router.get("/rateAdvisor/searchResult/2", (req, res) => {
+    res.send(getAdvisorFilterResult(req.query.filter, advisorProfiles))
+})
+
+router.get("/mentorMe/profileDisplay/2", (req, res) => {
+    res.send(getMentorFilterResult(req.query.filter, mentorProfiles))
 })
 
 module.exports = router;
