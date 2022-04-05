@@ -16,7 +16,7 @@ const SearchBar = (props) => {
   const [suggestion, setSuggestion] = useState([])
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(props.navigateTo, {state:{id: 300, name: name}})
+    navigate(props.navigateTo, {state:{name: name}})
   }
 
   {/* get suggestions from backend */}
