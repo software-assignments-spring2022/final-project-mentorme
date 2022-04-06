@@ -40,7 +40,7 @@ const CommentsDisplay = () => {
         
         <div className="data">
           <div className="page-name">{`${advisor.last_name}, ${advisor.first_name}`}</div>
-          <div className="info">{`${advisor.department} Department at ${advisor.university}`}</div>
+          <div className="info">{`${advisor.department} Department at ${advisor.school}`}</div>
         </div>
         
         <div className="score">

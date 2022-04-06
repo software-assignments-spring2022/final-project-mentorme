@@ -21,13 +21,25 @@ const SearchBar = (props) => {
 
   {/* get suggestions from backend */}
   useEffect(async () => {
-    await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name: name } })
+    // fetch from different data based on where this search bar is located
+    // fetch mentors data
+    if (props.isMentorMe) {
+      await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: name } })
       .then(res => {
         setSuggestion(res.data);
       })
       .catch(err => {
         console.log("cannot get backend suggestions. err.")
       })
+    } else {  // fetch advisors data
+      await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name: name } })
+        .then(res => {
+          setSuggestion(res.data);
+        })
+        .catch(err => {
+          console.log("cannot get backend suggestions. err.")
+        })
+    }
   }, [name])
 
   return (
