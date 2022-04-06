@@ -10,15 +10,15 @@ import '../styles/Suggestion.css';
 
 const Suggestion = ( {suggestions, navigateTo} ) => {
     const navigate = useNavigate()
-    const handleClick = e => {
+    const handleClick = (e, id) => {
         e.preventDefault()
-        navigate(navigateTo)
+        navigate(navigateTo, { state: { id } })
     }
     return (
         <div className="suggestions">
             {suggestions.map((person) => (
                 // each suggestion contaienr
-                <div className="suggestion" key={person.id} onClick={handleClick}>
+                <div className="suggestion" key={person.id} onClick={(e) => handleClick(e, person.id)}>
                     {/* name and info container */}
                     <div className="name">
                         <div>{`${person.last_name}, ${person.first_name}`}</div>

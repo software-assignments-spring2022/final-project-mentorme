@@ -1,25 +1,26 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import "../styles/IndividualProfile.css"
 import BurgerMenu from "../components/BurgerMenu";
 import Button from "../components/Button"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const IndividualProfile = props => {
+const IndividualProfile = () => {
+
+  const location = useLocation()
   const [userData, setUserData] = useState({});
   const [error, setError] = useState('')
-  const getData = () => {
-    axios
-      .get('http://localhost:4000/mentorMe/profileDisplay/individualProfile')
-      .then(response => {setUserData(response.data)})
-    .catch(err => {
-      setError(err)
-    })
-  }
+
+  const id = location.state.id
+
   useEffect(() => {
-    getData();
-  })
+    axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
+      .then(response => setUserData(response.data))
+      .catch(err => {
+        setError(err)
+      })
+  }, [])
   
   
   return (
@@ -29,7 +30,7 @@ const IndividualProfile = props => {
       
       {error && <p className="Profile-error">{error}</p>}
 
-      <h1>Username {userData.username}</h1>
+      <h1>{`${userData.last_name}, ${userData.first_name}`}</h1>
       <img src={userData.profilePic} className="center" alt="profile"/>
       <br />
         <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/"><Button type="button"> Chat </Button></Link>

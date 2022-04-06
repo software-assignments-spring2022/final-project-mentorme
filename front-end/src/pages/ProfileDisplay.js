@@ -54,6 +54,7 @@ const ProfileDisplay = props => {
     }else{
       getSearchResult()
     }
+    console.log('users get are', userData)
   }, [location.state])
 
   return (
@@ -77,8 +78,8 @@ const ProfileDisplay = props => {
       <section className="resultList">
         <Container className="">
           <div className="list-group">
-          {userData.map((data, i, dataArray) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentRate} school={data.school}/>
+          {userData.map((data) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentRate} school={data.school} id={data.id}/>
             ))}
           </div>
         </Container>
@@ -90,7 +91,7 @@ const ProfileDisplay = props => {
 const Item = props => {
   return (
     <>
-      <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: "https://picsum.photos/201" }} className="list-group-item list-group-item-action" aria-current="">
+      <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: "https://picsum.photos/201", id: props.id }} className="list-group-item list-group-item-action" aria-current="">
         <Container className="container-search">
           <Row className="rows">
             <Col xs={4} md={2} className="columns">
