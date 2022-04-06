@@ -21,7 +21,7 @@ const UserProfile = props => {
   }
   useEffect(() => {
     getData();
-  })
+  }, [])
   
   if (localStorage.username != null){
     userData.username = localStorage.username
