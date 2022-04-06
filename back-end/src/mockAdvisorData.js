@@ -7,7 +7,7 @@ const advisorData =
     "department": "Human Resources",
     "field": 'Career',
     "score": 0.7,
-    "university": "New Jersey Institute of Technology"
+    "university": "New York University"
   }, {
     "id": 2,
     "first_name": "Margo",
@@ -16,7 +16,7 @@ const advisorData =
     "department": "Engineering",
     "field": 'OGS',
     "score": 1.2,
-    "university": "New Jersey Institute of Technology"
+    "university": "New York University"
   }, {
     "id": 3,
     "first_name": "Daveta",
@@ -25,7 +25,7 @@ const advisorData =
     "department": "Legal",
     "field": 'Academic',
     "score": 3.4,
-    "university": "New Jersey Institute of Technology"
+    "university": "New York University"
   }, {
     "id": 4,
     "first_name": "Elyssa",
@@ -34,7 +34,7 @@ const advisorData =
     "department": "Accounting",
     "field": 'Career',
     "score": 2.5,
-    "university": "New Jersey Institute of Technology"
+    "university": "New York University"
   }, {
     "id": 5,
     "first_name": "Joela",
@@ -43,7 +43,7 @@ const advisorData =
     "department": "Legal",
     "field": 'OGS',
     "score": 2.8,
-    "university": "New Jersey Institute of Technology"
+    "university": "New York University"
   }]
 
   const advisorComments = [{

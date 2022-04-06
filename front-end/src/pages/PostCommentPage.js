@@ -58,6 +58,7 @@ Item.propTypes = {
 function PostCommentPage() {
   const [value, setValue] = React.useState('Type your review');
 
+  const location = useLocation()
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -103,7 +104,7 @@ function PostCommentPage() {
     <div id="PostCommentPage">
       <BurgerMenu/>
       
-      <div className="advisor-info">
+  <div className="advisor-info">
       <Box
         component="img"
         sx={{
@@ -121,10 +122,29 @@ function PostCommentPage() {
         alt="welcome!"
         src="https://picsum.photos/420"
       />
+       <Box
+    sx={{
+      display: 'flex',
+      alignItems: 'right',
+      flexDirection: 'column',
+      p: 1,
+      m: 1,
+      bgcolor: 'background.paper',
+      borderRadius: 10,
+    }}
+    display="flex" 
+    alignItems="center"
+    justifyContent="center"
+  > 
+  <Typography component="legend" variant="h6">{`Name: ${location.state.name}`}</Typography>
+  <Typography component="legend" variant="h6">{`University: ${location.state.university}`}</Typography>
+  <Typography component="legend" variant="h6">{`School Department: ${location.state.department}`}</Typography>
+  <Typography component="legend" variant="h6">{`Current Score: ${location.state.currentScore}/5`}</Typography>
+
+
+  </Box>
         {/* <img className="image" alt="welcome!" src={image} /> */}
-        <p>UserName</p>
-        <p>User info</p>
-      </div>
+</div>
       <div className="box">
   
   <Box
@@ -142,9 +162,9 @@ function PostCommentPage() {
     justifyContent="center"
   > 
   <form onSubmit={handleSubmit}></form>   
-    <Item><Typography component="legend">OverAll Rating</Typography>
+    <Item><Typography component="legend" >Overall Rating</Typography>
         <Rating name="overall" defaultValue={2.5} precision={0.5} onChange={handleInput}/></Item>
-      <Item><Typography component="legend">The advisor shares useful resources.</Typography><Slider
+      <Item><Typography component="legend">The advisor shares resources related to my program.</Typography><Slider
       name ='category1'
       size = 'large'
     aria-label="Temperature"
@@ -157,7 +177,7 @@ function PostCommentPage() {
     max={100}
     onChange={handleInput}/></Item>
    
-      `<Item><Typography component="legend">Advisor responds to emails on time.</Typography><Slider
+   <Item><Typography component="legend">The advisor responds to emails in a timely manner.</Typography><Slider
       name ='category2'
       size = 'large'
     aria-label="Temperature"
@@ -168,8 +188,8 @@ function PostCommentPage() {
     marks
     min={10}
     max={100}
-    onChange={handleInput}/></Item>`
-    <Item><Typography component="legend">Advisor encourages school engagement. </Typography><Slider
+    onChange={handleInput}/></Item>
+    <Item><Typography component="legend">The advisor offers me constructive career adivice. </Typography><Slider
       name ='category3'
       size = 'large'
       aria-label="Temperature"
@@ -181,7 +201,7 @@ function PostCommentPage() {
       min={10}
       max={100}
       onChange={handleInput}/></Item>
-    <Item><Typography component="legend">Devolps realistic academic plans.</Typography><Slider
+    <Item><Typography component="legend">The advisor helps me devolp realistic academic plans.</Typography><Slider
         name ='category4'
         size = 'large'
       aria-label="Temperature"

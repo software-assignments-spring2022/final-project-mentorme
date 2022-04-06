@@ -52,7 +52,12 @@ const CommentsDisplay = () => {
       {/* comments section */}
       <div className="comments">
         <div className= "comment-button">
-        <Link  to= {{pathname : "/rateAdvisor/searchResult/commentsDisplay/postCommentPage",state:{'name':'jon'} }}><Button>Post a Comment!</Button></Link>
+        <Link  to= "/rateAdvisor/searchResult/commentsDisplay/postCommentPage" state={{ name: advisor.first_name + " "+ advisor.last_name,
+                                                                                        university:advisor.university,
+                                                                                       department: advisor.department + " at "+ advisor.school,
+                                                                                       currentScore: advisor.score
+
+                                                                                       }}><Button>Post a Comment!</Button></Link>
       </div>
         {comments.map(comment => (
             <div className="comment">
