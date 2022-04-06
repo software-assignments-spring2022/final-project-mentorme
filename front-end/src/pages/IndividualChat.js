@@ -7,7 +7,7 @@ import BurgerMenu from "../components/BurgerMenu";
 import Box from '@mui/material/Box';
 import { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client'
-
+import {useLocation} from 'react-router-dom';
 
 const socket = io.connect("http://localhost:3001");
 // const messageContainer = document.getElementById("message-container")
@@ -23,6 +23,8 @@ const IndividualChat = props => {
   const [messages, setMessages] = useState([]);
   const [username, setUsername] = useState("");
   const chatBox = useRef();
+  const location = useLocation()
+
   // Binding
   const messageText = useRef();
 
@@ -76,7 +78,6 @@ const IndividualChat = props => {
       >
         <div className='chat'>
           <ul>
-
             {messages.map(message => (<li key={message}>{message}</li>))}
           </ul>
           <form onSubmit={handleSubmit}>
@@ -84,7 +85,7 @@ const IndividualChat = props => {
             <input type="submit" value="Submit" />
           </form>
           <br></br>
-          <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage"><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >End Chat and Rate</Button></Link>
+          <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state ={{name : location.state.name,score:location.state.score}}><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >End Chat and Rate</Button></Link>
 
 
         </div>

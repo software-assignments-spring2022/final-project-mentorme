@@ -33,7 +33,7 @@ const IndividualProfile = () => {
       <h1>{`${userData.last_name}, ${userData.first_name}`}</h1>
       <img src={userData.profilePic} className="center" alt="profile"/>
       <br />
-        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/"><Button type="button"> Chat </Button></Link>
+        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state = {{name : userData.first_name +" "+userData.last_name,score:userData.score}}><Button type="button"> Chat </Button></Link>
         <p>
           <br />
           <br />

@@ -9,7 +9,11 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
 import axios from 'axios';
 import Button from "../components/Button"
+import {useLocation} from 'react-router-dom';
+
 const RatePage = props => {
+  const location = useLocation()
+
   const [rate, setRate] = React.useState(1);
   const handleChange = (event) => {
     setRate(event.target.value);
@@ -52,8 +56,9 @@ const RatePage = props => {
       <Stack spacing={1} direction="column"
         alignItems="center"
         justifyContent="center" style={{ minHeight: '50vh' }}>
+        <h2 >{location.state.name}</h2>
         <h2 >Current Rate</h2>
-        <Rating name="read-only" value={rate} readOnly size="large" />
+        <Rating name="read-only" value={location.state.score} readOnly size="large" />
         <form onSubmit={handleSubmit}></form>
         <h2>Your Rate</h2>
         <Rating name="overall" onChange={(event, newValue) => {
