@@ -5,6 +5,17 @@ const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
 const morgan = require("morgan") // middleware for nice logging of incoming HTTP requests
+const mongoose = require("mongoose");
+
+// connecting database
+require('dotenv').config()
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri);
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log('Connected Database Successfully');
+});
+// console.log(process.env)
 
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
 const rateMentor = require('./rateMentorRoutes')
