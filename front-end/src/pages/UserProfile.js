@@ -19,9 +19,10 @@ const UserProfile = props => {
       setError(err)
     })
   }
+
   useEffect(() => {
     getData();
-  })
+  }, [])
   
   if (localStorage.username != null){
     userData.username = localStorage.username
