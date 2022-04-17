@@ -8,7 +8,6 @@ const {User} = require("./models/User")
 router.get("/:id" , async (req, res) => {
 
     const userId = req.params.id
-    console.log("Hello")
 
     try {
         const user = await User.find({ id : userId })
