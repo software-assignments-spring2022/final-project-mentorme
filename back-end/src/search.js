@@ -71,7 +71,12 @@ router.get("/rateAdvisor/searchResult", async (req, res) => {
     const advisorData = await Advisor.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
     ])
-    res.send(calulateRank(req.query.name, advisorData))
+    const idArr = getIdFromList(calulateRank(req.query.name, advisorData))
+    const output = await Advisor.aggregate([
+        {$match: {id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, rate: 1, school: 1, field: 1}}
+    ])
+    res.send(output)
 })
 
 router.get("/mentorMe/profileDisplay", async (req, res) => {
@@ -90,7 +95,12 @@ router.get("/rateAdvisor/searchResult/2", async (req, res) => {
     const advisorData = await Advisor.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, school: 1, field: 1}}
     ])
-    res.send(getAdvisorFilterResult(req.query.filter, advisorData))
+    const idArr = getIdFromList(getAdvisorFilterResult(req.query.filter, advisorData))
+    const output = await Advisor.aggregate([
+        {$match: {id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, rate: 1, school: 1, field: 1}}
+    ])
+    res.send(output)
 })
 
 router.get("/mentorMe/profileDisplay/2", async (req, res) => {
