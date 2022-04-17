@@ -30,14 +30,14 @@ const IndividualProfile = () => {
       
       {error && <p className="Profile-error">{error}</p>}
 
-      <h1>{`${userData.last_name}, ${userData.first_name}`}</h1>
+      <h1>{`${userData[0]["first_name"]} ${userData[0]["last_name"]}`}</h1> 
       <img src={userData.profilePic} className="center" alt="profile"/>
       <br />
         <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state = {{name : userData.first_name +" "+userData.last_name,score:userData.score}}><Button type="button"> Chat </Button></Link>
         <p>
           <br />
           <br />
-          {userData.bio}
+          {userData[0]["bio"]}
           <br />
           <br />
         </p>
