@@ -9,12 +9,12 @@ const mongoose = require("mongoose");
 
 // connecting database
 require('dotenv').config()
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri);
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log('Connected Database Successfully');
-});
+
+
+mongoose
+  .connect(`${process.env.ATLAS_URI}`)
+  .then(data => console.log(`Connected to MongoDB`))
+  .catch(err => console.error(`Failed to connect to MongoDB: ${err}`))
 // console.log(process.env)
 
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
