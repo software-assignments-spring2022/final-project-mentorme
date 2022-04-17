@@ -66,4 +66,8 @@ const advisorSchema = new Schema(
     }
 })
 
-var SomeModel = mongoose.model('Advisor', advisorSchema );
+const Advisor = mongoose.model('Advisor', advisorSchema, 'advisorinfo' );
+
+module.exports = {
+    Advisor,
+}
