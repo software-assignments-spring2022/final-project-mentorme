@@ -79,7 +79,7 @@ const ProfileDisplay = props => {
         <Container className="">
           <div className="list-group">
           {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentRate} school={data.school} id={data.id}/>
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.rate.overAll} school={data.school} id={data.id} bio={data.bio}/>
             ))}
           </div>
         </Container>
@@ -107,9 +107,7 @@ const Item = props => {
               <div className="school-name">
                 <small>{props.school}</small>
               </div>
-              <p className="mb-1 brief">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.
-              </p>
+              <p className="mb-1 brief">{props.bio}</p>
             </Col>
           </Row>
         </Container>

@@ -9,11 +9,15 @@ const {Advisor} = require("./models/Advisor")
 function calulateRank(term, arr) {
     let sim_arr = []
     let output_arr = []
+    let max_len = 5
     arr.forEach((item) => {
         let full_name = item.first_name + ' ' + item.last_name
         sim_arr.push(similarity = stringSimilarity.compareTwoStrings(term, full_name));
     })
-    for (i = 0; i < 5; i++) {
+    if  (arr.length < 5){
+        max_len = arr.length
+    }
+    for (i = 0; i < max_len; i++) {
         let max_j = 0
         let max = sim_arr[0]
         for (j = 0; j < sim_arr.length; j++) {
@@ -55,32 +59,60 @@ function getMentorFilterResult(filterList, arr) {
     return output_arr
 }
 
+function getIdFromList(arr){
+    let output_arr = []
+    arr.forEach((item) =>{
+        output_arr.push(item.id)
+    })
+    return output_arr
+}
+
 router.get("/rateAdvisor/searchResult", async (req, res) => {
     const advisorData = await Advisor.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
     ])
-    res.send(calulateRank(req.query.name, advisorData))
+    const idArr = getIdFromList(calulateRank(req.query.name, advisorData))
+    const output = await Advisor.aggregate([
+        {$match: {id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, rate: 1, school: 1, field: 1}}
+    ])
+    res.send(output)
 })
 
 router.get("/mentorMe/profileDisplay", async (req, res) => {
     const mentorProfiles = await User.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
     ])
-    res.send(calulateRank(req.query.name, mentorProfiles))
+    const idArr = getIdFromList(calulateRank(req.query.name, mentorProfiles))
+    const output = await User.aggregate([
+        {$match: {id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, rate: 1, school: 1}}
+    ])
+    res.send(output)
 })
 
 router.get("/rateAdvisor/searchResult/2", async (req, res) => {
     const advisorData = await Advisor.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, school: 1, field: 1}}
     ])
-    res.send(getAdvisorFilterResult(req.query.filter, advisorData))
+    const idArr = getIdFromList(getAdvisorFilterResult(req.query.filter, advisorData))
+    const output = await Advisor.aggregate([
+        {$match: {id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, rate: 1, school: 1, field: 1}}
+    ])
+    res.send(output)
 })
 
 router.get("/mentorMe/profileDisplay/2", async (req, res) => {
     const mentorProfiles = await User.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, language: 1, year: 1, department: 1}}
     ])
-    res.send(getMentorFilterResult(req.query.filter, mentorProfiles))
+    const idArr = getIdFromList(getMentorFilterResult(req.query.filter, mentorProfiles))
+    const output = await User.aggregate([
+        {$match: {id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, rate: 1, school: 1}}
+    ])
+    res.send(output)
 })
 
 router.get("/mentorMe/UserProfile/ChatsHistory/2", async (req, res) => {
