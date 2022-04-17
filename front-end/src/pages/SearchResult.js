@@ -18,7 +18,7 @@ const SearchResult = props => {
   // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name: location.state.name } })
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name } })
       .then(res => {
         setUserData(res.data);
       })
@@ -70,7 +70,7 @@ const SearchResult = props => {
         <Container className="">
           <div className="list-group">
             {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.score} school={data.school} id={data.id}/>
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.rate.overAll} school={data.school} id={data.id} field={data.field} department={data.department}/>
             ))}
           </div>
         </Container>
@@ -98,9 +98,15 @@ const Item = props => {
               <div className="school-name">
                 <small>{props.school}</small>
               </div>
-              <p className="mb-1 brief">
+              <div className="school-name">
+                <small>{props.department}</small>
+              </div>
+              <div className="school-name">
+                <small>{props.field}</small>
+              </div>
+              {/* <p className="mb-1 brief">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.
-              </p>
+              </p> */}
             </Col>
           </Row>
         </Container>

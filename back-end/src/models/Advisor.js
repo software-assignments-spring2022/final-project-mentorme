@@ -33,6 +33,14 @@ const advisorSchema = new Schema(
         type: String,
         required: true
     },
+    rate:{
+        overAll:{
+            type:Number
+        },
+        rates:{
+            type:Array
+        }
+    },
     comments:{
         amount:{
             type:Number,
