@@ -1,8 +1,10 @@
-const { advisorData } = require('./mockAdvisorData');
-const mentorProfiles = require('./mockRateMentorData')
+// const { advisorData } = require('./mockAdvisorData');
+// const mentorProfiles = require('./mockRateMentorData')
 const express = require("express");
 const router = express.Router();
 const stringSimilarity = require("string-similarity");
+const {User} = require("./models/User") 
+const {Advisor} = require("./models/Advisor") 
 // handle search get request on advisor page. Return the most relevant 5 results. Req should has search term as 'name'
 function calulateRank(term, arr) {
     let sim_arr = []
@@ -46,31 +48,45 @@ function getMentorFilterResult(filterList, arr) {
             output_arr.push(item)
         } else if (filterList.includes(item.year)) {
             output_arr.push(item)
-        } else if (filterList.includes(item.major)) {
+        } else if (filterList.includes(item.department)) {
             output_arr.push(item)
         }
     })
     return output_arr
 }
 
-router.get("/rateAdvisor/searchResult", (req, res) => {
+router.get("/rateAdvisor/searchResult", async (req, res) => {
+    const advisorData = await Advisor.aggregate([
+        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
+    ])
     res.send(calulateRank(req.query.name, advisorData))
 })
 
-router.get("/mentorMe/profileDisplay", (req, res) => {
+router.get("/mentorMe/profileDisplay", async (req, res) => {
+    const mentorProfiles = await User.aggregate([
+        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
+    ])
     res.send(calulateRank(req.query.name, mentorProfiles))
 })
 
-router.get("/rateAdvisor/searchResult/2", (req, res) => {
+router.get("/rateAdvisor/searchResult/2", async (req, res) => {
+    const advisorData = await Advisor.aggregate([
+        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, school: 1, field: 1}}
+    ])
     res.send(getAdvisorFilterResult(req.query.filter, advisorData))
 })
 
-router.get("/mentorMe/profileDisplay/2", (req, res) => {
+router.get("/mentorMe/profileDisplay/2", async (req, res) => {
+    const mentorProfiles = await User.aggregate([
+        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, language: 1, year: 1, department: 1}}
+    ])
     res.send(getMentorFilterResult(req.query.filter, mentorProfiles))
 })
 
-router.get("/mentorMe/UserProfile/ChatsHistory/2", (req, res) => {
-    console.log(calulateRank(req.query.name, mentorProfiles))
+router.get("/mentorMe/UserProfile/ChatsHistory/2", async (req, res) => {
+    const mentorProfiles = await User.aggregate([
+        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
+    ])
     res.send(calulateRank(req.query.name, mentorProfiles))
 })
 
