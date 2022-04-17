@@ -55,7 +55,7 @@ function getMentorFilterResult(filterList, arr) {
     return output_arr
 }
 
-router.get("/rateAdvisor/searchResult", (req, res) => {
+router.get("/rateAdvisor/searchResult", async (req, res) => {
     const advisorData = await Advisor.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
     ])
@@ -69,7 +69,7 @@ router.get("/mentorMe/profileDisplay", async (req, res) => {
     res.send(calulateRank(req.query.name, mentorProfiles))
 })
 
-router.get("/rateAdvisor/searchResult/2", (req, res) => {
+router.get("/rateAdvisor/searchResult/2", async (req, res) => {
     const advisorData = await Advisor.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, school: 1, field: 1}}
     ])
