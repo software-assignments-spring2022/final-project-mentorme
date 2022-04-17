@@ -22,7 +22,7 @@ const EditProfile = props => {
 
     try{
       axios
-        .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
+        .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
           username: username,
           email: email,
           password: password,

@@ -39,8 +39,7 @@ const advisorSchema = new Schema(
     }
 })
 
-const Advisor = mongoose.model('Advisor', advisorSchema,'advisorinfo' );
-
+const Advisor = mongoose.model('Advisor', advisorSchema, 'advisorinfo' );
 
 module.exports = {
     Advisor,
