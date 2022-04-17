@@ -1,5 +1,5 @@
 const express = require("express");
-//const mentorRateData = require("./mockRateMentorData");
+const mongoose = require('mongoose')
 const app = express();
 const router = express.Router();
 const {User} = require("./models/User") 
@@ -17,6 +17,7 @@ router.get("/:id" , async (req, res) => {
             status: 'all good',
         })
         console.log("found user")
+        console.log(user)
     } catch (e) {
         console.log("Couldn't Find User");
         res.status(500)
