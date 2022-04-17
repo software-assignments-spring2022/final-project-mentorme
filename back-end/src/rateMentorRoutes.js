@@ -4,12 +4,14 @@ let rates = require("./mockRateMentorData");
 const bodyParser = require('body-parser')
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(bodyParser.text())
+const {User} =require("./models/User")
 
 
-
-router.post("/", (request, res) => {
+router.post("/", async (request, res) => {
+    const user = await User.find({})
+    console.log(user)
     const data = {
-            overall: 0 ,
+            overall:request.body,
     }
     console.log(request.body);
 
