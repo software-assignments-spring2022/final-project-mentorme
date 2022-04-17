@@ -9,13 +9,14 @@ import axios from 'axios'
 const IndividualProfile = () => {
 
   const location = useLocation()
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
 
-  const id = location.state.id
-
-  useEffect(() => {
-    axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
+  useEffect(async () => {
+    console.log(location.state)
+    const id = location.state.id
+    console.log('id is', id)
+    await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
       .then(response => setUserData(response.data))
       .catch(err => {
         setError(err)
