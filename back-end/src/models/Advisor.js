@@ -33,7 +33,7 @@ const advisorSchema = new Schema(
         type: String,
         required: true
     },
-    amount:{
+    currentScore:{
         type: Number,
         required: true
     }
