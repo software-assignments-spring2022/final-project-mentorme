@@ -54,7 +54,6 @@ const ProfileDisplay = props => {
     }else{
       getSearchResult()
     }
-    console.log('users get are', userData)
   }, [location.state])
 
   return (
@@ -78,8 +77,9 @@ const ProfileDisplay = props => {
       <section className="resultList">
         <Container className="">
           <div className="list-group">
-          {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentRate} school={data.school} id={data.id}/>
+          {console.log("searched users are", userData)}
+          {userData.map((data, index) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentRate} school={data.school} id={data.id} key={index}/>
             ))}
           </div>
         </Container>

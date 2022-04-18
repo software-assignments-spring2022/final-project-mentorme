@@ -8,19 +8,32 @@ import axios from 'axios'
 
 const IndividualProfile = () => {
 
+  console.log('component running')
   const location = useLocation()
   const [userData, setUserData] = useState({});
   const [error, setError] = useState('')
 
   const id = location.state.id
+  console.log("id is ", id)
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
-      .then(response => setUserData(response.data))
+    const fetchData = async () => {
+      // fetch individual profile from backend
+      await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
+      .then(res => {
+        console.log("profile get successfully.")
+        setUserData(res.data)
+      })
       .catch(err => {
+        console.log("err", err)
         setError(err)
       })
+    }
+    
+    fetchData()
   }, [])
+
+  console.log("after use effect")
   
   
   return (
