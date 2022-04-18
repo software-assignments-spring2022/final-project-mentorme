@@ -12,7 +12,7 @@ const CommentsDisplay = () => {
   const location = useLocation()
   const id = location.state.id
   const [advisor, setAdvisor] = useState({})
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([{}]);
 
   useEffect(() => {
     const fetchData = async() => {
@@ -23,6 +23,15 @@ const CommentsDisplay = () => {
         console.log('advisor fetched.')
         setComments(res.data.comments)
         console.log('comments fetched.')
+
+        // computes overall score of the advisor using their comments
+        let total = 0
+        res.data.comments.forEach(comment => {
+          total += comment.score
+        })
+        const newAdvisor = { ...res.data.info }
+        newAdvisor.score = (total / res.data.comments.length).toFixed(2)
+        setAdvisor(newAdvisor)
       })
       .catch(err => {
         console.log(`err, ${err}.`)
@@ -54,7 +63,7 @@ const CommentsDisplay = () => {
       {/* comments section */}
       <div className="comments">
         <div className= "comment-button">
-        <Link  to= "/rateAdvisor/searchResult/commentsDisplay/postCommentPage" state={{ name: advisor.first_name + " "+ advisor.last_name,
+        <Link to= "/rateAdvisor/searchResult/commentsDisplay/postCommentPage" state={{ name: advisor.first_name + " "+ advisor.last_name,
                                                                                         university:advisor.university,
                                                                                        department: advisor.department + " at "+ advisor.school,
                                                                                        currentScore: advisor.score,
@@ -71,7 +80,7 @@ const CommentsDisplay = () => {
 
               <div className="user-comment">
                 <div className="date">{comment.timestamp}</div>
-                <div className="inner-comment">{comment.comment}</div>
+                <div className="inner-comment">{comment.written_feedback}</div>
               </div>
 
             </div>

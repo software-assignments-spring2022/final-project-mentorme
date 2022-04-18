@@ -1,8 +1,6 @@
 const express = require("express");
-const mongoose = require('mongoose')
-const app = express();
 const router = express.Router();
-const {User} = require("./models/User") 
+const { User } = require("./models/User") 
 
 
 router.get("/mentorMe/profileDisplay/individualProfile/:id" , async (req, res) => {

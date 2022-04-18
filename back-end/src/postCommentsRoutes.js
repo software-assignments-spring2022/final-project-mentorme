@@ -8,10 +8,11 @@ const {Comments} =require("./models/Comments")
 
 router.post("/:id",async(request, res) => {
     const userId = request.params.id
-    // const nameData = new Name({firstName:firstName, lastName:lastName});
-    // nameData.save().then(res.redirect('/')).catch(err){
-    // console.log(err);
-    // };
+    const date = new Date()
+    const year = date.getFullYear().toString()
+    const month = (date.getMonth() + 1).toString()
+    const day = date.getDate().toString()
+   
     console.log(userId)
     console.log(request.body.formInput.overall)
     const newComment = new Comments({id:request.params.id,
@@ -20,7 +21,9 @@ router.post("/:id",async(request, res) => {
                                     category2:request.body.formInput.category2,
                                     category3:request.body.formInput.category3,
                                     category4:request.body.formInput.category4,
-                                    written_feedback:request.body.formInput.comment});
+                                    written_feedback:request.body.formInput.comment,
+                                    timestamp: `${year}-${month}-${day}`
+                                });
     newComment.save()
     try {
         const comments = await Comments.find({ id : userId })
