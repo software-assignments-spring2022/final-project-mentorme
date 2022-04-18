@@ -24,8 +24,9 @@ const commentSchema = new Schema({
         written_feedback:{
             type:String,
         }
+        
 
-    })
+    },{ timestamps: true })
 
     const Comments = mongoose.model('Comments', commentSchema,'comments' );
 
