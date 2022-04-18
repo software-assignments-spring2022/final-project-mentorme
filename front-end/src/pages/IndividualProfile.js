@@ -34,7 +34,7 @@ const IndividualProfile = () => {
       <h1>{`${userData[0]["first_name"]} ${userData[0]["last_name"]}`}</h1> 
       <img src={userData.profilePic} className="center" alt="profile"/>
       <br />
-        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state = {{name : userData.first_name +" "+userData.last_name,score:userData.score}}><Button type="button"> Chat </Button></Link>
+        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state = {{id : location.state.id,name : userData[0]["first_name"] +" "+userData[0]["last_name"],score:userData[0]["rate"]['overAll']}}><Button type="button"> Chat </Button></Link>
         <p>
           <br />
           <br />
