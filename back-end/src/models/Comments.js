@@ -23,6 +23,11 @@ const commentSchema = new Schema({
         },
         written_feedback:{
             type:String,
+            required: true
+        },
+        timestamp: {
+            type: String,
+            required: true
         }
 
     })
