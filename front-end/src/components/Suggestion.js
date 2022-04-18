@@ -26,7 +26,7 @@ const Suggestion = ( {suggestions, navigateTo} ) => {
                     </div>
                     {/* score container */}
                     <div className="score">
-                        <div>{`${person.score}/5.0`}</div>
+                        <div>{`${person.over_all == undefined ? person.currentScore.toFixed(2): person.over_all.toFixed(2)}/5.0`}</div>
                     </div>
                 </div>
             ))}

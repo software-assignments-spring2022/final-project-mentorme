@@ -7,15 +7,23 @@ const { Server } = require("socket.io");
 const morgan = require("morgan") // middleware for nice logging of incoming HTTP requests
 const mongoose = require("mongoose");
 
+
 // connecting database
 require('dotenv').config()
 
 
 mongoose
-  .connect(`${process.env.ATLAS_URI}`)
-  .then(data => console.log(`Connected to MongoDB`))
-  .catch(err => console.error(`Failed to connect to MongoDB: ${err}`))
+    .connect(`${process.env.ATLAS_URI}`)
+    .then(data => console.log(`Connected to MongoDB`))
+    .catch(err => console.error(`Failed to connect to MongoDB: ${err}`))
 // console.log(process.env)
+
+
+
+
+
+
+
 
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
 const rateMentor = require('./rateMentorRoutes')
@@ -28,6 +36,7 @@ const chat = require('./chat')
 const search = require('./search')
 const commentDisplayRoutes = require('./commentDisplayRoutes')
 const postCommentRoutes = require('./postCommentsRoutes')
+const userRoutes = require('./routes/userRoutes')
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
@@ -117,6 +126,7 @@ app.use('/login', login);
 app.use('/signup', signup);
 
 app.use('/chat', chat);
+app.use('/users', userRoutes)
 
 app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);
