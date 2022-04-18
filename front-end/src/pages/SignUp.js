@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Form, Row, Button } from "react-bootstrap"
-import { Link } from "react-router-dom";
+import { useSignupUserMutation } from "../services/appApi";
+import { Link, navigate, useNavigate } from "react-router-dom";
 // import { FontAwesomeIcon } from '@fortawesome/free-brands-svg-icons'
 
 import "../styles/SignUp.css"
@@ -19,6 +20,8 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
+  const navigate = useNavigate();
+  const [signupUser, { isLoading, error }] = useSignupUserMutation();
 
   function validateImg(e) {
     const file = e.target.files[0];
@@ -55,6 +58,12 @@ function SignUp() {
     if (!image) return alert('Please upload your profile picture');
     const url = await uploadImage(image);
     console.log(url);
+    signupUser({ name, email, password, picture: url }).then(({ data }) => {
+      if (data) {
+        console.log(data);
+        navigate("/mentorMe")
+      }
+    });
     try {
       axios
         .post("http://localhost:4000/signup", {
