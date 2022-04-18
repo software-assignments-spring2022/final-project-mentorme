@@ -6,7 +6,7 @@ router.use(bodyParser.json())
 const {Advisor} =require("./models/Advisor")
 const {Comments} =require("./models/Comments")
 
-router.post("/:id",(request, res) => {
+router.post("/:id",async(request, res) => {
     const userId = request.params.id
     // const nameData = new Name({firstName:firstName, lastName:lastName});
     // nameData.save().then(res.redirect('/')).catch(err){
@@ -22,6 +22,20 @@ router.post("/:id",(request, res) => {
                                     category4:request.body.formInput.category4,
                                     written_feedback:request.body.formInput.comment});
     newComment.save()
+    try {
+        const comments = await Comments.find({ id : userId })
+        console.log(comments.length)
+        let totalscore =0
+        for (let i = 0; i < comments.length; i++) { 
+            totalscore += comments[i]['score']
+          }
+        const avg =totalscore/comments.length
+        const advisor = await Advisor.findOneAndUpdate({ id : userId },{currentScore:avg})
+    } catch (e) {
+        console.log("Couldn't Find User");
+        res.status(500)
+    }
+
 });
 
 module.exports = router;

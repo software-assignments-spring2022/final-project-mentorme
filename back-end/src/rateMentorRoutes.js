@@ -10,19 +10,23 @@ const {User} =require("./models/User")
 router.post("/:id", async (request, res) => {
     const userId = request.params.id
     console.log(userId)
-    console.log(request.body.overall);
+    console.log(request.body.formInput.overall);
     try {
-        const user = await User.find({ id : userId })
+        const user = await User.findOneAndUpdate({ id : userId },{$push:{rates:request.body.formInput.overall}},{ upsert: true })
+        const arrayOfRates = user.rates
+        console.log(user['rates'])
+        let avg = (arrayOfRates / arrayOfRates.length)
+        console.log(avg)
+        // const newOverall = await User.findOneAndUpdate({ id : userId },)
+
         console.log(user)
-        res.json(user) 
     } catch (e) {
         console.log("Couldn't Find User");
         res.status(500)
     }
 
+    })
     
-
-})
 
 
 module.exports = router;

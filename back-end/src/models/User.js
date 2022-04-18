@@ -44,19 +44,17 @@ const userSchema = new Schema(
         type: Boolean,
         required: true
     },
-    rate:{
-        overAll:{
+    over_all:{
             type:Number
         },
-        rates:{
+    rates:{
             type:Array
         }
-    }
 })
 
 
 const User = mongoose.model('User', userSchema,'userinfo')
 
 module.exports = {
-    User,
+    User
 }

@@ -19,6 +19,7 @@ const UserProfile = props => {
       setError(err)
     })
   }
+
   useEffect(() => {
     getData();
   }, [])
