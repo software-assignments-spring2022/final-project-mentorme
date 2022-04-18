@@ -26,6 +26,10 @@ const commentSchema = new Schema({
         written_feedback:{
             type:Array,
             required: true
+        },
+        timestamp: {
+            type: Number,
+            required: true
         }
 
     })
