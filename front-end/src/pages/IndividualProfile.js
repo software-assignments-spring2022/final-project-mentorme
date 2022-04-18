@@ -36,11 +36,10 @@ const IndividualProfile = () => {
       <section className="main-content">
       
       {error && <p className="Profile-error">{error}</p>}
-
       <h1>{`${userData[0]["first_name"]} ${userData[0]["last_name"]}`}</h1> 
       <img src={userData.profilePic} className="center" alt="profile"/>
       <br />
-        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state = {{id : location.state.id,name : userData[0]["first_name"] +" "+userData[0]["last_name"],score:userData[0]["rate"]['overAll']}}><Button type="button"> Chat </Button></Link>
+        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state = {{id : location.state.id,name : userData[0]["first_name"] +" "+userData[0]["last_name"],score:userData[0]['over_all']}}><Button type="button"> Chat </Button></Link>
         <p>
           <br />
           <br />
