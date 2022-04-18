@@ -34,7 +34,7 @@ const RatePage = props => {
 
     let data = { formInput };
 
-    fetch("http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage", {
+    fetch(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

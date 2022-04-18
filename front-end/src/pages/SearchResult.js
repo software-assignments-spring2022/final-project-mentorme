@@ -70,7 +70,7 @@ const SearchResult = props => {
         <Container className="">
           <div className="list-group">
             {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.rate.overAll} school={data.school} id={data.id} field={data.field} department={data.department}/>
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentScore.toFixed(2)} school={data.school} id={data.id} field={data.field} department={data.department}/>
             ))}
           </div>
         </Container>

@@ -43,14 +43,12 @@ const userSchema = new Schema(
         type: Boolean,
         required: true
     },
-    rate:{
-        overAll:{
+    over_all:{
             type:Number
         },
-        rates:{
+    rates:{
             type:Array
         }
-    }
 })
 
 
