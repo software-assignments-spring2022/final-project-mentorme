@@ -78,11 +78,7 @@ const ProfileDisplay = props => {
         <Container className="">
           <div className="list-group">
           {userData.map((data) => (
-<<<<<<< HEAD
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all} school={data.school} id={data.id} bio={data.bio}/>
-=======
               <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all.toFixed(2)} school={data.school} id={data.id} bio={data.bio}/>
->>>>>>> master
             ))}
           </div>
         </Container>
