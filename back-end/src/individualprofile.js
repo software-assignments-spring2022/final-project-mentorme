@@ -8,7 +8,6 @@ const {User} = require("./models/User")
 router.get("/mentorMe/profileDisplay/individualProfile/:id" , async (req, res) => {
 
     const userId = req.params.id
-    console.log("route received with id: " + userId)
 
     try {
         const user = await User.find({ id : userId })

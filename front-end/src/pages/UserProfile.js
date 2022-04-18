@@ -13,8 +13,8 @@ const UserProfile = props => {
   const [error, setError] = useState('')
   const getData = () => {
     axios
-      .get('http://localhost:4000/mentorMe/UserProfile')
-      .then(response => {setUserData(response.data)})
+      .get('http://localhost:4000/mentorMe/UserProfile/1')
+      .then(response => {setUserData(response.data[0])})
     .catch(err => {
       setError(err)
     })
@@ -24,15 +24,15 @@ const UserProfile = props => {
     getData();
   }, [])
   
-  if (localStorage.username != null){
-    userData.username = localStorage.username
-  }
-  if (localStorage.bio != null){
-    userData.bio = localStorage.bio
-  }
-  if (localStorage.username != null){
-    userData.profilePic = localStorage.profilePic
-  }
+  // if (localStorage.username != null){
+  //   userData.username = localStorage.username
+  // }
+  // if (localStorage.bio != null){
+  //   userData.bio = localStorage.bio
+  // }
+  // if (localStorage.username != null){
+  //   userData.profilePic = localStorage.profilePic
+  // }
 
   
 
@@ -44,7 +44,7 @@ const UserProfile = props => {
       
       {error && <p className="Profile-error">{error}</p>}
 
-      <h1>Username {userData.username}</h1>
+      <h1>{userData["first_name"]} {userData["last_name"]}</h1>
       <img src={userData.profilePic} className="center" alt="profile"/>
       <br />
         <Link to="/mentorme/EditProfile"><Button type="button"> Edit Profile </Button></Link>
@@ -52,7 +52,7 @@ const UserProfile = props => {
         <p>
           <br />
           <br />
-          {userData.bio}
+          {userData["bio"]}
           <br />
           <br />
         </p>

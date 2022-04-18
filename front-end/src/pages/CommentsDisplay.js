@@ -57,7 +57,8 @@ const CommentsDisplay = () => {
         <Link  to= "/rateAdvisor/searchResult/commentsDisplay/postCommentPage" state={{ name: advisor.first_name + " "+ advisor.last_name,
                                                                                         university:advisor.university,
                                                                                        department: advisor.department + " at "+ advisor.school,
-                                                                                       currentScore: advisor.score
+                                                                                       currentScore: advisor.score,
+                                                                                       user_id :location.state.id,
 
                                                                                        }}><Button>Post a Comment!</Button></Link>
       </div>
