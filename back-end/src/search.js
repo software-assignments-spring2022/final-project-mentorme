@@ -5,6 +5,7 @@ const router = express.Router();
 const stringSimilarity = require("string-similarity");
 const { User } = require("./models/User") 
 const { Advisor } = require("./models/Advisor") 
+const { Comments } = require("./models/Comments")
 // handle search get request on advisor page. Return the most relevant 5 results. Req should has search term as 'name'
 function calulateRank(term, arr) {
     let sim_arr = []
@@ -74,7 +75,7 @@ router.get("/rateAdvisor/searchResult", async (req, res) => {
     const idArr = getIdFromList(calulateRank(req.query.name, advisorData))
     const output = await Advisor.aggregate([
         {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, rate: 1, school: 1, field: 1}}
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, school: 1, field: 1, currentScore: 1}}
     ])
     res.send(output)
 })
@@ -86,7 +87,7 @@ router.get("/mentorMe/profileDisplay", async (req, res) => {
     const idArr = getIdFromList(calulateRank(req.query.name, mentorProfiles))
     const output = await User.aggregate([
         {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, rate: 1, school: 1}}
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1}}
     ])
     res.send(output)
 })
@@ -98,7 +99,7 @@ router.get("/rateAdvisor/searchResult/2", async (req, res) => {
     const idArr = getIdFromList(getAdvisorFilterResult(req.query.filter, advisorData))
     const output = await Advisor.aggregate([
         {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, rate: 1, school: 1, field: 1}}
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, currentScore: 1, school: 1, field: 1}}
     ])
     res.send(output)
 })
@@ -110,7 +111,7 @@ router.get("/mentorMe/profileDisplay/2", async (req, res) => {
     const idArr = getIdFromList(getMentorFilterResult(req.query.filter, mentorProfiles))
     const output = await User.aggregate([
         {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, rate: 1, school: 1}}
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1}}
     ])
     res.send(output)
 })
