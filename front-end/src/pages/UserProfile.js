@@ -45,7 +45,7 @@ const UserProfile = props => {
       {error && <p className="Profile-error">{error}</p>}
 
       <h1>{userData["first_name"]} {userData["last_name"]}</h1>
-      <img src={userData.profilePic} className="center" alt="profile"/>
+      <img src={userData["profilePic"]} className="center" alt="profile"/>
       <br />
         <Link to="/mentorme/EditProfile"><Button type="button"> Edit Profile </Button></Link>
         <Link to="/mentorMe/UserProfile/ChatsHistory"><Button type="button"> Chat History</Button></Link>

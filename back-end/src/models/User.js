@@ -7,7 +7,6 @@ const userSchema = new Schema(
     id:{
         type: Number,
         required: true
-
     },
     first_name: {
         type: String,
@@ -17,6 +16,9 @@ const userSchema = new Schema(
         type: String,
         required: true
     },
+    profilePic: {
+        type: String
+    },
     bio: {
         type: String,
         required: true
@@ -24,13 +26,10 @@ const userSchema = new Schema(
     school: {
         type: String,
         required: true
-
     },
-
     year:{
         type: String,
         required: true
-
     },
     language :{
         type: String,
