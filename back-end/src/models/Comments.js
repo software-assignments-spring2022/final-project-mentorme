@@ -3,32 +3,30 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
+    id: {type:Number,
+
+    },
         score:{
             type:Number,
-            required: true
         }, 
         category1:{
             type:Number,
-            required: true
         },
         category2:{
             type:Number,
-            required: true
         },
         category3:{
             type:Number,
-            required: true
         },
         category4:{
             type:Number,
-            required: true
         },
         written_feedback:{
-            type:Array,
+            type:String,
             required: true
         },
         timestamp: {
-            type: Number,
+            type: String,
             required: true
         }
 
