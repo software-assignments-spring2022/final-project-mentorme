@@ -14,9 +14,14 @@ router.post("/:id", async (request, res) => {
     try {
         const user = await User.findOneAndUpdate({ id : userId },{$push:{rates:request.body.formInput.overall}},{ upsert: true })
         const arrayOfRates = user.rates
-        console.log(user['rates'])
-        let avg = (arrayOfRates / arrayOfRates.length)
+        console.log(arrayOfRates)
+        let totalscore =0
+        for (let i = 0; i < arrayOfRates.length; i++) { 
+            totalscore += parseInt(arrayOfRates[i])
+          }
+        const avg =totalscore/arrayOfRates.length
         console.log(avg)
+        const userRate = await User.findOneAndUpdate({ id : userId },{over_all:avg})
         // const newOverall = await User.findOneAndUpdate({ id : userId },)
 
         console.log(user)

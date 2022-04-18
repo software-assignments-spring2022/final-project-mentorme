@@ -22,6 +22,7 @@ router.post("/:id",async(request, res) => {
                                     category4:request.body.formInput.category4,
                                     written_feedback:request.body.formInput.comment});
     newComment.save()
+    newComment.createdAt;
     try {
         const comments = await Comments.find({ id : userId })
         console.log(comments.length)
