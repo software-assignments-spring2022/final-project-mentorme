@@ -120,7 +120,7 @@ app.use('/chat', chat);
 
 app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);
-app.use("/mentorMe/profileDisplay/individualProfile", individualprofile);
+app.use("/", individualprofile);
 app.use("/", search);
 
 app.use("/", commentDisplayRoutes)

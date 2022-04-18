@@ -13,14 +13,20 @@ const IndividualProfile = () => {
   const [error, setError] = useState('')
 
   useEffect(async () => {
-    console.log(location.state)
-    const id = location.state.id
-    console.log('id is', id)
-    await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
-      .then(response => setUserData(response.data))
-      .catch(err => {
-        setError(err)
-      })
+    const fetchData = async () => {
+      console.log(location.state)
+      const id = location.state.id
+      console.log('id is', id)
+      await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
+        .then(response => setUserData(response.data))
+        .catch(err => {
+          console.log("err", err)
+          setError(err)
+        }
+      )
+    }
+    
+    fetchData()
   }, [])
   
   
