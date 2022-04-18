@@ -10,25 +10,27 @@ import { useLocation } from "react-router-dom"
 const CommentsDisplay = () => {
 
   const location = useLocation()
+  const id = location.state.id
   const [advisor, setAdvisor] = useState({})
   const [comments, setComments] = useState([]);
 
-  useEffect(async () => {
-    console.log(location.state)
-    const id = location.state.id
-    console.log('id is', id)
-    // fetch information and comments for advisor
-    await axios.get(`http://localhost:4000/rateAdvisor/commentDisplay/${id}`)
-    .then(res => {
-      setAdvisor(res.data.info);
-      console.log('advisor fetched.')
-      setComments(res.data.comments)
-      console.log('comments fetched.')
-    })
-    .catch(err => {
-      console.log(`err, ${err}.`)
-      setAdvisor([])
-    })
+  useEffect(() => {
+    const fetchData = async() => {
+      // fetch information and comments for advisor
+      await axios.get(`http://localhost:4000/rateAdvisor/commentDisplay/${id}`)
+      .then(res => {
+        setAdvisor(res.data.info);
+        console.log('advisor fetched.')
+        setComments(res.data.comments)
+        console.log('comments fetched.')
+      })
+      .catch(err => {
+        console.log(`err, ${err}.`)
+        setAdvisor([])
+      })
+    }
+    
+    fetchData()
   }, [])
   
   return (
@@ -55,7 +57,8 @@ const CommentsDisplay = () => {
         <Link  to= "/rateAdvisor/searchResult/commentsDisplay/postCommentPage" state={{ name: advisor.first_name + " "+ advisor.last_name,
                                                                                         university:advisor.university,
                                                                                        department: advisor.department + " at "+ advisor.school,
-                                                                                       currentScore: advisor.score
+                                                                                       currentScore: advisor.score,
+                                                                                       user_id :location.state.id,
 
                                                                                        }}><Button>Post a Comment!</Button></Link>
       </div>

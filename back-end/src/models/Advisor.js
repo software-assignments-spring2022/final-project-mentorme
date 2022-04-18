@@ -33,44 +33,9 @@ const advisorSchema = new Schema(
         type: String,
         required: true
     },
-    rate:{
-        overAll:{
-            type:Number
-        },
-        rates:{
-            type:Array
-        }
-    },
-    comments:{
-        amount:{
-            type:Number,
-            required: true
-        },
-        score:{
-            type:Number,
-            required: true
-        }, 
-        category1:{
-            type:Number,
-            required: true
-        },
-        category2:{
-            type:Number,
-            required: true
-        },
-        category3:{
-            type:Number,
-            required: true
-        },
-        category4:{
-            type:Number,
-            required: true
-        },
-        written_feedback:{
-            type:Array,
-            required: true
-        }
-
+    amount:{
+        type: Number,
+        required: true
     }
 })
 

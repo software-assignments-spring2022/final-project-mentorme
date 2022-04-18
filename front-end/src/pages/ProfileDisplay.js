@@ -54,7 +54,6 @@ const ProfileDisplay = props => {
     }else{
       getSearchResult()
     }
-    console.log('users get are', userData)
   }, [location.state])
 
   return (

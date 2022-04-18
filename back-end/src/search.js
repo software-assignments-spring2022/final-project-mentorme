@@ -3,8 +3,8 @@
 const express = require("express");
 const router = express.Router();
 const stringSimilarity = require("string-similarity");
-const {User} = require("./models/User") 
-const {Advisor} = require("./models/Advisor") 
+const { User } = require("./models/User") 
+const { Advisor } = require("./models/Advisor") 
 // handle search get request on advisor page. Return the most relevant 5 results. Req should has search term as 'name'
 function calulateRank(term, arr) {
     let sim_arr = []

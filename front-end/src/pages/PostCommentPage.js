@@ -83,7 +83,7 @@ function PostCommentPage() {
   
     let data = { formInput };
   
-    fetch("http://localhost:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage", {
+    fetch(`http://localhost:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
