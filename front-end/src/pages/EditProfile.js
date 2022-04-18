@@ -50,7 +50,7 @@ const EditProfile = props => {
       <section className="main-content">
         
         <h1>Edit Profile</h1>
-        <form className="personal_info" onSubmit={submitForm}>
+        <form className="personal_info" onSubmit={submitForm}> 
           <input
             type="text"
             placeholder="Change Name"
@@ -73,7 +73,7 @@ const EditProfile = props => {
             placeholder="Change Bio"
             value={bio}
             onChange={e => setBio(e.target.value)}
-          />
+          /> 
           <input
             type="file"
             placeholder="Change Profile Picture"
@@ -81,7 +81,15 @@ const EditProfile = props => {
             alt = "profile"
             onChange={e => setProfilePic(e.target.value)}
           />
-          <input type="submit" disabled={!username} value="Submit" />
+          <input type="submit"  value="Submit" /> 
+          {/* <div>
+            <label>Upload profile picture</label>
+            <input type="file" name="profilePic" required/>
+          </div>
+          <div>
+            <input type="submit" value="Upload" />
+          </div> 
+          <input type="submit" disabled={!username} value="Submit" /> */}
         </form>
 
         <Link to="/mentorme/UserProfile"><Button type="button" id="return_button"> Return </Button></Link>

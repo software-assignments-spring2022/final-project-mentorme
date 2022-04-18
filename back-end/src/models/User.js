@@ -16,6 +16,9 @@ const userSchema = new Schema(
         type: String,
         required: true
     },
+    profilePic: {
+        type: String
+    },
     bio: {
         type: String,
         required: true
