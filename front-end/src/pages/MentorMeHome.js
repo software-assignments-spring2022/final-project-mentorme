@@ -8,10 +8,18 @@ import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
 import { useSelector } from "react-redux";
 import { selectUsers } from "../features/userSlice"
+import axios from 'axios'
+
 const MentorMeHome = props => {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
+  // const location = useLocation()
+  // const { user } = location.state
+
 
   // console.log(state.user);
+
+  const picture = axios.get("http://localhost:4000/userinfo").then(res => res.data);
+  console.log(picture);
   const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science']
   return (
     <div className="MentorMeHome">
@@ -21,6 +29,7 @@ const MentorMeHome = props => {
       <br />
       <section className="main-content">
         <h1>MentorMe Home</h1>
+        {/* <img>src={user.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: 'cover', borderRaduis: "50%" }}</img> */}
         {/* (user && (<img>src={user.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: 'cover', borderRaduis: "50%" }}</img>)) */}
 
         <br />

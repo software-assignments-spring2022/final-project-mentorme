@@ -12,25 +12,26 @@ signToken = user => {
 module.exports = {
   signUp: async (req, res, next) => {
     console.log('UserController.signUp() called!');
-    const { email, password } = req.value.body;
+    const { name, school, password, email, picture } = req.value.body;
 
     const foundUser = await User.findOne({ email });
     if (foundUser) {
+      console.log("here")
       return res.status(403).json({ error: "Email is already in use" });
 
     }
-    const newUser = new User({ email, password });
+    const newUser = new User({ email, password, school, picture, name });
     await newUser.save();
 
     // res.json({ user: 'created!' });
     const token = signToken(newUser);
 
-    res.status(200).json({ token });
+    res.status(200).json({ token, auth: true });
   },
 
   signIn: async (req, res, next) => {
     const token = signToken(req.user);
-    res.status(200).json({ token });
+    res.status(200).json({ token, auth: true, user: req.user });
   },
 
   secret: async (req, res, next) => {

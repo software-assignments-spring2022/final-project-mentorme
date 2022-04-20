@@ -35,7 +35,19 @@ function Login() {
           email: email,
           password: password,
         })
-        .then(response => response.data)
+        .then((response) => {
+
+          console.log(response.data);
+
+          if (response.data.auth) {
+            axios.post("http://localhost:4000/userinfo", { pic: response.data.user.picture }).then(response => response.data);
+            navigate('/mentorMe', { state: { user: response.data.user } });
+          }
+          else {
+            alert("Wrong password or email, try again!");
+
+          }
+        });
       // localStorage.setItem('email', email);
       // localStorage.setItem('password', password);
       // if (user) {
@@ -44,6 +56,7 @@ function Login() {
     } catch (error) {
       console.log(error);
     }
+
   }
 
   return (

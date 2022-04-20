@@ -66,15 +66,27 @@ function SignUp() {
     // });
     try {
       axios
-        .post("http://localhost:4000/signup", {
+        .post("http://localhost:4000/users/signup", {
           email: email,
           password: password,
           name: name,
-          schoo: school
+          school: school,
+          picture: url
         })
-        .then(response => response.data)
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password);
+        .then((response) => {
+
+          console.log(response.data);
+
+          if (response.data.auth) {
+            navigate('/mentorMe')
+          }
+          else {
+            alert("Account Failure, try again!");
+
+          }
+        })
+      // localStorage.setItem('email', email);
+      // localStorage.setItem('password', password);
     } catch (error) {
       console.log(error);
     }
