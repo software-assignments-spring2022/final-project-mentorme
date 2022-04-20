@@ -33,6 +33,8 @@ const userprofile = require('./userprofile')
 const editprofile = require('./editprofile')
 const individualprofile = require('./individualprofile')
 const chat = require('./chat')
+const userinfo = require('./userinfo')
+
 const search = require('./search')
 const commentDisplayRoutes = require('./commentDisplayRoutes')
 const postCommentRoutes = require('./postCommentsRoutes')
@@ -124,9 +126,16 @@ app.use("/rateAdvisor/searchResult/commentsDisplay/postCommentPage", postComment
 
 app.use('/login', login);
 app.use('/signup', signup);
+app.use('/userinfo', userinfo);
+
 
 app.use('/chat', chat);
-app.use('/users', userRoutes)
+
+//authentication routes
+//first test
+// app.use('/users', userRoutes)
+//second test
+app.use('/users', require('./routes/users'));
 
 app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);

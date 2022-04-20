@@ -21,7 +21,7 @@ function SignUp() {
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
   const navigate = useNavigate();
-  const [signupUser, { isLoading, error }] = useSignupUserMutation();
+  // const [signupUser, { isLoading, error }] = useSignupUserMutation();
 
   function validateImg(e) {
     const file = e.target.files[0];
@@ -58,23 +58,35 @@ function SignUp() {
     if (!image) return alert('Please upload your profile picture');
     const url = await uploadImage(image);
     console.log(url);
-    signupUser({ name, email, password, picture: url }).then(({ data }) => {
-      if (data) {
-        console.log(data);
-        navigate("/mentorMe")
-      }
-    });
+    // signupUser({ name, email, password, picture: url }).then(({ data }) => {
+    //   if (data) {
+    //     console.log(data);
+    //     navigate("/mentorMe")
+    //   }
+    // });
     try {
       axios
-        .post("http://localhost:4000/signup", {
+        .post("http://localhost:4000/users/signup", {
           email: email,
           password: password,
           name: name,
-          schoo: school
+          school: school,
+          picture: url
         })
-        .then(response => response.data)
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password);
+        .then((response) => {
+
+          console.log(response.data);
+
+          if (response.data.auth) {
+            navigate('/mentorMe')
+          }
+          else {
+            alert("Account Failure, try again!");
+
+          }
+        })
+      // localStorage.setItem('email', email);
+      // localStorage.setItem('password', password);
     } catch (error) {
       console.log(error);
     }
