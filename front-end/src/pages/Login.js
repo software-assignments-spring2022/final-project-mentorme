@@ -8,35 +8,39 @@ import "../styles/Login.css"
 import BurgerMenu from "../components/BurgerMenu";
 import axios from 'axios'
 
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate()
-  const [loginUser, { isLoading, error }] = useLoginUserMutation();
+  // const [loginUser, { isLoading, error }] = useLoginUserMutation();
   let session = null;
   function handleLogin(e) {
     e.preventDefault();
-    loginUser({ email, password }).then(({ data }) => {
-      if (data) {
-        //socket work
-        //navigate to the chat
-        console.log(data);
-        session = data;
-        console.log(session.name);
+    // loginUser({ email, password }).then(({ data }) => {
+    //   if (data) {
+    //     //socket work
+    //     //navigate to the chat
+    //     console.log(data);
+    //     session = data;
+    //     console.log(session.name);
 
-        navigate('/mentorMe');
+    //     navigate('/mentorMe');
 
-      }
-    })
+    //   }
+    // })
     try {
       axios
-        .post("http://localhost:4000/login", {
+        .post("http://localhost:4000/users/signin", {
           email: email,
           password: password,
         })
         .then(response => response.data)
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password);
+      // localStorage.setItem('email', email);
+      // localStorage.setItem('password', password);
+      // if (user) {
+      //   navigate('/mentorMe');
+      // }
     } catch (error) {
       console.log(error);
     }

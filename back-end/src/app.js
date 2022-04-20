@@ -126,7 +126,12 @@ app.use('/login', login);
 app.use('/signup', signup);
 
 app.use('/chat', chat);
-app.use('/users', userRoutes)
+
+//authentication routes
+//first test
+// app.use('/users', userRoutes)
+//second test
+app.use('/users', require('./routes/users'));
 
 app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);

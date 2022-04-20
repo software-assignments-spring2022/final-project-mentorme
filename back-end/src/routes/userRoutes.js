@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   res.send("hello users")
 })
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const { name, email, password, picture } = req.body;
     console.log(req.body);

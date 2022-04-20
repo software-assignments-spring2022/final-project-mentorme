@@ -7,9 +7,11 @@ import Filter from '../components/Filter'
 import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
 import { useSelector } from "react-redux";
+import { selectUsers } from "../features/userSlice"
 const MentorMeHome = props => {
-  // const user = useSelector((state) => state.user);
-  // console.log(session.name);
+  const user = useSelector((state) => state.user);
+
+  // console.log(state.user);
   const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science']
   return (
     <div className="MentorMeHome">

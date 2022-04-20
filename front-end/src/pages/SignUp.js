@@ -21,7 +21,7 @@ function SignUp() {
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
   const navigate = useNavigate();
-  const [signupUser, { isLoading, error }] = useSignupUserMutation();
+  // const [signupUser, { isLoading, error }] = useSignupUserMutation();
 
   function validateImg(e) {
     const file = e.target.files[0];
@@ -58,12 +58,12 @@ function SignUp() {
     if (!image) return alert('Please upload your profile picture');
     const url = await uploadImage(image);
     console.log(url);
-    signupUser({ name, email, password, picture: url }).then(({ data }) => {
-      if (data) {
-        console.log(data);
-        navigate("/mentorMe")
-      }
-    });
+    // signupUser({ name, email, password, picture: url }).then(({ data }) => {
+    //   if (data) {
+    //     console.log(data);
+    //     navigate("/mentorMe")
+    //   }
+    // });
     try {
       axios
         .post("http://localhost:4000/signup", {
