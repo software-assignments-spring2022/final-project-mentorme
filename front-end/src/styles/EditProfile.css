@@ -5,6 +5,10 @@
     position:absolute;
 }
 
+.EditProfile h1 {
+  text-align: center;
+  font-size: 80px;
+}
 
 .personal_info input,
 .personal_info button,
