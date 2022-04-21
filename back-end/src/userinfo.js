@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
   res.send("pic")
 })
 
+router.get('getUser/:id', (req, res) => {
+  //  int id = router.param('id');
+})
+
 router.post("/", (req, res) => {
   const data = {
     picture: req.body.pic

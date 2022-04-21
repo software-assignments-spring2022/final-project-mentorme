@@ -40,6 +40,10 @@ function SignUp() {
     data.append('upload_preset', 'mentormesignup');
     try {
       setUploadingImg(true);
+      // let res - await fetch('https://api.blah.com/getUser/:id')
+      // params - get the id
+      // call mogoDb -. Model - user
+      //user.find({id: Incomingid})
       let res = await fetch("https://api.cloudinary.com/v1_1/lijie1230/image/upload", {
         method: 'post',
         body: data
