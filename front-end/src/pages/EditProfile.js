@@ -15,12 +15,13 @@ const EditProfile = props => {
   const [password, setPassword] = useState('')
   const [bio, setBio] = useState('')
   const [profilePic, setProfilePic] = useState('')
-  
+
 
   const submitForm = e => {
     e.preventDefault() // prevent normal browser submit behavior
 
-    try{
+    //new try block
+    try {
       axios
         .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
           username: username,
@@ -28,8 +29,8 @@ const EditProfile = props => {
           password: password,
           bio: bio,
           profilePic: profilePic
-      })
-      .then(response => response.data)
+        })
+        .then(response => response.data)
       localStorage.setItem('username', username);
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
@@ -38,6 +39,25 @@ const EditProfile = props => {
     } catch (error) {
       console.log(error);
     }
+    //original try block
+    // try{
+    //   axios
+    //     .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+    //       username: username,
+    //       email: email,
+    //       password: password,
+    //       bio: bio,
+    //       profilePic: profilePic
+    //   })
+    //   .then(response => response.data)
+    //   localStorage.setItem('username', username);
+    //   localStorage.setItem('email', email);
+    //   localStorage.setItem('password', password);
+    //   localStorage.setItem('bio', bio);
+    //   localStorage.setItem('profilePic', profilePic);
+    // } catch (error) {
+    //   console.log(error);
+    // }
 
     // clear form
     setUserName('')
@@ -45,12 +65,12 @@ const EditProfile = props => {
   }
 
   return (
-    <div className="EditProfile"> 
-      <BurgerMenu/>
+    <div className="EditProfile">
+      <BurgerMenu />
       <section className="main-content">
-        
+
         <h1>Edit Profile</h1>
-        <form className="personal_info" onSubmit={submitForm}> 
+        <form className="personal_info" onSubmit={submitForm}>
           <input
             type="text"
             placeholder="Change Name"
@@ -73,15 +93,15 @@ const EditProfile = props => {
             placeholder="Change Bio"
             value={bio}
             onChange={e => setBio(e.target.value)}
-          /> 
+          />
           <input
             type="file"
             placeholder="Change Profile Picture"
             value={profilePic}
-            alt = "profile"
+            alt="profile"
             onChange={e => setProfilePic(e.target.value)}
           />
-          <input type="submit"  value="Submit" /> 
+          <input type="submit" value="Submit" />
           {/* <div>
             <label>Upload profile picture</label>
             <input type="file" name="profilePic" required/>
@@ -96,7 +116,7 @@ const EditProfile = props => {
       </section>
     </div>
   )
-  }
-  
-  
-  export default EditProfile
+}
+
+
+export default EditProfile

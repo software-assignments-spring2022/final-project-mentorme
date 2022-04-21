@@ -26,6 +26,9 @@ const UserSchema = new mongoose.Schema({
   picture: {
     type: String,
   },
+  bio: {
+    type: String
+  }
   // newMessages: {
   //   type: Object,
   //   default: {}
