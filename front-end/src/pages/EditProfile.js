@@ -5,6 +5,7 @@ import BurgerMenu from "../components/BurgerMenu"
 import Button from "../components/Button"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import peppa from "../images/3-peppa.jpeg";
 
 
 
@@ -16,33 +17,102 @@ const EditProfile = props => {
   const [bio, setBio] = useState('')
   const [profilePic, setProfilePic] = useState('')
   
+  function validateImg(e) {
+    const file = e.target.files[0];
+    if (file.size > 1048576) {
+      return alert("Max file size is 1mb");
+    }
+    else {
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  }
 
-  const submitForm = e => {
-    e.preventDefault() // prevent normal browser submit behavior
-
-    try{
-      axios
-        .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
-          username: username,
-          email: email,
-          password: password,
-          bio: bio,
-          profilePic: profilePic
+  async function uploadImage() {
+    const data = new FormData();
+    data.append('file', image);
+    data.append('upload_preset', 'mentormesignup');
+    try {
+      setUploadingImg(true);
+      // let res - await fetch('https://api.blah.com/getUser/:id')
+      // params - get the id
+      // call mogoDb -. Model - user
+      //user.find({id: Incomingid})
+      let res = await fetch("https://api.cloudinary.com/v1_1/lijie1230/image/upload", {
+        method: 'post',
+        body: data
       })
-      .then(response => response.data)
-      localStorage.setItem('username', username);
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password);
-      localStorage.setItem('bio', bio);
-      localStorage.setItem('profilePic', profilePic);
+      const urlData = await res.json();
+      setUploadingImg(false);
+      return urlData.url
     } catch (error) {
+      setUploadingImg(false);
       console.log(error);
     }
-
-    // clear form
-    setUserName('')
-
   }
+  
+  async function submitForm(e) {
+    e.preventDefault() // prevent normal browser submit behavior
+    const url = await uploadImage(image);
+    console.log(url);
+    if (username!="") {
+      try{
+        axios
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+            username: username,
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (url!="") {
+      try{
+        axios
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+            profilePic: url,
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (email!="") {
+      try{
+        axios
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+            email: email,
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (password!="") {
+      try{
+        axios
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+            password: password,
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (bio!="") {
+      try{
+        axios
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+            bio: bio,
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+
+  const [image, setImage] = useState(null);
+  const [uploadingImg, setUploadingImg] = useState(false);
+  const [imagePreview, setImagePreview] = useState(null);
+
+  
 
   return (
     <div className="EditProfile"> 
@@ -51,6 +121,13 @@ const EditProfile = props => {
         
         <h1>Edit Profile</h1>
         <form className="personal_info" onSubmit={submitForm}> 
+          <div className="signup-profile-pic__container">
+              <img src={imagePreview || peppa} className="signup-profile-pic" />
+              <label htmlFor="image-upload" className="image-upload-label">
+                <i className="fa fa-plus-circle add-picture-icon"></i>
+              </label>
+              <input type="file" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} />
+          </div>
           <input
             type="text"
             placeholder="Change Name"
@@ -74,29 +151,21 @@ const EditProfile = props => {
             value={bio}
             onChange={e => setBio(e.target.value)}
           /> 
-          <input
+          {/* <input
             type="file"
             placeholder="Change Profile Picture"
             value={profilePic}
             alt = "profile"
             onChange={e => setProfilePic(e.target.value)}
-          />
+          /> */}
           <input type="submit"  value="Submit" /> 
-          {/* <div>
-            <label>Upload profile picture</label>
-            <input type="file" name="profilePic" required/>
-          </div>
-          <div>
-            <input type="submit" value="Upload" />
-          </div> 
-          <input type="submit" disabled={!username} value="Submit" /> */}
         </form>
 
         <Link to="/mentorme/UserProfile"><Button type="button" id="return_button"> Return </Button></Link>
       </section>
     </div>
-  )
-  }
+  );
+}
   
   
   export default EditProfile
