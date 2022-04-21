@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react'
 let user;
 
 const Home = props => {
-  const location = useLocation()
+
   const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
 

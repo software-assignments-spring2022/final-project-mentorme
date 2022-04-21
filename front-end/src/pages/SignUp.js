@@ -82,6 +82,22 @@ function SignUp() {
           console.log(response.data);
 
           if (response.data.auth) {
+
+
+            async function sendGetRequest() {
+              const res = await axios.get("http://localhost:4000/userinfo", {
+                params: {
+                  auth: false,
+                  name: response.data.user.name,
+                  email: response.data.user.email,
+                  pic: response.data.user.picture,
+                  id: response.data.user._id
+                }
+              });
+              console.log("here:" + res.data.name)
+            }
+            sendGetRequest();
+
             navigate('/mentorMe')
           }
           else {

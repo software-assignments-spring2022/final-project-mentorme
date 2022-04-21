@@ -26,7 +26,7 @@ module.exports = {
     // res.json({ user: 'created!' });
     const token = signToken(newUser);
 
-    res.status(200).json({ token, auth: true });
+    res.status(200).json({ token, auth: true, user: newUser });
   },
 
   signIn: async (req, res, next) => {

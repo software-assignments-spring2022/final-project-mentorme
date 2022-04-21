@@ -17,6 +17,10 @@ router.get('/', (req, res) => {
     user.id = req.query._id;
   }
 
+  if (auth == "reset") {
+    user.auth = false;
+  }
+
 
   res.json(user)
 });
