@@ -7,7 +7,7 @@ const user = {};
 router.get('/', (req, res) => {
   const auth = req.query.auth;
   console.log(auth);
-  console.log("params" + req.query.ObjectId)
+  // console.log("params" + req.body.userId)
 
   if (auth == "false") {
     user.auth = true;
@@ -16,14 +16,16 @@ router.get('/', (req, res) => {
     user.bio = req.query.bio;
     user.pic = req.query.pic;
     user.email = req.query.email;
-    user.id = req.query.ObjectId;
+    user.id = req.query.id;
+    // console.log("params" + req.query.id)
+
   }
 
   if (auth == "reset") {
     user.auth = false;
   }
 
-  console.log("user here " + user)
+  // console.log("user here " + user.id)
   res.json(user)
 });
 
