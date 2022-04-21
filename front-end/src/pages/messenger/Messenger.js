@@ -1,4 +1,7 @@
 import "./messenger.css"
+import { Link } from "react-router-dom"
+import { Button } from "../../components/Button";
+
 import { useLocation } from "react-router-dom"
 import BurgerMenu from "../../components/BurgerMenu"
 import Conversation from "../../components/conversations/Conversation"
@@ -6,12 +9,13 @@ import Message from "../../components/message/Message"
 import ChatOnline from "../../components/chatOnline/ChatOnline"
 import { useContext, useEffect, useState, useRef } from "react"
 import axios from "axios"
+import { io } from "socket.io-client"
 export default function Messenger() {
 
   const location = useLocation()
   const [user, setUserData] = useState([{}]);
   const [error, setError] = useState('')
-
+  const [mentor, setMentor] = useState(null);
 
 
 
@@ -35,7 +39,54 @@ export default function Messenger() {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
+  const socket = useRef();
+
+
+  useEffect(() => {
+    socket.current = io("ws://localhost:8900");
+    socket.current.on("getMessage", data => {
+      setArrivalMessage({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      })
+
+    })
+  }, [])
+
+  useEffect(() => {
+    const friendId = currentChat?.members.find(m => m !== user.id);
+
+    const getUser = async () => {
+      try {
+        const res = await axios("http://localhost:4000/users?userId=" + friendId);
+        console.log("Data in")
+        console.log(res.data)
+        setMentor(res.data)
+
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+    getUser();
+
+  }, [user, currentChat])
+
+
+  useEffect(() => {
+    arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
+
+  }, [arrivalMessage, currentChat])
+
+  useEffect(() => {
+    socket.current.emit("addUser", user.id);
+    socket.current.on("getUsers", users => {
+      console.log(users)
+    })
+  }, [user])
 
 
 
@@ -71,6 +122,12 @@ export default function Messenger() {
       text: newMessage,
       conversationId: currentChat._id,
     }
+    const receiverId = currentChat.members.find(member => member !== user.id)
+    socket.current.emit("sendMessage", {
+      senderId: user.id,
+      receiverId,
+      text: newMessage,
+    })
     try {
       const res = await axios.post("http://localhost:4000/messages", message);
       setMessages([...messages, res.data])
@@ -79,6 +136,7 @@ export default function Messenger() {
       console.log(err)
     }
   }
+
 
   // console.log(messages)
 
@@ -103,7 +161,7 @@ export default function Messenger() {
         <div className="chatBoxWrapper">
           {currentChat ? (<>
             <div className="chatBoxTop">
-              {messages.map(m => (<div ref={scrollRef}><Message message={m} own={m.sender === user.id} /></div>
+              {messages.map(m => (<div ref={scrollRef}><Message message={m} own={m.sender === user.id} who={user} conversation={currentChat} /></div>
               ))}
 
 
@@ -119,10 +177,12 @@ export default function Messenger() {
       </div>
       <div className="chatOnline">
         <div className="chatOnlineWrapper">
-          <ChatOnline />
-          <ChatOnline />
-          <ChatOnline />
-          <ChatOnline />
+          <ChatOnline who={user} />
+          {currentChat ? <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: mentor?._id, name: mentor?.first_name, score: mentor?.score }} ><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >Rate the Mentor</Button></Link>
+            : <h></h>}
+
+
+
         </div>
 
       </div>

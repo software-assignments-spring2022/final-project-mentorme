@@ -14,7 +14,7 @@ import IndividualChat from "./pages/messenger/Messenger"
 import RatePage from "./pages/RatePage"
 import UserProfile from "./pages/UserProfile"
 import EditProfile from "./pages/EditProfile"
-import ChatsHistory from "./pages/ChatsHistory"
+import ChatsHistory from "./pages/messenger/Messenger"
 import Login from "./pages/Login"
 import SingUp from "./pages/SignUp"
 

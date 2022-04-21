@@ -46,12 +46,12 @@ const ProfileDisplay = props => {
       })
   }
 
-  useEffect(()=>{
-    if (location.state === null){
+  useEffect(() => {
+    if (location.state === null) {
       getDefResult()
-    }else if (typeof location.state.filter !== 'undefined'){
+    } else if (typeof location.state.filter !== 'undefined') {
       getFilterResult()
-    }else{
+    } else {
       getSearchResult()
     }
   }, [location.state])
@@ -77,8 +77,8 @@ const ProfileDisplay = props => {
       <section className="resultList">
         <Container className="">
           <div className="list-group">
-          {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all.toFixed(2)} school={data.school} id={data.id} bio={data.bio}/>
+            {userData.map((data) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all.toFixed(2)} school={data.school} id={data.id} bio={data.bio} />
             ))}
           </div>
         </Container>

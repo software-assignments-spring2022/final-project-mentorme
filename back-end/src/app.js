@@ -73,20 +73,22 @@ const io = new Server(server, {
 //     });
 // });
 
-io.on('connection', socket => {
-    console.log(`User Connected!!: ${socket.id}`);
-    const sid = socket.id;
 
-    socket.on("send-chat-message", message => {
-        console.log(message),
-            socket.broadcast.emit('chat-message', message, sid)
-    })
-})
+//previous socket
+// io.on('connection', socket => {
+//     console.log(`User Connected!!: ${socket.id}`);
+//     const sid = socket.id;
+
+//     socket.on("send-chat-message", message => {
+//         console.log(message),
+//             socket.broadcast.emit('chat-message', message, sid)
+//     })
+// })
 
 
-server.listen(3001, () => {
-    console.log('listening on *:3001');
-});
+// server.listen(3001, () => {
+//     console.log('listening on *:3001');
+// });
 
 
 

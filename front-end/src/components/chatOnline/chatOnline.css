@@ -11,9 +11,14 @@
   margin-right: 10px;
 }
 
+
+.chatOnlineName {
+  text-align: centers;
+}
+
 .chatOnlineImg {
-  width: 32px;
-  height: 32px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid white;

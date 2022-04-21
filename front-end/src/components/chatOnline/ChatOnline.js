@@ -1,20 +1,23 @@
 import "./chatOnline.css"
 
-export default function ChatOnline() {
+export default function ChatOnline({ who }) {
+  console.log("who is this!!!")
+  console.log(who)
 
   return (
     <div className="chatOnline">
       <div className="chatOnlineFriend">
         <div className="chatOnlineImgContainer">
-          <img className="chatOnlineImg " src="https://images.pexels.com/photos/9225981/pexels-photo-9225981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+          <img className="chatOnlineImg " src={who.pic} alt="" />
 
           <div className="chatOnlineBadge">
 
           </div>
         </div>
-        <span className="chatOnlineName">John Doe</span>
 
       </div>
+      <span className="chatOnlineName">{who.first_name}  {who.last_name}</span>
+
 
 
     </div>
