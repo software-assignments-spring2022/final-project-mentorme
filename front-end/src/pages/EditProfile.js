@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import "../styles/EditProfile.css"
 import BurgerMenu from "../components/BurgerMenu"
 import Button from "../components/Button"
@@ -9,6 +9,29 @@ import axios from 'axios'
 
 
 const EditProfile = props => {
+
+  const location = useLocation()
+  const [userData, setUserData] = useState([{}]);
+  const [error, setError] = useState('')
+
+
+
+
+  useEffect(async () => {
+    const fetchData = async () => {
+      await axios.get("http://localhost:4000/userinfo")
+        .then(response => setUserData(response.data))
+        .catch(err => {
+          console.log("err", err)
+          setError(err)
+        }
+        )
+    }
+
+    fetchData()
+  }, [])
+  console.log(userData)
+
   // create a state variable for each form field
   const [username, setUserName] = useState('')
   const [email, setEmail] = useState('')

@@ -42,7 +42,7 @@ const MentorMeHome = props => {
       <br />
       <section className="main-content">
         <h1>MentorMe Home</h1>
-        <h1>Welcome, {userData.name}!</h1>
+        <h1>Welcome, {userData.first_name}!</h1>
 
         <img src={userData.pic} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
         {/* <img>src={userData.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: 'cover', borderRaduis: "50%" }}</img> */}
@@ -57,7 +57,7 @@ const MentorMeHome = props => {
         </div>
         <br />
         {/* temporary navigation for developers -*/}
-        <Link to="/mentorMe/profileDisplay"><button>Mentors</button></Link>
+        {/* <Link to="/mentorMe/profileDisplay"><button>Mentors</button></Link> */}
         <br />
         <Link to="/"><button>Back to homepage!</button></Link>
       </section>

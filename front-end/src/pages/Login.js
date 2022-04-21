@@ -45,6 +45,8 @@ function Login() {
           // console.log(response.data.user.email);
 
 
+
+
           if (response.data.auth) {
 
 
@@ -52,13 +54,14 @@ function Login() {
               const res = await axios.get("http://localhost:4000/userinfo", {
                 params: {
                   auth: false,
-                  name: response.data.user.name,
+                  first_name: response.data.user.first_name,
                   email: response.data.user.email,
                   pic: response.data.user.picture,
-                  id: response.data.user._id
+                  id: response.data.user._id,
+                  bio: response.data.user.bio
                 }
               });
-              console.log("here:" + res.data.name)
+              console.log("here:" + res.data.user._id)
             }
             sendGetRequest();
 
@@ -76,6 +79,8 @@ function Login() {
       //   navigate('/mentorMe');
       // }
     } catch (error) {
+      alert("Wrong password or email, try again!");
+
       console.log(error);
     }
 

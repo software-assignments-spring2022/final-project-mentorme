@@ -12,7 +12,7 @@ signToken = user => {
 module.exports = {
   signUp: async (req, res, next) => {
     console.log('UserController.signUp() called!');
-    const { name, school, password, email, picture } = req.value.body;
+    const { first_name, last_name, school, password, email, picture, bio } = req.value.body;
 
     const foundUser = await User.findOne({ email });
     if (foundUser) {
@@ -20,7 +20,7 @@ module.exports = {
       return res.status(403).json({ error: "Email is already in use" });
 
     }
-    const newUser = new User({ email, password, school, picture, name });
+    const newUser = new User({ email, password, school, picture, first_name, last_name, bio });
     await newUser.save();
 
     // res.json({ user: 'created!' });

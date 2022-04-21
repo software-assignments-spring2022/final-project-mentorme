@@ -18,8 +18,12 @@ import axios from 'axios'
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+
   const [school, setSchool] = useState('');
+  const [bio, setBio] = useState('');
+
   const navigate = useNavigate();
   // const [signupUser, { isLoading, error }] = useSignupUserMutation();
 
@@ -73,9 +77,11 @@ function SignUp() {
         .post("http://localhost:4000/users/signup", {
           email: email,
           password: password,
-          name: name,
+          first_name: first_name,
+          last_name: last_name,
           school: school,
-          picture: url
+          picture: url,
+          bio: bio
         })
         .then((response) => {
 
@@ -88,7 +94,9 @@ function SignUp() {
               const res = await axios.get("http://localhost:4000/userinfo", {
                 params: {
                   auth: false,
-                  name: response.data.user.name,
+                  first_name: response.data.user.first_name,
+                  last_name: response.data.user.last_name,
+                  bio: response.data.user.bio,
                   email: response.data.user.email,
                   pic: response.data.user.picture,
                   id: response.data.user._id
@@ -142,8 +150,14 @@ function SignUp() {
             </div>
             <Form.Group className="mb-3" controlId="formBasicName">
 
-              <Form.Label> Name</Form.Label>
-              <Form.Control type="text" placeholder="Your name" onChange={(e) => setName(e.target.value)} value={name} />
+              <Form.Label> First Name</Form.Label>
+              <Form.Control type="text" placeholder="Your first name" onChange={(e) => setFirstName(e.target.value)} value={first_name} />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicName">
+
+              <Form.Label> Last Name</Form.Label>
+              <Form.Control type="text" placeholder="Your last name" onChange={(e) => setLastName(e.target.value)} value={last_name} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicCollege">
@@ -166,6 +180,13 @@ function SignUp() {
               <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
 
             </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicCollege">
+
+              <Form.Label> Bio </Form.Label>
+              <Form.Control type="text" placeholder="Tell me something about yourself..." onChange={(e) => setBio(e.target.value)} value={bio} />
+            </Form.Group>
+
 
             {/* <Link to="/mentorMe"><Button className="btn--logIn" type="submit">Sign Up</Button></Link> */}
             <Button className="btn--logIn" type="submit">{uploadingImg ? "Signing up..." : "Sign Up"}</Button>

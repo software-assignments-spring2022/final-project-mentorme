@@ -7,21 +7,23 @@ const user = {};
 router.get('/', (req, res) => {
   const auth = req.query.auth;
   console.log(auth);
-
+  console.log("params" + req.query.ObjectId)
 
   if (auth == "false") {
     user.auth = true;
-    user.name = req.query.name;
+    user.first_name = req.query.first_name;
+    user.last_name = req.query.last_name;
+    user.bio = req.query.bio;
     user.pic = req.query.pic;
     user.email = req.query.email;
-    user.id = req.query._id;
+    user.id = req.query.ObjectId;
   }
 
   if (auth == "reset") {
     user.auth = false;
   }
 
-
+  console.log("user here " + user)
   res.json(user)
 });
 
