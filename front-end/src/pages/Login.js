@@ -15,6 +15,10 @@ function Login() {
   const navigate = useNavigate()
   // const [loginUser, { isLoading, error }] = useLoginUserMutation();
   let session = null;
+
+
+
+
   function handleLogin(e) {
     e.preventDefault();
     // loginUser({ email, password }).then(({ data }) => {
@@ -38,10 +42,28 @@ function Login() {
         .then((response) => {
 
           console.log(response.data);
+          // console.log(response.data.user.email);
+
 
           if (response.data.auth) {
-            axios.post("http://localhost:4000/userinfo", { pic: response.data.user.picture }).then(response => response.data);
-            navigate('/mentorMe', { state: { user: response.data.user } });
+
+
+            async function sendGetRequest() {
+              const res = await axios.get("http://localhost:4000/userinfo", {
+                params: {
+                  auth: false,
+                  name: response.data.user.name,
+                  email: response.data.user.email,
+                  pic: response.data.user.picture,
+                  id: response.data.user._id
+                }
+              });
+              console.log("here:" + res.data.name)
+            }
+            sendGetRequest();
+
+            navigate('/mentorMe');
+            // navigate('/mentorMe', { state: { user: response.data.user } });
           }
           else {
             alert("Wrong password or email, try again!");

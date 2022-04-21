@@ -6,8 +6,7 @@ import SearchBar from '../components/SearchBar'
 import Filter from '../components/Filter'
 import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
-import { useSelector } from "react-redux";
-import { selectUsers } from "../features/userSlice"
+
 import axios from 'axios'
 
 const MentorMeHome = props => {
@@ -18,8 +17,15 @@ const MentorMeHome = props => {
 
   // console.log(state.user);
 
-  const picture = axios.get("http://localhost:4000/userinfo").then(res => res.data);
-  console.log(picture);
+  // const picture = axios.get("http://localhost:4000/userinfo").then(res => res.data);
+  async function sendGetRequest() {
+    const res = await axios.get("http://localhost:4000/userinfo", {
+      params: { auth: true }
+    });
+    console.log("home pagehere:" + res.data.name)
+  }
+  sendGetRequest();
+  // console.log(picture);
   const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science']
   return (
     <div className="MentorMeHome">
