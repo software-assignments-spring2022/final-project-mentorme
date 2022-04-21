@@ -3,7 +3,11 @@ const { isEmail } = require('validator');
 const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  first_name: {
+    type: String,
+    required: [true, "Can't be blank"]
+  },
+  last_name: {
     type: String,
     required: [true, "Can't be blank"]
   },
@@ -26,6 +30,12 @@ const UserSchema = new mongoose.Schema({
   picture: {
     type: String,
   },
+  bio: {
+    type: String,
+  },
+  year: {
+    type: String
+  }
   // newMessages: {
   //   type: Object,
   //   default: {}
@@ -88,6 +98,6 @@ UserSchema.methods.isValidPassword = async function (newPassword) {
 
 
 
-const Users = mongoose.model('Users', UserSchema);
+const Users = mongoose.model('Users', UserSchema, 'userinfo');
 
 module.exports = Users 
