@@ -1,11 +1,10 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const {User} = require("./models/User") 
 
 const user = {};
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
   const auth = req.query.auth;
   console.log(auth);
   // console.log("params" + req.body.userId)
@@ -21,22 +20,13 @@ router.get('/', async (req, res) => {
     // console.log("params" + req.query.id)
 
   }
+
   if (auth == "reset") {
     user.auth = false;
   }
-  // else if (auth == "true") {
-  //   try {
-  //     const user = await User.findOne({ email : user.email })
-  //     //res.json(userinfo) 
-  //   } catch (e) {
-  //     console.log("Couldn't Find User");
-  //     res.status(500)
-  //   }
-  // }
 
   // console.log("user here " + user.id)
   res.json(user)
-
 });
 
 // router.get('/:id', (req, res) => {
