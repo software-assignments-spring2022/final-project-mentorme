@@ -81,7 +81,9 @@ function SignUp() {
           last_name: last_name,
           school: school,
           picture: url,
-          bio: bio
+          bio: bio,
+          over_all: 3.1,
+          rates: [3.1]
         })
         .then((response) => {
 

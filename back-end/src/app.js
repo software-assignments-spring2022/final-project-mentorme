@@ -39,6 +39,9 @@ const search = require('./search')
 const commentDisplayRoutes = require('./commentDisplayRoutes')
 const postCommentRoutes = require('./postCommentsRoutes')
 const userRoutes = require('./routes/userRoutes')
+const conversationRoute = require("./routes/conversations")
+const messageRoute = require("./routes/messages")
+
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
@@ -70,20 +73,22 @@ const io = new Server(server, {
 //     });
 // });
 
-io.on('connection', socket => {
-    console.log(`User Connected!!: ${socket.id}`);
-    const sid = socket.id;
 
-    socket.on("send-chat-message", message => {
-        console.log(message),
-            socket.broadcast.emit('chat-message', message, sid)
-    })
-})
+//previous socket
+// io.on('connection', socket => {
+//     console.log(`User Connected!!: ${socket.id}`);
+//     const sid = socket.id;
+
+//     socket.on("send-chat-message", message => {
+//         console.log(message),
+//             socket.broadcast.emit('chat-message', message, sid)
+//     })
+// })
 
 
-server.listen(3001, () => {
-    console.log('listening on *:3001');
-});
+// server.listen(3001, () => {
+//     console.log('listening on *:3001');
+// });
 
 
 
@@ -136,11 +141,16 @@ app.use('/chat', chat);
 // app.use('/users', userRoutes)
 //second test
 app.use('/users', require('./routes/users'));
+app.use('/conversations', conversationRoute);
+app.use('/messages', messageRoute);
+
+
 
 app.use("/mentorMe/UserProfile", userprofile);
 app.use("/mentorMe/UserProfile/EditProfile", editprofile);
 app.use("/", individualprofile);
 app.use("/", search);
+
 
 app.use("/", commentDisplayRoutes)
 // export the express app we created to make it available to other modules

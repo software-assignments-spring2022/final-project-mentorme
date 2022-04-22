@@ -25,7 +25,9 @@ module.exports = {
       last_name: Joi.string(),
       school: Joi.string(),
       picture: Joi.string(),
-      bio: Joi.string()
+      bio: Joi.string(),
+      over_all: Joi.number(),
+      rates: Joi.array()
     })
   }
 }

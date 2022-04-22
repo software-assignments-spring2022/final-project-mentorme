@@ -12,11 +12,12 @@ import axios from 'axios'
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userAuth, setUserAuth] = useState(false);
   const navigate = useNavigate()
   // const [loginUser, { isLoading, error }] = useLoginUserMutation();
   let session = null;
-
-
+  const success = "Welcome!";
+  const failure = "Wrong email or password, try again!";
 
 
   function handleLogin(e) {
@@ -33,6 +34,7 @@ function Login() {
 
     //   }
     // })
+
     try {
       axios
         .post("http://localhost:4000/users/signin", {
@@ -44,7 +46,7 @@ function Login() {
           console.log(response.data);
           // console.log(response.data.user.email);
 
-
+          setUserAuth(true);
 
 
           if (response.data.auth) {
@@ -55,6 +57,7 @@ function Login() {
                 params: {
                   auth: false,
                   first_name: response.data.user.first_name,
+                  last_name: response.data.user.last_name,
                   email: response.data.user.email,
                   pic: response.data.user.picture,
                   id: response.data.user._id,
@@ -68,23 +71,32 @@ function Login() {
             //navigate('/mentorMe');
             navigate('/mentorMe', { state: { user: response.data.user } });
           }
-          else {
-            alert("Wrong password or email, try again!");
 
-          }
         });
       // localStorage.setItem('email', email);
       // localStorage.setItem('password', password);
       // if (user) {
       //   navigate('/mentorMe');
       // }
+
+      // if (!userAuth) {
+      //   alert("Try again!")
+
+      // }
+      // else {
+      //   navigate('/mentorMe');
+
+      // }
     } catch (error) {
-      alert("Wrong password or email, try again!");
 
       console.log(error);
     }
 
+
   }
+
+
+  // alert("Wrong password or email, try again!");
 
   return (
 

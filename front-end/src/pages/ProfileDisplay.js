@@ -46,12 +46,12 @@ const ProfileDisplay = props => {
       })
   }
 
-  useEffect(()=>{
-    if (location.state === null){
+  useEffect(() => {
+    if (location.state === null) {
       getDefResult()
-    }else if (typeof location.state.filter !== 'undefined'){
+    } else if (typeof location.state.filter !== 'undefined') {
       getFilterResult()
-    }else{
+    } else {
       getSearchResult()
     }
   }, [location.state])
@@ -68,7 +68,7 @@ const ProfileDisplay = props => {
           {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
         </p>
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' />
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true}/>
           <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay' />
         </div>
       </section>
@@ -77,8 +77,8 @@ const ProfileDisplay = props => {
       <section className="resultList">
         <Container className="">
           <div className="list-group">
-          {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all.toFixed(2)} school={data.school} id={data.id} bio={data.bio}/>
+            {userData.map((data) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all.toFixed(2)} school={data.school} id={data._id} bio={data.bio} picture={data.picture}/>
             ))}
           </div>
         </Container>
@@ -90,12 +90,12 @@ const ProfileDisplay = props => {
 const Item = props => {
   return (
     <>
-      <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: "https://picsum.photos/201", id: props.id }} className="list-group-item list-group-item-action" aria-current="">
+      <Link to="/mentorMe/profileDisplay/individualProfile" state={{ imgSrc: props.picture, id: props.id }} className="list-group-item list-group-item-action" aria-current="">
         <Container className="container-search">
           <Row className="rows">
             <Col xs={4} md={2} className="columns">
               <div className="advisorPic">
-                <img className="advisor-picture" src="https://picsum.photos/201" alt="picture" />
+                <img className="advisor-picture" src={props.picture} alt="picture" />
               </div>
             </Col>
             <Col xs={8} md={10} className="columns">

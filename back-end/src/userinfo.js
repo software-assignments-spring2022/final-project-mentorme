@@ -8,33 +8,18 @@ const user = {};
 router.get('/', async (req, res) => {
   const auth = req.query.auth;
   console.log(auth);
-  console.log("params" + req.query._id)
-  if (req.curruser){
-    console.log(curruser)
-  }
+  // console.log("params" + req.body.userId)
 
   if (auth == "false") {
-    try {
-      const userinfo = await User.findOne({ email : req.query.email })
-      user.auth = true;
-      user.first_name = userinfo.first_name;
-      user.last_name = userinfo.last_name;
-      user.bio = userinfo.bio;
-      user.pic = userinfo.picture;
-      user.email = userinfo.email;
-      user.id = userinfo._id
-      console.log(userinfo.picture)
-      res.json(userinfo) 
-    } catch (e) {
-      console.log("Couldn't Find User");
-      res.status(500)
-    }
-    // user.first_name = req.query.first_name;
-    // user.last_name = req.query.last_name;
-    // user.bio = req.query.bio;
-    // user.pic = req.query.pic;
-    // user.email = req.query.email;
-    // user.id = req.query.ObjectId;
+    user.auth = true;
+    user.first_name = req.query.first_name;
+    user.last_name = req.query.last_name;
+    user.bio = req.query.bio;
+    user.pic = req.query.pic;
+    user.email = req.query.email;
+    user.id = req.query.id;
+    // console.log("params" + req.query.id)
+
   }
   if (auth == "reset") {
     user.auth = false;
@@ -49,7 +34,7 @@ router.get('/', async (req, res) => {
   //   }
   // }
 
-  console.log(user)
+  // console.log("user here " + user.id)
   res.json(user)
 
 });

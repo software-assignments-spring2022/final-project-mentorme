@@ -35,6 +35,12 @@ const UserSchema = new mongoose.Schema({
   },
   year: {
     type: String
+  },
+  over_all: {
+    type: Number
+  },
+  rates: {
+    type: Array
   }
   // newMessages: {
   //   type: Object,
