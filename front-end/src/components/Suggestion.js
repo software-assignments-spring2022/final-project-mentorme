@@ -18,11 +18,11 @@ const Suggestion = ( {suggestions, navigateTo} ) => {
         <div className="suggestions">
             {suggestions.map((person) => (
                 // each suggestion contaienr
-                <div className="suggestion" key={person.id} onClick={(e) => handleClick(e, person.id)}>
+                <div className="suggestion" key={person.over_all == undefined ? person.id: person._id} onClick={(e) => handleClick(e, person.over_all == undefined ? person.id: person._id)}>
                     {/* name and info container */}
                     <div className="name">
                         <div>{`${person.last_name}, ${person.first_name}`}</div>
-                        <div>{`${person.department}, ${person.school}`}</div>
+                        <div>{`${person.department != undefined ? person.department+',': ''} ${person.school}`}</div>
                     </div>
                     {/* score container */}
                     <div className="score">
