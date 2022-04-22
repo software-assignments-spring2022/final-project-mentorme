@@ -89,7 +89,7 @@ router.get("/mentorMe/profileDisplay", async (req, res) => {
     const idArr = getIdFromList(calulateRank(req.query.name, mentorProfiles))
     const output = await Users.aggregate([
         {$match: {_id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1, picture: 1}},
         {$addFields: {"__order": {$indexOfArray: [idArr, "$_id" ]}}},
         {$sort: {"__order": 1}}
     ])
@@ -112,7 +112,7 @@ router.get("/rateAdvisor/searchResult/2", async (req, res) => {
 
 router.get("/mentorMe/profileDisplay/2", async (req, res) => {
     const mentorProfiles = await Users.aggregate([
-        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, language: 1, year: 1, department: 1}}
+        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, language: 1, year: 1, department: 1, picture: 1}}
     ])
     const idArr = getIdFromList(getMentorFilterResult(req.query.filter, mentorProfiles))
     const output = await Users.aggregate([

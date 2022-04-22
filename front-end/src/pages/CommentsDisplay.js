@@ -55,7 +55,7 @@ const CommentsDisplay = () => {
         </div>
         
         <div className="score">
-          <div className="page-score">{`${advisor.score}/5`}</div>
+          <div className="page-score">{`${advisor.currentScore != undefined ? advisor.currentScore.toFixed(2):'wait'}/5`}</div>
         </div>
       </div>
       
