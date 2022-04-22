@@ -75,7 +75,7 @@ const App = props => {
           <Route exact path="/mentorMe/profileDisplay" element={<ProfileDisplay user={user} />} />
 
           <Route exact path="/mentorMe/UserProfile" element={<UserProfile user={user} />} />
-          <Route exact path="/mentorMe/EditProfile/:id" element={<EditProfile user={user} />} />
+          <Route exact path="/mentorMe/EditProfile" element={<EditProfile user={user} />} />
 
           <Route path="/mentorMe/profileDisplay/individualProfile" element={<IndividualProfile user={user} />} />
           <Route path="/mentorMe/profileDisplay/individualProfile/individualChat" element={<IndividualChat user={user} />} />

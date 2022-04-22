@@ -11,6 +11,8 @@ const UserProfile = props => {
   const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
 
+  //const { curruser } = location.state
+
 
 
 
@@ -56,8 +58,7 @@ const UserProfile = props => {
         <h1>{userData.first_name} {userData.last_name}</h1>
         <img src={userData.pic} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
         <br />
-        {/* <Link to={{pathname: `/mentorMe/EditProfile/${userData.email}`}}><Button type="button"> Edit Profile </Button></Link> */}
-        <Link to='/mentorMe/EditProfile'><Button type="button"> Edit Profile </Button></Link>
+        <Link to="/mentorMe/EditProfile" state={{ curruser: userData.id }}><Button type="button"> Edit Profile </Button></Link>
         <Link to="/mentorMe/UserProfile/ChatsHistory"><Button type="button"> Chat History</Button></Link>
         <p>
           <br />

@@ -102,7 +102,7 @@ function SignUp() {
                   id: response.data.user.id
                 }
               });
-              console.log("here:" + res.data._id)
+              console.log("here:" + res.data.first_name)
             }
             sendGetRequest();
 

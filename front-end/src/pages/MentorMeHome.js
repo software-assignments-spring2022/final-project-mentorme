@@ -10,7 +10,7 @@ import { Link, useLocation } from "react-router-dom"
 import axios from 'axios'
 
 const MentorMeHome = props => {
-  const location = useLocation()
+  //const location = useLocation()
   const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
 
@@ -23,7 +23,7 @@ const MentorMeHome = props => {
         .then(response => setUserData(response.data))
         .catch(err => {
           console.log("err", err)
-          setError(err)
+          setError(error)
         }
         )
     }

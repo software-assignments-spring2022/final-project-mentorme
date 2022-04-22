@@ -16,22 +16,26 @@ const EditProfile = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [bio, setBio] = useState('')
+  const [userData, setUserData] = useState('')
+  const [error, setError] = useState('')
+
+  const location = useLocation()
+  const { curruser } = location.state
 
 
-  async function sendGetRequest() {
-    const res = await axios.get("http://localhost:4000/userinfo", {
-      params: {
-        auth: false,
-        first_name: response.data.user.first_name,
-        last_name: response.data.user.last_name,
-        bio: response.data.user.bio,
-        email: response.data.user.email,
-        pic: response.data.user.picture,
-        id: response.data.user.id
-      }
-    });
-    console.log("here:" + res.data._id)
-  }
+  // useEffect(async () => {
+  //   const fetchData = async () => {
+  //     await axios.get("http://localhost:4000/userinfo")
+  //       .then(response => setUserData(response.data))
+  //       .catch(err => {
+  //         console.log("err", err)
+  //         setError(err)
+  //       }
+  //       )
+  //   }
+
+  //   fetchData()
+  // }, [])
   
   function validateImg(e) {
     const file = e.target.files[0];
@@ -65,14 +69,14 @@ const EditProfile = props => {
 
   async function submitForm(e) {
     e.preventDefault() // prevent normal browser submit behavior
-    sendGetRequest();
     const url = await uploadImage(image);
     console.log(url);
     if (first_name != "") {
       try {
         axios
-          .post(`http://localhost:4000/mentorMe/UserProfile/EditProfile`, {
+          .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
             first_name: first_name,
+            curruser: curruser
           })
       } catch (error) {
         console.log(error);
@@ -81,8 +85,9 @@ const EditProfile = props => {
     if (last_name != "") {
       try {
         axios
-          .post(`http://localhost:4000/mentorMe/UserProfile/EditProfile/1`, {
+          .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
             last_name: last_name,
+            curruser: curruser,
           })
       } catch (error) {
         console.log(error);
@@ -91,8 +96,9 @@ const EditProfile = props => {
     if (url != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             profilePic: url,
+            curruser: curruser,
           })
       } catch (error) {
         console.log(error);
@@ -101,8 +107,9 @@ const EditProfile = props => {
     if (email != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             email: email,
+            curruser: curruser,
           })
       } catch (error) {
         console.log(error);
@@ -111,8 +118,9 @@ const EditProfile = props => {
     if (password != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             password: password,
+            curruser: curruser,
           })
       } catch (error) {
         console.log(error);
@@ -121,16 +129,16 @@ const EditProfile = props => {
     if (bio != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             bio: bio,
+            curruser: curruser,
           })
       } catch (error) {
         console.log(error);
       }
     }
+
   }
-
-
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);

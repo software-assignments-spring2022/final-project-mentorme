@@ -9,6 +9,9 @@ router.get('/', async (req, res) => {
   const auth = req.query.auth;
   console.log(auth);
   console.log("params" + req.query._id)
+  if (req.curruser){
+    console.log(curruser)
+  }
 
   if (auth == "false") {
     try {
@@ -45,8 +48,10 @@ router.get('/', async (req, res) => {
   //     res.status(500)
   //   }
   // }
+
   console.log(user)
   res.json(user)
+
 });
 
 // router.get('/:id', (req, res) => {
