@@ -99,10 +99,10 @@ function SignUp() {
                   bio: response.data.user.bio,
                   email: response.data.user.email,
                   pic: response.data.user.picture,
-                  id: response.data.user._id
+                  id: response.data.user.id
                 }
               });
-              console.log("here:" + res.data.name)
+              console.log("here:" + res.data._id)
             }
             sendGetRequest();
 

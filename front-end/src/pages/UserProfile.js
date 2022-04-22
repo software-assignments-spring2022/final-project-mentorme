@@ -45,18 +45,6 @@ const UserProfile = props => {
   //     getData();
   //   }, [])
 
-  // if (localStorage.username != null){
-  //   userData.username = localStorage.username
-  // }
-  // if (localStorage.bio != null){
-  //   userData.bio = localStorage.bio
-  // }
-  // if (localStorage.username != null){
-  //   userData.profilePic = localStorage.profilePic
-  // }
-
-
-
 
   return (
     <div className="UserProfile">
@@ -65,10 +53,11 @@ const UserProfile = props => {
 
         {error && <p className="Profile-error">{error}</p>}
 
-        <h1>{userData.first_name} </h1>
+        <h1>{userData.first_name} {userData.last_name}</h1>
         <img src={userData.pic} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
         <br />
-        <Link to="/mentorme/EditProfile"><Button type="button"> Edit Profile </Button></Link>
+        {/* <Link to={{pathname: `/mentorMe/EditProfile/${userData.email}`}}><Button type="button"> Edit Profile </Button></Link> */}
+        <Link to='/mentorMe/EditProfile'><Button type="button"> Edit Profile </Button></Link>
         <Link to="/mentorMe/UserProfile/ChatsHistory"><Button type="button"> Chat History</Button></Link>
         <p>
           <br />

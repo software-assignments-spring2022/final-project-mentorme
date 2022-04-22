@@ -10,36 +10,29 @@ import peppa from "../images/3-peppa.jpeg";
 
 
 const EditProfile = props => {
-
-  const location = useLocation()
-  const [userData, setUserData] = useState([{}]);
-  const [error, setError] = useState('')
-
-
-
-
-  useEffect(async () => {
-    const fetchData = async () => {
-      await axios.get("http://localhost:4000/userinfo")
-        .then(response => setUserData(response.data))
-        .catch(err => {
-          console.log("err", err)
-          setError(err)
-        }
-        )
-    }
-
-    fetchData()
-  }, [])
-  console.log(userData)
-
   // create a state variable for each form field
-  const [username, setUserName] = useState('')
+  const [first_name, setFirstName] = useState('')
+  const [last_name, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [bio, setBio] = useState('')
-  const [profilePic, setProfilePic] = useState('')
 
+
+  async function sendGetRequest() {
+    const res = await axios.get("http://localhost:4000/userinfo", {
+      params: {
+        auth: false,
+        first_name: response.data.user.first_name,
+        last_name: response.data.user.last_name,
+        bio: response.data.user.bio,
+        email: response.data.user.email,
+        pic: response.data.user.picture,
+        id: response.data.user.id
+      }
+    });
+    console.log("here:" + res.data._id)
+  }
+  
   function validateImg(e) {
     const file = e.target.files[0];
     if (file.size > 1048576) {
@@ -57,10 +50,6 @@ const EditProfile = props => {
     data.append('upload_preset', 'mentormesignup');
     try {
       setUploadingImg(true);
-      // let res - await fetch('https://api.blah.com/getUser/:id')
-      // params - get the id
-      // call mogoDb -. Model - user
-      //user.find({id: Incomingid})
       let res = await fetch("https://api.cloudinary.com/v1_1/lijie1230/image/upload", {
         method: 'post',
         body: data
@@ -76,13 +65,24 @@ const EditProfile = props => {
 
   async function submitForm(e) {
     e.preventDefault() // prevent normal browser submit behavior
+    sendGetRequest();
     const url = await uploadImage(image);
     console.log(url);
-    if (username != "") {
+    if (first_name != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
-            username: username,
+          .post(`http://localhost:4000/mentorMe/UserProfile/EditProfile`, {
+            first_name: first_name,
+          })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (last_name != "") {
+      try {
+        axios
+          .post(`http://localhost:4000/mentorMe/UserProfile/EditProfile/1`, {
+            last_name: last_name,
           })
       } catch (error) {
         console.log(error);
@@ -153,9 +153,15 @@ const EditProfile = props => {
           </div>
           <input
             type="text"
-            placeholder="Change Name"
-            value={username}
-            onChange={e => setUserName(e.target.value)}
+            placeholder="Change First Name"
+            value={first_name}
+            onChange={e => setFirstName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Change Last Name"
+            value={last_name}
+            onChange={e => setLastName(e.target.value)}
           />
           <input
             type="text"
@@ -174,13 +180,6 @@ const EditProfile = props => {
             value={bio}
             onChange={e => setBio(e.target.value)}
           />
-          {/* <input
-            type="file"
-            placeholder="Change Profile Picture"
-            value={profilePic}
-            alt="profile"
-            onChange={e => setProfilePic(e.target.value)}
-          /> */}
           <input type="submit" value="Submit" />
         </form>
 
