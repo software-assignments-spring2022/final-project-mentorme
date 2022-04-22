@@ -91,6 +91,7 @@ function SignUp() {
 
           if (response.data.auth) {
 
+
             async function sendGetRequest() {
               const res = await axios.get("http://localhost:4000/userinfo", {
                 params: {
@@ -100,17 +101,14 @@ function SignUp() {
                   bio: response.data.user.bio,
                   email: response.data.user.email,
                   pic: response.data.user.picture,
-                  id: response.data.user.id
+                  id: response.data.user._id
                 }
               });
-              console.log("here:" + res.data.first_name)
-              return res.data
-
+              console.log("here:" + res.data.name)
             }
-            const curruser = sendGetRequest()
-            //curruser = sendGetRequest();
+            sendGetRequest();
 
-            navigate('/mentorMe', {state: {curruser: curruser}})
+            navigate('/mentorMe')
           }
           else {
             alert("Account Failure, try again!");

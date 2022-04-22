@@ -6,11 +6,7 @@ const userSchema = new Schema(
 
     {
         id: {
-            type: String,
-            required: true
-        },
-        email: {
-            type: String,
+            type: Number,
             required: true
         },
         first_name: {
@@ -21,7 +17,7 @@ const userSchema = new Schema(
             type: String,
             required: true
         },
-        picture: {
+        profilePic: {
             type: String
         },
         bio: {
