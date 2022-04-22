@@ -67,9 +67,9 @@ function Login() {
               console.log("here:" + res.data.user._id)
             }
             sendGetRequest();
-            navigate('/mentorMe');
 
-            // navigate('/mentorMe', { state: { user: response.data.user } });
+            //navigate('/mentorMe');
+            navigate('/mentorMe', { state: { user: response.data.user } });
           }
 
         });

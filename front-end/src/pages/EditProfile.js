@@ -10,36 +10,33 @@ import peppa from "../images/3-peppa.jpeg";
 
 
 const EditProfile = props => {
-
-  const location = useLocation()
-  const [userData, setUserData] = useState([{}]);
-  const [error, setError] = useState('')
-
-
-
-
-  useEffect(async () => {
-    const fetchData = async () => {
-      await axios.get("http://localhost:4000/userinfo")
-        .then(response => setUserData(response.data))
-        .catch(err => {
-          console.log("err", err)
-          setError(err)
-        }
-        )
-    }
-
-    fetchData()
-  }, [])
-  console.log(userData)
-
   // create a state variable for each form field
-  const [username, setUserName] = useState('')
+  const [first_name, setFirstName] = useState('')
+  const [last_name, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [bio, setBio] = useState('')
-  const [profilePic, setProfilePic] = useState('')
+  const [newuser, setUser] = useState('')
+  const [error, setError] = useState('')
 
+  const location = useLocation()
+  const { user } = location.state
+
+
+  // useEffect(async () => {
+  //   const fetchData = async () => {
+  //     await axios.get("http://localhost:4000/userinfo")
+  //       .then(response => setUserData(response.data))
+  //       .catch(err => {
+  //         console.log("err", err)
+  //         setError(err)
+  //       }
+  //       )
+  //   }
+
+  //   fetchData()
+  // }, [])
+  
   function validateImg(e) {
     const file = e.target.files[0];
     if (file.size > 1048576) {
@@ -57,10 +54,6 @@ const EditProfile = props => {
     data.append('upload_preset', 'mentormesignup');
     try {
       setUploadingImg(true);
-      // let res - await fetch('https://api.blah.com/getUser/:id')
-      // params - get the id
-      // call mogoDb -. Model - user
-      //user.find({id: Incomingid})
       let res = await fetch("https://api.cloudinary.com/v1_1/lijie1230/image/upload", {
         method: 'post',
         body: data
@@ -78,11 +71,33 @@ const EditProfile = props => {
     e.preventDefault() // prevent normal browser submit behavior
     const url = await uploadImage(image);
     console.log(url);
-    if (username != "") {
+    if (first_name != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
-            username: username,
+          .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
+            first_name: first_name,
+            curruser: user
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
+          })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (last_name != "") {
+      try {
+        axios
+          .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
+            last_name: last_name,
+            curruser: user,
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
           })
       } catch (error) {
         console.log(error);
@@ -91,8 +106,14 @@ const EditProfile = props => {
     if (url != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             profilePic: url,
+            curruser: user,
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
           })
       } catch (error) {
         console.log(error);
@@ -101,8 +122,14 @@ const EditProfile = props => {
     if (email != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             email: email,
+            curruser: user,
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
           })
       } catch (error) {
         console.log(error);
@@ -111,9 +138,16 @@ const EditProfile = props => {
     if (password != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             password: password,
+            curruser: user,
           })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
+          })
+          console.log(newuser)
       } catch (error) {
         console.log(error);
       }
@@ -121,19 +155,29 @@ const EditProfile = props => {
     if (bio != "") {
       try {
         axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile/1", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             bio: bio,
+            curruser: user,
           })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
+          })
+          console.log(newuser)
       } catch (error) {
         console.log(error);
       }
     }
+
   }
-
-
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
+
+  if (newuser == null) {
+    newuser = user
+  }
 
 
 
@@ -153,9 +197,15 @@ const EditProfile = props => {
           </div>
           <input
             type="text"
-            placeholder="Change Name"
-            value={username}
-            onChange={e => setUserName(e.target.value)}
+            placeholder="Change First Name"
+            value={first_name}
+            onChange={e => setFirstName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Change Last Name"
+            value={last_name}
+            onChange={e => setLastName(e.target.value)}
           />
           <input
             type="text"
@@ -174,17 +224,10 @@ const EditProfile = props => {
             value={bio}
             onChange={e => setBio(e.target.value)}
           />
-          {/* <input
-            type="file"
-            placeholder="Change Profile Picture"
-            value={profilePic}
-            alt="profile"
-            onChange={e => setProfilePic(e.target.value)}
-          /> */}
           <input type="submit" value="Submit" />
         </form>
 
-        <Link to="/mentorme/UserProfile"><Button type="button" id="return_button"> Return </Button></Link>
+        <Link to="/mentorme/UserProfile" state = {{user: newuser}}><Button type="button" id="return_button"> Return </Button></Link>
       </section>
     </div>
   );
