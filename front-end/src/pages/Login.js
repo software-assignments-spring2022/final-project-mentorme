@@ -65,8 +65,8 @@ function Login() {
             }
             sendGetRequest();
 
-            navigate('/mentorMe');
-            // navigate('/mentorMe', { state: { user: response.data.user } });
+            //navigate('/mentorMe');
+            navigate('/mentorMe', { state: { user: response.data.user } });
           }
           else {
             alert("Wrong password or email, try again!");

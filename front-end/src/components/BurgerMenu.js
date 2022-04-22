@@ -42,13 +42,13 @@ const BurgerMenu = () => {
         fetchData()
     }, [])
 
-    console.log(userData.auth);
+    console.log(userData);
     menu = userData.auth;
     if (menu) {
         return (
             <Menu>
                 <a id="home" className='home' state={{ loggedOut: false }} href='/'>Home</a>
-                <a id='mentorMe' className='mentorMe' href='/mentorMe'>MentorMe</a>
+                <a id='mentorMe' className='mentorMe' state={{ user: userData }} href='/mentorMe' >MentorMe</a>
                 <a id='rateAdvisor' className='rateAdvisor' href='/rateAdvisor'>RateMyAdvisor</a>
                 <a id='logOut' className='logOut' href='/login' onClick={onLinkClick}>Log Out</a>
 

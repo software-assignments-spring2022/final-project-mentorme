@@ -16,11 +16,11 @@ const EditProfile = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [bio, setBio] = useState('')
-  const [userData, setUserData] = useState('')
+  const [newuser, setUser] = useState('')
   const [error, setError] = useState('')
 
   const location = useLocation()
-  const { curruser } = location.state
+  const { user } = location.state
 
 
   // useEffect(async () => {
@@ -76,7 +76,12 @@ const EditProfile = props => {
         axios
           .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
             first_name: first_name,
-            curruser: curruser
+            curruser: user
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
           })
       } catch (error) {
         console.log(error);
@@ -87,7 +92,12 @@ const EditProfile = props => {
         axios
           .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
             last_name: last_name,
-            curruser: curruser,
+            curruser: user,
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
           })
       } catch (error) {
         console.log(error);
@@ -98,7 +108,12 @@ const EditProfile = props => {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             profilePic: url,
-            curruser: curruser,
+            curruser: user,
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
           })
       } catch (error) {
         console.log(error);
@@ -109,7 +124,12 @@ const EditProfile = props => {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             email: email,
-            curruser: curruser,
+            curruser: user,
+          })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
           })
       } catch (error) {
         console.log(error);
@@ -120,8 +140,14 @@ const EditProfile = props => {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             password: password,
-            curruser: curruser,
+            curruser: user,
           })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
+          })
+          console.log(newuser)
       } catch (error) {
         console.log(error);
       }
@@ -131,8 +157,14 @@ const EditProfile = props => {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             bio: bio,
-            curruser: curruser,
+            curruser: user,
           })
+          .then(response => setUser(response.data))
+          .catch(err => {
+            console.log("err", err)
+              setError(err)
+          })
+          console.log(newuser)
       } catch (error) {
         console.log(error);
       }
@@ -142,6 +174,10 @@ const EditProfile = props => {
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
+
+  if (newuser == null) {
+    newuser = user
+  }
 
 
 
@@ -191,7 +227,7 @@ const EditProfile = props => {
           <input type="submit" value="Submit" />
         </form>
 
-        <Link to="/mentorme/UserProfile"><Button type="button" id="return_button"> Return </Button></Link>
+        <Link to="/mentorme/UserProfile" state = {{user: newuser}}><Button type="button" id="return_button"> Return </Button></Link>
       </section>
     </div>
   );
