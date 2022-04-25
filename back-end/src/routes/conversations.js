@@ -5,7 +5,7 @@ const Conversation = require("../models/Conversation");
 
 router.post("/", async (req, res) => {
 
-
+  console.log("hereeeee")
   const newConversation = new Conversation({
     members: [req.body.senderId, req.body.receiverId],
   });

@@ -59,7 +59,7 @@ const SearchResult = props => {
         </p>
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' />
-          <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' />
+          {/* <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' /> */}
           <div className='clear' />
         </div>
 

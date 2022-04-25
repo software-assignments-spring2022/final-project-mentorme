@@ -53,7 +53,7 @@ const MentorMeHome = props => {
         <br />
         <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} />
-          <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay' />
+          {/* <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay' /> */}
         </div>
         <br />
         {/* temporary navigation for developers -*/}
