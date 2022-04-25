@@ -3,7 +3,7 @@
 const express = require("express");
 const router = express.Router();
 const stringSimilarity = require("string-similarity");
-const { User } = require("./models/User") 
+const Users = require("./models/Users")
 const { Advisor } = require("./models/Advisor") 
 const { Comments } = require("./models/Comments")
 // handle search get request on advisor page. Return the most relevant 5 results. Req should has search term as 'name'
@@ -63,7 +63,7 @@ function getMentorFilterResult(filterList, arr) {
 function getIdFromList(arr){
     let output_arr = []
     arr.forEach((item) =>{
-        output_arr.push(item.id)
+        output_arr.push(item._id)
     })
     return output_arr
 }
@@ -74,20 +74,24 @@ router.get("/rateAdvisor/searchResult", async (req, res) => {
     ])
     const idArr = getIdFromList(calulateRank(req.query.name, advisorData))
     const output = await Advisor.aggregate([
-        {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, school: 1, field: 1, currentScore: 1}}
+        {$match: {_id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, school: 1, field: 1, currentScore: 1}},
+        {$addFields: {"__order": {$indexOfArray: [idArr, "$_id" ]}}},
+        {$sort: {"__order": 1}}
     ])
     res.send(output)
 })
 
 router.get("/mentorMe/profileDisplay", async (req, res) => {
-    const mentorProfiles = await User.aggregate([
+    const mentorProfiles = await Users.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
     ])
     const idArr = getIdFromList(calulateRank(req.query.name, mentorProfiles))
-    const output = await User.aggregate([
-        {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1}}
+    const output = await Users.aggregate([
+        {$match: {_id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1, picture: 1}},
+        {$addFields: {"__order": {$indexOfArray: [idArr, "$_id" ]}}},
+        {$sort: {"__order": 1}}
     ])
     res.send(output)
 })
@@ -98,26 +102,30 @@ router.get("/rateAdvisor/searchResult/2", async (req, res) => {
     ])
     const idArr = getIdFromList(getAdvisorFilterResult(req.query.filter, advisorData))
     const output = await Advisor.aggregate([
-        {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, currentScore: 1, school: 1, field: 1}}
+        {$match: {_id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, department: 1, currentScore: 1, school: 1, field: 1}},
+        {$addFields: {"__order": {$indexOfArray: [idArr, "$_id" ]}}},
+        {$sort: {"__order": 1}}
     ])
     res.send(output)
 })
 
 router.get("/mentorMe/profileDisplay/2", async (req, res) => {
-    const mentorProfiles = await User.aggregate([
-        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, language: 1, year: 1, department: 1}}
+    const mentorProfiles = await Users.aggregate([
+        {$project: {_id: 1, id: 1, first_name: 1, last_name: 1, language: 1, year: 1, department: 1, picture: 1}}
     ])
     const idArr = getIdFromList(getMentorFilterResult(req.query.filter, mentorProfiles))
-    const output = await User.aggregate([
-        {$match: {id: {$in: idArr}}},
-        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1}}
+    const output = await Users.aggregate([
+        {$match: {_id: {$in: idArr}}},
+        {$project: {_id:1, id: 1, first_name: 1, last_name: 1, bio: 1, over_all: 1, school: 1}},
+        {$addFields: {"__order": {$indexOfArray: [idArr, "$_id" ]}}},
+        {$sort: {"__order": 1}}
     ])
     res.send(output)
 })
 
 router.get("/mentorMe/UserProfile/ChatsHistory/2", async (req, res) => {
-    const mentorProfiles = await User.aggregate([
+    const mentorProfiles = await Users.aggregate([
         {$project: {_id: 1, id: 1, first_name: 1, last_name: 1}}
     ])
     res.send(calulateRank(req.query.name, mentorProfiles))

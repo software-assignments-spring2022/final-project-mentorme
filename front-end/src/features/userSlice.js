@@ -11,11 +11,12 @@ export const userSlice = createSlice({
   extraRducers: (builder) => {
     builder.addMatcher(appApi.endpoints.signupUser.matchFulfilled, (state, { payload }) => payload);
     builder.addMatcher(appApi.endpoints.loginUser.matchFulfilled, (state, { payload }) => payload);
-    builder.addMatcher(appApi.endpoints.logout.matchFulfilled, () => null);
+    // builder.addMatcher(appApi.endpoints.logout.matchFulfilled, () => null);
 
 
   },
 });
 
 export const { addNotifications, resetNotifications } = userSlice.actions;
+export const selectUsers = ({ user }) => user;
 export default userSlice.reducer;
