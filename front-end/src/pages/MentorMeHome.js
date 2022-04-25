@@ -33,7 +33,7 @@ const MentorMeHome = props => {
   console.log(userData)
 
 
-  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science']
+  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance']
   return (
     <div className="MentorMeHome">
       <BurgerMenu />
@@ -52,12 +52,9 @@ const MentorMeHome = props => {
         <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
         <br />
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} />
-          {/* <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay' /> */}
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} />
         </div>
         <br />
-        {/* temporary navigation for developers -*/}
-        {/* <Link to="/mentorMe/profileDisplay"><button>Mentors</button></Link> */}
         <br />
         <Link to="/"><button>Back to homepage!</button></Link>
       </section>

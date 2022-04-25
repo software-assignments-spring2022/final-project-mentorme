@@ -9,7 +9,6 @@ import Filter from '../components/Filter'
 const RateAdvisorHome = props => {
   const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS'];
   return (
-  
   <div className="RateAdvisorHome">
     <BurgerMenu/>  
     <section className="main-content"> 
@@ -19,12 +18,11 @@ const RateAdvisorHome = props => {
         <br />
       </p>
       <div className="search">
-        <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' isMentorMe={false} />
+        <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' isMentorMe={false} filterOptions={filterOptions}/>
         {/* <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' /> */}
       </div>
     </section>
   </div>
-    
   )
 }
 

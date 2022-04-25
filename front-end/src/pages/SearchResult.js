@@ -58,7 +58,7 @@ const SearchResult = props => {
           {/* <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link> */}
         </p>
         <div className="search">
-          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' />
+          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions}/>
           {/* <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' /> */}
           <div className='clear' />
         </div>

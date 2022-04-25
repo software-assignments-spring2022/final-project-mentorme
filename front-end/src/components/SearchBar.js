@@ -4,19 +4,34 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/SearchBar.css"
 import axios from 'axios'
 import Suggestion from "./Suggestion";
+import Filter from "./Filter"
 
-/* props has attributes 'label' refering the str showing in the search bar, 
+/*
+   props has attributes 'label' refering the str showing in the search bar, 
   'naviageTo' is the page where the user will be directed to,
-  and 'isMentorMe' specifies the search bar is used in MentorMe or RateMyAdvisor*/
+  and 'isMentorMe' specifies the search bar is used in MentorMe or RateMyAdvisor,
+  filterOptions is an array containing all options
+*/
   
 const SearchBar = (props) => {
+
+  // temporary data
+  // const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS'];
   
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [suggestion, setSuggestion] = useState([])
+  const [options, setOptions] = useState([])  // the filter options that are selected
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate(props.navigateTo, {state:{name: name}})
+  }
+
+  // a function to pass down to Filter component to record options that are selected
+  // so these options can be passed to backend for filtering
+  const setSelections = (selections) => {
+    setOptions(selections)
+    console.log(selections)
   }
 
   {/* get suggestions from backend */}
@@ -53,6 +68,7 @@ const SearchBar = (props) => {
           <input type="submit" className="searchButton" value='Search'/>
       </form>
       {name && <Suggestion suggestions={suggestion} navigateTo={`${props.navigateTo}${props.isMentorMe ? '/individualProfile' : '/commentsDisplay'}`} />} 
+      <Filter options={props.filterOptions} setSelections={setSelections}/>
     </div>
   )
 }
