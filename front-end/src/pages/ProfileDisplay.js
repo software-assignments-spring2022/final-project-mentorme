@@ -4,7 +4,6 @@ import "../styles/ProfileDisplay.css"
 import SearchBar from '../components/SearchBar'
 import { Container, Col, Row } from "react-bootstrap"
 import BurgerMenu from "../components/BurgerMenu"
-import Filter from '../components/Filter'
 import { useLocation } from "react-router-dom";
 import axios from 'axios'
 import { useState, useEffect } from 'react'
@@ -13,11 +12,11 @@ const ProfileDisplay = props => {
   const [userData, setUserData] = useState([]);
   const [error, setError] = useState('')
   const location = useLocation();
-  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science', 'Finance'];
-  console.log(location.state)
+  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance'];
+  // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name } })
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options } })
       .then(res => {
         setUserData(res.data);
       })
@@ -68,8 +67,7 @@ const ProfileDisplay = props => {
           {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
         </p>
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true}/>
-          <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay' />
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} />
         </div>
       </section>
 
@@ -77,8 +75,8 @@ const ProfileDisplay = props => {
       <section className="resultList">
         <Container className="">
           <div className="list-group">
-            {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all.toFixed(2)} school={data.school} id={data._id} bio={data.bio} picture={data.picture}/>
+            {userData.map((data, i) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.over_all.toFixed(2)} school={data.school} id={data._id} bio={data.bio} picture={data.picture} key={i} />
             ))}
           </div>
         </Container>

@@ -10,14 +10,6 @@ import io from 'socket.io-client'
 import {useLocation} from 'react-router-dom';
 
 const socket = io.connect("http://localhost:3001");
-// const messageContainer = document.getElementById("message-container")
-// const messageForm = document.getElementById('send-container')
-// const messageInput = document.getElementById('message-input')
-// function appendMessage(message) {
-//   const messageElement = React.createElement("h1", {}, "Hello World");
-//   messageElement.innerText = message;
-//   messageContainer.append(messageElement)
-// }
 
 const IndividualChat = props => {
   const [messages, setMessages] = useState([]);

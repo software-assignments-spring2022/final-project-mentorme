@@ -18,7 +18,7 @@ const SearchResult = props => {
   // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name } })
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
       .then(res => {
         setUserData(res.data);
       })
@@ -58,8 +58,8 @@ const SearchResult = props => {
           {/* <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link> */}
         </p>
         <div className="search">
-          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' />
-          <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' />
+          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions}/>
+          {/* <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' /> */}
           <div className='clear' />
         </div>
 
