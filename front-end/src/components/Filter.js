@@ -86,9 +86,6 @@ const FilterDropdown = (props) => {
         {props.options.map((option, i, optionArray) => (
           <FilterItems name={option} handleSelect={props.handleSelect} key={i} checked={props.selected.includes(option)}/>
         ))}
-        {/* <div className="filter_dropdown_actions">
-          <button className="filter_dropdown_button" onClick={handleApply}>Apply</button>
-        </div> */}
       </div>
     </>
   )
@@ -103,7 +100,7 @@ const FilterItems = (props) => {
     <div>
       <label>
         <input className='itemBox' type="checkbox" onChange={(e) => props.handleSelect(props.name)} checked={props.checked} />
-        {props.name}
+        {"\t" + props.name}
       </label>
     </div>
     </>

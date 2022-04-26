@@ -18,7 +18,7 @@ const SearchResult = props => {
   // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name } })
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
       .then(res => {
         setUserData(res.data);
       })

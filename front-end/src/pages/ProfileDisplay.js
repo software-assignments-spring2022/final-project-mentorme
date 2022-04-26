@@ -4,7 +4,6 @@ import "../styles/ProfileDisplay.css"
 import SearchBar from '../components/SearchBar'
 import { Container, Col, Row } from "react-bootstrap"
 import BurgerMenu from "../components/BurgerMenu"
-import Filter from '../components/Filter'
 import { useLocation } from "react-router-dom";
 import axios from 'axios'
 import { useState, useEffect } from 'react'
@@ -17,7 +16,7 @@ const ProfileDisplay = props => {
   // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name } })
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options } })
       .then(res => {
         setUserData(res.data);
       })

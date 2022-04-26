@@ -1,8 +1,6 @@
 import React from "react"
 import "../styles/MentorMeHome.css"
-import image from '../images/8 Home Page Profile.png'
 import SearchBar from '../components/SearchBar'
-import Filter from '../components/Filter'
 import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
 import { useState, useEffect } from 'react'
@@ -13,8 +11,6 @@ const MentorMeHome = props => {
   const location = useLocation()
   const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
-
-
 
 
   useEffect(async () => {
@@ -45,9 +41,7 @@ const MentorMeHome = props => {
         <h1>Welcome, {userData.first_name}!</h1>
 
         <img src={userData.pic} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
-        {/* <img>src={userData.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: 'cover', borderRaduis: "50%" }}</img> */}
-        {/* (user && (<img>src={user.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: 'cover', borderRaduis: "50%" }}</img>)) */}
-
+        
         <br />
         <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
         <br />

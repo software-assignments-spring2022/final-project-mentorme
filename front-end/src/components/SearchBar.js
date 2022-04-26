@@ -16,7 +16,6 @@ import Filter from "./Filter"
 const SearchBar = (props) => {
 
   // temporary data
-  // const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS'];
   
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -24,14 +23,13 @@ const SearchBar = (props) => {
   const [options, setOptions] = useState([])  // the filter options that are selected
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(props.navigateTo, {state:{name: name}})
+    navigate(props.navigateTo, {state:{name: name, options}})
   }
 
   // a function to pass down to Filter component to record options that are selected
   // so these options can be passed to backend for filtering
   const setSelections = (selections) => {
     setOptions(selections)
-    console.log(selections)
   }
 
   {/* get suggestions from backend */}
@@ -39,7 +37,7 @@ const SearchBar = (props) => {
     // fetch from different data based on where this search bar is located
     // fetch mentors data
     if (props.isMentorMe) {
-      await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: name } })
+      await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name, options } })
       .then(res => {
         setSuggestion(res.data);
       })
@@ -47,7 +45,7 @@ const SearchBar = (props) => {
         console.log("cannot get backend suggestions. err.")
       })
     } else {  // fetch advisors data
-      await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name: name } })
+      await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name, options } })
         .then(res => {
           setSuggestion(res.data);
         })
@@ -55,7 +53,7 @@ const SearchBar = (props) => {
           console.log("cannot get backend suggestions. err.")
         })
     }
-  }, [name])
+  }, [name, options])
 
   return (
     <div className='searchMain'>
@@ -67,7 +65,7 @@ const SearchBar = (props) => {
             onChange={(e) => setName(e.target.value)} />
           <input type="submit" className="searchButton" value='Search'/>
       </form>
-      {name && <Suggestion suggestions={suggestion} navigateTo={`${props.navigateTo}${props.isMentorMe ? '/individualProfile' : '/commentsDisplay'}`} />} 
+      {name && suggestion.length !== 0 && <Suggestion suggestions={suggestion} navigateTo={`${props.navigateTo}${props.isMentorMe ? '/individualProfile' : '/commentsDisplay'}`} />} 
       <Filter options={props.filterOptions} setSelections={setSelections}/>
     </div>
   )
