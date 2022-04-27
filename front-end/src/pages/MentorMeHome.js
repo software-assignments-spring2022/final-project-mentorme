@@ -1,8 +1,6 @@
 import React from "react"
 import "../styles/MentorMeHome.css"
-import image from '../images/8 Home Page Profile.png'
 import SearchBar from '../components/SearchBar'
-import Filter from '../components/Filter'
 import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
 import { useState, useEffect } from 'react'
@@ -13,8 +11,6 @@ const MentorMeHome = props => {
   const location = useLocation()
   const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
-
-
 
 
   useEffect(async () => {
@@ -33,7 +29,7 @@ const MentorMeHome = props => {
   console.log(userData)
 
 
-  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'First Year', 'Sophomore', 'Junior', 'Senior', 'Math', 'Computer Science']
+  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance']
   return (
     <div className="MentorMeHome">
       <BurgerMenu />
@@ -45,19 +41,14 @@ const MentorMeHome = props => {
         <h1>Welcome, {userData.first_name}!</h1>
 
         <img src={userData.pic} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
-        {/* <img>src={userData.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: 'cover', borderRaduis: "50%" }}</img> */}
-        {/* (user && (<img>src={user.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: 'cover', borderRaduis: "50%" }}</img>)) */}
-
+        
         <br />
         <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
         <br />
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} />
-          <Filter options={filterOptions} navigateTo='/mentorMe/profileDisplay' />
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} />
         </div>
         <br />
-        {/* temporary navigation for developers -*/}
-        {/* <Link to="/mentorMe/profileDisplay"><button>Mentors</button></Link> */}
         <br />
         <Link to="/"><button>Back to homepage!</button></Link>
       </section>

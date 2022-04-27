@@ -42,7 +42,7 @@ const BurgerMenu = () => {
         fetchData()
     }, [])
 
-    console.log(userData.auth);
+    // console.log(userData.auth);
     menu = userData.auth;
     if (menu) {
         return (

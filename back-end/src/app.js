@@ -19,12 +19,6 @@ mongoose
 // console.log(process.env)
 
 
-
-
-
-
-
-
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
 const rateMentor = require('./rateMentorRoutes')
 const login = require('./login')
