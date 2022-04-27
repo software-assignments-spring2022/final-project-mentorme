@@ -6,6 +6,8 @@
 .chatMenu {
   margin-top: 100px;
   flex: 3.5;
+  overflow-y: scroll;
+
 }
 
 .chatBox {

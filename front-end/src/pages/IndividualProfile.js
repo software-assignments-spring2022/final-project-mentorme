@@ -5,6 +5,7 @@ import BurgerMenu from "../components/BurgerMenu";
 import Button from "../components/Button"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { current } from "@reduxjs/toolkit";
 const IndividualProfile = () => {
 
   const location = useLocation()
@@ -13,6 +14,10 @@ const IndividualProfile = () => {
   const [senderId, setSender] = useState('');
   const [receiverId, setReceiver] = useState('');
   const [currentUser, setUser] = useState(null)
+  const [conversations, setConversations] = useState([]);
+
+
+
 
   useEffect(async () => {
     const fetchData = async () => {
@@ -28,24 +33,62 @@ const IndividualProfile = () => {
     fetchData()
   }, [])
 
-  async function handleClick(e) {
-    try {
-      await axios
-        .post("http://localhost:4000/conversations", {
-          senderId: currentUser.id,
-          receiverId: userData[0]._id
-        }).then((response) => {
+  useEffect(() => {
 
-        })
+    const getConversations = async () => {
+      try {
+        const res = await axios.get("http://localhost:4000/conversations/" + userData[0]._id)
+        console.log("here in test get conversations");
+        console.log(res.data)
+        setConversations(res.data);
+      } catch (err) {
+        console.log(err);
+      }
     }
-    catch (err) {
-      console.log(err)
+    getConversations();
+  }, [userData[0]._id])
+
+
+  async function handleClick(e) {
+    let existed = false;
+    console.log("Testing start chat")
+
+    conversations.map(c => {
+      if (c.members[0] == currentUser.id && c.members[1] == userData[0]._id) {
+        console.log(userData[0])
+
+        console.log(c.members[0])
+        console.log(currentUser.id)
+        existed = true;
+        console.log("the user already has started chat!")
+      }
+      else if (c.members[1] == currentUser.id && c.members[0] == userData[0]._id) {
+        existed = true;
+        console.log("the user already has started chat!")
+      }
+    })
+    if (userData[0]._id != currentUser.id && !existed) {
+      try {
+        await axios
+          .post("http://localhost:4000/conversations", {
+            senderId: currentUser.id,
+            receiverId: userData[0]._id
+          }).then((response) => {
+
+          })
+      }
+      catch (err) {
+        console.log(err)
+      }
+    }
+    else {
+      console.log("receiver = sender")
     }
   }
 
   useEffect(async () => {
     const fetchData = async () => {
-      console.log(location.state)
+      // console.log(location.state)
       const id = location.state.id
 
       setReceiver(id);

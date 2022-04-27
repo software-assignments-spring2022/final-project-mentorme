@@ -100,7 +100,7 @@ function SignUp() {
                   bio: response.data.user.bio,
                   email: response.data.user.email,
                   pic: response.data.user.picture,
-                  id: response.data.user.id
+                  id: response.data.user._id
                 }
               });
               console.log("here:" + res.data.first_name)
