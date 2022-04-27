@@ -37,6 +37,7 @@ export default function Messenger() {
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
+  const fieldRef = useRef();
   const socket = useRef();
 
 
@@ -136,14 +137,20 @@ export default function Messenger() {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
+
+  useEffect(() => {
+    fieldRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [conversations])
+
+
   return (
-    <div className="messenger">      
+    <div className="messenger">
       <BurgerMenu />
-      
+
       <div className="chatMenu">
         <div className="chatMenuWrapper">
           {conversations.map(c => (
-            <div onClick={() => setCurrentChat(c)}>            <Conversation conversation={c} currentUser={user} />
+            <div ref={fieldRef} onClick={() => setCurrentChat(c)}>            <Conversation conversation={c} currentUser={user} />
             </div>
 
           ))}

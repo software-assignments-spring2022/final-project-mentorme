@@ -91,7 +91,6 @@ function SignUp() {
 
           if (response.data.auth) {
 
-
             async function sendGetRequest() {
               const res = await axios.get("http://localhost:4000/userinfo", {
                 params: {
@@ -104,11 +103,15 @@ function SignUp() {
                   id: response.data.user._id
                 }
               });
-              console.log("here:" + res.data.name)
-            }
-            sendGetRequest();
+              console.log("here:" + res.data.first_name)
+              return res.data
 
-            navigate('/mentorMe')
+            }
+            sendGetRequest()
+            //curruser = sendGetRequest();
+            console.log("i'm just testing Mia " + response.data.user)
+
+            navigate('/mentorMe', { state: { user: response.data.user } })
           }
           else {
             alert("Account Failure, try again!");
