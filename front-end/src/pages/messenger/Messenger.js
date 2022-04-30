@@ -7,7 +7,7 @@ import BurgerMenu from "../../components/BurgerMenu"
 import Conversation from "../../components/conversations/Conversation"
 import Message from "../../components/message/Message"
 import ChatOnline from "../../components/chatOnline/ChatOnline"
-import { useContext, useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import axios from "axios"
 import { io } from "socket.io-client"
 export default function Messenger() {
@@ -16,8 +16,6 @@ export default function Messenger() {
   const [user, setUserData] = useState([{}]);
   const [error, setError] = useState('')
   const [mentor, setMentor] = useState(null);
-
-
 
   useEffect(async () => {
     const fetchData = async () => {
@@ -32,8 +30,6 @@ export default function Messenger() {
 
     fetchData()
   }, [])
-  // console.log("we are here")
-  // console.log(user.first_name)
 
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
@@ -41,6 +37,7 @@ export default function Messenger() {
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
+  const fieldRef = useRef();
   const socket = useRef();
 
 
@@ -101,7 +98,7 @@ export default function Messenger() {
     }
     getConversations();
   }, [user.id])
-  // console.log(currentChat._id)
+
   useEffect(() => {
     const geetMessages = async () => {
       try {
@@ -137,20 +134,23 @@ export default function Messenger() {
     }
   }
 
-
-  // console.log(messages)
-
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
-  return (
-    <div className="messenger">      <BurgerMenu />
 
+  useEffect(() => {
+    fieldRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [conversations])
+
+
+  return (
+    <div className="messenger">
+      <BurgerMenu />
 
       <div className="chatMenu">
         <div className="chatMenuWrapper">
           {conversations.map(c => (
-            <div onClick={() => setCurrentChat(c)}>            <Conversation conversation={c} currentUser={user} />
+            <div ref={fieldRef} onClick={() => setCurrentChat(c)}>            <Conversation conversation={c} currentUser={user} />
             </div>
 
           ))}

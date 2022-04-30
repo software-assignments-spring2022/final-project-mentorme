@@ -1,10 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/ChatsHistory.css"
-import image from '../images/14 All Chats.png'
 import BurgerMenu from "../components/BurgerMenu"
 import SearchBar from '../components/SearchBar'
-import Filter from '../components/Filter'
 import { Container, Col, Row } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useLocation } from "react-router-dom";

@@ -1,15 +1,12 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import "../styles/RateAdvisorHome.css"
 import SearchBar from '../components/SearchBar'
 import BurgerMenu from "../components/BurgerMenu"
-import Filter from '../components/Filter'
 
 
 const RateAdvisorHome = props => {
-  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
+  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS'];
   return (
-  
   <div className="RateAdvisorHome">
     <BurgerMenu/>  
     <section className="main-content"> 
@@ -19,12 +16,10 @@ const RateAdvisorHome = props => {
         <br />
       </p>
       <div className="search">
-        <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' isMentorMe={false} />
-        <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' />
+        <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' isMentorMe={false} filterOptions={filterOptions}/>
       </div>
     </section>
   </div>
-    
   )
 }
 
