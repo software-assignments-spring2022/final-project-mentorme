@@ -23,9 +23,14 @@ const SearchBar = (props) => {
   const [options, setOptions] = useState([])  // the filter options that are selected
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(props.navigateTo, {state:{name: name, options}})
+    if (props.isMentorMe){
+      navigate(props.navigateTo, {state:{name: name, options, userID}})
+    }else{
+      navigate(props.navigateTo, {state:{name: name, options}})
+    }
   }
 
+  let userID = props.userID
   // a function to pass down to Filter component to record options that are selected
   // so these options can be passed to backend for filtering
   const setSelections = (selections) => {
@@ -37,7 +42,7 @@ const SearchBar = (props) => {
     // fetch from different data based on where this search bar is located
     // fetch mentors data
     if (props.isMentorMe) {
-      await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name, options } })
+      await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name, options, userID } })
       .then(res => {
         setSuggestion(res.data);
       })
