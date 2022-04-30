@@ -16,7 +16,7 @@ const ProfileDisplay = props => {
   // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options } })
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options, userID: location.state.userID } })
       .then(res => {
         setUserData(res.data);
       })
@@ -67,7 +67,7 @@ const ProfileDisplay = props => {
           {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
         </p>
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} />
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={location.state.userID}/>
         </div>
       </section>
 
