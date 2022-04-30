@@ -1,29 +1,3 @@
-/* .Login {
-    background-color: rgb(252, 120, 120);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-
-.form-group {
-    padding: 5px;
-    margin: 5px;
-}
-
-.form-group input {
-    text-align: left;
-}
-
-.tip {
-    font-family: 'Balsamiq Sans', cursive;
-    padding: 5px;
-    margin: 5px;
-}
-
-h2 {
-    font-family: 'Balsamiq Sans', cursive;
-} */
-
 .login__bg {
     background-image: url("../images/2-loginPic.jpeg");
     height: 100vh;
@@ -48,9 +22,3 @@ h2 {
 .signupLink {
     color: black;
 }
-
-/* .loginPage {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-} */

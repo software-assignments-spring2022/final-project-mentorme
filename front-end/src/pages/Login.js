@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Form, Row, Button } from "react-bootstrap"
-import { useLoginUserMutation } from "../services/appApi";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css"
-// import LoginForm from "../components/LoginForm"
-// import { useState } from "react";
 import BurgerMenu from "../components/BurgerMenu";
 import axios from 'axios'
 
@@ -14,26 +11,9 @@ function Login() {
   const [password, setPassword] = useState('');
   const [userAuth, setUserAuth] = useState(false);
   const navigate = useNavigate()
-  // const [loginUser, { isLoading, error }] = useLoginUserMutation();
-  let session = null;
-  const success = "Welcome!";
-  const failure = "Wrong email or password, try again!";
-
 
   function handleLogin(e) {
     e.preventDefault();
-    // loginUser({ email, password }).then(({ data }) => {
-    //   if (data) {
-    //     //socket work
-    //     //navigate to the chat
-    //     console.log(data);
-    //     session = data;
-    //     console.log(session.name);
-
-    //     navigate('/mentorMe');
-
-    //   }
-    // })
 
     try {
       axios
@@ -44,8 +24,6 @@ function Login() {
         .then((response) => {
 
           console.log(response.data);
-          // console.log(response.data.user.email);
-
           setUserAuth(true);
 
 
@@ -73,37 +51,14 @@ function Login() {
           }
 
         });
-      // localStorage.setItem('email', email);
-      // localStorage.setItem('password', password);
-      // if (user) {
-      //   navigate('/mentorMe');
-      // }
-
-      // if (!userAuth) {
-      //   alert("Try again!")
-
-      // }
-      // else {
-      //   navigate('/mentorMe');
-
-      // }
     } catch (error) {
-
       console.log(error);
     }
 
 
   }
 
-
-  // alert("Wrong password or email, try again!");
-
   return (
-
-    // <div className="Login">
-    //   <BurgerMenu/>
-    //   <LoginForm/>
-    // </div>
     <Container>
       <BurgerMenu />
 
@@ -124,10 +79,8 @@ function Login() {
 
             </Form.Group>
 
-            {/* <Link to="/mentorMe"><Button className="btn--logIn" type="submit">Login</Button></Link> */}
             <Button className="btn--logIn" type="submit">Login</Button>
 
-            {/* </Link><Button variant="primary" type="submit">Login</Button> */}
             <div className="pu=4">
               <p className="text-center">Don't have an account? <Link to="/signUp" className="signupLink">Sign Up!</Link></p>
             </div>

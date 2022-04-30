@@ -101,9 +101,9 @@ const Item = props => {
               <div className="school-name">
                 <small>{props.department}</small>
               </div>
-              <div className="school-name">
+              {/* <div className="school-name">
                 <small>{props.field}</small>
-              </div>
+              </div> */}
               {/* <p className="mb-1 brief">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.
               </p> */}
