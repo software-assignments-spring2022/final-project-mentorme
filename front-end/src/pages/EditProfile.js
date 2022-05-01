@@ -21,27 +21,24 @@ const EditProfile = props => {
 
   const location = useLocation()
   const { user } = location.state
-
+  var curruser = user
 
   // useEffect(async () => {
 
 
-  useEffect(async () => {
-    const fetchData = async () => {
-      await axios.get("http://localhost:4000/userinfo")
-        .then(response => setUserData(response.data))
-        .catch(err => {
-          console.log("err", err)
-          setError(err)
-        }
-        )
-    }
+  // useEffect(async () => {
+  //   const fetchData = async () => {
+  //     await axios.get("http://localhost:4000/userinfo")
+  //       .then(response => setUserData(response.data))
+  //       .catch(err => {
+  //         console.log("err", err)
+  //         setError(err)
+  //       }
+  //       )
+  //   }
 
-    fetchData()
-  }, [])
-  console.log(userData)
-
-
+  //   fetchData()
+  // }, [])
 
   function validateImg(e) {
     const file = e.target.files[0];
@@ -188,8 +185,8 @@ const EditProfile = props => {
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
-  if (newuser == null) {
-    newuser = user
+  if (newuser) {
+    curruser = newuser
   }
 
 
@@ -277,7 +274,7 @@ const EditProfile = props => {
           <input type="submit" value="Submit" />
         </form>
 
-        <Link to="/mentorme/UserProfile" state = {{user: newuser}}><Button type="button" id="return_button"> Return </Button></Link>
+        <Link to="/mentorme/UserProfile" state = {{user: curruser}}><Button type="button" id="return_button"> Return </Button></Link>
       </section>
     </div>
   );
