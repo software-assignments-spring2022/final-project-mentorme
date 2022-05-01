@@ -33,41 +33,6 @@ function calulateRank(term, arr) {
     return output_arr
 }
 
-// function getAdvisorFilterResult(filterList, arr) {
-//     console.log(filterList)
-//     let output_arr = []
-//     arr.forEach((item) => {
-//         if (filterList.includes(item.school)) {
-//             output_arr.push(item)
-//         } else if (filterList.includes(item.field)) {
-//             output_arr.push(item)
-//         }
-//     })
-//     return output_arr
-// }
-
-// function getMentorFilterResult(filterList, arr) {
-//     let output_arr = []
-//     arr.forEach((item) => {
-//         if (filterList.includes(item.language)) {
-//             output_arr.push(item)
-//         } else if (filterList.includes(item.year)) {
-//             output_arr.push(item)
-//         } else if (filterList.includes(item.department)) {
-//             output_arr.push(item)
-//         }
-//     })
-//     return output_arr
-// }
-
-// function getIdFromList(arr){
-//     let output_arr = []
-//     arr.forEach((item) =>{
-//         output_arr.push(item._id)
-//     })
-//     return output_arr
-// }
-
 router.get("/rateAdvisor/searchResult", async (req, res) => {
     // handle inputs
     let { name, options } = req.query
@@ -126,9 +91,9 @@ router.get("/mentorMe/profileDisplay", async (req, res) => {
     // filter the results using school
     let result = nameResults
     // console.log(nameResults)
-    // if (options.length !== 0) {
-    //     result = nameResults.filter(adv => options.includes(adv.school))
-    // }
+    if (options.length !== 0) {
+        result = nameResults.filter(adv => options.includes(adv.major))
+    }
 
     res.send(result)
 })
