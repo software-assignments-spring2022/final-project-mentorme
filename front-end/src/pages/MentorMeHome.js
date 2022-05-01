@@ -3,9 +3,8 @@ import "../styles/MentorMeHome.css"
 import SearchBar from '../components/SearchBar'
 import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link, useLocation } from "react-router-dom"
-import axios from 'axios'
 
 const MentorMeHome = props => {
   const location = useLocation()
@@ -14,6 +13,7 @@ const MentorMeHome = props => {
 
   // console.log(location.state)
   const user = location.state.user
+  console.log("user is", user)
 
 
   // useEffect(async () => {

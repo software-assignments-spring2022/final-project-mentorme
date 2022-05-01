@@ -10,7 +10,7 @@ const BurgerMenu = ({ user }) => {
     const location = useLocation()
     const [userData, setUserData] = useState([{}]);
     const [error, setError] = useState('')
-    console.log(user);
+    console.log("user is", user);
     let menu;
     const onLinkClick = (e) => {
         // e.preventDefault();

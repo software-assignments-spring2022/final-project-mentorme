@@ -12,15 +12,11 @@ const RateAdvisorHome = props => {
     <div className="RateAdvisorHome">
       <BurgerMenu />
       <section className="main-content">
-        <p>
-          Rate Advisor Home
-          <br />
-          <br />
-        </p>
+        <h2>Rate Advisor Home</h2>
+        <br />
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' isMentorMe={false} filterOptions={filterOptions} />
         </div>
-
         <Link to="searchResult/createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
 
       </section>

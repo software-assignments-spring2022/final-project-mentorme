@@ -48,11 +48,8 @@ const SearchResult = props => {
     <div className="SearchResult">
       <BurgerMenu />
       <section className="main-content">
-        <p>
-          Search results
-          <br />
-          <br />
-        </p>
+        <h2>Searched Results</h2>
+        <br />
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions}/>
           <div className='clear' />
