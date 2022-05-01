@@ -1,8 +1,8 @@
 import "./chatOnline.css"
 
 export default function ChatOnline({ who }) {
-  console.log("who is this!!!")
-  console.log(who)
+  // console.log("who is this!!!")
+  // console.log(who)
 
   return (
     <div className="chatOnline">

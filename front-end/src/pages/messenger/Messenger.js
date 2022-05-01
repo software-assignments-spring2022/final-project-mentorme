@@ -35,23 +35,23 @@ export default function Messenger() {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [arrivalMessage, setArrivalMessage] = useState(null);
+  // const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
   const fieldRef = useRef();
   const socket = useRef();
 
 
-  useEffect(() => {
-    socket.current = io("ws://localhost:8900");
-    socket.current.on("getMessage", data => {
-      setArrivalMessage({
-        sender: data.senderId,
-        text: data.text,
-        createdAt: Date.now(),
-      })
+  // useEffect(() => {
+  //   socket.current = io("ws://localhost:8900");
+  //   socket.current.on("getMessage", data => {
+  //     setArrivalMessage({
+  //       sender: data.senderId,
+  //       text: data.text,
+  //       createdAt: Date.now(),
+  //     })
 
-    })
-  }, [])
+  //   })
+  // }, [])
 
   useEffect(() => {
     const friendId = currentChat?.members.find(m => m !== user.id);
@@ -59,8 +59,8 @@ export default function Messenger() {
     const getUser = async () => {
       try {
         const res = await axios("http://localhost:4000/users?userId=" + friendId);
-        console.log("Data in")
-        console.log(res.data)
+        // console.log("Data in")
+        // console.log(res.data)
         setMentor(res.data)
 
       }
@@ -73,17 +73,17 @@ export default function Messenger() {
   }, [user, currentChat])
 
 
-  useEffect(() => {
-    arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
+  // useEffect(() => {
+  //   arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
 
-  }, [arrivalMessage, currentChat])
+  // }, [arrivalMessage, currentChat])
 
-  useEffect(() => {
-    socket.current.emit("addUser", user.id);
-    socket.current.on("getUsers", users => {
-      console.log(users)
-    })
-  }, [user])
+  // useEffect(() => {
+  //   socket.current.emit("addUser", user.id);
+  //   socket.current.on("getUsers", users => {
+  //     console.log(users)
+  //   })
+  // }, [user])
 
 
 
@@ -120,11 +120,11 @@ export default function Messenger() {
       conversationId: currentChat._id,
     }
     const receiverId = currentChat.members.find(member => member !== user.id)
-    socket.current.emit("sendMessage", {
-      senderId: user.id,
-      receiverId,
-      text: newMessage,
-    })
+    // socket.current.emit("sendMessage", {
+    //   senderId: user.id,
+    //   receiverId,
+    //   text: newMessage,
+    // })
     try {
       const res = await axios.post("http://localhost:4000/messages", message);
       setMessages([...messages, res.data])
