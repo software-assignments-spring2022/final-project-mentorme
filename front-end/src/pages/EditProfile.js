@@ -193,22 +193,43 @@ const EditProfile = props => {
 
   return (
     <div className="EditProfile">
+    
       <BurgerMenu />
-      <section className="main-content">
+      <section className="editprofilemaincontent" >
+      {/* className="main-content" */}
 
         <h1>Edit Profile</h1>
-        <form className="personal_info" onSubmit={submitForm}>
-          <div className="signup-profile-pic__container">
-            <img src={imagePreview || peppa} className="signup-profile-pic" />
-            <label htmlFor="image-upload" className="image-upload-label">
-              <i className="fa fa-plus-circle add-picture-icon"></i>
-            </label>
-            <input type="file" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} />
+
+        <br></br>
+        <br></br>
+        
+
+        <div className = "entirebox">
+
+        <div className = "editprofilecard">
+          <div>
+          <img src={curruser.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
           </div>
           <div>
-          <label for="firstName" >
-              {user.first_name}
-          </label>
+          <h2>{curruser.first_name} {curruser.last_name}</h2>
+          </div>
+          <div>
+          <h2>{user.email}</h2>
+          </div>
+          <div>
+          <h2>{user.bio}</h2>
+          </div>
+        </div>
+        <form className = "personal_info" onSubmit={submitForm}>
+          <div className="signup-profile-pic__container">
+              <img src={imagePreview || peppa} className="signup-profile-pic" />
+              <label htmlFor="image-upload" className="image-upload-label">
+                <i className="fa fa-plus-circle add-picture-icon"></i>
+              </label>
+              <input type="file" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} />
+          </div>
+          
+          <div className="editprofilebox">
           <input
             name = "firstName"
             type="text"
@@ -217,10 +238,7 @@ const EditProfile = props => {
             onChange={e => setFirstName(e.target.value)}
           />
           </div>
-          <div>
-          <label for="lastName" >
-              {user.last_name}
-          </label>
+          <div className="editprofilebox">
           <input
             name = "lastName"
             type="text"
@@ -229,10 +247,7 @@ const EditProfile = props => {
             onChange={e => setLastName(e.target.value)}
           />
           </div>
-          <div>
-          <label for="email" >
-              {user.email}
-          </label>
+          <div className="editprofilebox">
           <input
             name = "email"
             type="text"
@@ -241,27 +256,21 @@ const EditProfile = props => {
             onChange={e => setEmail(e.target.value)}
           />
           </div>
-          <div>
-          <label for="password" >
-              {user.password}
-          </label>
+          <div className="editprofilebox">
+          <textarea
+            name = "bio"
+            placeholder="Change Bio"
+            value={bio}
+            onChange={e => setBio(e.target.value)}
+          />
+          </div>
+          <div className="editprofilebox">
           <input
             name = "password"
             type="text"
             placeholder="Change Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
-          />
-          </div>
-          <div>
-          <label for="bio" >
-              {user.bio}
-          </label>
-          <textarea
-            name = "bio"
-            placeholder="Change Bio"
-            value={bio}
-            onChange={e => setBio(e.target.value)}
           />
           </div>
           {/* <input
@@ -273,8 +282,15 @@ const EditProfile = props => {
           /> */}
           <input type="submit" value="Submit" />
         </form>
-
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div className="centerbutton">
         <Link to="/mentorme/UserProfile" state = {{user: curruser}}><Button type="button" id="return_button"> Return </Button></Link>
+        </div>
       </section>
     </div>
   );
