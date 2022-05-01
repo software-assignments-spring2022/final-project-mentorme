@@ -1,22 +1,18 @@
-// import React from "react"
-import { Link } from "react-router-dom"
 import "../styles/PostCommentPage.css"
-import image from '../images/6 Post Comment .png'
-// import BurgerMenu from "../components/BurgerMenu"
-// import{Rating,Typography} from "material-ui"
+
 import {useLocation} from 'react-router-dom';
+import { Link} from "react-router-dom";
 
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import Grid from '@mui/material/Grid';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-import Slider from '@mui/material/Slider';
+// import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import BurgerMenu from "../components/BurgerMenu"
 import { TextField } from "@mui/material";
 import Button from "../components/Button"
-
+import { useNavigate } from 'react-router-dom';
 function valuetext(value) {
   return `${value}`;
 }
@@ -57,6 +53,7 @@ Item.propTypes = {
 
 function PostCommentPage() {
   const [value, setValue] = React.useState('Type your review');
+  const navigate = useNavigate();
 
   const location = useLocation()
   const handleChange = (event) => {
@@ -79,9 +76,10 @@ function PostCommentPage() {
     setFormInput({ [name]: newValue });
   };
   const handleSubmit = evt => {
-    evt.preventDefault();
-  
-    let data = { formInput };
+    evt.preventDefault()
+    let data = { formInput }
+    navigate('/rateAdvisor/')
+    ;
   
     fetch(`http://localhost:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
       method: "POST",
@@ -164,7 +162,7 @@ function PostCommentPage() {
   <form onSubmit={handleSubmit}></form>   
     <Item><Typography component="legend" >Overall Rating</Typography>
         <Rating name="overall" defaultValue={2.5} precision={0.5} onChange={handleInput}/></Item>
-      <Item><Typography component="legend">The advisor shares resources related to my program.</Typography><Slider
+      {/* <Item><Typography component="legend">The advisor shares resources related to my program.</Typography><Slider
       name ='category1'
       size = 'large'
     aria-label="Temperature"
@@ -213,7 +211,7 @@ function PostCommentPage() {
       min={10}
       max={100}
       onChange={handleInput}
-    /></Item>
+    /></Item> */}
 
     <Box
           component="form"
@@ -231,17 +229,17 @@ function PostCommentPage() {
               maxRows={4}
               value={value}
               onChange={handleChange}
-              onClick={handleInput}
+              onInput={handleInput}
             />
             </Box>
-        <Button
+            <Link to="/rateAdvisor/"><Button
             type="submit"
             variant="contained"
             color="primary"
             onClick={handleSubmit}
           >
-            Submit Rate For "Username"
-          </Button>
+            Submit Rate For {`${location.state.name}`}
+          </Button></Link>
     <form/>
   </Box>
   
