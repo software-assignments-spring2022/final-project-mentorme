@@ -1,6 +1,6 @@
 # MentorMe
 
-[![CircleCI](https://circleci.com/gh/software-assignments-spring2022/mentorme/tree/master.svg?style=shield)](https://circleci.com/gh/software-assignments-spring2022/mentorme/tree/master)
+[![CircleCI](https://circleci.com/gh/software-assignments-spring2022/final-project-mentorme/tree/master.svg?style=shield)](https://circleci.com/gh/software-assignments-spring2022/final-project-mentorme/tree/master)
 
 ## Product Description
 MentorMe is a platform on which students are able to give ratings and comments on their academic advisors and find other student mentors for career advisement. A student can be paired with another student to get advice on courses, career opportunities, research opportunities, and other resources.
