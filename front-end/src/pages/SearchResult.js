@@ -2,12 +2,14 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/SearchResult.css"
 import SearchBar from '../components/SearchBar'
-import { Container, Col, Row, Button } from "react-bootstrap"
+import { Container, Col, Row } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import BurgerMenu from "../components/BurgerMenu"
 import { useLocation } from "react-router-dom";
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { Button } from "../components/Button"
+
 
 const SearchResult = props => {
   const [userData, setUserData] = useState([]);
@@ -35,10 +37,10 @@ const SearchResult = props => {
       })
   }
 
-  useEffect(()=>{
-    if (typeof location.state.name !== 'undefined'){
+  useEffect(() => {
+    if (typeof location.state.name !== 'undefined') {
       getSearchResult()
-    }else{
+    } else {
       getFilterResult()
     }
   }, [location.state])
@@ -47,13 +49,16 @@ const SearchResult = props => {
 
     <div className="SearchResult">
       <BurgerMenu />
+
       <section className="main-content">
         <h2>Searched Results</h2>
         <br />
         <div className="search">
-          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions}/>
+          <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions} />
           <div className='clear' />
         </div>
+        <Link to="createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
+
 
       </section>
 
@@ -62,12 +67,14 @@ const SearchResult = props => {
         <Container className="">
           <div className="list-group">
             {userData.map((data, i) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentScore.toFixed(2)} school={data.school} id={data.id} field={data.field} department={data.department} key={i}/>
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentScore.toFixed(2)} school={data.school} id={data.id} field={data.field} department={data.department} key={i} />
             ))}
           </div>
         </Container>
       </section>
+
     </div >
+
   )
 }
 
@@ -93,12 +100,16 @@ const Item = props => {
               <div className="school-name">
                 <small>{props.department}</small>
               </div>
-              
+
             </Col>
           </Row>
         </Container>
+
+
       </Link>
+
     </>
+
   )
 }
 

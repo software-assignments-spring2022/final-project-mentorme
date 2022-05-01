@@ -36,8 +36,10 @@
 .btn--warning--solid {
   background-color: var(--warning) !important;
   color: var(--dark) !important;
-  border: none;
+  border: none !important;
 }
+
+
 
 .btn--danger--solid {
   background-color: var(--danger);
