@@ -26,6 +26,7 @@ module.exports = {
       school: Joi.string(),
       picture: Joi.string(),
       bio: Joi.string(),
+      major: Joi.string(),
       over_all: Joi.number(),
       rates: Joi.array()
     })

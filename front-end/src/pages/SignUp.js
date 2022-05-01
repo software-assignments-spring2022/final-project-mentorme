@@ -23,6 +23,8 @@ function SignUp() {
 
   const [school, setSchool] = useState('');
   const [bio, setBio] = useState('');
+  const [major, setMajor] = useState('');
+
 
   const navigate = useNavigate();
   // const [signupUser, { isLoading, error }] = useSignupUserMutation();
@@ -80,6 +82,7 @@ function SignUp() {
           first_name: first_name,
           last_name: last_name,
           school: school,
+          major: major,
           picture: url,
           bio: bio,
           over_all: 3.1,
@@ -103,15 +106,14 @@ function SignUp() {
                   id: response.data.user._id
                 }
               });
-              console.log("here:" + res.data.first_name)
+              // console.log("here:" + res.data.first_name)
               return res.data
 
             }
-            sendGetRequest()
-            //curruser = sendGetRequest();
-            console.log("i'm just testing Mia " + response.data.user)
+            const curruser = sendGetRequest();
+            // console.log("i'm just testing Mia " + response.data.user)
 
-            navigate('/mentorMe', { state: { user: response.data.user } })
+            navigate('/mentorMe', { state: { curruser: curruser } })
           }
           else {
             alert("Account Failure, try again!");
@@ -171,6 +173,11 @@ function SignUp() {
               <Form.Control type="text" placeholder="Your school" onChange={(e) => setSchool(e.target.value)} value={school} />
             </Form.Group>
 
+            <Form.Group className="mb-3" controlId="formBasicMajor">
+
+              <Form.Label> Major</Form.Label>
+              <Form.Control type="text" placeholder="Your major or area of specialty" onChange={(e) => setMajor(e.target.value)} value={major} />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
 
 
