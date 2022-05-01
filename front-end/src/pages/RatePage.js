@@ -14,17 +14,17 @@ const RatePage = props => {
   const [error, setError] = useState('')
 
   const [rate, setRate] = React.useState(1);
-  const handleChange = (event) => {
-    setRate(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setRate(event.target.value);
+  // };
   useEffect(async () => {
     const getUserData = async () => {
       await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`)
         .then(res => {
           setUserData(res.data);
         })
-        .catch(err => {
-          setError(err)
+        .catch(error => {
+          setError(error)
         })
     }
 
@@ -58,7 +58,7 @@ const RatePage = props => {
       .then(response => response.json())
       .then(response => console.log("Success:", JSON.stringify(response)))
       .catch(error => console.error("Error:", error));
-      navigate('/mentorMe/')
+      navigate('/mentorMe/profileDisplay/individualProfile/individualChat')
   };
    const score = parseInt(userData[0]['over_all'])
   return (
@@ -80,6 +80,7 @@ const RatePage = props => {
         <Rating name="overall" precision={0.5} onChange={(event, newValue) => {
           setRate(newValue);
         }} onClick={handleInput} size="large" />
+
         <Button
           type="submit"
           variant="contained"
