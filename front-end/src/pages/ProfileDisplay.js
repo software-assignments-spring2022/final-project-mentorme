@@ -67,7 +67,7 @@ const ProfileDisplay = props => {
           {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
         </p>
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={location.state.userID}/>
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={location.state.userID} />
         </div>
       </section>
 

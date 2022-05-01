@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css"
 import BurgerMenu from "../components/BurgerMenu";
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
@@ -11,6 +13,17 @@ function Login() {
   const [password, setPassword] = useState('');
   const [userAuth, setUserAuth] = useState(false);
   const navigate = useNavigate()
+  const notify = () => toast.error('Wrong password or email, try again!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+
+
 
   function handleLogin(e) {
     e.preventDefault();
@@ -23,7 +36,7 @@ function Login() {
         })
         .then((response) => {
 
-          console.log(response.data);
+          // console.log(response.data);
           setUserAuth(true);
 
 
@@ -45,9 +58,11 @@ function Login() {
               console.log("here:" + res.data.user._id)
             }
             sendGetRequest();
-            
             navigate('/mentorMe', { state: { user: response.data.user } });
           }
+
+        }).catch(function () {
+          notify();
 
         });
     } catch (error) {
@@ -79,6 +94,8 @@ function Login() {
             </Form.Group>
 
             <Button className="btn--logIn" type="submit">Login</Button>
+            <ToastContainer />
+
 
             <div className="pu=4">
               <p className="text-center">Don't have an account? <Link to="/signUp" className="signupLink">Sign Up!</Link></p>
