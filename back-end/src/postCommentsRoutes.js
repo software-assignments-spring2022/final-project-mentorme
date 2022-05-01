@@ -25,6 +25,7 @@ router.post("/:id",async(request, res) => {
                                     timestamp: `${year}-${month}-${day}`
                                 });
     newComment.save()
+    newComment.createdAt;
     try {
         const comments = await Comments.find({ id : userId })
         console.log(comments.length)
