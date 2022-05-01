@@ -18,7 +18,6 @@ router.post("/rateAdvisor/createAdvisor", async (req, res) => {
   // otherwise, allocate a new id for this advisor and create a new collection
   const data = { first_name: firstName, last_name: lastName, university, school, department }
   const result = await Advisor.find(data)
-  console.log(result)
   if (result.length > 0) {
     id = result[0].id
   } else {
