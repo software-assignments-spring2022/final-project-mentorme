@@ -27,6 +27,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, "Can't be blank"]
   },
+  major: {
+    type: String,
+  },
   picture: {
     type: String,
   },
