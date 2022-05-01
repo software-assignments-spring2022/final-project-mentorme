@@ -2,8 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/SearchResult.css"
 import SearchBar from '../components/SearchBar'
-import Filter from '../components/Filter'
-import { Container, Col, Row } from "react-bootstrap"
+import { Container, Col, Row, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import BurgerMenu from "../components/BurgerMenu"
 import { useLocation } from "react-router-dom";
@@ -15,7 +14,6 @@ const SearchResult = props => {
   const [error, setError] = useState('')
   const location = useLocation();
   const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
-  // console.log(location.state)
 
   const getSearchResult = async () => {
     await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
@@ -50,16 +48,13 @@ const SearchResult = props => {
     <div className="SearchResult">
       <BurgerMenu />
       <section className="main-content">
-        {/* <img className="image" alt="welcome!" src={search} /> */}
         <p>
           Search results
           <br />
           <br />
-          {/* <Link to='/rateAdvisor/:searchResut/:commentsDisplay'><button>Comments Display!</button></Link> */}
         </p>
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions}/>
-          {/* <Filter options={filterOptions} navigateTo='/rateAdvisor/searchResult' /> */}
           <div className='clear' />
         </div>
 
@@ -69,8 +64,8 @@ const SearchResult = props => {
       <section className="resultList">
         <Container className="">
           <div className="list-group">
-            {userData.map((data) => (
-              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentScore.toFixed(2)} school={data.school} id={data.id} field={data.field} department={data.department}/>
+            {userData.map((data, i) => (
+              <Item first_name={data.first_name} last_name={data.last_name} score={data.currentScore.toFixed(2)} school={data.school} id={data.id} field={data.field} department={data.department} key={i}/>
             ))}
           </div>
         </Container>
@@ -101,12 +96,7 @@ const Item = props => {
               <div className="school-name">
                 <small>{props.department}</small>
               </div>
-              <div className="school-name">
-                <small>{props.field}</small>
-              </div>
-              {/* <p className="mb-1 brief">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta nibh venenatis. Mauris in aliquam sem fringilla ut.
-              </p> */}
+              
             </Col>
           </Row>
         </Container>

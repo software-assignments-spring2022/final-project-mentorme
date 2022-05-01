@@ -8,6 +8,7 @@ const commentSchema = new Schema({
     },
         score:{
             type:Number,
+            required: true
         }, 
         category1:{
             type:Number,
