@@ -30,8 +30,7 @@ const advisorSchema = new Schema(
         required: true
     },
     field: {
-        type: String,
-        required: true
+        type: String
     },
     currentScore:{
         type: Number,
