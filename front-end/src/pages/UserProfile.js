@@ -63,7 +63,7 @@ const UserProfile = props => {
 
   return (
     <div className="UserProfile">
-      <BurgerMenu />
+      <BurgerMenu user={user} />
       <section className="main-content">
 
         {error && <p className="Profile-error">{error}</p>}

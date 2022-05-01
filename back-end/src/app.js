@@ -21,12 +21,11 @@ mongoose
 
 // requiring to use the routes from rateMentorRoutes.js - as mentioned
 const rateMentor = require('./rateMentorRoutes')
-const login = require('./login')
-const signup = require('./signup')
+// const login = require('./login')
+// const signup = require('./signup')
 const userprofile = require('./userprofile')
 const editprofile = require('./editprofile')
 const individualprofile = require('./individualprofile')
-const chat = require('./chat')
 const userinfo = require('./userinfo')
 
 const search = require('./search')
@@ -40,16 +39,16 @@ const createAdvisorRoutes = require("./createAdvisorRoutes")
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
 //chat
 
-const io = new Server(server, {
-    cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"],
-    },
-});
+// const io = new Server(server, {
+//     cors: {
+//         origin: "http://localhost:3000",
+//         methods: ["GET", "POST"],
+//     },
+// });
 
 // more socket.io implementation
 // io.on("connection", socket => {
@@ -124,12 +123,12 @@ app.get("/mentorMe", (req, res) => {
 app.use("/mentorMe/profileDisplay/individualProfile/individualChat/ratePage", rateMentor);
 app.use("/rateAdvisor/searchResult/commentsDisplay/postCommentPage", postCommentRoutes);
 
-app.use('/login', login);
-app.use('/signup', signup);
+// app.use('/login', login);
+// app.use('/signup', signup);
 app.use('/userinfo', userinfo);
 
 
-app.use('/chat', chat);
+// app.use('/chat', chat);
 
 //authentication routes
 //first test

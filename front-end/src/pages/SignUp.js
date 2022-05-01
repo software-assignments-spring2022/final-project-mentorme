@@ -10,7 +10,8 @@ import { useState } from "react";
 import BurgerMenu from "../components/BurgerMenu";
 import peppa from "../images/3-peppa.jpeg";
 import axios from 'axios'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -24,6 +25,15 @@ function SignUp() {
   const [school, setSchool] = useState('');
   const [bio, setBio] = useState('');
   const [major, setMajor] = useState('');
+  const notify = () => toast.error('The account already exists!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
 
   const navigate = useNavigate();
@@ -67,7 +77,7 @@ function SignUp() {
     e.preventDefault();
     if (!image) return alert('Please upload your profile picture');
     const url = await uploadImage(image);
-    console.log(url);
+    // console.log(url);
     // signupUser({ name, email, password, picture: url }).then(({ data }) => {
     //   if (data) {
     //     console.log(data);
@@ -110,19 +120,24 @@ function SignUp() {
               return res.data
 
             }
-            const curruser = sendGetRequest();
+            sendGetRequest();
             // console.log("i'm just testing Mia " + response.data.user)
 
-            navigate('/mentorMe', { state: { curruser: curruser } })
+            navigate('/mentorMe', { state: { user: response.data.user } })
           }
           else {
             alert("Account Failure, try again!");
 
           }
         })
+        .catch(function () {
+          notify();
+        })
       // localStorage.setItem('email', email);
       // localStorage.setItem('password', password);
     } catch (error) {
+      // console.log(response.data)
+      // alert(error);
       console.log(error);
     }
   }
@@ -202,6 +217,8 @@ function SignUp() {
 
             {/* <Link to="/mentorMe"><Button className="btn--logIn" type="submit">Sign Up</Button></Link> */}
             <Button className="btn--logIn" type="submit">{uploadingImg ? "Signing up..." : "Sign Up"}</Button>
+            <ToastContainer />
+
 
             {/* </Link><Button variant="primary" type="submit">Login</Button> */}
             <div className="pu=4">
