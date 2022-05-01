@@ -35,6 +35,7 @@ const postCommentRoutes = require('./postCommentsRoutes')
 const userRoutes = require('./routes/userRoutes')
 const conversationRoute = require("./routes/conversations")
 const messageRoute = require("./routes/messages")
+const createAdvisorRoutes = require("./createAdvisorRoutes")
 
 // we will put some server logic here later...
 app.use(morgan("dev"))
@@ -147,5 +148,6 @@ app.use("/", search);
 
 
 app.use("/", commentDisplayRoutes)
+app.use("/", createAdvisorRoutes)
 // export the express app we created to make it available to other modules
 module.exports = app

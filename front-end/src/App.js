@@ -17,6 +17,7 @@ import EditProfile from "./pages/EditProfile"
 import ChatsHistory from "./pages/messenger/Messenger"
 import Login from "./pages/Login"
 import SingUp from "./pages/SignUp"
+import CreateAdvisor from "./pages/CreateAdvisor"
 
 
 /* Mateus 03/04
@@ -61,7 +62,10 @@ const App = props => {
             path="/rateAdvisor/searchResult"
             element={<SearchResult user={user} />}
           />
-          <Route
+
+          <Route exact path="/rateAdvisor/searchResult/createAdvisor" element={<CreateAdvisor />} />
+
+          <Route exact
             path="/rateAdvisor/searchResult/commentsDisplay"
             element={<CommentsDisplay user={user} />}
           />
