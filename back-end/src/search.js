@@ -3,6 +3,7 @@ const router = express.Router();
 const stringSimilarity = require("string-similarity");
 const Users = require("./models/Users")
 const { Advisor } = require("./models/Advisor") 
+const ObjectId = require('mongodb').ObjectId;
 
 // handle search get request on advisor page. Return the most relevant 5 results. Req should has search term as 'name'
 function calulateRank(term, arr) {
@@ -101,7 +102,7 @@ router.get("/rateAdvisor/searchResult", async (req, res) => {
 
 router.get("/mentorMe/profileDisplay", async (req, res) => {
     // handle inputs
-    let { name, options } = req.query
+    let { name, options, userID } = req.query
     name = name || ""
     options = options || []
     let singleName = name.trim().replace(/[^a-zA-Z ]/g, "").toLowerCase()
@@ -116,14 +117,15 @@ router.get("/mentorMe/profileDisplay", async (req, res) => {
         lastName = nameList[nameList.length - 1]
         lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1)
     }
-
+    console.log(userID)
     const nameResults = nameList.length === 1 ?
-        await Users.find({ $or: [{ first_name: new RegExp(singleName) }, { last_name: new RegExp(singleName) }] }) :
-        await Users.find({ first_name: new RegExp(firstName), last_name: new RegExp(lastName) })
+        await Users.find({ $or: [{ first_name: new RegExp(singleName), _id: {$ne: new ObjectId(userID)} }, { last_name: new RegExp(singleName), _id: {$ne: new ObjectId(userID)} }] }) :
+        await Users.find({ first_name: new RegExp(firstName), last_name: new RegExp(lastName), _id: {$ne: new ObjectId(userID)} })
 
 
     // filter the results using school
     let result = nameResults
+    // console.log(nameResults)
     // if (options.length !== 0) {
     //     result = nameResults.filter(adv => options.includes(adv.school))
     // }
