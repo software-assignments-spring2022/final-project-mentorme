@@ -107,11 +107,10 @@ function SignUp() {
               return res.data
 
             }
-            sendGetRequest()
-            //curruser = sendGetRequest();
+            const curruser = sendGetRequest();
             console.log("i'm just testing Mia " + response.data.user)
 
-            navigate('/mentorMe', { state: { user: response.data.user } })
+            navigate('/mentorMe', {state: {curruser: curruser}})
           }
           else {
             alert("Account Failure, try again!");

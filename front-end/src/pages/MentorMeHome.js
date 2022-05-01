@@ -12,21 +12,24 @@ const MentorMeHome = props => {
   const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
 
+  console.log(location.state)
+  const user = location.state.user
 
-  useEffect(async () => {
-    const fetchData = async () => {
-      await axios.get("http://localhost:4000/userinfo")
-        .then(response => setUserData(response.data))
-        .catch(err => {
-          console.log("err", err)
-          setError(err)
-        }
-        )
-    }
 
-    fetchData()
-  }, [])
-  console.log(userData)
+  // useEffect(async () => {
+  //   const fetchData = async () => {
+  //     await axios.get("http://localhost:4000/userinfo")
+  //       .then(response => setUserData(response.data))
+  //       .catch(err => {
+  //         console.log("err", err)
+  //         setError(err)
+  //       }
+  //       )
+  //   }
+
+  //   fetchData()
+  // }, [])
+  // console.log(userData)
 
 
   const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance']
@@ -38,12 +41,12 @@ const MentorMeHome = props => {
       <br />
       <section className="main-content">
         <h1>MentorMe Home</h1>
-        <h1>Welcome, {userData.first_name}!</h1>
+        <h1>Welcome, {user.first_name}!</h1>
 
-        <img src={userData.pic} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
+        <img src={user.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
         
         <br />
-        <Link to="/mentorMe/UserProfile"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
+        <Link to="/mentorMe/UserProfile" state={{user: user}}><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
         <br />
         <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={userData.id}/>
