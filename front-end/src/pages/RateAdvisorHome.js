@@ -2,7 +2,7 @@ import React from "react"
 import "../styles/RateAdvisorHome.css"
 import SearchBar from '../components/SearchBar'
 import BurgerMenu from "../components/BurgerMenu"
-import { Link, useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Button } from "../components/Button"
 
 
