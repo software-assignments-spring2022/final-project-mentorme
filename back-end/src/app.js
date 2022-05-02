@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 const morgan = require("morgan") // middleware for nice logging of incoming HTTP requests
 const mongoose = require("mongoose");
 
-
+app.use("/client", express.static("client"))
 // connecting database
 require('dotenv').config()
 
