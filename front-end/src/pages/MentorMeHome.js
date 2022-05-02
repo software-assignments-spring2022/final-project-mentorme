@@ -12,7 +12,7 @@ const MentorMeHome = props => {
   const [userData, setUserData] = useState([{}]);
   const [error, setError] = useState('')
 
-  console.log(location.state)
+  // console.log(location.state)
   const user = location.state.user
 
 
@@ -44,12 +44,12 @@ const MentorMeHome = props => {
         <h1>Welcome, {user.first_name}!</h1>
 
         <img src={user.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
-        
+
         <br />
-        <Link to="/mentorMe/UserProfile" state={{user: user}}><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
+        <Link to="/mentorMe/UserProfile" state={{ user: user }}><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
         <br />
         <div className="search">
-          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={userData.id}/>
+          <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={user._id} />
         </div>
         <br />
         <br />

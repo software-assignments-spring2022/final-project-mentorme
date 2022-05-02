@@ -6,11 +6,11 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from "react-router-dom"
 
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ user }) => {
     const location = useLocation()
     const [userData, setUserData] = useState([{}]);
     const [error, setError] = useState('')
-    var user;
+    console.log(user);
     let menu;
 
     if (location.state){
@@ -64,7 +64,13 @@ const BurgerMenu = () => {
         return (
             <Menu>
                 <a id="home" className='home' state={{ loggedOut: false }} href='/'>Home</a>
-                <a id='mentorMe' className='mentorMe' href='/mentorMe' state={{ user: user}}> MentorMe</a>
+                {/* <a id='mentorMe' className='mentorMe' state={{ user: user }} href='/mentorMe'>MentorMe</a> */}
+                <Link
+                    to={{
+                        pathname: "/mentorMe",
+                        state: { user: user }
+                    }}
+                >MentorMe</Link>
                 <a id='rateAdvisor' className='rateAdvisor' href='/rateAdvisor'>RateMyAdvisor</a>
                 <a id='logOut' className='logOut' href='/login' onClick={onLinkClick}>Log Out</a>
 
