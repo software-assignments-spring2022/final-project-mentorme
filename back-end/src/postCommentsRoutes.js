@@ -17,10 +17,6 @@ router.post("/:id",async(request, res) => {
     console.log(request.body.formInput.overall)
     const newComment = new Comments({id:request.params.id,
                                     score:request.body.formInput.overall,
-                                    category1:request.body.formInput.category1,
-                                    category2:request.body.formInput.category2,
-                                    category3:request.body.formInput.category3,
-                                    category4:request.body.formInput.category4,
                                     written_feedback:request.body.formInput.comment,
                                     timestamp: `${year}-${month}-${day}`
                                 });
