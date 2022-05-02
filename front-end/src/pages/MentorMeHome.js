@@ -21,7 +21,7 @@ const MentorMeHome = props => {
     }
   }, [])
 
-  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance']
+  const filterOptions = ['Math', 'Computer Science', 'Finance', 'Psychology', 'Humanities']
   return (
     <div className="MentorMeHome">
       <BurgerMenu />
