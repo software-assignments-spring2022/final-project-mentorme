@@ -19,7 +19,7 @@ export default function Messenger() {
 
   useEffect(async () => {
     const fetchData = async () => {
-      await axios.get("http://http://147.182.129.48:4000//userinfo")
+      await axios.get("http://147.182.129.48:4000/userinfo")
         .then(response => setUserData(response.data))
         .catch(err => {
           console.log("err", err)
@@ -35,7 +35,7 @@ export default function Messenger() {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  // const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
   const fieldRef = useRef();
   const socket = useRef();
@@ -45,7 +45,7 @@ export default function Messenger() {
 
     const getUser = async () => {
       try {
-        const res = await axios("http://http://147.182.129.48:4000//users?userId=" + friendId);
+        const res = await axios("http://147.182.129.48:4000/users?userId=" + friendId);
         // console.log("Data in")
         // console.log(res.data)
         setMentor(res.data)
@@ -60,24 +60,24 @@ export default function Messenger() {
   }, [user, currentChat])
 
 
-  // useEffect(() => {
-  //   arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
+  useEffect(() => {
+    arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
 
-  // }, [arrivalMessage, currentChat])
+  }, [arrivalMessage, currentChat])
 
-  // useEffect(() => {
-  //   socket.current.emit("addUser", user.id);
-  //   socket.current.on("getUsers", users => {
-  //     console.log(users)
-  //   })
-  // }, [user])
+  useEffect(() => {
+    socket.current.emit("addUser", user.id);
+    socket.current.on("getUsers", users => {
+      console.log(users)
+    })
+  }, [user])
 
 
 
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await axios.get("http://http://147.182.129.48:4000//conversations/" + user.id)
+        const res = await axios.get("http://147.182.129.48:4000/conversations/" + user.id)
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -89,7 +89,7 @@ export default function Messenger() {
   useEffect(() => {
     const geetMessages = async () => {
       try {
-        const res = await axios.get("http://http://147.182.129.48:4000//messages/" + currentChat?._id);
+        const res = await axios.get("http://147.182.129.48:4000/messages/" + currentChat?._id);
         setMessages(res.data);
 
       } catch (err) {
@@ -107,13 +107,13 @@ export default function Messenger() {
       conversationId: currentChat._id,
     }
     const receiverId = currentChat.members.find(member => member !== user.id)
-    // socket.current.emit("sendMessage", {
-    //   senderId: user.id,
-    //   receiverId,
-    //   text: newMessage,
-    // })
+    socket.current.emit("sendMessage", {
+      senderId: user.id,
+      receiverId,
+      text: newMessage,
+    })
     try {
-      const res = await axios.post("http://http://147.182.129.48:4000//messages", message);
+      const res = await axios.post("http://147.182.129.48:4000/messages", message);
       setMessages([...messages, res.data])
       setNewMessage("");
     } catch (err) {
