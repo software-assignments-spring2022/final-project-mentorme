@@ -13,9 +13,9 @@ import BurgerMenu from "../components/BurgerMenu"
 import { TextField } from "@mui/material";
 import Button from "../components/Button"
 import { useNavigate } from 'react-router-dom';
-function valuetext(value) {
-  return `${value}`;
-}
+// function valuetext(value) {
+//   return `${value}`;
+// }
 function Item(props) {
   const { sx, ...other } = props;
   return (
@@ -63,10 +63,6 @@ function PostCommentPage() {
     (state, newState) => ({ ...state, ...newState }),
     {
       overall: 0 ,
-      category1: 0,
-      category2: 0,
-      category3: 0,
-      category4: 0,
       comment:" "
     }
   );
