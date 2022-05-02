@@ -58,7 +58,7 @@ const SearchResult = props => {
           <div className='clear' />
         </div>
 
-        <Link to="createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
+        <Link to="createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor? Add an Advisor</Button></Link>
 
       </section>
 
