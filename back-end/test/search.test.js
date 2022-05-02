@@ -7,7 +7,7 @@ const should = require('chai').should();
 chai.use(chaiHttp);
 
 describe("GET requests to related to search functions", () => {
-    it("advisor search function should respond with an HTTP 200 status code and an object in the response body \n the response body object should contain at least three different properties: id, first name, last name, school, score, field", done => {
+    it("advisor search function should respond with an HTTP 200 status code and an object in the response body \n the response body object should contain at least three different properties: id, first name, last name, school, score", done => {
       chai
         .request(server)
         .get("/rateAdvisor/searchResult?name=j")

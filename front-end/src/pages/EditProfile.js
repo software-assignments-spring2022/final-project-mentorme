@@ -23,23 +23,6 @@ const EditProfile = props => {
   const { user } = location.state
   var curruser = user
 
-  // useEffect(async () => {
-
-
-  // useEffect(async () => {
-  //   const fetchData = async () => {
-  //     await axios.get("http://localhost:4000/userinfo")
-  //       .then(response => setUserData(response.data))
-  //       .catch(err => {
-  //         console.log("err", err)
-  //         setError(err)
-  //       }
-  //       )
-  //   }
-
-  //   fetchData()
-  // }, [])
-
   function validateImg(e) {
     const file = e.target.files[0];
     if (file.size > 1048576) {
@@ -57,10 +40,6 @@ const EditProfile = props => {
     data.append('upload_preset', 'mentormesignup');
     try {
       setUploadingImg(true);
-      // let res - await fetch('https://api.blah.com/getUser/:id')
-      // params - get the id
-      // call mogoDb -. Model - user
-      //user.find({id: Incomingid})
       let res = await fetch("https://api.cloudinary.com/v1_1/lijie1230/image/upload", {
         method: 'post',
         body: data
@@ -80,7 +59,9 @@ const EditProfile = props => {
     e.preventDefault() // prevent normal browser submit behavior
     const url = await uploadImage(image);
     console.log(url);
+    let newUser = { ...user }
     if (first_name != "") {
+      newUser.first_name = first_name
       try {
         axios
         .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
@@ -97,6 +78,7 @@ const EditProfile = props => {
       }
     }
     if (last_name != "") {
+      newUser.last_name = last_name
       try {
         axios
           .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
@@ -113,6 +95,7 @@ const EditProfile = props => {
       }
     }
     if (url != "") {
+      newUser.picture = url
       try {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
@@ -129,6 +112,7 @@ const EditProfile = props => {
       }
     }
     if (email != "") {
+      newUser.email = email
       try {
         axios
         .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
@@ -145,6 +129,7 @@ const EditProfile = props => {
       }
     }
     if (password != "") {
+      newUser.password = password
       try {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
@@ -179,7 +164,10 @@ const EditProfile = props => {
       }
       
     }
+    localStorage.setItem('user', JSON.stringify(newUser))
   }
+
+  
 
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
