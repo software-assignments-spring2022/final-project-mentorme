@@ -58,6 +58,7 @@ const SearchResult = props => {
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions} />
 
         </div>
+        <br />
         <div className="newAdv">
           <Link to="createAdvisor"><Button className="theButton" buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
 

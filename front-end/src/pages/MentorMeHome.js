@@ -19,7 +19,6 @@ const MentorMeHome = props => {
     if (loggedUser) {
       setUser(JSON.parse(loggedUser))
     }
-    console.log("user is", JSON.parse(loggedUser))
   }, [])
 
   const filterOptions = ['Math', 'Computer Science', 'Finance', 'Psychology', 'Humanities']

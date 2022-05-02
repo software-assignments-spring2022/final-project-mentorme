@@ -17,7 +17,8 @@ const RateAdvisorHome = props => {
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' isMentorMe={false} filterOptions={filterOptions} />
         </div>
-        <Link to="searchResult/createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
+        <br />
+        <Link to="searchResult/createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Create a profile for your Advisor!</Button></Link>
 
       </section>
     </div>
