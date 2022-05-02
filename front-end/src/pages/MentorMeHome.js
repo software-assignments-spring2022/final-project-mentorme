@@ -9,11 +9,9 @@ import axios from 'axios'
 
 const MentorMeHome = props => {
   const location = useLocation()
-  const [userData, setUserData] = useState([{}]);
-  const [error, setError] = useState('')
 
-  // console.log(location.state)
-  const user = location.state.user
+  console.log(location.state)
+  const {user} = location.state
 
 
   // useEffect(async () => {

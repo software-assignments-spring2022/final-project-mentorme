@@ -211,13 +211,13 @@ const EditProfile = props => {
           <img src={curruser.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
           </div>
           <div>
-          <h2>{curruser.first_name} {curruser.last_name}</h2>
+          <h3>{curruser.first_name} {curruser.last_name}</h3>
           </div>
           <div>
-          <h2>{user.email}</h2>
+          <h4>{curruser.email}</h4>
           </div>
           <div>
-          <h2>{user.bio}</h2>
+          <p>{curruser.bio}</p>
           </div>
         </div>
         <form className = "personal_info" onSubmit={submitForm}>
