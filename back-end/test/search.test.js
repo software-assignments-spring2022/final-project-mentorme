@@ -22,7 +22,7 @@ describe("GET requests to related to search functions", () => {
           res.body[0].should.have.property("school")
           res.body[0].should.have.property("department")
           res.body[0].should.have.property("currentScore")
-          res.body[0].should.have.property("field")
+          // res.body[0].should.have.property("field")
           res.body[0].id.should.be.a("number")
           res.body[0].first_name.should.be.a("string")
           res.body[0].last_name.should.be.a("string")
@@ -30,7 +30,7 @@ describe("GET requests to related to search functions", () => {
           res.body[0].school.should.be.a("string")
           res.body[0].department.should.be.a("string")
           res.body[0].currentScore.should.be.a("number")
-          res.body[0].field.should.be.a("string")
+          // res.body[0].field.should.be.a("string")
           done() // resolve the Promise that these tests create so mocha can move on
         })
     })
