@@ -42,7 +42,7 @@ const SearchBar = (props) => {
     // fetch from different data based on where this search bar is located
     // fetch mentors data
     if (props.isMentorMe) {
-      await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name, options, userID } })
+      await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/", { params: { name, options, userID } })
       .then(res => {
         setSuggestion(res.data);
       })

@@ -19,7 +19,7 @@ const RatePage = props => {
   // };
   useEffect(async () => {
     const getUserData = async () => {
-      await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`)
+      await axios.get(`http://147.182.129.48:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`)
         .then(res => {
           setUserData(res.data);
         })
@@ -48,7 +48,7 @@ const RatePage = props => {
 
     let data = { formInput };
 
-    fetch(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`, {
+    fetch(`http://147.182.129.48:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

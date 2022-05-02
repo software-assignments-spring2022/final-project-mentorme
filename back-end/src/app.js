@@ -39,52 +39,8 @@ const createAdvisorRoutes = require("./createAdvisorRoutes")
 // we will put some server logic here later...
 app.use(morgan("dev"))
 app.use(cors());
-// const server = http.createServer(app);
 
-//chat
-
-// const io = new Server(server, {
-//     cors: {
-//         origin: "http://localhost:3000",
-//         methods: ["GET", "POST"],
-//     },
-// });
-
-// more socket.io implementation
-// io.on("connection", socket => {
-
-//     socket.on("join_room", (data) => {
-//         socket.join(data);
-//         console.log(`User with ID: ${socket.id} joined room: ${data}`);
-//     });
-
-//     socket.on("send_message", (data) => {
-//         socket.to(data.room).emit("receive_message", data);
-//     });
-
-//     socket.on("disconnect", () => {
-//         console.log("User Disconnected", socket.id);
-//     });
-// });
-
-
-//previous socket
-// io.on('connection', socket => {
-//     console.log(`User Connected!!: ${socket.id}`);
-//     const sid = socket.id;
-
-//     socket.on("send-chat-message", message => {
-//         console.log(message),
-//             socket.broadcast.emit('chat-message', message, sid)
-//     })
-// })
-
-
-// server.listen(3001, () => {
-//     console.log('listening on *:3001');
-// });
-
-
+app.use("/client", express.static("client"))
 
 
 // This code fixed the errors I was having with front-end haveing an error connecting to the back-end
