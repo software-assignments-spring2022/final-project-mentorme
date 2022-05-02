@@ -17,11 +17,20 @@ const EditProfile = props => {
   const [bio, setBio] = useState('')
   const [newuser, setUser] = useState('')
   const [error, setError] = useState('')
-  const [userData, setUserData] = useState('')
 
   const location = useLocation()
   const { user } = location.state
-  var curruser = user
+
+  const [curruser, setUserData] = useState(user)
+  
+
+
+  
+  // var curruser = user
+
+  var showuser = user;
+  
+  let newUser = { ... user }
 
   function validateImg(e) {
     const file = e.target.files[0];
@@ -53,13 +62,21 @@ const EditProfile = props => {
     }
   }
 
+  useEffect(() => {
+    const loggedUser = localStorage.getItem('user')
+    if (loggedUser) {
+      setUser(JSON.parse(loggedUser))
+    }
+    console.log("user is", JSON.parse(loggedUser))
+  }, [])
+
  
 
   async function submitForm(e) {
     e.preventDefault() // prevent normal browser submit behavior
     const url = await uploadImage(image);
     console.log(url);
-    let newUser = { ...user }
+    
     if (first_name != "") {
       newUser.first_name = first_name
       try {
@@ -68,11 +85,11 @@ const EditProfile = props => {
           first_name: first_name,
           curruser: user
         })
-        .then(response => setUser(response.data))
-        .catch(err => {
-          console.log("err", err)
-            setError(err)
-        })
+        // .then(response => setUser(response.data))
+        // .catch(err => {
+        //   console.log("err", err)
+        //     setError(err)
+        // })
       } catch (error) {
       console.log(error);
       }
@@ -85,11 +102,11 @@ const EditProfile = props => {
             last_name: last_name,
             curruser: user,
           })
-          .then(response => setUser(response.data))
-          .catch(err => {
-            console.log("err", err)
-              setError(err)
-          })
+          // .then(response => setUser(response.data))
+          // .catch(err => {
+          //   console.log("err", err)
+          //     setError(err)
+          // })
       } catch (error) {
         console.log(error);
       }
@@ -99,14 +116,14 @@ const EditProfile = props => {
       try {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
-            profilePic: url,
+            picture: url,
             curruser: user,
           })
-          .then(response => setUser(response.data))
-          .catch(err => {
-            console.log("err", err)
-              setError(err)
-          })
+          // .then(response => setUser(response.data))
+          // .catch(err => {
+          //   console.log("err", err)
+          //     setError(err)
+          // })
       } catch (error) {
         console.log(error);
       }
@@ -119,11 +136,11 @@ const EditProfile = props => {
           email: email,
           curruser: user,
         })
-        .then(response => setUser(response.data))
-        .catch(err => {
-          console.log("err", err)
-            setError(err)
-        })
+        // .then(response => setUser(response.data))
+        // .catch(err => {
+        //   console.log("err", err)
+        //     setError(err)
+        // })
       } catch (error) {
          console.log(error);
       }
@@ -136,28 +153,29 @@ const EditProfile = props => {
             password: password,
             curruser: user,
           })
-          .then(response => setUser(response.data))
-          .catch(err => {
-            console.log("err", err)
-              setError(err)
-          })
+          // .then(response => setUser(response.data))
+          // .catch(err => {
+          //   console.log("err", err)
+          //     setError(err)
+          // })
           console.log(newuser)
       } catch (error) {
         console.log(error);
       }
     }
     if (bio != "") {
+      newUser.bio = bio
       try {
         axios
           .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             bio: bio,
             curruser: user,
           })
-          .then(response => setUser(response.data))
-          .catch(err => {
-            console.log("err", err)
-              setError(err)
-          })
+          // .then(response => setUser(response.data))
+          // .catch(err => {
+          //   console.log("err", err)
+          //     setError(err)
+          // })
           console.log(newuser)
       } catch (error) {
           console.log(error);
@@ -165,19 +183,35 @@ const EditProfile = props => {
       
     }
     localStorage.setItem('user', JSON.stringify(newUser))
+    console.log("New User:")
+    console.log(newuser)
+
+    if (newUser) {
+      console.log("yay")
+      // curruser = newUser
+      setUserData(newUser)
+    }
+    console.log("Other:")
+    console.log(newUser)
+    console.log(curruser)
   }
 
+  // useEffect(() => {
+  //   const loggedUser = localStorage.getItem('user')
+  //   if (loggedUser) {
+  //     setUser(JSON.parse(loggedUser))
+  //   }
+  //   console.log("user is", JSON.parse(loggedUser))
+  // }, [])
   
 
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
-  if (newuser) {
-    curruser = newuser
-  }
-
-
+  // if (!curruser){
+  //   curruser = showuser;
+  // }
 
   return (
     <div className="EditProfile">
