@@ -118,19 +118,6 @@ const EditProfile = props => {
          console.log(error);
       }
     }
-    if (password != "") {
-      newUser.password = password
-      try {
-        axios
-          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
-            password: password,
-            curruser: user,
-          })
-          console.log(newuser)
-      } catch (error) {
-        console.log(error);
-      }
-    }
     if (bio != "") {
       newUser.bio = bio
       try {
@@ -228,15 +215,6 @@ const EditProfile = props => {
             placeholder="Change Bio"
             value={bio}
             onChange={e => setBio(e.target.value)}
-          />
-          </div>
-          <div className="editprofilebox">
-          <input
-            name = "password"
-            type="text"
-            placeholder="Change Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
           />
           </div>
           <input type="submit" value="Submit" />
