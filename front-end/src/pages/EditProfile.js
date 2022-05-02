@@ -194,7 +194,7 @@ const EditProfile = props => {
   return (
     <div className="EditProfile">
     
-      <BurgerMenu />
+      <BurgerMenu state={{user: curruser}}/>
       <section className="editprofilemaincontent" >
       {/* className="main-content" */}
 

@@ -10,45 +10,61 @@ const BurgerMenu = () => {
     const location = useLocation()
     const [userData, setUserData] = useState([{}]);
     const [error, setError] = useState('')
+    var user;
     let menu;
+
+    if (location.state){
+        var {user} = location.state
+        console.log("in if statement")
+        menu = true;
+    }
+    else{
+        menu = false;
+    }
+
+    console.log(user)
+
+    
+
     const onLinkClick = (e) => {
-        // e.preventDefault();
+    //     // e.preventDefault();
         menu = false
         console.log(menu);
-        async function sendGetRequest() {
-            const res = await axios.get("http://localhost:4000/userinfo", {
-                params: {
-                    auth: "reset"
-                }
-            });
-            console.log("here:" + res.data.name)
-        }
-        sendGetRequest();
+    //     // async function sendGetRequest() {
+    //     //     const res = await axios.get("http://localhost:4000/userinfo", {
+    //     //         params: {
+    //     //             auth: "reset"
+    //     //         }
+    //     //     });
+    //     //     console.log("here:" + res.data.name)
+    //     // }
+    //     // sendGetRequest();
 
     };
 
 
-    useEffect(async () => {
-        const fetchData = async () => {
-            await axios.get("http://localhost:4000/userinfo")
-                .then(response => setUserData(response.data))
-                .catch(err => {
-                    console.log("err", err)
-                    setError(err)
-                }
-                )
-        }
+    // useEffect(async () => {
+    //     const fetchData = async () => {
+    //         await axios.get("http://localhost:4000/userinfo")
+    //             .then(response => setUserData(response.data))
+    //             .catch(err => {
+    //                 console.log("err", err)
+    //                 setError(err)
+    //             }
+    //             )
+    //     }
 
-        fetchData()
-    }, [])
+    //     fetchData()
+    // }, [])
 
     // console.log(userData.auth);
-    menu = userData.auth;
+    // menu = userData.auth;
+    console.log(menu)
     if (menu) {
         return (
             <Menu>
                 <a id="home" className='home' state={{ loggedOut: false }} href='/'>Home</a>
-                <a id='mentorMe' className='mentorMe' href='/mentorMe'>MentorMe</a>
+                <a id='mentorMe' className='mentorMe' href='/mentorMe' state={{ user: user}}> MentorMe</a>
                 <a id='rateAdvisor' className='rateAdvisor' href='/rateAdvisor'>RateMyAdvisor</a>
                 <a id='logOut' className='logOut' href='/login' onClick={onLinkClick}>Log Out</a>
 
