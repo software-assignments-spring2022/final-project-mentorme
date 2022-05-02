@@ -7,7 +7,7 @@ import { Button } from "../components/Button"
 
 
 const RateAdvisorHome = props => {
-  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS'];
+  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Steinhardt'];
   return (
     <div className="RateAdvisorHome">
       <BurgerMenu />

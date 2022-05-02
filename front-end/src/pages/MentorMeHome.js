@@ -22,7 +22,7 @@ const MentorMeHome = props => {
     console.log("user is", JSON.parse(loggedUser))
   }, [])
 
-  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance']
+  const filterOptions = ['Math', 'Computer Science', 'Finance', 'Psychology', 'Humanities']
   return (
     <div className="MentorMeHome">
       <BurgerMenu />

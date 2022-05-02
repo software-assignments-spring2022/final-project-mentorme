@@ -15,7 +15,7 @@ const SearchResult = props => {
   const [userData, setUserData] = useState([]);
   const [error, setError] = useState('')
   const location = useLocation();
-  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
+  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Steinhardt'];
 
   const getSearchResult = async () => {
     await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
