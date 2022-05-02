@@ -41,6 +41,18 @@ export default function Messenger() {
   const socket = useRef();
 
   useEffect(() => {
+    socket.current = io("ws://localhost:8900");
+    socket.current.on("getMessage", data => {
+      setArrivalMessage({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      })
+
+    })
+  }, [])
+
+  useEffect(() => {
     const friendId = currentChat?.members.find(m => m !== user.id);
 
     const getUser = async () => {
@@ -107,11 +119,11 @@ export default function Messenger() {
       conversationId: currentChat._id,
     }
     const receiverId = currentChat.members.find(member => member !== user.id)
-    socket.current.emit("sendMessage", {
-      senderId: user.id,
-      receiverId,
-      text: newMessage,
-    })
+    // socket.current.emit("sendMessage", {
+    //   senderId: user.id,
+    //   receiverId,
+    //   text: newMessage,
+    // })
     try {
       const res = await axios.post("http://localhost:4000/messages", message);
       setMessages([...messages, res.data])
