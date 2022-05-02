@@ -10,7 +10,6 @@ const BurgerMenu = ({ user }) => {
     const location = useLocation()
     const [userData, setUserData] = useState([{}]);
     const [error, setError] = useState('')
-    console.log(user);
     let menu;
 
     if (location.state){
@@ -65,12 +64,7 @@ const BurgerMenu = ({ user }) => {
             <Menu>
                 <a id="home" className='home' state={{ loggedOut: false }} href='/'>Home</a>
                 {/* <a id='mentorMe' className='mentorMe' state={{ user: user }} href='/mentorMe'>MentorMe</a> */}
-                <Link
-                    to={{
-                        pathname: "/mentorMe",
-                        state: { user: user }
-                    }}
-                >MentorMe</Link>
+                <Link to="/mentorMe" state={ { user } }>MentorMe</Link>
                 <a id='rateAdvisor' className='rateAdvisor' href='/rateAdvisor'>RateMyAdvisor</a>
                 <a id='logOut' className='logOut' href='/login' onClick={onLinkClick}>Log Out</a>
 

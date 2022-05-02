@@ -1,7 +1,6 @@
-.SearchResult {
+/* .SearchResult {
     display: block;
-
-}
+} */
 
 .advisor-picture {
     border-radius: 8px;
@@ -41,10 +40,8 @@
 
 .list-group {
     padding: 15% 10%;
-    /* position: absolute; */
 }
 
 .list-group-item {
     background-color: rgb(251, 196, 196);
-
 }

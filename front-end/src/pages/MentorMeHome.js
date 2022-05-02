@@ -5,30 +5,22 @@ import { Button } from "../components/Button"
 import BurgerMenu from "../components/BurgerMenu"
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from "react-router-dom"
-import axios from 'axios'
 
 const MentorMeHome = props => {
   const location = useLocation()
+  const [user, setUser] = useState([{}]);
+  const [error, setError] = useState('')
 
-  console.log(location.state)
-  const {user} = location.state
+  // console.log(location.state)
 
-
-  // useEffect(async () => {
-  //   const fetchData = async () => {
-  //     await axios.get("http://localhost:4000/userinfo")
-  //       .then(response => setUserData(response.data))
-  //       .catch(err => {
-  //         console.log("err", err)
-  //         setError(err)
-  //       }
-  //       )
-  //   }
-
-  //   fetchData()
-  // }, [])
-  // console.log(userData)
-
+  // get logged in user
+  useEffect(() => {
+    const loggedUser = localStorage.getItem('user')
+    if (loggedUser) {
+      setUser(JSON.parse(loggedUser))
+    }
+    console.log("user is", JSON.parse(loggedUser))
+  }, [])
 
   const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance']
   return (
