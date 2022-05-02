@@ -17,18 +17,12 @@ export default function Messenger() {
   const [error, setError] = useState('')
   const [mentor, setMentor] = useState(null);
 
-  useEffect(async () => {
-    const fetchData = async () => {
-      await axios.get("http://147.182.129.48:4000/userinfo")
-        .then(response => setUserData(response.data))
-        .catch(err => {
-          console.log("err", err)
-          setError(err)
-        }
-        )
+  //get logged in user
+  useEffect(() => {
+    const loggedUser = localStorage.getItem('user')
+    if (loggedUser) {
+      setUser(JSON.parse(loggedUser))
     }
-
-    fetchData()
   }, [])
 
   const [conversations, setConversations] = useState([]);
@@ -119,11 +113,11 @@ export default function Messenger() {
       conversationId: currentChat._id,
     }
     const receiverId = currentChat.members.find(member => member !== user.id)
-    // socket.current.emit("sendMessage", {
-    //   senderId: user.id,
-    //   receiverId,
-    //   text: newMessage,
-    // })
+    socket.current.emit("sendMessage", {
+      senderId: user.id,
+      receiverId,
+      text: newMessage,
+    })
     try {
       const res = await axios.post("http://147.182.129.48:4000/messages", message);
       setMessages([...messages, res.data])
