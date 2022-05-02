@@ -12,7 +12,7 @@ const UserProfile = props => {
   const [error, setError] = useState('')
   const [userinfo, setUserInfo] = useState('')
 
-  const { user } = location.state
+  const user = location.state.user
 
 
 
