@@ -86,7 +86,7 @@ function SignUp() {
     // });
     try {
       axios
-        .post("http://localhost:4000/users/signup", {
+        .post("http://147.182.129.48:4000/users/signup", {
           email: email,
           password: password,
           first_name: first_name,
@@ -105,7 +105,7 @@ function SignUp() {
           if (response.data.auth) {
 
             async function sendGetRequest() {
-              const res = await axios.get("http://localhost:4000/userinfo", {
+              const res = await axios.get("http://147.182.129.48:4000/userinfo", {
                 params: {
                   auth: false,
                   first_name: response.data.user.first_name,

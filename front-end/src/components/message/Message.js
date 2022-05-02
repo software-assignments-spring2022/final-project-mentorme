@@ -15,7 +15,7 @@ export default function Message({ message, own, who, conversation }) {
 
     const getUser = async () => {
       try {
-        const res = await axios("http://localhost:4000/users?userId=" + friendId);
+        const res = await axios("http://147.182.129.48:4000/users?userId=" + friendId);
         setUser(res.data)
       }
       catch (err) {
