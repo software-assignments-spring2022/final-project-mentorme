@@ -51,30 +51,27 @@ const SearchResult = props => {
       <BurgerMenu />
 
       <section className="main-content">
-        <p>
-          Search results
-          <br />
-          <br />
-        </p>
+        <h2>Searched Results</h2>
+        <br />
         <div className="search">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions} />
           <div className='clear' />
         </div>
-        <Link to="createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
 
+        <Link to="createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
 
       </section>
 
       {/* list of search result  */}
-      <section className="resultList">
-        <Container className="">
+      <div className="resultList">
+        <Container>
           <div className="list-group">
             {userData.map((data, i) => (
               <Item first_name={data.first_name} last_name={data.last_name} score={data.currentScore.toFixed(2)} school={data.school} id={data.id} field={data.field} department={data.department} key={i} />
             ))}
           </div>
         </Container>
-      </section>
+      </div>
 
     </div >
 

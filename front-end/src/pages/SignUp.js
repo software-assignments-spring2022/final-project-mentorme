@@ -122,7 +122,7 @@ function SignUp() {
             }
             sendGetRequest();
             // console.log("i'm just testing Mia " + response.data.user)
-
+            localStorage.setItem('user', response.data.user)
             navigate('/mentorMe', { state: { user: response.data.user } })
           }
           else {

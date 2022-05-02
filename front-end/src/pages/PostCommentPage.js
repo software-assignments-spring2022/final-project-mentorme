@@ -13,9 +13,7 @@ import BurgerMenu from "../components/BurgerMenu"
 import { TextField } from "@mui/material";
 import Button from "../components/Button"
 import { useNavigate } from 'react-router-dom';
-// function valuetext(value) {
-//   return `${value}`;
-// }
+
 function Item(props) {
   const { sx, ...other } = props;
   return (
@@ -74,8 +72,7 @@ function PostCommentPage() {
   const handleSubmit = evt => {
     evt.preventDefault()
     let data = { formInput }
-    navigate('/rateAdvisor/')
-    ;
+    navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } })
   
     fetch(`http://localhost:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
       method: "POST",
@@ -158,56 +155,6 @@ function PostCommentPage() {
   <form onSubmit={handleSubmit}></form>   
     <Item><Typography component="legend" >Overall Rating</Typography>
         <Rating name="overall" defaultValue={2.5} precision={0.5} onChange={handleInput}/></Item>
-      {/* <Item><Typography component="legend">The advisor shares resources related to my program.</Typography><Slider
-      name ='category1'
-      size = 'large'
-    aria-label="Temperature"
-    defaultValue={30}
-    getAriaValueText={valuetext}
-    valueLabelDisplay="auto"
-    step={10}
-    marks
-    min={10}
-    max={100}
-    onChange={handleInput}/></Item>
-   
-   <Item><Typography component="legend">The advisor responds to emails in a timely manner.</Typography><Slider
-      name ='category2'
-      size = 'large'
-    aria-label="Temperature"
-    defaultValue={30}
-    getAriaValueText={valuetext}
-    valueLabelDisplay="auto"
-    step={10}
-    marks
-    min={10}
-    max={100}
-    onChange={handleInput}/></Item>
-    <Item><Typography component="legend">The advisor offers me constructive career adivice. </Typography><Slider
-      name ='category3'
-      size = 'large'
-      aria-label="Temperature"
-      defaultValue={30}
-      getAriaValueText={valuetext}
-      valueLabelDisplay="auto"
-      step={10}
-      marks
-      min={10}
-      max={100}
-      onChange={handleInput}/></Item>
-    <Item><Typography component="legend">The advisor helps me devolp realistic academic plans.</Typography><Slider
-        name ='category4'
-        size = 'large'
-      aria-label="Temperature"
-      defaultValue={30}
-      getAriaValueText={valuetext}
-      valueLabelDisplay="auto"
-      step={10}
-      marks
-      min={10}
-      max={100}
-      onChange={handleInput}
-    /></Item> */}
 
     <Box
           component="form"
