@@ -50,7 +50,7 @@ const SearchBar = (props) => {
         console.log("cannot get backend suggestions. err.")
       })
     } else {  // fetch advisors data
-      await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name, options } })
+      await axios.get("http://147.182.129.48:4000/rateAdvisor/searchResult/", { params: { name, options } })
         .then(res => {
           setSuggestion(res.data);
         })
