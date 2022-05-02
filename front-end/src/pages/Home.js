@@ -34,13 +34,9 @@ const Home = props => {
     fetchData()
   }, [])
 
-  console.log(userData.auth);
+  const loggedUser = localStorage.getItem('user')
 
-  // console.log("user burger " + res.data.auth)
-
-  // localStorage.clear()
-
-  if (userData.auth == true) {
+  if (loggedUser) {
     return (
       <div className="Home">
         {/* introduction section */}

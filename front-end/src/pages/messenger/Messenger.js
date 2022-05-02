@@ -41,6 +41,18 @@ export default function Messenger() {
   const socket = useRef();
 
   useEffect(() => {
+    socket.current = io("ws://147.182.129.48:8900");
+    socket.current.on("getMessage", data => {
+      setArrivalMessage({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      })
+
+    })
+  }, [])
+
+  useEffect(() => {
     const friendId = currentChat?.members.find(m => m !== user.id);
 
     const getUser = async () => {
@@ -107,11 +119,11 @@ export default function Messenger() {
       conversationId: currentChat._id,
     }
     const receiverId = currentChat.members.find(member => member !== user.id)
-    socket.current.emit("sendMessage", {
-      senderId: user.id,
-      receiverId,
-      text: newMessage,
-    })
+    // socket.current.emit("sendMessage", {
+    //   senderId: user.id,
+    //   receiverId,
+    //   text: newMessage,
+    // })
     try {
       const res = await axios.post("http://147.182.129.48:4000/messages", message);
       setMessages([...messages, res.data])
@@ -166,7 +178,7 @@ export default function Messenger() {
         <div className="chatOnlineWrapper">
           <ChatOnline who={user} />
           {currentChat ? <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: mentor?._id, name: mentor?.first_name, score: mentor?.score }} ><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >Rate the Mentor</Button></Link>
-            : <h></h>}
+            : <h1></h1>}
 
 
 
