@@ -24,7 +24,7 @@ const MentorMeHome = props => {
   const filterOptions = ['Math', 'Computer Science', 'Finance', 'Psychology', 'Humanities']
   return (
     <div className="MentorMeHome">
-      <BurgerMenu />
+      <BurgerMenu state={{user: user}}/>
       <br />
       <br />
       <br />
