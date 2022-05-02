@@ -22,7 +22,7 @@ const Home = props => {
 
   useEffect(async () => {
     const fetchData = async () => {
-      await axios.get("http://localhost:4000/userinfo")
+      await axios.get("http://147.182.129.48:4000/userinfo")
         .then(response => setUserData(response.data))
         .catch(err => {
           console.log("err", err)

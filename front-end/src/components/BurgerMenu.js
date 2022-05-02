@@ -29,32 +29,8 @@ const BurgerMenu = ({ user }) => {
     //     // e.preventDefault();
         menu = false
         console.log(menu);
-    //     // async function sendGetRequest() {
-    //     //     const res = await axios.get("http://localhost:4000/userinfo", {
-    //     //         params: {
-    //     //             auth: "reset"
-    //     //         }
-    //     //     });
-    //     //     console.log("here:" + res.data.name)
-    //     // }
-    //     // sendGetRequest();
 
     };
-
-
-    // useEffect(async () => {
-    //     const fetchData = async () => {
-    //         await axios.get("http://localhost:4000/userinfo")
-    //             .then(response => setUserData(response.data))
-    //             .catch(err => {
-    //                 console.log("err", err)
-    //                 setError(err)
-    //             }
-    //             )
-    //     }
-
-    //     fetchData()
-    // }, [])
 
     // console.log(userData.auth);
     // menu = userData.auth;

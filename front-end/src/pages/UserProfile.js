@@ -14,53 +14,6 @@ const UserProfile = props => {
 
   const user = location.state.user
 
-
-
-
-  // useEffect(async () => {
-  //   const fetchData = async () => {
-  //     await axios.get("http://localhost:4000/userinfo")
-  //       .then(response => setUserData(response.data))
-  //       .catch(err => {
-  //         console.log("err", err)
-  //         setError(err)
-  //       }
-  //       )
-  //   }
-
-  //   fetchData()
-  // }, [])
-  // console.log(userData)
-  //original code
-  // const UserProfile = props => {
-  //   const [userData, setUserData] = useState({});
-  //   const [error, setError] = useState('')
-  //   const getData = () => {
-  //     axios
-  //       .get('http://localhost:4000/mentorMe/UserProfile/1')
-  //       .then(response => {setUserData(response.data[0])})
-  //     .catch(err => {
-  //       setError(err)
-  //     })
-  //   }
-
-  //   useEffect(() => {
-  //     getData();
-  //   }, [])
-
-  // if (localStorage.username != null){
-  //   userData.username = localStorage.username
-  // }
-  // if (localStorage.bio != null){
-  //   userData.bio = localStorage.bio
-  // }
-  // if (localStorage.username != null){
-  //   userData.profilePic = localStorage.profilePic
-  // }
-
-
-
-
   return (
     <div className="UserProfile">
       <BurgerMenu state={{user: user}} />

@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client'
 import {useLocation} from 'react-router-dom';
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("http://147.182.129.48:3001");
 
 const IndividualChat = props => {
   const [messages, setMessages] = useState([]);

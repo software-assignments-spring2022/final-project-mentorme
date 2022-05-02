@@ -19,7 +19,7 @@ export default function Messenger() {
 
   useEffect(async () => {
     const fetchData = async () => {
-      await axios.get("http://localhost:4000/userinfo")
+      await axios.get("http://http://147.182.129.48:4000//userinfo")
         .then(response => setUserData(response.data))
         .catch(err => {
           console.log("err", err)
@@ -40,25 +40,12 @@ export default function Messenger() {
   const fieldRef = useRef();
   const socket = useRef();
 
-
-  // useEffect(() => {
-  //   socket.current = io("ws://localhost:8900");
-  //   socket.current.on("getMessage", data => {
-  //     setArrivalMessage({
-  //       sender: data.senderId,
-  //       text: data.text,
-  //       createdAt: Date.now(),
-  //     })
-
-  //   })
-  // }, [])
-
   useEffect(() => {
     const friendId = currentChat?.members.find(m => m !== user.id);
 
     const getUser = async () => {
       try {
-        const res = await axios("http://localhost:4000/users?userId=" + friendId);
+        const res = await axios("http://http://147.182.129.48:4000//users?userId=" + friendId);
         // console.log("Data in")
         // console.log(res.data)
         setMentor(res.data)
@@ -90,7 +77,7 @@ export default function Messenger() {
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/conversations/" + user.id)
+        const res = await axios.get("http://http://147.182.129.48:4000//conversations/" + user.id)
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -102,7 +89,7 @@ export default function Messenger() {
   useEffect(() => {
     const geetMessages = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/messages/" + currentChat?._id);
+        const res = await axios.get("http://http://147.182.129.48:4000//messages/" + currentChat?._id);
         setMessages(res.data);
 
       } catch (err) {
@@ -126,7 +113,7 @@ export default function Messenger() {
     //   text: newMessage,
     // })
     try {
-      const res = await axios.post("http://localhost:4000/messages", message);
+      const res = await axios.post("http://http://147.182.129.48:4000//messages", message);
       setMessages([...messages, res.data])
       setNewMessage("");
     } catch (err) {
