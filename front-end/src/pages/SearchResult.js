@@ -49,18 +49,27 @@ const SearchResult = props => {
 
     <div className="SearchResult">
       <BurgerMenu />
-
-      <section className="main-content">
-        <h2>Searched Results</h2>
+      <div className="searchDiv">
+        {/* <section className="main-content"> */}
+        <div className="title">        <h2>Searched Results</h2>
+        </div>
         <br />
-        <div className="search">
+        <div className="searchBar">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions} />
-          <div className='clear' />
+
+        </div>
+        <div className="newAdv">
+          <Link to="createAdvisor"><Button className="theButton" buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
+
         </div>
 
-        <Link to="createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
 
-      </section>
+
+
+
+        {/* </section> */}
+      </div>
+
 
       {/* list of search result  */}
       <div className="resultList">

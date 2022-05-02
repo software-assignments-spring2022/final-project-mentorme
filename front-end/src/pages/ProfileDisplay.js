@@ -56,23 +56,25 @@ const ProfileDisplay = props => {
   }, [location.state])
 
   return (
-    <div className="ProfileDisplay">
+    <div className="SearchResult">
       <BurgerMenu />
-      <section className="main-content">
+      <div className="searchDiv">
         {/* <img className="image" alt="welcome!" src={image} /> */}
-        <p>
-          Profile Display
-          <br />
-          <br />
-          {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
-        </p>
-        <div className="search">
+        <div className="title">
+          <h2>
+            Profile Display
+
+            {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
+          </h2>
+        </div>
+
+        <div className="searchBar">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={location.state.userID} />
         </div>
-      </section>
+      </div>
 
       {/* list of search result  */}
-      <section className="resultList">
+      <div className="resultList">
         <Container className="">
           <div className="list-group">
             {userData.map((data, i) => (
@@ -80,7 +82,7 @@ const ProfileDisplay = props => {
             ))}
           </div>
         </Container>
-      </section>
+      </div>
     </div>
   )
 }
