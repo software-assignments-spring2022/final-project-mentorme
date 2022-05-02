@@ -7,7 +7,7 @@ const should = require('chai').should();
 chai.use(chaiHttp);
 
 describe("GET requests to related to search functions", () => {
-    it("advisor search function should respond with an HTTP 200 status code and an object in the response body \n the response body object should contain at least three different properties: id, first name, last name, school, score", done => {
+    it("advisor search function should respond with an HTTP 200 status code and an object in the response body \n the response body object should contain at least three different properties: id, first name, last name, school, score", () => {
       chai
         .request(server)
         .get("/rateAdvisor/searchResult?name=j")
@@ -22,7 +22,6 @@ describe("GET requests to related to search functions", () => {
           res.body[0].should.have.property("school")
           res.body[0].should.have.property("department")
           res.body[0].should.have.property("currentScore")
-          // res.body[0].should.have.property("field")
           res.body[0].id.should.be.a("number")
           res.body[0].first_name.should.be.a("string")
           res.body[0].last_name.should.be.a("string")
@@ -30,7 +29,6 @@ describe("GET requests to related to search functions", () => {
           res.body[0].school.should.be.a("string")
           res.body[0].department.should.be.a("string")
           res.body[0].currentScore.should.be.a("number")
-          // res.body[0].field.should.be.a("string")
           done() // resolve the Promise that these tests create so mocha can move on
         })
     })
