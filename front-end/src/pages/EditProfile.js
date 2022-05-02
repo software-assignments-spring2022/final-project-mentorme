@@ -74,7 +74,7 @@ const EditProfile = props => {
       newUser.first_name = first_name
       try {
         axios
-        .post('http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile', {
+        .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
           first_name: first_name,
           curruser: user
         })
@@ -86,7 +86,7 @@ const EditProfile = props => {
       newUser.last_name = last_name
       try {
         axios
-          .post('http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile', {
+          .post('http://localhost:4000/mentorMe/UserProfile/EditProfile', {
             last_name: last_name,
             curruser: user,
           })
@@ -98,7 +98,7 @@ const EditProfile = props => {
       newUser.picture = url
       try {
         axios
-          .post("http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             picture: url,
             curruser: user,
           })
@@ -110,7 +110,7 @@ const EditProfile = props => {
       newUser.email = email
       try {
         axios
-        .post("http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile", {
+        .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
           email: email,
           curruser: user,
         })
@@ -122,7 +122,7 @@ const EditProfile = props => {
       newUser.bio = bio
       try {
         axios
-          .post("http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile", {
+          .post("http://localhost:4000/mentorMe/UserProfile/EditProfile", {
             bio: bio,
             curruser: user,
           })

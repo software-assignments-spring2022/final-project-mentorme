@@ -16,7 +16,7 @@ const ProfileDisplay = props => {
   // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options, userID: location.state.userID } })
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options, userID: location.state.userID } })
       .then(res => {
         setUserData(res.data);
       })
@@ -26,7 +26,7 @@ const ProfileDisplay = props => {
   }
 
   const getFilterResult = async () => {
-    await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/2", { params: { filter: location.state.filter } })
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/2", { params: { filter: location.state.filter } })
       .then(res => {
         setUserData(res.data);
       })
@@ -36,7 +36,7 @@ const ProfileDisplay = props => {
   }
 
   const getDefResult = async () => {
-    await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/", { params: { name: 'A' } })
+    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: 'A' } })
       .then(res => {
         setUserData(res.data);
       })

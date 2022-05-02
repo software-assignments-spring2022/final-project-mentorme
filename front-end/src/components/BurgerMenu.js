@@ -29,13 +29,15 @@ const BurgerMenu = ({ user }) => {
     //     // e.preventDefault();
         menu = false
         console.log(menu);
-
+        localStorage.clear()
     };
+
+    const loggedUser = localStorage.getItem('user')
 
     // console.log(userData.auth);
     // menu = userData.auth;
     console.log(menu)
-    if (menu) {
+    if (loggedUser) {
         return (
             <Menu>
                 <a id="home" className='home' state={{ loggedOut: false }} href='/'>Home</a>

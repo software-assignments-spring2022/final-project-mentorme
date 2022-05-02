@@ -31,7 +31,7 @@ const CreateAdvisor = () => {
 			comment
 		}
 
-		const id = await axios.post("http://147.182.129.48:4000/rateAdvisor/createAdvisor", req)
+		const id = await axios.post("http://localhost:4000/rateAdvisor/createAdvisor", req)
 			.then((res) => {
 				console.log("success.", res.data)
 				navigate("/rateAdvisor/searchResult/commentsDisplay", { state: { id: res.data.id } })

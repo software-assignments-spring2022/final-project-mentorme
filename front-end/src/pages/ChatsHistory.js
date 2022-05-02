@@ -19,7 +19,7 @@ const ChatsHistory = props => {
     if (location.state !== null){
       setName(location.state.name)
     }
-    await axios.get("http://147.182.129.48:4000/mentorMe/UserProfile/ChatsHistory/2", { params: { name: name } })
+    await axios.get("http://localhost:4000/mentorMe/UserProfile/ChatsHistory/2", { params: { name: name } })
       .then(res => {
         setUserData(res.data);
       })
