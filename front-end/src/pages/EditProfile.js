@@ -23,13 +23,6 @@ const EditProfile = props => {
 
   const [curruser, setUserData] = useState(user)
   
-
-
-  
-  // var curruser = user
-
-  var showuser = user;
-  
   let newUser = { ... user }
 
   function validateImg(e) {
@@ -73,7 +66,7 @@ const EditProfile = props => {
  
 
   async function submitForm(e) {
-    e.preventDefault() // prevent normal browser submit behavior
+    e.preventDefault() 
     const url = await uploadImage(image);
     console.log(url);
     
@@ -85,11 +78,6 @@ const EditProfile = props => {
           first_name: first_name,
           curruser: user
         })
-        // .then(response => setUser(response.data))
-        // .catch(err => {
-        //   console.log("err", err)
-        //     setError(err)
-        // })
       } catch (error) {
       console.log(error);
       }
@@ -102,16 +90,11 @@ const EditProfile = props => {
             last_name: last_name,
             curruser: user,
           })
-          // .then(response => setUser(response.data))
-          // .catch(err => {
-          //   console.log("err", err)
-          //     setError(err)
-          // })
       } catch (error) {
         console.log(error);
       }
     }
-    if (url != "") {
+    if (url) {
       newUser.picture = url
       try {
         axios
@@ -119,11 +102,6 @@ const EditProfile = props => {
             picture: url,
             curruser: user,
           })
-          // .then(response => setUser(response.data))
-          // .catch(err => {
-          //   console.log("err", err)
-          //     setError(err)
-          // })
       } catch (error) {
         console.log(error);
       }
@@ -136,11 +114,6 @@ const EditProfile = props => {
           email: email,
           curruser: user,
         })
-        // .then(response => setUser(response.data))
-        // .catch(err => {
-        //   console.log("err", err)
-        //     setError(err)
-        // })
       } catch (error) {
          console.log(error);
       }
@@ -153,11 +126,6 @@ const EditProfile = props => {
             password: password,
             curruser: user,
           })
-          // .then(response => setUser(response.data))
-          // .catch(err => {
-          //   console.log("err", err)
-          //     setError(err)
-          // })
           console.log(newuser)
       } catch (error) {
         console.log(error);
@@ -171,11 +139,6 @@ const EditProfile = props => {
             bio: bio,
             curruser: user,
           })
-          // .then(response => setUser(response.data))
-          // .catch(err => {
-          //   console.log("err", err)
-          //     setError(err)
-          // })
           console.log(newuser)
       } catch (error) {
           console.log(error);
@@ -183,42 +146,23 @@ const EditProfile = props => {
       
     }
     localStorage.setItem('user', JSON.stringify(newUser))
-    console.log("New User:")
-    console.log(newuser)
 
     if (newUser) {
-      console.log("yay")
-      // curruser = newUser
       setUserData(newUser)
     }
-    console.log("Other:")
-    console.log(newUser)
-    console.log(curruser)
   }
 
-  // useEffect(() => {
-  //   const loggedUser = localStorage.getItem('user')
-  //   if (loggedUser) {
-  //     setUser(JSON.parse(loggedUser))
-  //   }
-  //   console.log("user is", JSON.parse(loggedUser))
-  // }, [])
-  
 
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
-  // if (!curruser){
-  //   curruser = showuser;
-  // }
 
   return (
     <div className="EditProfile">
     
       <BurgerMenu state={{user: curruser}}/>
       <section className="editprofilemaincontent" >
-      {/* className="main-content" */}
 
         <h1>Edit Profile</h1>
 
@@ -295,13 +239,6 @@ const EditProfile = props => {
             onChange={e => setPassword(e.target.value)}
           />
           </div>
-          {/* <input
-            type="file"
-            placeholder="Change Profile Picture"
-            value={profilePic}
-            alt="profile"
-            onChange={e => setProfilePic(e.target.value)}
-          /> */}
           <input type="submit" value="Submit" />
         </form>
         </div>
