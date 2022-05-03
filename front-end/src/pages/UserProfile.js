@@ -22,7 +22,7 @@ const UserProfile = props => {
         {error && <p className="Profile-error">{error}</p>}
 
         <h1>{user.first_name} {user.last_name} </h1>
-        <img src={user.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
+        <img src={user.picture}  className="user-picture" alt="profile" />
         <br />
         <Link to="/mentorme/EditProfile" state={{ user: user }}><Button type="button"> Edit Profile </Button></Link>
         <Link to="/mentorMe/UserProfile/ChatsHistory" state={{ user: user }}><Button type="button"> Chat History</Button></Link>
@@ -30,6 +30,7 @@ const UserProfile = props => {
           <br />
           <br />
           {user["bio"]}
+          <br />
           <br />
           <br />
         </p>

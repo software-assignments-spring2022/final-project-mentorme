@@ -217,12 +217,9 @@ const EditProfile = props => {
             onChange={e => setBio(e.target.value)}
           />
           </div>
-          <input type="submit" value="Submit" />
+          <input type="submit" className = "edit-profile-submit" value="Submit"/>
         </form>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
         <br></br>
         <br></br>
         <div className="centerbutton">
