@@ -13,6 +13,7 @@ import BurgerMenu from "../components/BurgerMenu"
 import { TextField } from "@mui/material";
 import Button from "../components/Button"
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -73,14 +74,7 @@ function PostCommentPage() {
     evt.preventDefault()
     let data = { formInput }
   
-    await fetch(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => response.json())
+    await axios.post(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, JSON.stringify(data))
       .then(response => console.log("Success:", JSON.stringify(response)))
       .catch(error => console.error("Error:", error));
     
