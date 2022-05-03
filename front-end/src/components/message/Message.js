@@ -11,7 +11,7 @@ export default function Message({ message, own, who, conversation }) {
 
   useEffect(() => {
 
-    const friendId = conversation.members.find(m => m !== currentUser.id);
+    const friendId = conversation.members.find(m => m !== currentUser._id);
 
     const getUser = async () => {
       try {
@@ -30,7 +30,7 @@ export default function Message({ message, own, who, conversation }) {
 
   return (
     <div className={own ? "message own" : "message"}>
-      <div className="messageTop">   <img className="messageImg" src={own ? who.pic : (userNew ? userNew.picture : "https://images.pexels.com/photos/1677794/pexels-photo-1677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")} alt="" />
+      <div className="messageTop">   <img className="messageImg" src={own ? who.picture : (userNew ? userNew.picture : "https://images.pexels.com/photos/1677794/pexels-photo-1677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")} alt="" />
         <p className="messageText">{message.text}</p></div>
 
 
