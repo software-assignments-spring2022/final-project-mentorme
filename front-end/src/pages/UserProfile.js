@@ -13,10 +13,11 @@ const UserProfile = props => {
   const [userinfo, setUserInfo] = useState('')
 
   const user = location.state.user
+  localStorage.setItem("conv", null);
 
   return (
     <div className="UserProfile">
-      <BurgerMenu state={{user: user}} />
+      <BurgerMenu state={{ user: user }} />
       <section className="main-content">
 
         {error && <p className="Profile-error">{error}</p>}

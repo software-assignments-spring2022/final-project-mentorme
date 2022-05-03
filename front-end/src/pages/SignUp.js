@@ -100,7 +100,7 @@ function SignUp() {
         })
         .then((response) => {
 
-          console.log(response.data);
+          // console.log(response.data);
 
           if (response.data.auth) {
 

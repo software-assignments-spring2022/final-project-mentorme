@@ -12,20 +12,20 @@ const BurgerMenu = ({ user }) => {
     const [error, setError] = useState('')
     let menu;
 
-    if (location.state){
-        var {user} = location.state
+    if (location.state) {
+        var { user } = location.state
         menu = true;
     }
-    else{
+    else {
         menu = false;
     }
 
-    
+
 
     const onLinkClick = (e) => {
-    //     // e.preventDefault();
+        //     // e.preventDefault();
         menu = false
-        console.log(menu);
+        // console.log(menu);
         localStorage.clear()
     };
 
@@ -33,13 +33,13 @@ const BurgerMenu = ({ user }) => {
 
     // console.log(userData.auth);
     // menu = userData.auth;
-    console.log(menu)
+    // console.log(menu)
     if (loggedUser) {
         return (
             <Menu>
                 <a id="home" className='home' state={{ loggedOut: false }} href='/'>Home</a>
                 {/* <a id='mentorMe' className='mentorMe' state={{ user: user }} href='/mentorMe'>MentorMe</a> */}
-                <Link to="/mentorMe" state={ { user } }>MentorMe</Link>
+                <Link to="/mentorMe" state={{ user }}>MentorMe</Link>
                 <a id='rateAdvisor' className='rateAdvisor' href='/rateAdvisor'>RateMyAdvisor</a>
                 <a id='logOut' className='logOut' href='/login' onClick={onLinkClick}>Log Out</a>
 

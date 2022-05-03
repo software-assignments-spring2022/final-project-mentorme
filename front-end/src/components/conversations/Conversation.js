@@ -30,11 +30,15 @@ export default function Conversation({ conversation, currentUser }) {
 
   return (
     <div className="conversation">
-      <img className="conversationImg" src={userNew ? userNew.picture : "https://images.pexels.com/photos/1677794/pexels-photo-1677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"} alt="here" />
+      <div> <img className="conversationImg" src={userNew ? userNew.picture : "https://images.pexels.com/photos/1677794/pexels-photo-1677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"} alt="here" />
 
-      <span className="conversationName">{userNew ? userNew.first_name : "loading"}</span>
+        <span className="conversationName">{userNew ? userNew.first_name : "loading"}</span></div>
 
+      {/* <div className="phone-name">
+        <span >{userNew ? userNew.first_name : "loading"}</span>
+      </div> */}
 
     </div>
+
   )
 }

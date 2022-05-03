@@ -55,10 +55,10 @@ function Login() {
                   bio: response.data.user.bio
                 }
               });
-              console.log("here:" + res.data.user._id)
+              // console.log("here:" + res.data.user._id)
             }
             sendGetRequest();
-            console.log(response.data.user)
+            // console.log(response.data.user)
             localStorage.setItem('user', JSON.stringify(response.data.user))
             navigate('/mentorMe', { state: { user: response.data.user } });
           }

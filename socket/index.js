@@ -13,7 +13,7 @@ const addUser = (userId, socketId) => {
     // console.log("user id " + userId)
     // console.log("socket id " + socketId)
     !users.some(user => user.userId === userId) && users.push({ userId, socketId });
-    console.log(users[0])
+    // console.log(users[0])
 
   }
 }

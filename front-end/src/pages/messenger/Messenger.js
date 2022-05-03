@@ -12,7 +12,6 @@ import axios from "axios"
 import { io } from "socket.io-client"
 export default function Messenger() {
 
-
   const [user, setUser] = useState([{}]);
 
   const [mentor, setMentor] = useState(null);
@@ -25,7 +24,12 @@ export default function Messenger() {
     }
   }, [])
 
+
+
+
+
   const [conversations, setConversations] = useState([]);
+  const [currentConv, setCurrentConv] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
@@ -33,6 +37,8 @@ export default function Messenger() {
   const scrollRef = useRef();
   const fieldRef = useRef();
   const socket = useRef();
+
+
 
   useEffect(() => {
     socket.current = io("ws://147.182.129.48:8900");
@@ -74,7 +80,7 @@ export default function Messenger() {
   useEffect(() => {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", users => {
-      console.log(users)
+      // console.log(users)
     })
   }, [user])
 
@@ -135,6 +141,13 @@ export default function Messenger() {
     fieldRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [conversations])
 
+  //get Conversation
+  useEffect(() => {
+    const currentCov = localStorage.getItem('conv')
+    if (currentCov) {
+      setCurrentChat(JSON.parse(currentCov))
+    }
+  }, [])
 
   return (
     <div className="messenger">
@@ -143,6 +156,7 @@ export default function Messenger() {
 
       <div className="chatMenu">
         <div className="chatMenuWrapper">
+
 
           {conversations.map(c => (
             <div ref={fieldRef} onClick={() => setCurrentChat(c)}>            <Conversation conversation={c} currentUser={user} />

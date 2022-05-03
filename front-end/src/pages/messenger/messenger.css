@@ -24,6 +24,13 @@
     display: inline;
   }
 
+
+
+
+  /* .conversationName {
+    display: none;
+  } */
+
 }
 
 .chatBoxWrapper {
@@ -84,7 +91,7 @@
 .chatMenuWrapper {
   padding: 10px;
   height: 100%;
-  margin-left: 25px;
+  margin-left: 20px;
 }
 
 

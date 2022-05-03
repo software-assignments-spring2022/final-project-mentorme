@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 router.post('/signup', async (req, res) => {
   try {
     const { name, email, password, picture } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     const user = await User.create({ name, email, password, picture });
     res.status(201).json(user);
 
