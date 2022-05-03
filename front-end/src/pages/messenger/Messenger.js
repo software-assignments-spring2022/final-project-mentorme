@@ -1,7 +1,7 @@
 import "./messenger.css"
 import { Link } from "react-router-dom"
 import { Button } from "../../components/Button";
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { useLocation } from "react-router-dom"
 import BurgerMenu from "../../components/BurgerMenu"
 import Conversation from "../../components/conversations/Conversation"
@@ -140,8 +140,10 @@ export default function Messenger() {
     <div className="messenger">
       <BurgerMenu />
 
+
       <div className="chatMenu">
         <div className="chatMenuWrapper">
+
           {conversations.map(c => (
             <div ref={fieldRef} onClick={() => setCurrentChat(c)}>            <Conversation conversation={c} currentUser={user} />
             </div>
@@ -164,6 +166,9 @@ export default function Messenger() {
             <div className="chatBoxBottom">
               <textarea className="chatMessageInput" placeholder="write something..." onChange={(e) => setNewMessage(e.target.value)} value={newMessage}></textarea>
               <button className="chatSubmitButton" onClick={handleSubmit}>Send</button>
+              <div className="to-rate-phone"> {currentChat ? <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: mentor?._id, name: mentor?.first_name, score: mentor?.score }} ><Button buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >Rate the Mentor</Button></Link>
+                : <h1></h1>}</div>
+
             </div></>) : (<span className="noConversationText">Open a conversation to start a chat!</span>)}
         </div>
 
