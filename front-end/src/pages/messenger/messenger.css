@@ -15,6 +15,17 @@
   background-color: rgb(252, 178, 175);
 }
 
+@media (max-width: 400px) {
+  .chatOnline {
+    display: none;
+  }
+
+  .to-rate-phone {
+    display: inline;
+  }
+
+}
+
 .chatBoxWrapper {
   display: flex;
   flex-direction: column;
@@ -76,6 +87,13 @@
   margin-left: 25px;
 }
 
+
+@media (min-width: 401px) {
+  .to-rate-phone {
+    display: none;
+  }
+
+}
 
 
 .noConversationText {
