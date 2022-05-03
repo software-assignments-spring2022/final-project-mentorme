@@ -75,13 +75,12 @@ function PostCommentPage() {
     let data = { formInput }
   
     await axios.post(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, JSON.stringify(data))
-      .then(response => {
-        console.log("Success:", JSON.stringify(response))
-        navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id }})
-      })
-      .catch(error => console.error("Error:", error));
+      .then(response => console.log("Success:", JSON.stringify(response)))
+      .catch(error => console.error("Error:", error))
+      .finally(() => navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } }))
     
     
+  };
 
   //getting data from another page
   // const location = useLocation();
