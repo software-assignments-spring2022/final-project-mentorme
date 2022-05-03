@@ -69,12 +69,11 @@ function PostCommentPage() {
     const newValue = evt.target.value;
     setFormInput({ [name]: newValue });
   };
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     evt.preventDefault()
     let data = { formInput }
-    navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } })
   
-    fetch(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
+    await fetch(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -84,6 +83,8 @@ function PostCommentPage() {
       .then(response => response.json())
       .then(response => console.log("Success:", JSON.stringify(response)))
       .catch(error => console.error("Error:", error));
+    
+    navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } })
   };
 
   //getting data from another page
