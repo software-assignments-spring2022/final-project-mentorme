@@ -73,19 +73,24 @@ function PostCommentPage() {
   const handleSubmit = async evt => {
     evt.preventDefault()
     let data = { formInput }
+    console.log('data is', data)
     
-    fetch(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => response.json())
-      .then(response => console.log("Success:", JSON.stringify(response)))
-      .catch(error => console.error("Error:", error))
-      .finally(() => navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } }))
+    // fetch(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // })
+    //   .then(response => response.json())
+    //   .then(response => console.log("Success:", JSON.stringify(response)))
+    //   .catch(error => console.error("Error:", error))
+    //   .finally(() => navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } }))
     
+      await axios.post(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, data)
+        .then(response => console.log("Success:", JSON.stringify(response)))
+        .catch(error => console.error("Error:", error))
+        .finally(() => navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } }))
   };
 
   //getting data from another page
