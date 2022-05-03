@@ -21,7 +21,7 @@ export default function Messenger() {
   useEffect(() => {
     const loggedUser = localStorage.getItem('user')
     if (loggedUser) {
-      setUserData(JSON.parse(loggedUser))
+      setUser(JSON.parse(loggedUser))
     }
   }, [])
 

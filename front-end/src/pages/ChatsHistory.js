@@ -16,7 +16,7 @@ const ChatsHistory = props => {
   const location = useLocation();
 
   const getSearchResult = async () => {
-    if (location.state !== null){
+    if (location.state !== null) {
       setName(location.state.name)
     }
     await axios.get("http://147.182.129.48:4000/mentorMe/UserProfile/ChatsHistory/2", { params: { name: name } })
@@ -28,7 +28,7 @@ const ChatsHistory = props => {
       })
   }
 
-  useEffect(()=>(getSearchResult()), [location.state])
+  useEffect(() => (getSearchResult()), [location.state])
 
   return (
     <div className="ChatsHistory">
@@ -43,9 +43,9 @@ const ChatsHistory = props => {
         <section className="resultList">
           <Container className="">
             <div className="list-group">
-            {userData.map((data, i, dataArray) => (
-              <Item first_name={data.first_name} last_name={data.last_name} lastChatTime={data.lastChatTime}/>
-            ))}
+              {userData.map((data, i, dataArray) => (
+                <Item first_name={data.first_name} last_name={data.last_name} lastChatTime={data.lastChatTime} />
+              ))}
             </div>
           </Container>
         </section>

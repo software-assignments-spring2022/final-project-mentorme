@@ -9,8 +9,8 @@ import { useNavigate } from 'react-router-dom'
 
 const CreateAdvisor = () => {
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+	const [firstName, setFirstName] = useState('')
+	const [lastName, setLastName] = useState('')
 	const [university, setUniversity] = useState('')
 	const [school, setSchool] = useState('')
 	const [department, setDepartment] = useState('')
@@ -39,8 +39,8 @@ const CreateAdvisor = () => {
 			.catch((err) => {
 				console.log("err", err)
 			})
-		
-		
+
+
 	}
 
 	return (
