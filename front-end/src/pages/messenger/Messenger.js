@@ -12,9 +12,9 @@ import axios from "axios"
 import { io } from "socket.io-client"
 export default function Messenger() {
 
-  const location = useLocation()
-  const [user, setUserData] = useState([{}]);
-  const [error, setError] = useState('')
+
+  const [user, setUser] = useState([{}]);
+
   const [mentor, setMentor] = useState(null);
 
   //get logged in user
