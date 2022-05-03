@@ -7,7 +7,7 @@ import BurgerMenu from "../components/BurgerMenu";
 import Box from '@mui/material/Box';
 import { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client'
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const socket = io.connect("http://147.182.129.48:3001");
 
@@ -77,7 +77,7 @@ const IndividualChat = props => {
             <input type="submit" value="Submit" />
           </form>
           <br></br>
-          <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state ={{id:location.state.id,name : location.state.name,score:location.state.score}}><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >End Chat and Rate</Button></Link>
+          <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: location.state.id, name: location.state.name, score: location.state.score }}><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >End Chat and Rate</Button></Link>
 
 
         </div>
