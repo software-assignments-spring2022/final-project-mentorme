@@ -8,7 +8,7 @@ export default function ChatOnline({ who }) {
     <div className="chatOnline">
       <div className="chatOnlineFriend">
         <div className="chatOnlineImgContainer">
-          <img className="chatOnlineImg " src={who.pic} alt="" />
+          <img className="chatOnlineImg " src={who.picture} alt="" />
 
           <div className="chatOnlineBadge">
 
