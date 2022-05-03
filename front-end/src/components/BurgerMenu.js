@@ -14,14 +14,11 @@ const BurgerMenu = ({ user }) => {
 
     if (location.state){
         var {user} = location.state
-        console.log("in if statement")
         menu = true;
     }
     else{
         menu = false;
     }
-
-    console.log(user)
 
     
 

@@ -47,7 +47,7 @@ export default function Messenger() {
   }, [])
 
   useEffect(() => {
-    const friendId = currentChat?.members.find(m => m !== user.id);
+    const friendId = currentChat?.members.find(m => m !== user._id);
 
     const getUser = async () => {
       try {
@@ -72,7 +72,7 @@ export default function Messenger() {
   }, [arrivalMessage, currentChat])
 
   useEffect(() => {
-    socket.current.emit("addUser", user.id);
+    socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", users => {
       console.log(users)
     })
@@ -83,14 +83,14 @@ export default function Messenger() {
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await axios.get("http://147.182.129.48:4000/conversations/" + user.id)
+        const res = await axios.get("http://147.182.129.48:4000/conversations/" + user._id)
         setConversations(res.data);
       } catch (err) {
         console.log(err);
       }
     }
     getConversations();
-  }, [user.id])
+  }, [user._id])
 
   useEffect(() => {
     const geetMessages = async () => {
@@ -108,13 +108,13 @@ export default function Messenger() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = {
-      sender: user.id,
+      sender: user._id,
       text: newMessage,
       conversationId: currentChat._id,
     }
-    const receiverId = currentChat.members.find(member => member !== user.id)
+    const receiverId = currentChat.members.find(member => member !== user._id)
     socket.current.emit("sendMessage", {
-      senderId: user.id,
+      senderId: user._id,
       receiverId,
       text: newMessage,
     })
@@ -154,7 +154,7 @@ export default function Messenger() {
         <div className="chatBoxWrapper">
           {currentChat ? (<>
             <div className="chatBoxTop">
-              {messages.map(m => (<div ref={scrollRef}><Message message={m} own={m.sender === user.id} who={user} conversation={currentChat} /></div>
+              {messages.map(m => (<div ref={scrollRef}><Message message={m} own={m.sender === user._id} who={user} conversation={currentChat} /></div>
               ))}
 
 
