@@ -6,7 +6,7 @@ router.use(bodyParser.json())
 const {Advisor} =require("./models/Advisor")
 const {Comments} =require("./models/Comments")
 
-router.post("/:id",async(request, res) => {
+router.post("/:id", async(request, res) => {
     const userId = request.params.id
     const date = new Date()
     const year = date.getFullYear().toString()
@@ -21,7 +21,7 @@ router.post("/:id",async(request, res) => {
                                     timestamp: `${year}-${month}-${day}`
                                 });
     newComment.save()
-    newComment.createdAt;
+
     try {
         const comments = await Comments.find({ id : userId })
         console.log(comments.length)
