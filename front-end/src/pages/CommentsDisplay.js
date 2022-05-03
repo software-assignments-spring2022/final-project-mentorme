@@ -71,8 +71,8 @@ const CommentsDisplay = () => {
 
                                                                                        }}><Button>Post a Comment!</Button></Link>
       </div>
-        {comments.map(comment => (
-            <div className="comment">
+        {comments.map((comment, i) => (
+            <div className="comment" key={i}>
               
               <div className="user-score">
                 <div className="inner-score">{`${comment.score}/5`}</div>
