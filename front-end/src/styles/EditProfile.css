@@ -8,7 +8,7 @@
 
 .EditProfile h1 {
   text-align: center;
-  font-size: 80px;
+  font-size: 50px;
 }
 
 
@@ -45,6 +45,27 @@
 .centerbutton{
   text-align: center;
   display: block;
+}
+
+.edit-profile-submit {
+  font-family: 'Balsamiq Sans', cursive;
+  font-weight: 400;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 3px 3px #000000;
+  border-radius: 5px;
+  background-color: transparent !important;
+  border: 2px solid var(--dark) !important;
+  color: var(--dark) !important;
+  padding: 20px 40px;
+  font-size: 16px;
+  width: 175px;
+}
+
+.edit-profile-submit:hover {
+  transform: translate(-3px);
+
+
 }
 
 

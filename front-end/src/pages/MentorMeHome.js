@@ -25,24 +25,23 @@ const MentorMeHome = props => {
   return (
     <div className="MentorMeHome">
       <BurgerMenu state={{user: user}}/>
-      <br />
-      <br />
-      <br />
       <section className="main-content">
         <h1>MentorMe Home</h1>
         <h1>Welcome, {user.first_name}!</h1>
 
-        <img src={user.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
+        <img src={user.picture} className="user-picture" alt="profile" /> 
 
         <br />
-        <Link to="/mentorMe/UserProfile" state={{ user: user }}><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--account'}>MY Account</Button></Link>
+        <div>
+        <Link to="/mentorMe/UserProfile" state={{ user: user }}><Button>MY Account</Button></Link>
+          &nbsp;&nbsp;&nbsp;
+        <Link to="/"><Button>Main Home</Button></Link>
+        </div>
+        <br />
         <br />
         <div className="search">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={user._id} />
         </div>
-        <br />
-        <br />
-        <Link to="/"><button>Back to homepage!</button></Link>
       </section>
     </div >
   )

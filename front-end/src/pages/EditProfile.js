@@ -180,49 +180,46 @@ const EditProfile = props => {
                 <i className="fa fa-plus-circle add-picture-icon"></i>
               </label>
               <input type="file" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} />
-            </div>
-
-            <div className="editprofilebox">
-              <input
-                name="firstName"
-                type="text"
-                placeholder="Change First Name"
-                value={first_name}
-                onChange={e => setFirstName(e.target.value)}
-              />
-            </div>
-            <div className="editprofilebox">
-              <input
-                name="lastName"
-                type="text"
-                placeholder="Change Last Name"
-                value={last_name}
-                onChange={e => setLastName(e.target.value)}
-              />
-            </div>
-            <div className="editprofilebox">
-              <input
-                name="email"
-                type="text"
-                placeholder="Change Email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="editprofilebox">
-              <textarea
-                name="bio"
-                placeholder="Change Bio"
-                value={bio}
-                onChange={e => setBio(e.target.value)}
-              />
-            </div>
-            <input type="submit" value="Submit" />
-          </form>
+          </div>
+          
+          <div className="editprofilebox">
+          <input
+            name = "firstName"
+            type="text"
+            placeholder="Change First Name"
+            value={first_name}
+            onChange={e => setFirstName(e.target.value)}
+          />
+          </div>
+          <div className="editprofilebox">
+          <input
+            name = "lastName"
+            type="text"
+            placeholder="Change Last Name"
+            value={last_name}
+            onChange={e => setLastName(e.target.value)}
+          />
+          </div>
+          <div className="editprofilebox">
+          <input
+            name = "email"
+            type="text"
+            placeholder="Change Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          </div>
+          <div className="editprofilebox">
+          <textarea
+            name = "bio"
+            placeholder="Change Bio"
+            value={bio}
+            onChange={e => setBio(e.target.value)}
+          />
+          </div>
+          <input type="submit" className = "edit-profile-submit" value="Submit"/>
+        </form>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
         <br></br>
         <br></br>
         <div className="centerbutton">

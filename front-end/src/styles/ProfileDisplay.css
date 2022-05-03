@@ -1,4 +1,8 @@
 .ProfileDisplay{
+    align-content: center;
+    text-align: center;
+    position:absolute;
+    justify-content:center;
     
 }
 
