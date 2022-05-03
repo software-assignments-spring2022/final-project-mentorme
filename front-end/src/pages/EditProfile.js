@@ -22,8 +22,8 @@ const EditProfile = props => {
   const { user } = location.state
 
   const [curruser, setUserData] = useState(user)
-  
-  let newUser = { ... user }
+
+  let newUser = { ...user }
 
   function validateImg(e) {
     const file = e.target.files[0];
@@ -63,23 +63,23 @@ const EditProfile = props => {
     console.log("user is", JSON.parse(loggedUser))
   }, [])
 
- 
+
 
   async function submitForm(e) {
-    e.preventDefault() 
+    e.preventDefault()
     const url = await uploadImage(image);
     console.log(url);
-    
+
     if (first_name != "") {
       newUser.first_name = first_name
       try {
         axios
-        .post('http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile', {
-          first_name: first_name,
-          curruser: user
-        })
+          .post('http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile', {
+            first_name: first_name,
+            curruser: user
+          })
       } catch (error) {
-      console.log(error);
+        console.log(error);
       }
     }
     if (last_name != "") {
@@ -110,12 +110,12 @@ const EditProfile = props => {
       newUser.email = email
       try {
         axios
-        .post("http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile", {
-          email: email,
-          curruser: user,
-        })
+          .post("http://147.182.129.48:4000/mentorMe/UserProfile/EditProfile", {
+            email: email,
+            curruser: user,
+          })
       } catch (error) {
-         console.log(error);
+        console.log(error);
       }
     }
     if (bio != "") {
@@ -126,11 +126,11 @@ const EditProfile = props => {
             bio: bio,
             curruser: user,
           })
-          console.log(newuser)
+        console.log(newuser)
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
-      
+
     }
     localStorage.setItem('user', JSON.stringify(newUser))
 
@@ -147,34 +147,34 @@ const EditProfile = props => {
 
   return (
     <div className="EditProfile">
-    
-      <BurgerMenu state={{user: curruser}}/>
+
+      <BurgerMenu state={{ user: curruser }} />
       <section className="editprofilemaincontent" >
 
         <h1>Edit Profile</h1>
 
         <br></br>
         <br></br>
-        
 
-        <div className = "entirebox">
 
-        <div className = "editprofilecard">
-          <div>
-          <img src={curruser.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
+        <div className="entirebox">
+
+          <div className="editprofilecard">
+            <div>
+              <img src={curruser.picture} style={{ width: 250, height: 250, objectFit: 'cover', borderRaduis: "50%" }} className="center" alt="profile" />
+            </div>
+            <div>
+              <h3>{curruser.first_name} {curruser.last_name}</h3>
+            </div>
+            <div>
+              <h4>{curruser.email}</h4>
+            </div>
+            <div>
+              <p>{curruser.bio}</p>
+            </div>
           </div>
-          <div>
-          <h3>{curruser.first_name} {curruser.last_name}</h3>
-          </div>
-          <div>
-          <h4>{curruser.email}</h4>
-          </div>
-          <div>
-          <p>{curruser.bio}</p>
-          </div>
-        </div>
-        <form className = "personal_info" onSubmit={submitForm}>
-          <div className="signup-profile-pic__container">
+          <form className="personal_info" onSubmit={submitForm}>
+            <div className="signup-profile-pic__container">
               <img src={imagePreview || peppa} className="signup-profile-pic" />
               <label htmlFor="image-upload" className="image-upload-label">
                 <i className="fa fa-plus-circle add-picture-icon"></i>
@@ -223,7 +223,7 @@ const EditProfile = props => {
         <br></br>
         <br></br>
         <div className="centerbutton">
-        <Link to="/mentorme/UserProfile" state = {{user: curruser}}><Button type="button" id="return_button"> Return </Button></Link>
+          <Link to="/mentorme/UserProfile" state={{ user: curruser }}><Button type="button" id="return_button"> Return </Button></Link>
         </div>
       </section>
     </div>
