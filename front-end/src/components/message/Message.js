@@ -24,8 +24,8 @@ export default function Message({ message, own, who, conversation }) {
     }
     getUser();
   }, [currentUser, conversation])
-  console.log("down")
-  console.log(userNew)
+  // console.log("down")
+  // console.log(userNew)
 
 
   return (
