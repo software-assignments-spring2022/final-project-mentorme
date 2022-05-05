@@ -24,17 +24,24 @@ router.post("/:id", async (request, res) => {
     const userId = request.params.id
     console.log(userId)
     console.log(request.body.formInput.overall);
+    
     try {
-        const user = await User.findOneAndUpdate({ _id : userId },{$push:{rates:request.body.formInput.overall}},{ upsert: true })
-        const arrayOfRates = user.rates
-        console.log(arrayOfRates)
-        let totalscore =0
-        for (let i = 0; i < arrayOfRates.length; i++) { 
-            totalscore += parseInt(arrayOfRates[i])
-          }
-        const avg =totalscore/arrayOfRates.length
-        console.log(avg)
-        const userRate = await User.findOneAndUpdate({ _id : userId },{over_all:avg})
+        function findUser(userId){
+            return User.findOneAndUpdate({ _id : userId },{$push:{rates:request.body.formInput.overall}},{ upsert: true, returnDocument:'after' })
+        }
+        // const user = await User.findOneAndUpdate({ _id : userId },{$push:{rates:request.body.formInput.overall}},{ upsert: true })
+        findUser(userId).then(user =>{
+            const arrayOfRates = user.rates
+            console.log(arrayOfRates)
+            let totalscore =0
+            for (let i = 0; i < arrayOfRates.length; i++) { 
+                totalscore += parseInt(arrayOfRates[i])
+            }
+            const avg =totalscore/arrayOfRates.length
+            console.log("avg is", avg)
+            User.updateOne({ _id : userId },{over_all:avg}).then(()=>{console.log('done')})
+        })
+        
         // const newOverall = await User.findOneAndUpdate({ id : userId },)
 
         console.log(user)
