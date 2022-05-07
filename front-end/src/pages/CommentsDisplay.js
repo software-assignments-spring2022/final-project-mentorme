@@ -17,7 +17,7 @@ const CommentsDisplay = () => {
   useEffect(() => {
     const fetchData = async() => {
       // fetch information and comments for advisor
-      await axios.get(`http://localhost:4000/rateAdvisor/commentDisplay/${id}`)
+      await axios.get(`http://147.182.129.48:4000/rateAdvisor/commentDisplay/${id}`)
       .then(res => {
         setAdvisor(res.data.info);
         console.log('advisor fetched.')
@@ -71,8 +71,8 @@ const CommentsDisplay = () => {
 
                                                                                        }}><Button>Post a Comment!</Button></Link>
       </div>
-        {comments.map(comment => (
-            <div className="comment">
+        {comments.map((comment) => (
+            <div className="comment" >
               
               <div className="user-score">
                 <div className="inner-score">{`${comment.score}/5`}</div>

@@ -4,13 +4,15 @@ import "../styles/CreateAdvisor.css"
 import { Form, Button } from "react-bootstrap"
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 
 
 const CreateAdvisor = () => {
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+	const [firstName, setFirstName] = useState('')
+	const [lastName, setLastName] = useState('')
 	const [university, setUniversity] = useState('')
 	const [school, setSchool] = useState('')
 	const [department, setDepartment] = useState('')
@@ -31,7 +33,7 @@ const CreateAdvisor = () => {
 			comment
 		}
 
-		const id = await axios.post("http://localhost:4000/rateAdvisor/createAdvisor", req)
+		const id = await axios.post("http://147.182.129.48:4000/rateAdvisor/createAdvisor", req)
 			.then((res) => {
 				console.log("success.", res.data)
 				navigate("/rateAdvisor/searchResult/commentsDisplay", { state: { id: res.data.id } })
@@ -39,8 +41,8 @@ const CreateAdvisor = () => {
 			.catch((err) => {
 				console.log("err", err)
 			})
-		
-		
+
+
 	}
 
 	return (
@@ -77,8 +79,11 @@ const CreateAdvisor = () => {
 				</Form.Group>
 
 				<Form.Group>
-					<Form.Label>Score:</Form.Label>
-					<Form.Range onChange={(e) => setScore(e.target.value / 20)} />
+					<div>
+					<Typography component="legend" >Overall Rating</Typography>
+					{/* <Form.Range onChange={(e) => setScore(e.target.value / 20)} /> */}
+					<Rating name="overall" defaultValue={2.5} precision={0.25} onChange={(e) => setScore(e.target.value)} size = 'large'/>
+				</div>
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="formBasicComment">

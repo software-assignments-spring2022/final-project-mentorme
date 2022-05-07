@@ -6,7 +6,7 @@ const user = {};
 
 router.get('/', (req, res) => {
   const auth = req.query.auth;
-  console.log(auth);
+  // console.log(auth);
   // console.log("params" + req.body.userId)
 
   if (auth == "false") {

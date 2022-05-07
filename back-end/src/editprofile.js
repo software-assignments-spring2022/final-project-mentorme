@@ -2,10 +2,9 @@ const express = require("express");
 const mongoose = require('mongoose')
 const app = express();
 const router = express.Router();
-const {User} = require("./models/User") 
+const User = require("./models/Users") 
 
 router.post("/", async (req, res) => {
-    console.log(req.body.curruser)
     try {
         const userinfo = await User.findOneAndUpdate({ _id : req.body.curruser },
             {   first_name : req.body.first_name, 
@@ -13,9 +12,8 @@ router.post("/", async (req, res) => {
                 email : req.body.email, 
                 bio : req.body.bio, 
                 password : req.body.password, 
-                profilePic : req.body.profilePic
+                picture : req.body.picture
             })
-        console.log(userinfo)
         res.json(userinfo) 
     } catch (e) {
         console.log("Couldn't Find User");

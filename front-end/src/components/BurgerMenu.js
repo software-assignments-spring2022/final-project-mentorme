@@ -11,45 +11,35 @@ const BurgerMenu = ({ user }) => {
     const [userData, setUserData] = useState([{}]);
     const [error, setError] = useState('')
     let menu;
-    const onLinkClick = (e) => {
-        // e.preventDefault();
-        menu = false
-        console.log(menu);
-        async function sendGetRequest() {
-            const res = await axios.get("http://localhost:4000/userinfo", {
-                params: {
-                    auth: "reset"
-                }
-            });
-            console.log("here:" + res.data.name)
-        }
-        sendGetRequest();
 
+    if (location.state) {
+        var { user } = location.state
+        menu = true;
+    }
+    else {
+        menu = false;
+    }
+
+
+
+    const onLinkClick = (e) => {
+        //     // e.preventDefault();
+        menu = false
+        // console.log(menu);
+        localStorage.clear()
     };
 
-
-    useEffect(async () => {
-        const fetchData = async () => {
-            await axios.get("http://localhost:4000/userinfo")
-                .then(response => setUserData(response.data))
-                .catch(err => {
-                    console.log("err", err)
-                    setError(err)
-                }
-                )
-        }
-
-        fetchData()
-    }, [])
+    const loggedUser = localStorage.getItem('user')
 
     // console.log(userData.auth);
-    menu = userData.auth;
-    if (menu) {
+    // menu = userData.auth;
+    // console.log(menu)
+    if (loggedUser) {
         return (
             <Menu>
                 <a id="home" className='home' state={{ loggedOut: false }} href='/'>Home</a>
                 {/* <a id='mentorMe' className='mentorMe' state={{ user: user }} href='/mentorMe'>MentorMe</a> */}
-                <Link to="/mentorMe" state={ { user } }>MentorMe</Link>
+                <Link to="/mentorMe" state={{ user }}>MentorMe</Link>
                 <a id='rateAdvisor' className='rateAdvisor' href='/rateAdvisor'>RateMyAdvisor</a>
                 <a id='logOut' className='logOut' href='/login' onClick={onLinkClick}>Log Out</a>
 

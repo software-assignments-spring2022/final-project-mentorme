@@ -86,7 +86,7 @@ function SignUp() {
     // });
     try {
       axios
-        .post("http://localhost:4000/users/signup", {
+        .post("http://147.182.129.48:4000/users/signup", {
           email: email,
           password: password,
           first_name: first_name,
@@ -100,12 +100,12 @@ function SignUp() {
         })
         .then((response) => {
 
-          console.log(response.data);
+          // console.log(response.data);
 
           if (response.data.auth) {
 
             async function sendGetRequest() {
-              const res = await axios.get("http://localhost:4000/userinfo", {
+              const res = await axios.get("http://147.182.129.48:4000/userinfo", {
                 params: {
                   auth: false,
                   first_name: response.data.user.first_name,
@@ -122,7 +122,7 @@ function SignUp() {
             }
             sendGetRequest();
             // console.log("i'm just testing Mia " + response.data.user)
-            localStorage.setItem('user', response.data.user)
+            localStorage.setItem('user', JSON.stringify(response.data.user))
             navigate('/mentorMe', { state: { user: response.data.user } })
           }
           else {

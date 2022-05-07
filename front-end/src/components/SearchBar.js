@@ -12,21 +12,21 @@ import Filter from "./Filter"
   and 'isMentorMe' specifies the search bar is used in MentorMe or RateMyAdvisor,
   filterOptions is an array containing all options
 */
-  
+
 const SearchBar = (props) => {
 
   // temporary data
-  
+
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [suggestion, setSuggestion] = useState([])
   const [options, setOptions] = useState([])  // the filter options that are selected
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (props.isMentorMe){
-      navigate(props.navigateTo, {state:{name: name, options, userID}})
-    }else{
-      navigate(props.navigateTo, {state:{name: name, options}})
+    if (props.isMentorMe) {
+      navigate(props.navigateTo, { state: { name: name, options, userID } })
+    } else {
+      navigate(props.navigateTo, { state: { name: name, options } })
     }
   }
 
@@ -37,20 +37,20 @@ const SearchBar = (props) => {
     setOptions(selections)
   }
 
-  {/* get suggestions from backend */}
+  {/* get suggestions from backend */ }
   useEffect(async () => {
     // fetch from different data based on where this search bar is located
     // fetch mentors data
     if (props.isMentorMe) {
-      await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name, options, userID } })
-      .then(res => {
-        setSuggestion(res.data);
-      })
-      .catch(err => {
-        console.log("cannot get backend suggestions. err.")
-      })
+      await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/", { params: { name, options, userID } })
+        .then(res => {
+          setSuggestion(res.data);
+        })
+        .catch(err => {
+          console.log("cannot get backend suggestions. err.")
+        })
     } else {  // fetch advisors data
-      await axios.get("http://localhost:4000/rateAdvisor/searchResult/", { params: { name, options } })
+      await axios.get("http://147.182.129.48:4000/rateAdvisor/searchResult/", { params: { name, options } })
         .then(res => {
           setSuggestion(res.data);
         })
@@ -63,15 +63,15 @@ const SearchBar = (props) => {
   return (
     <div className='searchMain'>
       <form onSubmit={handleSubmit} className="searchBar">
-          <input type="text" 
-            className="searchTerm"
-            value={name} 
-            placeholder={props.label} 
-            onChange={(e) => setName(e.target.value)} />
-          <input type="submit" className="searchButton" value='Search'/>
+        <input type="text"
+          className="searchTerm"
+          value={name}
+          placeholder={props.label}
+          onChange={(e) => setName(e.target.value)} />
+        <input type="submit" className="searchButton" value='Search' />
       </form>
-      {name && suggestion.length !== 0 && <Suggestion suggestions={suggestion} navigateTo={`${props.navigateTo}${props.isMentorMe ? '/individualProfile' : '/commentsDisplay'}`} />} 
-      <Filter options={props.filterOptions} setSelections={setSelections}/>
+      {name && suggestion.length !== 0 && <Suggestion suggestions={suggestion} navigateTo={`${props.navigateTo}${props.isMentorMe ? '/individualProfile' : '/commentsDisplay'}`} />}
+      <Filter options={props.filterOptions} setSelections={setSelections} />
     </div>
   )
 }

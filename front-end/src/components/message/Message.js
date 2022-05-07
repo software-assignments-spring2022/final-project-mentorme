@@ -11,11 +11,11 @@ export default function Message({ message, own, who, conversation }) {
 
   useEffect(() => {
 
-    const friendId = conversation.members.find(m => m !== currentUser.id);
+    const friendId = conversation.members.find(m => m !== currentUser._id);
 
     const getUser = async () => {
       try {
-        const res = await axios("http://localhost:4000/users?userId=" + friendId);
+        const res = await axios("http://147.182.129.48:4000/users?userId=" + friendId);
         setUser(res.data)
       }
       catch (err) {
@@ -24,13 +24,13 @@ export default function Message({ message, own, who, conversation }) {
     }
     getUser();
   }, [currentUser, conversation])
-  console.log("down")
-  console.log(userNew)
+  // console.log("down")
+  // console.log(userNew)
 
 
   return (
     <div className={own ? "message own" : "message"}>
-      <div className="messageTop">   <img className="messageImg" src={own ? who.pic : (userNew ? userNew.picture : "https://images.pexels.com/photos/1677794/pexels-photo-1677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")} alt="" />
+      <div className="messageTop">   <img className="messageImg" src={own ? who.picture : (userNew ? userNew.picture : "https://images.pexels.com/photos/1677794/pexels-photo-1677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")} alt="" />
         <p className="messageText">{message.text}</p></div>
 
 

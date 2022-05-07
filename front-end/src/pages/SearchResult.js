@@ -15,10 +15,10 @@ const SearchResult = props => {
   const [userData, setUserData] = useState([]);
   const [error, setError] = useState('')
   const location = useLocation();
-  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Academic', 'OGS', 'Career'];
+  const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Steinhardt'];
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
+    await axios.get("http://147.182.129.48:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
       .then(res => {
         setUserData(res.data);
       })
@@ -28,7 +28,7 @@ const SearchResult = props => {
   }
 
   const getFilterResult = async () => {
-    await axios.get("http://localhost:4000/rateAdvisor/searchResult/2", { params: { filter: location.state.filter } })
+    await axios.get("http://147.182.129.48:4000/rateAdvisor/searchResult/2", { params: { filter: location.state.filter } })
       .then(res => {
         setUserData(res.data);
       })
@@ -49,18 +49,28 @@ const SearchResult = props => {
 
     <div className="SearchResult">
       <BurgerMenu />
-
-      <section className="main-content">
-        <h2>Searched Results</h2>
+      <div className="searchDiv">
+        {/* <section className="main-content"> */}
+        <div className="title">        <h2>Searched Results</h2>
+        </div>
         <br />
-        <div className="search">
+        <div className="searchBar">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions} />
-          <div className='clear' />
+
+        </div>
+        <br />
+        <div className="newAdv">
+          <Link to="createAdvisor"><Button className="theButton" buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
+
         </div>
 
-        <Link to="createAdvisor"><Button buttonStyle={"btn--warning--solid"} buttonSize={'btn--medium'}>Didn't find your advisor ? Add an Advisor</Button></Link>
 
-      </section>
+
+
+
+        {/* </section> */}
+      </div>
+
 
       {/* list of search result  */}
       <div className="resultList">

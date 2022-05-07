@@ -30,7 +30,7 @@ function Login() {
 
     try {
       axios
-        .post("http://localhost:4000/users/signin", {
+        .post("http://147.182.129.48:4000/users/signin", {
           email: email,
           password: password,
         })
@@ -44,7 +44,7 @@ function Login() {
 
 
             async function sendGetRequest() {
-              const res = await axios.get("http://localhost:4000/userinfo", {
+              const res = await axios.get("http://147.182.129.48:4000/userinfo", {
                 params: {
                   auth: false,
                   first_name: response.data.user.first_name,
@@ -55,10 +55,10 @@ function Login() {
                   bio: response.data.user.bio
                 }
               });
-              console.log("here:" + res.data.user._id)
+              // console.log("here:" + res.data.user._id)
             }
             sendGetRequest();
-            console.log(response.data.user)
+            // console.log(response.data.user)
             localStorage.setItem('user', JSON.stringify(response.data.user))
             navigate('/mentorMe', { state: { user: response.data.user } });
           }

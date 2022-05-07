@@ -12,11 +12,11 @@ const ProfileDisplay = props => {
   const [userData, setUserData] = useState([]);
   const [error, setError] = useState('')
   const location = useLocation();
-  const filterOptions = ['English', 'French', 'Chinese', 'Spanish', 'Math', 'Computer Science', 'Finance'];
+  const filterOptions = ['Math', 'Computer Science', 'Finance', 'Psychology', 'Humanities'];
   // console.log(location.state)
 
   const getSearchResult = async () => {
-    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options, userID: location.state.userID } })
+    await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/", { params: { name: location.state.name, options: location.state.options, userID: location.state.userID } })
       .then(res => {
         setUserData(res.data);
       })
@@ -26,7 +26,7 @@ const ProfileDisplay = props => {
   }
 
   const getFilterResult = async () => {
-    await axios.get("http://localhost:4000/mentorMe/profileDisplay/2", { params: { filter: location.state.filter } })
+    await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/2", { params: { filter: location.state.filter } })
       .then(res => {
         setUserData(res.data);
       })
@@ -36,7 +36,7 @@ const ProfileDisplay = props => {
   }
 
   const getDefResult = async () => {
-    await axios.get("http://localhost:4000/mentorMe/profileDisplay/", { params: { name: 'A' } })
+    await axios.get("http://147.182.129.48:4000/mentorMe/profileDisplay/", { params: { name: 'A' } })
       .then(res => {
         setUserData(res.data);
       })
@@ -56,23 +56,25 @@ const ProfileDisplay = props => {
   }, [location.state])
 
   return (
-    <div className="ProfileDisplay">
+    <div className="SearchResult">
       <BurgerMenu />
-      <section className="main-content">
+      <div className="searchDiv">
         {/* <img className="image" alt="welcome!" src={image} /> */}
-        <p>
-          Profile Display
-          <br />
-          <br />
-          {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
-        </p>
-        <div className="search">
+        <div className="title">
+          <h2>
+            Profile Display
+
+            {/* <Link to="/mentorMe/:profileDisplay/:individualProfile"><button>Individual Profile!</button></Link> */}
+          </h2>
+        </div>
+
+        <div className="searchBar">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={location.state.userID} />
         </div>
-      </section>
+      </div>
 
       {/* list of search result  */}
-      <section className="resultList">
+      <div className="resultList">
         <Container className="">
           <div className="list-group">
             {userData.map((data, i) => (
@@ -80,7 +82,7 @@ const ProfileDisplay = props => {
             ))}
           </div>
         </Container>
-      </section>
+      </div>
     </div>
   )
 }

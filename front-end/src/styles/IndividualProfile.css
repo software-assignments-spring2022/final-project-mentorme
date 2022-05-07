@@ -5,36 +5,14 @@
     position: absolute;
 }
 
-img {
-    width: 200px;
-}
-
-.individualImg {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 222px;
-    height: 222px;
-}
-
-.chatButton {
-    text-rendering: auto;
-    color: buttontext;
-    display: block;
+.IndividualProfile h1 {
     text-align: center;
-    text-indent: 0px;
-    margin: 0 auto;
+    font-size: 50px;
 }
+
 
 .bodyText {
     margin: 10px 30px 10px;
     text-align: center;
 }
 
-button {
-    text-rendering: auto;
-    color: buttontext;
-    text-indent: 0px;
-    display: inline-block;
-    text-align: center;
-}

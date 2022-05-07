@@ -1,11 +1,11 @@
-import React, { useState,useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import "../styles/RatePage.css"
 import BurgerMenu from "../components/BurgerMenu"
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import axios from 'axios';
 import Button from "../components/Button"
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const RatePage = props => {
   const location = useLocation()
@@ -19,7 +19,7 @@ const RatePage = props => {
   // };
   useEffect(async () => {
     const getUserData = async () => {
-      await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`)
+      await axios.get(`http://147.182.129.48:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`)
         .then(res => {
           setUserData(res.data);
         })
@@ -48,7 +48,7 @@ const RatePage = props => {
 
     let data = { formInput };
 
-    fetch(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`, {
+    fetch(`http://147.182.129.48:4000/mentorMe/profileDisplay/individualProfile/individualChat/ratePage/${location.state.id}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -58,9 +58,9 @@ const RatePage = props => {
       .then(response => response.json())
       .then(response => console.log("Success:", JSON.stringify(response)))
       .catch(error => console.error("Error:", error));
-      navigate('/mentorMe/profileDisplay/individualProfile/individualChat')
+    navigate('/mentorMe/profileDisplay/individualProfile/individualChat')
   };
-   const score = parseInt(userData[0]['over_all'])
+  const score = parseFloat(userData[0]['over_all'])
   return (
     <div className="RatePage">
       <BurgerMenu />
@@ -74,10 +74,10 @@ const RatePage = props => {
         <img src={userData[0]["picture"]} className=" individualImg" alt="profile" />
         <h2 >{userData[0]['first_name']}</h2>
         <h2 >Current Rate</h2>
-        <Rating name="read-only" value={score}  precision={0.5} readOnly size="large" />
+        <Rating name="read-only" value={score} precision={0.25} readOnly size="large" />
         <form onSubmit={handleSubmit}></form>
         <h2>Your Rate</h2>
-        <Rating name="overall" precision={0.5} onChange={(event, newValue) => {
+        <Rating name="overall" precision={0.25} onChange={(event, newValue) => {
           setRate(newValue);
         }} onClick={handleInput} size="large" />
 

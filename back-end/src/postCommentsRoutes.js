@@ -6,7 +6,7 @@ router.use(bodyParser.json())
 const {Advisor} =require("./models/Advisor")
 const {Comments} =require("./models/Comments")
 
-router.post("/:id",async(request, res) => {
+router.post("/:id", async(request, res) => {
     const userId = request.params.id
     const date = new Date()
     const year = date.getFullYear().toString()
@@ -20,21 +20,27 @@ router.post("/:id",async(request, res) => {
                                     written_feedback:request.body.formInput.comment,
                                     timestamp: `${year}-${month}-${day}`
                                 });
-    newComment.save()
-    newComment.createdAt;
-    try {
-        const comments = await Comments.find({ id : userId })
-        console.log(comments.length)
-        let totalscore =0
-        for (let i = 0; i < comments.length; i++) { 
-            totalscore += comments[i]['score']
-          }
-        const avg =totalscore/comments.length
-        const advisor = await Advisor.findOneAndUpdate({ id : userId },{currentScore:avg})
-    } catch (e) {
-        console.log("Couldn't Find User");
-        res.status(500)
-    }
+    newComment.save().then((res) => {
+        try {
+            function getComment (userId){
+                return Comments.find({ id : userId })
+            }
+            // const comments = await Comments.find({ id : userId })
+            comments = getComment(userId).then((comments) => {
+                // console.log("length is", comments.length)
+                let totalscore =0
+                for (let i = 0; i < comments.length; i++) { 
+                    totalscore += comments[i]['score']
+                }
+                const avg =totalscore/comments.length
+                Advisor.updateOne({ id : userId },{currentScore:avg}).then((res) => {console.log('done')})
+            })
+            
+        } catch (e) {
+            console.log("Couldn't Find User");
+            res.status(500)
+        }
+    })
 
 });
 

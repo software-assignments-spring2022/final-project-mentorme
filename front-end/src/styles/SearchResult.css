@@ -11,6 +11,10 @@
 
 }
 
+.searchMain {
+    margin: auto;
+}
+
 .filter_dropdown {
     position: absolute;
 }
@@ -27,6 +31,11 @@
     text-align: left;
 }
 
+.newAdv {
+    margin: auto;
+    text-align: center;
+}
+
 .clear {
     clear: both;
     height: 0;
@@ -34,12 +43,23 @@
     font-size: 0
 }
 
+
 .listColor {
     background-color: rgb(252, 120, 120);
 }
 
 .list-group {
-    padding: 15% 10%;
+    padding: 3% 3%;
+}
+
+
+.title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.searchBar {
+    margin: 0 auto;
 }
 
 .list-group-item {
