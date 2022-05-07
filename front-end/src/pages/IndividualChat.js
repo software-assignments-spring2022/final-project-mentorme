@@ -77,7 +77,7 @@ const IndividualChat = props => {
             <input type="submit" value="Submit" />
           </form>
           <br></br>
-          <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: location.state.id, name: location.state.name, score: location.state.score }}><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >End Chat and Rate</Button></Link>
+          <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: location.state.id, name: location.state.name, score: location.state.score }}><Button size="btn--default" buttonStyle="btn--primary--solid" >End Chat and Rate</Button></Link>
 
 
         </div>

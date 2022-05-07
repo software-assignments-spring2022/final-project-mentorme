@@ -45,7 +45,7 @@
 
 
 .listColor {
-    background-color: rgb(252, 120, 120);
+    background-color: #e9cfc1;
 }
 
 .list-group {
@@ -63,5 +63,5 @@
 }
 
 .list-group-item {
-    background-color: rgb(251, 196, 196);
+    background-color: #e9cfc1;
 }

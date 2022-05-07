@@ -86,7 +86,7 @@ const CreateAdvisor = () => {
 					<Form.Control as="textarea" rows={3} placeholder="Enter Your Comment" onChange={(e) => setComment(e.target.value)} />
 				</Form.Group>
 
-				<Button variant="primary" type="submit" onClick={handleSubmit}>
+				<Button className="edit-profile-submit" variant="primary" type="submit" onClick={handleSubmit}>
 					Submit
 				</Button>
 			</Form>

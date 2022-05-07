@@ -26,7 +26,7 @@
 /*Button Colors and Styles */
 
 .btn--primary--solid {
-  background-color: var(--white) !important;
+  background-color: #b46d51 !important;
   color: var(--dark) !important;
   border-radius: 0;
 
@@ -34,7 +34,7 @@
 }
 
 .btn--warning--solid {
-  background-color: var(--warning) !important;
+  background-color: #d59f33 !important;
   color: var(--dark) !important;
   border: none !important;
 }
@@ -78,7 +78,7 @@
 }
 
 .btn--logIn {
-  background-color: rgb(250, 197, 197) !important;
+  background-color: #b46d51 !important;
   border: 2px solid var(--dark) !important;
   color: var(--dark) !important;
 }
