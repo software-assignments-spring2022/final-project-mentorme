@@ -33,9 +33,9 @@ const MentorMeHome = props => {
 
         <br />
         <div>
-        <Link to="/mentorMe/UserProfile" state={{ user: user }}><Button>MY Account</Button></Link>
+        <Link to="/mentorMe/UserProfile" state={{ user: user }}><Button size="btn--default" buttonStyle="btn--primary--solid">My Account</Button></Link>
           &nbsp;&nbsp;&nbsp;
-        <Link to="/"><Button>Main Home</Button></Link>
+        <Link to="/"><Button size="btn--default" buttonStyle="btn--primary--solid">Main Home</Button></Link>
         </div>
         <br />
         <br />

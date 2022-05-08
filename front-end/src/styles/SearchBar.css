@@ -5,7 +5,6 @@
 }
 
 .searchTerm {
-    font-family: 'Balsamiq Sans', cursive;
     width: 70%;
     height: 28px;
     border: 2px solid #303030;
@@ -22,9 +21,9 @@
     width: 30%;
     height: 28px;
     border: 2px solid #303030;
-    background: #888787;
+    background: #b46d51;
     text-align: center;
-    color: #fff;
+    color: black;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 14px;

@@ -1,20 +1,23 @@
 .UserProfile {
-    background-color: rgb(252, 120, 120);
+    background-color: #063630;
+    color: white;
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
 .main-content {
-    background-color: rgb(252, 120, 120);
+    background-color: #063630;
     width: 100%;
     height: 100%;
     position: absolute;
+    color: white;
 }
 
 .UserProfile h1 {
     text-align: center;
     font-size: 50px;
+    
 }
 
 .UserProfile p {

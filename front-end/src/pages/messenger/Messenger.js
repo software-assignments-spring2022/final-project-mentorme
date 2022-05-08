@@ -190,7 +190,8 @@ export default function Messenger() {
       <div className="chatOnline">
         <div className="chatOnlineWrapper">
           <ChatOnline who={user} />
-          {currentChat ? <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: mentor?._id, name: mentor?.first_name, score: mentor?.score }} ><Button className="to-rate" buttonStyle={"btn--danger--solid"} buttonSize={'btn--medium--long'} >Rate the Mentor</Button></Link>
+          <br></br>
+          {currentChat ? <Link to="/mentorMe/profileDisplay/individualProfile/individualChat/ratePage" state={{ id: mentor?._id, name: mentor?.first_name, score: mentor?.score }} ><Button className="to-rate" buttonStyle={"btn--primary--solid"} buttonSize={'btn--medium--long'} >Rate the Mentor</Button></Link>
             : <h1></h1>}
 
 

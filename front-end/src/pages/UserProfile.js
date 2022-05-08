@@ -25,8 +25,9 @@ const UserProfile = props => {
         <h1>{user.first_name} {user.last_name} </h1>
         <img src={user.picture}  className="user-picture" alt="profile" />
         <br />
-        <Link to="/mentorme/EditProfile" state={{ user: user }}><Button type="button"> Edit Profile </Button></Link>
-        <Link to="/mentorMe/UserProfile/ChatsHistory" state={{ user: user }}><Button type="button"> Chat History</Button></Link>
+        <Link to="/mentorme/EditProfile" state={{ user: user }}><Button size="btn--default" buttonStyle="btn--primary--solid"> Edit Profile </Button></Link>
+        <br />
+        <Link to="/mentorMe/UserProfile/ChatsHistory" state={{ user: user }}><Button size="btn--default" buttonStyle="btn--primary--solid"> Chat History</Button></Link>
         <p>
           <br />
           <br />
@@ -35,7 +36,7 @@ const UserProfile = props => {
           <br />
           <br />
         </p>
-        <Link to="/mentorme" state={{ user: user }}><Button type="button"> Return </Button></Link>
+        <Link to="/mentorme" state={{ user: user }}><Button size="btn--default" buttonStyle="btn--primary--solid"> Return </Button></Link>
       </section>
     </div>
   )

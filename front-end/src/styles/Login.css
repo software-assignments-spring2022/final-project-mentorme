@@ -5,6 +5,15 @@
     background-size: cover;
     background-repeat: no-repeat;
     overflow-x: hidden;
+    color: white;
+}
+
+.form-label{
+    color: white;
+}
+
+.text-center{
+    color: white;
 }
 
 @media (max-width: 768px) {
@@ -16,9 +25,10 @@
         background-repeat: no-repeat;
         overflow-x: hidden;
         margin-bottom: 20%;
+        color: white;
     }
 }
 
 .signupLink {
-    color: black;
+    color: #e9cfc1;
 }

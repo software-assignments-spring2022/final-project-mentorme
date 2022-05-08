@@ -5,27 +5,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-content: center;
+    text-align: center;
+    position: absolute;
 }
 .advisor-info{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
+    align-content: center;
+    text-align: center;
+    justify-content: center;
 }
-.advisor-info{
-    margin-top: 90px;
 
-
-    
-}
 .advisor-info p{
     font-size: 40px;
     font-family: 'Balsamiq Sans', cursive;
 
 }
 
-.image{
-    margin-top: 90px;
-    width: 200px;
-    height: 250px;
-    
+.thetext{
+    background-color: white;
+    color: black;
+    outline-color: black;
 }
+
+
+

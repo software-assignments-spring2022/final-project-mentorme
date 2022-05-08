@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Button } from "../components/Button"
+import advisorIcon from '../images/defaultadvisoricon.jpg'
 
 
 const SearchResult = props => {
@@ -96,7 +97,8 @@ const Item = props => {
           <Row className="rows">
             <Col xs={4} md={2} className="columns">
               <div className="advisorPic">
-                <img className="advisor-picture" src="https://picsum.photos/201" alt="picture" />
+                <img className="advisor-picture" src={advisorIcon} alt="picture" />
+                {/* <img className="advisor-picture" src="https://picsum.photos/201" alt="picture" /> */}
               </div>
             </Col>
             <Col xs={8} md={10} className="columns">

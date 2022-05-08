@@ -1,11 +1,12 @@
 
 .RatePage{
-    margin-top:90px;
+    /* margin-top:90px; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .Stack{
-    margin-top:90px;
+    /* margin-top:90px; */
 }
 .image{
     max-width: 35%;
@@ -17,4 +18,5 @@
     margin-right: auto;
     width: 100px;
     height: 250px;
-  }
+}
+

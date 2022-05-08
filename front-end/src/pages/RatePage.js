@@ -68,10 +68,11 @@ const RatePage = props => {
         alt="welcome!"
         src={image} className="center"
       /> */}
+      <br></br>
       <Stack spacing={1} direction="column"
         alignItems="center"
         justifyContent="center" style={{ minHeight: '50vh' }}>
-        <img src={userData[0]["picture"]} className=" individualImg" alt="profile" />
+        <img src={userData[0]["picture"]} className="Profile-Pic" alt="profile" />
         <h2 >{userData[0]['first_name']}</h2>
         <h2 >Current Rate</h2>
         <Rating name="read-only" value={score} precision={0.25} readOnly size="large" />
@@ -85,6 +86,8 @@ const RatePage = props => {
           type="submit"
           variant="contained"
           color="primary"
+          size="btn--default" 
+          buttonStyle="btn--primary--solid"
           onClick={handleSubmit}
         >
           Submit Rating

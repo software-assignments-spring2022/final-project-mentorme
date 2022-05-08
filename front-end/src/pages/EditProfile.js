@@ -223,7 +223,7 @@ const EditProfile = props => {
         <br></br>
         <br></br>
         <div className="centerbutton">
-          <Link to="/mentorme/UserProfile" state={{ user: curruser }}><Button type="button" id="return_button"> Return </Button></Link>
+          <Link to="/mentorme/UserProfile" state={{ user: curruser }}><Button size="btn--default" buttonStyle="btn--primary--solid" type="button" id="return_button"> Return </Button></Link>
         </div>
       </section>
     </div>

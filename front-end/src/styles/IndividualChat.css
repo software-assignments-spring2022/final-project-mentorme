@@ -1,28 +1,3 @@
-/* .IndividualChat {} */
-
-
-/* .image {
-    max-width: 35%;
-}
-
-.chat {
-    display: flex;
-    flex-direction: column;
-    flex: 1,
-
-}
-
-.chat ul {
-    list-style: none;
-    list-style-type: none;
-    list-style-position: outside;
-    margin: 0;
-    padding: 0;
-}
-
-.chat ul li {
-    text-align: right;
-} */
 
 .to-rate {
     margin-top: 10px;
@@ -33,6 +8,7 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
+    
 }
 
 #message-container {
@@ -42,25 +18,3 @@ body {
     margin-left: 100px;
 }
 
-/* #message-container div {
-    background-color: #CCC;
-    padding: 5px;
-}
-
-#message-container div:nth-child(2n) {
-    background-color: #FFF;
-}
-
-#send-container {
-    position: fixed;
-    padding-bottom: 30px;
-    bottom: 0;
-    background-color: white;
-    max-width: 1200px;
-    width: 80%;
-    display: flex;
-}
-
-#message-input {
-    flex-grow: 1;
-} */
