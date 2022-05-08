@@ -16,7 +16,7 @@
 .editprofilecard {
   box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.2);
   text-align: center;
-  color: #e9cfc1;
+  color: white;
 }
 
 .entirebox{
@@ -49,7 +49,6 @@
 }
 
 .edit-profile-submit {
-  font-family: 'Balsamiq Sans', cursive;
   font-weight: 400;
   cursor: pointer;
   transition: transform 0.3s ease;

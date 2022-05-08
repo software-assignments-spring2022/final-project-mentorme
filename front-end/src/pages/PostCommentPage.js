@@ -1,7 +1,6 @@
 import "../styles/PostCommentPage.css"
 
 import { useLocation } from 'react-router-dom';
-// import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types';
 import * as React from 'react';
@@ -12,7 +11,7 @@ import BurgerMenu from "../components/BurgerMenu"
 import { TextField } from "@mui/material";
 import Button from "../components/Button"
 import { useNavigate } from 'react-router-dom';
-// import axios from "axios";
+
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -50,7 +49,7 @@ Item.propTypes = {
 
 
 function PostCommentPage() {
-  const [value, setValue] = React.useState('Type your review');
+  const [value, setValue] = React.useState('');
   const navigate = useNavigate();
 
   const location = useLocation()
@@ -103,23 +102,8 @@ function PostCommentPage() {
       <BurgerMenu />
 
       <div className="advisor-info">
-        {/* <Box
-          component="img"
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'column',
-            height: 350,
-            width: 350,
-            maxHeight: { xs: 350, md: 250 },
-            maxWidth: { xs: 350, md: 250 },
-          }}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          alt="welcome!"
-          src="https://picsum.photos/420"
-        /> */}
+        <br></br>
+        <br></br>
         <Box
           sx={{
             display: 'flex',
@@ -142,10 +126,8 @@ function PostCommentPage() {
 
 
         </Box>
-        {/* <img className="image" alt="welcome!" src={image} /> */}
       </div>
       <div className="box">
-
         <Box
           sx={{
             display: 'flex',
@@ -173,9 +155,11 @@ function PostCommentPage() {
             autoComplete="off"
           >
             <TextField
-              name='comment'
+              // name='comment'
+              className = "thetext"
               id="outlined-multiline-flexible"
               label="Written Review"
+              multiline
               maxRows={4}
               value={value}
               onChange={handleChange}

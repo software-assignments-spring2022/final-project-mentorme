@@ -21,7 +21,6 @@
 }
 
 .name {
-    font-family: 'Balsamiq Sans', cursive;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -31,7 +30,6 @@
 }
 
 .score {
-    font-family: 'Balsamiq Sans', cursive;
     font-size: larger;
 
     padding: 5px;

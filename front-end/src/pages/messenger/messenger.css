@@ -7,7 +7,7 @@
   margin-top: 100px;
   flex: 3.5;
   overflow-y: scroll;
-  color: #e9cfc1;
+  color: white;
 
 }
 
@@ -26,11 +26,6 @@
   }
 
 
-
-
-  /* .conversationName {
-    display: none;
-  } */
 
 }
 

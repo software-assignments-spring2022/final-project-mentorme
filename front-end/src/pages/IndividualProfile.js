@@ -134,7 +134,6 @@ const IndividualProfile = () => {
   return (
     <div className="IndividualProfile">
       <BurgerMenu />
-      {/* <p>{userData[0]['first_name']}</p> */}
       <section className="main-content">
 
         {error && <p className="Profile-error">{error}</p>}

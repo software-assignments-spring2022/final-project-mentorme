@@ -2,8 +2,8 @@
 .PostCommmentPage{
     width: 100%;
     height: 100%;
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     align-items: center;
     align-content: center;
     text-align: center;
@@ -17,23 +17,18 @@
     text-align: center;
     justify-content: center;
 }
-/* .advisor-info{
-    margin-top: 90px;
-    
 
-
-    
-} */
 .advisor-info p{
     font-size: 40px;
     font-family: 'Balsamiq Sans', cursive;
 
 }
 
+.thetext{
+    background-color: white;
+    color: black;
+    outline-color: black;
+}
 
-/* .image{
-    margin-top: 90px;
-    width: 200px;
-    height: 250px;
-    
-} */
+
+

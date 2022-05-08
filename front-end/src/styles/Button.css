@@ -9,14 +9,11 @@
 }
 
 .btn {
-  font-family: 'Balsamiq Sans', cursive;
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.3s ease;
   box-shadow: 3px 3px #000000;
   border-radius: 0;
-
-
 }
 
 .btn:hover {
