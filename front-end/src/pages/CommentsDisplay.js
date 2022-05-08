@@ -69,7 +69,8 @@ const CommentsDisplay = () => {
                                                                                        currentScore: advisor.score,
                                                                                        user_id :location.state.id,
 
-                                                                                       }}><Button>Post a Comment!</Button></Link>
+                                                                                       }}><Button size="btn--default" 
+                                                                                       buttonStyle="btn--primary--solid">Post a Comment!</Button></Link>
       </div>
         {comments.map((comment) => (
             <div className="comment" >

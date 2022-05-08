@@ -141,7 +141,7 @@ const IndividualProfile = () => {
         <h1>{`${userData[0]["first_name"]} ${userData[0]["last_name"]}`}</h1>
         <img src={userData[0]["picture"]} className="user-picture" alt="profile" />
         <br />
-        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state={{ id: location.state.id, name: userData[0]["first_name"] + " " + userData[0]["last_name"], score: userData[0]['over_all'] }}><Button type="button" onClick={handleClick}> Chat </Button></Link>
+        <Link to="/mentorMe/profileDisplay/individualProfile/individualChat" state={{ id: location.state.id, name: userData[0]["first_name"] + " " + userData[0]["last_name"], score: userData[0]['over_all'] }}><Button type="button" size="btn--default" buttonStyle="btn--primary--solid" onClick={handleClick}> Chat </Button></Link>
         <p>
           <br />
           <br />
@@ -149,7 +149,7 @@ const IndividualProfile = () => {
           <br />
           <br />
         </p>
-        <Link to="/mentorme"><Button type="button"> Return </Button></Link>
+        <Link to="/mentorme"><Button type="button" size="btn--default" buttonStyle="btn--primary--solid"> Return </Button></Link>
       </section>
     </div>
   )

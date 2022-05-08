@@ -68,6 +68,7 @@ const RatePage = props => {
         alt="welcome!"
         src={image} className="center"
       /> */}
+      <br></br>
       <Stack spacing={1} direction="column"
         alignItems="center"
         justifyContent="center" style={{ minHeight: '50vh' }}>
@@ -85,6 +86,8 @@ const RatePage = props => {
           type="submit"
           variant="contained"
           color="primary"
+          size="btn--default" 
+          buttonStyle="btn--primary--solid"
           onClick={handleSubmit}
         >
           Submit Rating

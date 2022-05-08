@@ -103,7 +103,7 @@ function PostCommentPage() {
       <BurgerMenu />
 
       <div className="advisor-info">
-        <Box
+        {/* <Box
           component="img"
           sx={{
             display: 'flex',
@@ -119,11 +119,11 @@ function PostCommentPage() {
           justifyContent="center"
           alt="welcome!"
           src="https://picsum.photos/420"
-        />
+        /> */}
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'right',
+            alignItems: 'center',
             flexDirection: 'column',
             p: 1,
             m: 1,
@@ -175,7 +175,6 @@ function PostCommentPage() {
               name='comment'
               id="outlined-multiline-flexible"
               label="Written Review"
-              multiline
               maxRows={4}
               value={value}
               onChange={handleChange}
@@ -184,8 +183,8 @@ function PostCommentPage() {
           </Box>
           <Link to="/rateAdvisor/"><Button
             type="submit"
-            variant="contained"
-            color="primary"
+            size="btn--default" 
+            buttonStyle="btn--primary--solid"
             onClick={handleSubmit}
           >
             Submit Rate For {`${location.state.name}`}
