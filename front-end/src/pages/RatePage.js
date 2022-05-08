@@ -60,7 +60,7 @@ const RatePage = props => {
       .catch(error => console.error("Error:", error));
     navigate('/mentorMe/profileDisplay/individualProfile/individualChat')
   };
-  const score = parseInt(userData[0]['over_all'])
+  const score = parseFloat(userData[0]['over_all'])
   return (
     <div className="RatePage">
       <BurgerMenu />
@@ -75,10 +75,10 @@ const RatePage = props => {
         <img src={userData[0]["picture"]} className="Profile-Pic" alt="profile" />
         <h2 >{userData[0]['first_name']}</h2>
         <h2 >Current Rate</h2>
-        <Rating name="read-only" value={score} precision={0.5} readOnly size="large" />
+        <Rating name="read-only" value={score} precision={0.25} readOnly size="large" />
         <form onSubmit={handleSubmit}></form>
         <h2>Your Rate</h2>
-        <Rating name="overall" precision={0.5} onChange={(event, newValue) => {
+        <Rating name="overall" precision={0.25} onChange={(event, newValue) => {
           setRate(newValue);
         }} onClick={handleInput} size="large" />
 

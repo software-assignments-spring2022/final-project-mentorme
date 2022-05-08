@@ -4,6 +4,8 @@ import "../styles/CreateAdvisor.css"
 import { Form, Button } from "react-bootstrap"
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -77,8 +79,11 @@ const CreateAdvisor = () => {
 				</Form.Group>
 
 				<Form.Group>
-					<Form.Label>Score:</Form.Label>
-					<Form.Range onChange={(e) => setScore(e.target.value / 20)} />
+					<div>
+					<Typography component="legend" >Overall Rating</Typography>
+					{/* <Form.Range onChange={(e) => setScore(e.target.value / 20)} /> */}
+					<Rating name="overall" defaultValue={2.5} precision={0.25} onChange={(e) => setScore(e.target.value)} size = 'large'/>
+				</div>
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="formBasicComment">

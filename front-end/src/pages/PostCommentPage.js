@@ -1,19 +1,18 @@
 import "../styles/PostCommentPage.css"
 
 import { useLocation } from 'react-router-dom';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-// import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import BurgerMenu from "../components/BurgerMenu"
 import { TextField } from "@mui/material";
 import Button from "../components/Button"
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
+// import axios from "axios";
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -75,22 +74,23 @@ function PostCommentPage() {
     let data = { formInput }
     console.log('data is', data)
 
-    // fetch(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // })
-    //   .then(response => response.json())
-    //   .then(response => console.log("Success:", JSON.stringify(response)))
-    //   .catch(error => console.error("Error:", error))
-    //   .finally(() => navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } }))
-
-    await axios.post(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, data)
+    fetch(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
       .then(response => console.log("Success:", JSON.stringify(response)))
       .catch(error => console.error("Error:", error))
       .finally(() => navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } }))
+
+    // await axios.post(`http://147.182.129.48:4000/rateAdvisor/searchResult/commentsDisplay/postCommentPage/${location.state.user_id}`, data)
+    //   .then(response => console.log("Success:", JSON.stringify(response)))
+    //   .catch(error => console.error("Error:", error))
+    //   .finally(() => navigate('/rateAdvisor/searchResult/commentsDisplay/', { state: { id: location.state.user_id } }))
+      navigate('/rateAdvisor/searchResult/commentsDisplay/',{ state: { id: location.state.user_id } })
   };
 
   //getting data from another page
@@ -138,6 +138,7 @@ function PostCommentPage() {
           <Typography component="legend" variant="h6">{`University: ${location.state.university}`}</Typography>
           <Typography component="legend" variant="h6">{`School Department: ${location.state.department}`}</Typography>
           <Typography component="legend" variant="h6">{`Current Score: ${location.state.currentScore}/5`}</Typography>
+          <Rating name="read-only" value={parseFloat(location.state.currentScore)} precision={0.25} readOnly size="large" />
 
 
         </Box>
@@ -160,8 +161,8 @@ function PostCommentPage() {
           justifyContent="center"
         >
           <form onSubmit={handleSubmit}></form>
-          <Item><Typography component="legend" >Overall Rating</Typography>
-            <Rating name="overall" defaultValue={2.5} precision={0.5} onChange={handleInput} /></Item>
+          <Item><Typography component="legend" >Your Score:</Typography>
+            <Rating name="overall" defaultValue={2.5} precision={0.25} onChange={handleInput} size = 'large'/></Item>
 
           <Box
             component="form"
@@ -181,14 +182,14 @@ function PostCommentPage() {
               onInput={handleInput}
             />
           </Box>
-          <Link to="/rateAdvisor/"><Button
+          <Button
             type="submit"
             size="btn--default" 
             buttonStyle="btn--primary--solid"
             onClick={handleSubmit}
           >
             Submit Rate For {`${location.state.name}`}
-          </Button></Link>
+          </Button>
           <form />
         </Box>
 
