@@ -33,6 +33,7 @@ router.post("/:id", async(request, res) => {
                     totalscore += comments[i]['score']
                 }
                 const avg =totalscore/comments.length
+                console.log(avg)
                 Advisor.updateOne({ id : userId },{currentScore:avg}).then((res) => {console.log('done')})
             })
             
