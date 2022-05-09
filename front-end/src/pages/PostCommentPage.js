@@ -155,7 +155,7 @@ function PostCommentPage() {
             autoComplete="off"
           >
             <TextField
-              // name='comment'
+              name='comment'
               className = "thetext"
               id="outlined-multiline-flexible"
               label="Written Review"
