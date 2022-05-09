@@ -48,7 +48,7 @@ io.on("connection", (socket) => {
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
 
     let user = getUser(receiverId);
-    if (user == undefined) {
+    if (user === undefined) {
       user = getUser(receiverId);
     }
     io.to(user.socketId).emit("getMessage", {
