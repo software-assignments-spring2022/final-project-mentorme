@@ -25,7 +25,7 @@ const MentorMeHome = props => {
   return (
     <div className="MentorMeHome">
       <BurgerMenu state={{user: user}}/>
-      <section className="main-content">
+      <section className="mentorhome">
         <h1>MentorMe Home</h1>
         <h1>Welcome, {user.first_name}!</h1>
 
@@ -39,7 +39,7 @@ const MentorMeHome = props => {
         </div>
         <br />
         <br />
-        <div className="search">
+        <div className="searchBar">
           <SearchBar label='Search Mentor' navigateTo='/mentorMe/profileDisplay' isMentorMe={true} filterOptions={filterOptions} userID={user._id} />
         </div>
       </section>
