@@ -76,6 +76,8 @@ To run the project:
 - In the back-end directory, run:    `npm start`
 - In the socket directory, run: `npm start`
 
+Then, you can check out our app in your browser: http://localhost:3000/
+
 
 For testing:
 
