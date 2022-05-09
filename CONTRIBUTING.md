@@ -10,7 +10,7 @@ includes a detailed description of the rules of contributing and any considerati
 5. [Final Product](#Final-Product)
 6. [Work Flow](#Work-Flow)
 7. [Contributing Process](#Contributing-Process)
-8. [Instructions for Building and Testing](#instructions-for-building-and-testing)
+8. [Instructions for Running and Testing](#instructions-for-running-and-testing)
 ## Team Norms
 - Every team member is expected to foster a welcoming, respectable and inclusive environment by:
     - Using respectable and inclusive language;
