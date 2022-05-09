@@ -32,7 +32,7 @@ const IndividualProfile = () => {
 
     const getConversations = async () => {
       try {
-        const res = await axios.get("http://147.182.129.48:4000/conversations/" + userData[0]._id)
+        const res = await axios.get("http://localhost:4000/conversations/" + userData[0]._id)
         // console.log("here in test get conversations");
         // console.log(res.data)
         setConversations(res.data);
@@ -78,7 +78,7 @@ const IndividualProfile = () => {
     if (userData[0]._id != currentUser._id && !existed) {
       try {
         await axios
-          .post("http://147.182.129.48:4000/conversations", {
+          .post("http://localhost:4000/conversations", {
             senderId: currentUser._id,
             receiverId: userData[0]._id
           }).then((response) => {
@@ -119,7 +119,7 @@ const IndividualProfile = () => {
 
 
       console.log('id is', id)
-      await axios.get(`http://147.182.129.48:4000/mentorMe/profileDisplay/individualProfile/${id}`)
+      await axios.get(`http://localhost:4000/mentorMe/profileDisplay/individualProfile/${id}`)
         .then(response => setUserData(response.data))
         .catch(err => {
           console.log("err", err)
