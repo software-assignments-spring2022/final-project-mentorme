@@ -35,13 +35,15 @@ router.post("/:id", async(request, res) => {
                 const avg =totalscore/comments.length
                 console.log(avg)
                 Advisor.updateOne({ id : userId },{currentScore:avg}).then((res) => {console.log('done')})
-            })
+            }).catch(function () {
+                console.log("Promise Rejected")})
             
         } catch (e) {
             console.log("Couldn't Find User");
             res.status(500)
         }
-    })
+    }).catch(function () {
+        console.log("Promise Rejected")})
 
 });
 

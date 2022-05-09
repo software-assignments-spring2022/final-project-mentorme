@@ -40,7 +40,8 @@ router.post("/:id", async (request, res) => {
             const avg =totalscore/arrayOfRates.length
             console.log("avg is", avg)
             User.updateOne({ _id : userId },{over_all:avg}).then(()=>{console.log('done')})
-        })
+        }).catch(function () {
+            console.log("Promise Rejected")})
         
         // const newOverall = await User.findOneAndUpdate({ id : userId },)
 
