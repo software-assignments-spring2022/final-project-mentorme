@@ -64,11 +64,17 @@ To help students reach their academic and career goals by providing them with th
 - Development must be in MERN stack;
 - Make sure dependencies are installed by running `npm install`.
 
-## Instructions for Building and Testing
-To build the project:
+## Instructions for Running and Testing
+Make sure necessary dependencies are installed before running:
+- In the front-end directory, run: `npm install`
+- In the back-end directory, run: `npm install`
+- In the socket directory, run: `npm install`
+
+To run the project:
 - In the front-end directory, run: 
     `npm start`
 - In the back-end directory, run:    `npm start`
+- In the socket directory, run: `npm start`
 
 
 For testing:

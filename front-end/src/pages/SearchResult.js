@@ -19,7 +19,7 @@ const SearchResult = props => {
   const filterOptions = ['CAS', 'Stern', 'Silver', 'Tandon', 'Steinhardt'];
 
   const getSearchResult = async () => {
-    await axios.get("http://147.182.129.48:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult", { params: { name: location.state.name, options: location.state.options } })
       .then(res => {
         setUserData(res.data);
       })
@@ -29,7 +29,7 @@ const SearchResult = props => {
   }
 
   const getFilterResult = async () => {
-    await axios.get("http://147.182.129.48:4000/rateAdvisor/searchResult/2", { params: { filter: location.state.filter } })
+    await axios.get("http://localhost:4000/rateAdvisor/searchResult/2", { params: { filter: location.state.filter } })
       .then(res => {
         setUserData(res.data);
       })
