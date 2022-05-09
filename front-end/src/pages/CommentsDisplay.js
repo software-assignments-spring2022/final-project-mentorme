@@ -76,7 +76,7 @@ const CommentsDisplay = () => {
             <div className="comment" >
               
               <div className="user-score">
-                <div className="inner-score">{`${comment.score.toFixed(1)}`}</div>
+                <div className="inner-score">{`${comment.score}`}</div>
               </div>
 
               <div className="user-comment">
