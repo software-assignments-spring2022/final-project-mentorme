@@ -51,13 +51,11 @@ const SearchResult = props => {
     <div className="SearchResult">
       <BurgerMenu />
       <div className="searchDiv">
-        {/* <section className="main-content"> */}
         <div className="title">        <h2>Searched Results</h2>
         </div>
         <br />
         <div className="searchBar">
           <SearchBar label='Search Advisor' navigateTo='/rateAdvisor/searchResult' filterOptions={filterOptions} />
-
         </div>
         <br />
         <div className="newAdv">
@@ -98,7 +96,6 @@ const Item = props => {
             <Col xs={4} md={2} className="columns">
               <div className="advisorPic">
                 <img className="advisor-picture" src={advisorIcon} alt="picture" />
-                {/* <img className="advisor-picture" src="https://picsum.photos/201" alt="picture" /> */}
               </div>
             </Col>
             <Col xs={8} md={10} className="columns">
