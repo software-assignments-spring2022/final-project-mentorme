@@ -1,0 +1,67 @@
+/* .SearchResult {
+    display: block;
+} */
+
+.advisor-picture {
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    width: 100%;
+    display: flex;
+    margin: 0;
+
+}
+
+.searchMain {
+    margin: auto;
+}
+
+.filter_dropdown {
+    position: absolute;
+}
+
+.advisorPic {
+    display: inline;
+}
+
+.brief {
+    text-align: left;
+}
+
+.school-name {
+    text-align: left;
+}
+
+.newAdv {
+    margin: auto;
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0
+}
+
+
+.listColor {
+    background-color: #e9cfc1;
+}
+
+.list-group {
+    padding: 3% 3%;
+}
+
+
+.title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.searchBar {
+    margin: 0 auto;
+}
+
+.list-group-item {
+    background-color: #e9cfc1;
+}

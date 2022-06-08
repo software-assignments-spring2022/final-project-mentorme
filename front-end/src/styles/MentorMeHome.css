@@ -1,0 +1,38 @@
+.MentorMeHome{
+    background-color:rgb(125, 107, 179);
+    width:100%;
+    height:100%;
+    position: absolute;
+}
+
+.mentorhome {
+    background-color: #063630;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.user-picture {
+    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    margin: 0;
+}
+
+
+.search{
+    clear: both;
+    float:left;
+}
+
+
+.image{
+    max-width: 35%;
+}
+

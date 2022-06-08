@@ -1,0 +1,109 @@
+.messenger {
+  height: calc(100vh);
+  display: flex;
+}
+
+.chatMenu {
+  margin-top: 100px;
+  flex: 3.5;
+  overflow-y: scroll;
+  color: white;
+
+}
+
+.chatBox {
+  flex: 12;
+  background-color: #e9cfc1;
+}
+
+@media (max-width: 400px) {
+  .chatOnline {
+    display: none;
+  }
+
+  .to-rate-phone {
+    display: inline;
+  }
+
+
+
+}
+
+.chatBoxWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chatBoxTop {
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.chatBoxBottom {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatMessageInput {
+  width: 80%;
+  height: 90px;
+  padding: 10px;
+}
+
+.chatSubmitButton {
+  width: 70px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #d59f33;
+  color: #e9cfc1;
+
+}
+
+.chatOnline {
+  flex: 3;
+  text-align: center;
+  font-size: large;
+}
+
+.chatOnlineWrapper {
+  padding: 10px;
+  height: 100%;
+  margin-left: 88px;
+  color: white;
+}
+
+.chatBoxWrapper {
+  padding: 10px;
+  height: 100%;
+  margin-left: 22px;
+}
+
+.chatMenuWrapper {
+  padding: 10px;
+  height: 100%;
+  margin-left: 20px;
+}
+
+
+@media (min-width: 401px) {
+  .to-rate-phone {
+    display: none;
+  }
+
+}
+
+
+.noConversationText {
+  position: absolute;
+  top: 10%;
+  font-size: 30px;
+  cursor: default;
+  font-family: Arial, Helvetica, sans-serif;
+
+}

@@ -1,19 +1,28 @@
-# Project Repository
+# MentorMe
+http://147.182.129.48:3000/
 
-This repository will be used for team projects.
+[![CircleCI](https://circleci.com/gh/software-assignments-spring2022/final-project-mentorme/tree/master.svg?style=shield)](https://circleci.com/gh/software-assignments-spring2022/final-project-mentorme/tree/master)
 
-Several sets of instructions are included in this repository. They should each be treated as separate assignments with their own due dates and sets of requirements.
+## Product Description
+MentorMe is a platform on which students are able to give ratings and comments on their academic advisors and find other student mentors for career advisement. A student can be paired with another student to get advice on courses, career opportunities, research opportunities, and other resources.
 
-1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
+## Product Vision Statement 
+To help students reach their academic and career goals by providing them with the information to pick an advisor that suits their acadmeic needs and with the opportunity to connect with student mentors.
+    
+## Core Team Members
+Mateus Silva Aragao - [Mateus' GitHub](https://github.com/aragaomateus)  
+Isabel Huey - [Isabel's GitHub](https://github.com/zlonj)  
+Zilong Jiang - [Zilong's GitHub](https://github.com/zlonj)  
+Lijie Xie - [Lijie's GitHub](https://github.com/lijiemark)  
+You Xu - [You's GitHub](https://github.com/xuyou1999)  
 
-1. Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
+## Project History
+The reason why we want to create this platform is that we feel lack of advisement opportunies when we were in freshman or sophomore years. We missed career opportunies due to lack of insights and had limited resources to find someone more experienced to consult with. And once we grew more experienced, we feel difficult to help younger students reach their goals because there isn't a systematic way to offer resources and advice to those in need. For the advisor-rating functionality, we notice that many college students had unpleasant times working with their academic advisors, so we would like to create a rateMyProfessor-like platform for those who want to share their comments and ratings for their advisors.
 
-1. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
+## Contribute
+For information about how to contribute to this project please see the [CONTRIBUTING.md document](./CONTRIBUTING.md)
 
-1. See the [Front-End Development instructions](./instructions-1-front-end.md) for the requirements of the initial Front-End Development.
+## Additional Link
 
-1. See the [Back-End Development instructions](./instructions-2-back-end.md) for the requirements of the initial Back-End Development.
-
-1. See the [Database Integration instructions](./instructions-3-database.md) for the requirements of integrating a database into the back-end.
-
-1. See the [Deployment instructions](./instructions-4-deployment.md) for the requirements of deploying an app.
+## Additional Information
+We warmly welcome new ideas to add to the project and any contributions by those who are interested!

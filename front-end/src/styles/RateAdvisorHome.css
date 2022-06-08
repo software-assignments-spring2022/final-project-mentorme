@@ -1,0 +1,26 @@
+.RateAdvisorHome{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color:#063630;
+
+}
+.ratehome {
+    background-color: #063630;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ratehome p{
+    display: block;
+    top:80px;
+}
+.search{
+    display: flex;
+    flex-direction: column;
+}

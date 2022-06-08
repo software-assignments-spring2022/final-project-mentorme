@@ -1,0 +1,71 @@
+.EditProfile {
+    background-color:#063630;
+    width:100%;
+    height:100%;
+    position:absolute;
+    
+}
+
+.EditProfile h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+
+
+.editprofilecard {
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+}
+
+.entirebox{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+
+.editprofilebox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.personal_info input,
+.personal_info textarea {
+  margin: 5px auto;  
+  display: block;
+  padding: 10px;
+  width: 500px;  
+} 
+.centerbutton{
+  text-align: center;
+  display: block;
+}
+
+.edit-profile-submit {
+  font-weight: 400;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 3px 3px #000000;
+  border-radius: 5px;
+  background-color: #b46d51 !important;
+  border: 2px solid var(--dark) !important;
+  color: var(--dark) !important;
+  padding: 20px 40px;
+  font-size: 16px;
+  width: 175px;
+}
+
+.edit-profile-submit:hover {
+  transform: translate(-3px);
+
+
+}
+
+

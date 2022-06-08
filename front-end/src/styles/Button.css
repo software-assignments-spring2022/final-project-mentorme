@@ -1,0 +1,115 @@
+:root {
+  --primary: #4628ff;
+  --warning: #ffd028;
+  --danger: #eb3f27;
+  --success: #75fa83;
+  --white: #fdfdfd;
+  --dark: #181717;
+
+}
+
+.btn {
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 3px 3px #000000;
+  border-radius: 0;
+}
+
+.btn:hover {
+  transform: translate(-3px);
+}
+
+/*Button Colors and Styles */
+
+.btn--primary--solid {
+  background-color: #b46d51 !important;
+  color: var(--dark) !important;
+  border-radius: 0;
+
+
+}
+
+.btn--warning--solid {
+  background-color: #d59f33 !important;
+  color: var(--dark) !important;
+  border: none !important;
+}
+
+
+
+.btn--danger--solid {
+  background-color: var(--danger);
+  color: var(--white);
+  border: none;
+}
+
+.btn--success--solid {
+  background-color: var(--success);
+  color: var(--white);
+  border: none;
+}
+
+.btn--primary--outline {
+  background-color: transparent !important;
+  border: 2px solid var(--dark) !important;
+  color: var(--dark) !important;
+}
+
+.btn--warning--outline {
+  background-color: transparent;
+  border: 2px solid var(--warning);
+  color: var(--warning)
+}
+
+.btn--danger--outline {
+  background-color: transparent;
+  border: 2px solid var(--danger);
+  color: var(--danger)
+}
+
+.btn--success--outline {
+  background-color: transparent;
+  border: 2px solid var(--success);
+  color: var(--success)
+}
+
+.btn--logIn {
+  background-color: #b46d51 !important;
+  border: 2px solid var(--dark) !important;
+  color: var(--dark) !important;
+}
+
+/* Button Sizes */
+
+.btn--default {
+  padding: 20px 40px;
+  font-size: 16px;
+  width: 175px;
+}
+
+.btn--medium {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.btn--long {
+  padding: 10px 225px !important;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.btn--medium--long {
+  padding: 10px 80px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.btn--small {
+  padding: 15px 30px;
+  font-size: 20px;
+}
+
+.btn--account {
+  padding: 40px 30px !important;
+}

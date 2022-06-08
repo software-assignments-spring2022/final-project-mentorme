@@ -1,0 +1,14 @@
+.form-page {
+    text-align: center;
+    /* margin-top: 8vh; */
+    color: #e9cfc1;
+}
+
+.form {
+    display: inline-block;
+}
+.div{
+    display: flex;
+    flex-direction: column;
+
+}
